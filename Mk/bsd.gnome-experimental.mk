@@ -23,7 +23,7 @@ Gnome_Experimental_Include=				bsd.gnome.mk
 
 glib20_LIB_DEPENDS=	glib-2.0.502:${PORTSDIR}/devel/glib20
 
-gtk20_LIB_DEPENDS=	gtk-x11-2.0.501:${PORTSDIR}/x11-toolkits/gtk20
+gtk20_LIB_DEPENDS=	gtk-x11-2.0.502:${PORTSDIR}/x11-toolkits/gtk20
 
 .endif
 # End of use part.
