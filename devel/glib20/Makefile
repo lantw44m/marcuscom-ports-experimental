@@ -7,6 +7,7 @@
 
 PORTNAME=	glib
 PORTVERSION=	2.5.2
+PORTREVISION=	1
 CATEGORIES=	devel
 MASTER_SITES=	${MASTER_SITE_GNOME:S,%SUBDIR%,sources/${PORTNAME}/2.5,} \
 		ftp://ftp.gtk.org/pub/gtk/v2.5/ \
@@ -37,5 +38,10 @@ CONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include" \
 		LDFLAGS="-L${LOCALBASE}/lib -lintl" \
 		PTHREAD_CFLAGS="${PTHREAD_CFLAGS}" \
 		PTHREAD_LIBS="${PTHREAD_LIBS}"
+
+post-patch:
+	@${REINPLACE_CMD} -e 's|/usr/local|${LOCALBASE}|g ; \
+		s|%%X11BASE%%|${X11BASE}|g' \
+		${WRKSRC}/glib/gutils.c
 
 .include <bsd.port.mk>
