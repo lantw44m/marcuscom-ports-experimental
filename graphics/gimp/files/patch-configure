@@ -1,0 +1,13 @@
+--- configure.orig	Fri Sep  3 11:44:31 2004
++++ configure	Thu Sep 16 19:20:53 2004
+@@ -33146,8 +33146,8 @@
+ fi
+ fi;
+ 
+-gimpdatadir="$datadir/$PACKAGE/2.1"
+-gimpplugindir="$libdir/$PACKAGE/2.1"
++gimpdatadir="$datadir/$PACKAGE"
++gimpplugindir="$libexecdir/$PACKAGE/2.1"
+ gimpsysconfdir="$sysconfdir/$PACKAGE/2.1"
+ 
+ localedir='${prefix}/${DATADIRNAME}/locale'
