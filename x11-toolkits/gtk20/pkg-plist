@@ -2,6 +2,7 @@ bin/gdk-pixbuf-csource
 bin/gdk-pixbuf-query-loaders
 bin/gtk-demo
 bin/gtk-query-immodules-2.0
+bin/gtk-update-icon-cache
 etc/gtk-2.0/gdk-pixbuf.loaders
 etc/gtk-2.0/gtk.immodules
 include/gtk-2.0/gdk-pixbuf-xlib/gdk-pixbuf-xlib.h
@@ -143,6 +144,7 @@ include/gtk-2.0/gtk/gtkmenu.h
 include/gtk-2.0/gtk/gtkmenubar.h
 include/gtk-2.0/gtk/gtkmenuitem.h
 include/gtk-2.0/gtk/gtkmenushell.h
+include/gtk-2.0/gtk/gtkmenutoolbutton.h
 include/gtk-2.0/gtk/gtkmessagedialog.h
 include/gtk-2.0/gtk/gtkmisc.h
 include/gtk-2.0/gtk/gtkmodules.h
@@ -250,16 +252,16 @@ lib/gtk-2.0/%%GTK_VERSION%%/loaders/libpixbufloader-xbm.so
 lib/gtk-2.0/%%GTK_VERSION%%/loaders/libpixbufloader-xpm.so
 lib/libgdk-x11-2.0.a
 lib/libgdk-x11-2.0.so
-lib/libgdk-x11-2.0.so.503
+lib/libgdk-x11-2.0.so.504
 lib/libgdk_pixbuf-2.0.a
 lib/libgdk_pixbuf-2.0.so
-lib/libgdk_pixbuf-2.0.so.503
+lib/libgdk_pixbuf-2.0.so.504
 lib/libgdk_pixbuf_xlib-2.0.a
 lib/libgdk_pixbuf_xlib-2.0.so
-lib/libgdk_pixbuf_xlib-2.0.so.503
+lib/libgdk_pixbuf_xlib-2.0.so.504
 lib/libgtk-x11-2.0.a
 lib/libgtk-x11-2.0.so
-lib/libgtk-x11-2.0.so.503
+lib/libgtk-x11-2.0.so.504
 libdata/pkgconfig/gdk-2.0.pc
 libdata/pkgconfig/gdk-pixbuf-2.0.pc
 libdata/pkgconfig/gdk-pixbuf-xlib-2.0.pc
@@ -311,6 +313,8 @@ share/locale/ar/LC_MESSAGES/gtk20-properties.mo
 share/locale/ar/LC_MESSAGES/gtk20.mo
 share/locale/az/LC_MESSAGES/gtk20-properties.mo
 share/locale/az/LC_MESSAGES/gtk20.mo
+share/locale/az_IR/LC_MESSAGES/gtk20-properties.mo
+share/locale/az_IR/LC_MESSAGES/gtk20.mo
 share/locale/be/LC_MESSAGES/gtk20-properties.mo
 share/locale/be/LC_MESSAGES/gtk20.mo
 share/locale/bg/LC_MESSAGES/gtk20-properties.mo
