@@ -21,9 +21,9 @@ Gnome_Experimental_Include=				bsd.gnome.mk
 # Only include in here what must be overridden. Otherwise, you're just
 # asking for trouble inevitably.
 
-glib20_LIB_DEPENDS=	glib-2.0.503:${PORTSDIR}/devel/glib20
+glib20_LIB_DEPENDS=	glib-2.0.504:${PORTSDIR}/devel/glib20
 
-gtk20_LIB_DEPENDS=	gtk-x11-2.0.503:${PORTSDIR}/x11-toolkits/gtk20
+gtk20_LIB_DEPENDS=	gtk-x11-2.0.504:${PORTSDIR}/x11-toolkits/gtk20
 
 .endif
 # End of use part.
