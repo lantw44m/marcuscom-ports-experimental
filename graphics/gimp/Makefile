@@ -6,7 +6,7 @@
 #
 
 PORTNAME=	gimp
-PORTVERSION=	2.1.4
+PORTVERSION=	2.1.5
 PORTEPOCH=	1
 CATEGORIES=	graphics gnome
 MASTER_SITES=	ftp://ftp.gimp.org/pub/%SUBDIR%/ \
@@ -29,7 +29,7 @@ LIB_DEPENDS=	aa.1:${PORTSDIR}/graphics/aalib \
 
 CONFLICTS=	gimp-1.*
 
-SHLIBVER?=	104
+SHLIBVER?=	105
 
 USE_BZIP2=	yes
 USE_X_PREFIX=	yes
