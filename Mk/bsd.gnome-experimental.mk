@@ -25,5 +25,6 @@ glib20_LIB_DEPENDS=	glib-2.0.504:${PORTSDIR}/devel/glib20
 
 gtk20_LIB_DEPENDS=	gtk-x11-2.0.504:${PORTSDIR}/x11-toolkits/gtk20
 
+gal2_LIB_DEPENDS=   gal-2.4.0:${PORTSDIR}/x11-toolkits/gal2
 .endif
 # End of use part.
