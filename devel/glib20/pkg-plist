@@ -29,6 +29,7 @@ include/glib-2.0/glib/gmarkup.h
 include/glib-2.0/glib/gmem.h
 include/glib-2.0/glib/gmessages.h
 include/glib-2.0/glib/gnode.h
+include/glib-2.0/glib/goption.h
 include/glib-2.0/glib/gpattern.h
 include/glib-2.0/glib/gprimes.h
 include/glib-2.0/glib/gprintf.h
@@ -72,16 +73,16 @@ include/glib-2.0/gobject/gvaluecollector.h
 include/glib-2.0/gobject/gvaluetypes.h
 lib/libglib-2.0.a
 lib/libglib-2.0.so
-lib/libglib-2.0.so.501
+lib/libglib-2.0.so.502
 lib/libgmodule-2.0.a
 lib/libgmodule-2.0.so
-lib/libgmodule-2.0.so.501
+lib/libgmodule-2.0.so.502
 lib/libgobject-2.0.a
 lib/libgobject-2.0.so
-lib/libgobject-2.0.so.501
+lib/libgobject-2.0.so.502
 lib/libgthread-2.0.a
 lib/libgthread-2.0.so
-lib/libgthread-2.0.so.501
+lib/libgthread-2.0.so.502
 libdata/pkgconfig/glib-2.0.pc
 libdata/pkgconfig/gmodule-2.0.pc
 libdata/pkgconfig/gobject-2.0.pc
@@ -96,6 +97,7 @@ share/locale/az/LC_MESSAGES/glib20.mo
 share/locale/be/LC_MESSAGES/glib20.mo
 share/locale/bg/LC_MESSAGES/glib20.mo
 share/locale/bn/LC_MESSAGES/glib20.mo
+share/locale/bs/LC_MESSAGES/glib20.mo
 share/locale/ca/LC_MESSAGES/glib20.mo
 share/locale/cs/LC_MESSAGES/glib20.mo
 share/locale/cy/LC_MESSAGES/glib20.mo
