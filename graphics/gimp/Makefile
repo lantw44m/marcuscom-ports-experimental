@@ -6,7 +6,7 @@
 #
 
 PORTNAME=	gimp
-PORTVERSION=	2.1.5
+PORTVERSION=	2.1.6
 PORTEPOCH=	1
 CATEGORIES=	graphics gnome
 MASTER_SITES=	ftp://ftp.gimp.org/pub/%SUBDIR%/ \
@@ -29,7 +29,7 @@ LIB_DEPENDS=	aa.1:${PORTSDIR}/graphics/aalib \
 
 CONFLICTS=	gimp-1.*
 
-SHLIBVER?=	105
+SHLIBVER?=	106
 
 USE_BZIP2=	yes
 USE_X_PREFIX=	yes
@@ -105,7 +105,7 @@ pre-everything::
 	@${ECHO_MSG} "	WITH_PYTHON=yes		Turns on Python-Fu support"
 	@${ECHO_MSG} "	WITHOUT_PRINT=yes	Turns off GIMP printing"
 	@${ECHO_MSG} "	WITH_HTML_HELP_BROWSER=yes	Turns on the GIMP help browser"
-	@${ECHO_MSG} "	WITH_MP=yes 		Turns on multiple processors support"
+	@${ECHO_MSG} "	WITH_MP=yes 		Turns on multiple-processor support"
 	@${ECHO_MSG} ""
 
 .include <bsd.port.post.mk>

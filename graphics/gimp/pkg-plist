@@ -10,6 +10,8 @@ etc/gimp/2.1/templaterc
 etc/gimp/2.1/unitrc
 include/gimp-2.0/libgimp/gimp.h
 include/gimp-2.0/libgimp/gimp_pdb.h
+include/gimp-2.0/libgimp/gimpaspectpreview.h
+include/gimp-2.0/libgimp/gimpbrush_pdb.h
 include/gimp-2.0/libgimp/gimpbrushes_pdb.h
 include/gimp-2.0/libgimp/gimpbrushmenu.h
 include/gimp-2.0/libgimp/gimpbrushselect.h
@@ -18,6 +20,7 @@ include/gimp-2.0/libgimp/gimpchannel.h
 include/gimp-2.0/libgimp/gimpchannel_pdb.h
 include/gimp-2.0/libgimp/gimpcolor_pdb.h
 include/gimp-2.0/libgimp/gimpcompat.h
+include/gimp-2.0/libgimp/gimpcontext_pdb.h
 include/gimp-2.0/libgimp/gimpconvert_pdb.h
 include/gimp-2.0/libgimp/gimpdisplay_pdb.h
 include/gimp-2.0/libgimp/gimpdrawable.h
@@ -34,8 +37,9 @@ include/gimp-2.0/libgimp/gimpfonts_pdb.h
 include/gimp-2.0/libgimp/gimpfontselect.h
 include/gimp-2.0/libgimp/gimpfontselect_pdb.h
 include/gimp-2.0/libgimp/gimpgimprc_pdb.h
-include/gimp-2.0/libgimp/gimpgradientedit_pdb.h
 include/gimp-2.0/libgimp/gimpgradientmenu.h
+include/gimp-2.0/libgimp/gimpgradient_pdb.h
+include/gimp-2.0/libgimp/gimpgradients.h
 include/gimp-2.0/libgimp/gimpgradients_pdb.h
 include/gimp-2.0/libgimp/gimpgradientselect.h
 include/gimp-2.0/libgimp/gimpgradientselect_pdb.h
@@ -50,14 +54,18 @@ include/gimp-2.0/libgimp/gimpmenu.h
 include/gimp-2.0/libgimp/gimpmessage_pdb.h
 include/gimp-2.0/libgimp/gimpmisc_pdb.h
 include/gimp-2.0/libgimp/gimppainttools_pdb.h
+include/gimp-2.0/libgimp/gimppalette.h
 include/gimp-2.0/libgimp/gimppalette_pdb.h
 include/gimp-2.0/libgimp/gimppalettemenu.h
+include/gimp-2.0/libgimp/gimppalettes.h
 include/gimp-2.0/libgimp/gimppalettes_pdb.h
 include/gimp-2.0/libgimp/gimppaletteselect.h
 include/gimp-2.0/libgimp/gimppaletteselect_pdb.h
 include/gimp-2.0/libgimp/gimpparasite_pdb.h
 include/gimp-2.0/libgimp/gimppaths_pdb.h
+include/gimp-2.0/libgimp/gimppattern_pdb.h
 include/gimp-2.0/libgimp/gimppatternmenu.h
+include/gimp-2.0/libgimp/gimppatterns.h
 include/gimp-2.0/libgimp/gimppatterns_pdb.h
 include/gimp-2.0/libgimp/gimppatternselect.h
 include/gimp-2.0/libgimp/gimppatternselect_pdb.h
@@ -150,6 +158,7 @@ include/gimp-2.0/libgimpwidgets/gimppixmap.h
 include/gimp-2.0/libgimpwidgets/gimppreview.h
 include/gimp-2.0/libgimpwidgets/gimppreviewarea.h
 include/gimp-2.0/libgimpwidgets/gimpquerybox.h
+include/gimp-2.0/libgimpwidgets/gimpscrolledpreview.h
 include/gimp-2.0/libgimpwidgets/gimpsizeentry.h
 include/gimp-2.0/libgimpwidgets/gimpstock.h
 include/gimp-2.0/libgimpwidgets/gimpunitmenu.h
@@ -226,7 +235,6 @@ libexec/gimp/2.1/plug-ins/convmatrix
 libexec/gimp/2.1/plug-ins/csource
 libexec/gimp/2.1/plug-ins/cubism
 libexec/gimp/2.1/plug-ins/curve_bend
-libexec/gimp/2.1/plug-ins/dbbrowser
 libexec/gimp/2.1/plug-ins/decompose
 libexec/gimp/2.1/plug-ins/deinterlace
 libexec/gimp/2.1/plug-ins/depthmerge
@@ -304,12 +312,13 @@ libexec/gimp/2.1/plug-ins/photocopy
 libexec/gimp/2.1/plug-ins/pix
 libexec/gimp/2.1/plug-ins/pixelize
 libexec/gimp/2.1/plug-ins/plasma
-libexec/gimp/2.1/plug-ins/plugindetails
+libexec/gimp/2.1/plug-ins/plugin-browser
 libexec/gimp/2.1/plug-ins/png
 libexec/gimp/2.1/plug-ins/pnm
 libexec/gimp/2.1/plug-ins/polar
 libexec/gimp/2.1/plug-ins/postscript
 %%PRINT%%libexec/gimp/2.1/plug-ins/print
+libexec/gimp/2.1/plug-ins/procedure-browser
 libexec/gimp/2.1/plug-ins/psd
 libexec/gimp/2.1/plug-ins/psd_save
 libexec/gimp/2.1/plug-ins/psp
@@ -383,6 +392,7 @@ libexec/gimp/2.1/plug-ins/zealouscrop
 %%PYTHON:%%libexec/gimp/2.1/python/gimpui.pyc
 %%PYTHON:%%libexec/gimp/2.1/python/gimpui.pyo
 share/aclocal/gimp-2.0.m4
+%%DOCSDIR%%/libgimp/GimpAspectPreview.html
 %%DOCSDIR%%/libgimp/GimpDrawablePreview.html
 %%DOCSDIR%%/libgimp/GimpProgressBar.html
 %%DOCSDIR%%/libgimp/gimpdefinitions.html
@@ -391,11 +401,13 @@ share/aclocal/gimp-2.0.m4
 %%DOCSDIR%%/libgimp/index.sgml
 %%DOCSDIR%%/libgimp/left.png
 %%DOCSDIR%%/libgimp/libgimp-gimp.html
+%%DOCSDIR%%/libgimp/libgimp-gimpbrush.html
 %%DOCSDIR%%/libgimp/libgimp-gimpbrushes.html
 %%DOCSDIR%%/libgimp/libgimp-gimpbrushmenu.html
 %%DOCSDIR%%/libgimp/libgimp-gimpbrushselect.html
 %%DOCSDIR%%/libgimp/libgimp-gimpchannel.html
 %%DOCSDIR%%/libgimp/libgimp-gimpcolor.html
+%%DOCSDIR%%/libgimp/libgimp-gimpcontext.html
 %%DOCSDIR%%/libgimp/libgimp-gimpconvert.html
 %%DOCSDIR%%/libgimp/libgimp-gimpdisplay.html
 %%DOCSDIR%%/libgimp/libgimp-gimpdrawable.html
@@ -409,7 +421,7 @@ share/aclocal/gimp-2.0.m4
 %%DOCSDIR%%/libgimp/libgimp-gimpfonts.html
 %%DOCSDIR%%/libgimp/libgimp-gimpfontselect.html
 %%DOCSDIR%%/libgimp/libgimp-gimpgimprc.html
-%%DOCSDIR%%/libgimp/libgimp-gimpgradientedit.html
+%%DOCSDIR%%/libgimp/libgimp-gimpgradient.html
 %%DOCSDIR%%/libgimp/libgimp-gimpgradientmenu.html
 %%DOCSDIR%%/libgimp/libgimp-gimpgradients.html
 %%DOCSDIR%%/libgimp/libgimp-gimpgradientselect.html
@@ -425,6 +437,7 @@ share/aclocal/gimp-2.0.m4
 %%DOCSDIR%%/libgimp/libgimp-gimppalettes.html
 %%DOCSDIR%%/libgimp/libgimp-gimppaletteselect.html
 %%DOCSDIR%%/libgimp/libgimp-gimppaths.html
+%%DOCSDIR%%/libgimp/libgimp-gimppattern.html
 %%DOCSDIR%%/libgimp/libgimp-gimppatternmenu.html
 %%DOCSDIR%%/libgimp/libgimp-gimppatterns.html
 %%DOCSDIR%%/libgimp/libgimp-gimppatternselect.html
@@ -553,6 +566,7 @@ share/aclocal/gimp-2.0.m4
 %%DOCSDIR%%/libgimpwidgets/left.png
 %%DOCSDIR%%/libgimpwidgets/libgimpwidgets-GimpHelpUI.html
 %%DOCSDIR%%/libgimpwidgets/libgimpwidgets-GimpQueryBox.html
+%%DOCSDIR%%/libgimpwidgets/libgimpwidgets-GimpScrolledPreview.html
 %%DOCSDIR%%/libgimpwidgets/libgimpwidgets-GimpStock.html
 %%DOCSDIR%%/libgimpwidgets/libgimpwidgets-GimpWidgets.html
 %%DOCSDIR%%/libgimpwidgets/libgimpwidgets-cell-renderers.html
@@ -627,6 +641,7 @@ share/aclocal/gimp-2.0.m4
 %%DOCSDIR%%/libgimpwidgets/stock-floating-selection-24.png
 %%DOCSDIR%%/libgimpwidgets/stock-floating-selection-32.png
 %%DOCSDIR%%/libgimpwidgets/stock-floating-selection-48.png
+%%DOCSDIR%%/libgimpwidgets/stock-frame-64.png
 %%DOCSDIR%%/libgimpwidgets/stock-gradient-bilinear-16.png
 %%DOCSDIR%%/libgimpwidgets/stock-gradient-conical-asymmetric-16.png
 %%DOCSDIR%%/libgimpwidgets/stock-gradient-conical-symmetric-16.png
@@ -1107,7 +1122,7 @@ share/gimp/gradients/Wood_2.ggr
 share/gimp/gradients/Yellow_Contrast.ggr
 share/gimp/gradients/Yellow_Orange.ggr
 share/gimp/images/gimp_logo.png
-share/gimp/images/gimp_splash.png
+share/gimp/images/gimp-splash.png
 share/gimp/images/wilber-devel-icon.png
 share/gimp/images/wilber-icon.png
 share/gimp/images/wilber-tips.png
@@ -1428,6 +1443,7 @@ share/gimp/themes/Default/images/stock-floating-selection-16.png
 share/gimp/themes/Default/images/stock-floating-selection-24.png
 share/gimp/themes/Default/images/stock-floating-selection-32.png
 share/gimp/themes/Default/images/stock-floating-selection-48.png
+share/gimp/themes/Default/images/stock-frame-64.png
 share/gimp/themes/Default/images/stock-gradient-bilinear-16.png
 share/gimp/themes/Default/images/stock-gradient-conical-asymmetric-16.png
 share/gimp/themes/Default/images/stock-gradient-conical-symmetric-16.png
