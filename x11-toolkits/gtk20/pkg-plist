@@ -17,6 +17,7 @@ include/gtk-2.0/gdk-pixbuf/gdk-pixbuf-transform.h
 include/gtk-2.0/gdk-pixbuf/gdk-pixbuf.h
 include/gtk-2.0/gdk-pixbuf/gdk-pixdata.h
 include/gtk-2.0/gdk/gdk.h
+include/gtk-2.0/gdk/gdkalias.h
 include/gtk-2.0/gdk/gdkcolor.h
 include/gtk-2.0/gdk/gdkcursor.h
 include/gtk-2.0/gdk/gdkdisplay.h
@@ -99,6 +100,7 @@ include/gtk-2.0/gtk/gtkenums.h
 include/gtk-2.0/gtk/gtkeventbox.h
 include/gtk-2.0/gtk/gtkexpander.h
 include/gtk-2.0/gtk/gtkfilechooser.h
+include/gtk-2.0/gtk/gtkfilechooserbutton.h
 include/gtk-2.0/gtk/gtkfilechooserdialog.h
 include/gtk-2.0/gtk/gtkfilechooserwidget.h
 include/gtk-2.0/gtk/gtkfilefilter.h
@@ -247,16 +249,16 @@ lib/gtk-2.0/%%GTK_VERSION%%/loaders/libpixbufloader-xbm.so
 lib/gtk-2.0/%%GTK_VERSION%%/loaders/libpixbufloader-xpm.so
 lib/libgdk-x11-2.0.a
 lib/libgdk-x11-2.0.so
-lib/libgdk-x11-2.0.so.501
+lib/libgdk-x11-2.0.so.502
 lib/libgdk_pixbuf-2.0.a
 lib/libgdk_pixbuf-2.0.so
-lib/libgdk_pixbuf-2.0.so.501
+lib/libgdk_pixbuf-2.0.so.502
 lib/libgdk_pixbuf_xlib-2.0.a
 lib/libgdk_pixbuf_xlib-2.0.so
-lib/libgdk_pixbuf_xlib-2.0.so.501
+lib/libgdk_pixbuf_xlib-2.0.so.502
 lib/libgtk-x11-2.0.a
 lib/libgtk-x11-2.0.so
-lib/libgtk-x11-2.0.so.501
+lib/libgtk-x11-2.0.so.502
 libdata/pkgconfig/gdk-2.0.pc
 libdata/pkgconfig/gdk-pixbuf-2.0.pc
 libdata/pkgconfig/gdk-pixbuf-xlib-2.0.pc
@@ -316,6 +318,8 @@ share/locale/bn/LC_MESSAGES/gtk20-properties.mo
 share/locale/bn/LC_MESSAGES/gtk20.mo
 share/locale/br/LC_MESSAGES/gtk20-properties.mo
 share/locale/br/LC_MESSAGES/gtk20.mo
+share/locale/bs/LC_MESSAGES/gtk20-properties.mo
+share/locale/bs/LC_MESSAGES/gtk20.mo
 share/locale/ca/LC_MESSAGES/gtk20-properties.mo
 share/locale/ca/LC_MESSAGES/gtk20.mo
 share/locale/cs/LC_MESSAGES/gtk20-properties.mo
