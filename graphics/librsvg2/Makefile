@@ -3,7 +3,7 @@
 # Whom:                 		Ade Lovett <ade@FreeBSD.org>
 #
 # $FreeBSD$
-#    $MCom: ports/graphics/librsvg2/Makefile,v 1.73 2005/10/11 22:27:04 marcus Exp $
+#    $MCom: ports-experimental/graphics/librsvg2/Makefile,v 1.1 2005/10/21 19:53:14 ahze Exp $
 #
 
 PORTNAME=	librsvg2
@@ -29,14 +29,15 @@ USE_X_PREFIX=	yes
 INSTALLS_SHLIB=	yes
 USE_AUTOTOOLS=	libtool:15
 USE_REINPLACE=	yes
-USE_GNOME=	gnomehack gnomeprefix libartlgpl2 libgsf gtk20 ltverhack
+USE_GNOME=	gnomehack gnomeprefix libgsf gtk20 ltverhack
 CONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include" \
 		LDFLAGS="-L${LOCALBASE}/lib"
 CONFIGURE_ARGS=	--with-svgz \
 		--disable-gtk-doc \
 		--without-gimp \
 		--with-croco \
-		--disable-gnome-vfs
+		--disable-gnome-vfs \
+		--enable-gtk-theme
 
 CROCO_VERSION=	0.6
 GTK_VERSION=	2.4.0
