@@ -3,8 +3,8 @@
 # Date created:		Jun 29, 2000
 # Whom:			Matthew Condell (mcondell@alum.mit.edu)
 #
-# $FreeBSD: ports/devel/g-wrap/Makefile,v 1.31 2006/07/02 04:03:10 marcus Exp $
-#
+# $FreeBSD$
+#    $MCom$
 
 PORTNAME=	g-wrap
 PORTVERSION=	1.9.6
