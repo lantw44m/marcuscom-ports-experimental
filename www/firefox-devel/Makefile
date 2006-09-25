@@ -3,7 +3,7 @@
 # Whom:				Alan Eldridge <alane@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports/www/firefox-devel/Makefile,v 1.28 2006/07/18 14:48:15 ahze Exp $
+#   $MCom: ports-experimental/www/firefox-devel/Makefile,v 1.1 2006/09/03 16:44:08 ahze Exp $
 
 PORTNAME=	firefox
 DISTVERSION=	2.0b2
@@ -32,8 +32,7 @@ HAS_CONFIGURE=	yes
 USE_BZIP2=	yes
 USE_GMAKE=	yes
 USE_GCC=	3.4+
-LIBS=	-Wl,-Bsymbolic -lc
-
+LIBS=		-Wl,-Bsymbolic -lc
 GECKO_PLIST_PRE_FILES=	lib/${MOZILLA}/chrome/icons/default/default.xpm
 GECKO_PLIST_PRE_DIRS=	lib/${MOZILLA}/chrome/icons/default lib/${MOZILLA}/chrome/icons
 
@@ -71,7 +70,6 @@ post-extract::
 		<${FILESDIR}/firefox.desktop.in >${WRKDIR}/${MOZILLA}.desktop
 
 post-patch:
-#	@${ECHO_CMD} "EXTRA_DSO_LDOPTS += ${PTHREAD_LIBS}" >> ${WRKSRC}/db/sqlite3/src/Makefile.in
 	@${REINPLACE_CMD} -e 's|%%LOCALBASE%%|${LOCALBASE}|' \
 		${WRKSRC}/security/manager/ssl/src/Makefile.in
 .for ii in modules/libpref/src/init extensions/sroaming/resources/content/prefs \
