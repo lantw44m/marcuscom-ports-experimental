@@ -1,0 +1,1621 @@
+diff --git ChangeLog ChangeLog
+new file mode 100644
+index 0000000..c9c7dce
+--- /dev/null
++++ ChangeLog
+@@ -0,0 +1,277 @@
++2007-09-06  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/decoders/jpeg/nsJPEGDecoder.cpp
++	(nsJPEGDecoder::WriteFrom): Write the restore data regardless of
++	the state we are in, right when we first fill the buffer.
++
++2007-09-06  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/src/imgContainer.cpp
++	(imgContainer::RestoreDataDone): Print the first four bytes of the
++	restore data, to check it later.
++	(imgContainer::ReloadImages): Likewise.
++
++2007-09-06  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/decoders/png/nsPNGDecoder.cpp (info_callback):
++	Reuse the image container if the loader has one; don't always
++	create a new one.  This lets containers reload themselves.
++
++2007-09-06  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/src/imgContainer.cpp
++	(imgContainer::AppendFrame): Unconditionally increment mNumFrames!
++	(imgContainer::RestoreDiscardedData): Check the number of restored
++	frames here.
++	(imgContainer::ReloadImages): Flush and close the decoder.
++	(imgContainer::RestoreDataDone): No-op if we are already restoring
++	the data.
++
++2007-09-06  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/decoders/png/nsPNGDecoder.cpp (*): Print the
++	imgContainer pointers when logging.
++
++	* modules/libpr0n/src/imgContainer.cpp (*): Likewise.
++
++2007-09-04  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/src/imgContainer.cpp
++	(imgContainer::ReloadImages): Oops, use an nsCOMPtr<> for the
++	ContainerLoader, not a direct pointer.
++	(ContainerLoader NS_IMPL_ISUPPORTS3): Oops, we also implement
++	imgIContainerObserver.
++	(class ContainerLoader):  Implement nsISupportsWeakReference as
++	well; imgContainer needs it from the observer.
++	(imgContainer::RestoreDiscardedData): Log how many frames we got
++	and how many we expected.
++	(imgContainer::ReloadImages): Assert that we got the right number
++	of frames.
++	(imgContainer::GetCurrentFrameNoRef): Log failures from
++	RestoreDiscardedData().
++
++	* modules/libpr0n/decoders/png/nsPNGDecoder.cpp (end_callback):
++	Don't tell the container that the restore data is done here...
++	(nsPNGDecoder::Close): ... but do it here instead.  This is
++	because end_callback() gets called from within ReadDataOut(); we
++	don't want end_callback() to inform the container that the restore
++	data is done before actually writing the restore data to it!
++
++2007-09-04  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/decoders/png/nsPNGDecoder.cpp (info_callback):
++	Set the image container as discardable.
++	(ReadDataOut): Store the compressed data in the image container to
++	restore from it later.
++	(end_callback): Tell the image container that we finished feeding
++	it the restore data.
++
++	* modules/libpr0n/src/imgContainer.cpp
++	(imgContainer::SetDiscardable): Log the MIME type of the
++	discardable container.
++
++	* modules/libpr0n/decoders/jpeg/nsJPEGDecoder.cpp
++	(nsJPEGDecoder::WriteFrom): Clean up a printf format, and do the
++	logging only on success.
++
++	* gfx/thebes/public/gfxXlibSurface.h: Add myself to the contributors.
++	* modules/libpr0n/public/imgIContainer.idl: Likewise.
++	* modules/libpr0n/src/imgContainer.cpp: Likewise.
++	* modules/libpr0n/src/imgContainer.h: Likewise.
++
++2007-09-03  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/src/imgContainer.cpp
++	(imgContainer::AddRestoreData): No-op if we are being called
++	during the restore process (we already have the data; there is no
++	need to save it again).
++	(class ContainerLoader): Put the macro to implement QI for
++	imgILoad and imgIDecoderObserver.
++	(imgContainer::AppendFrame): Don't increment mNumFrames if we are
++	restoring the image data.  Fix the use of the frame counters.
++	(imgContainer::sDiscardTimerCallback): Implement.
++	(imgContainer::GetCurrentFrame): Oops, preserve the semantics of
++	the original function --- if the actual getter gives us a null
++	frame, return NS_ERROR_FAILURE.
++
++2007-08-31  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/src/imgContainer.h (class imgContainer): New
++	prototype for a ReloadImages() method.
++
++	* modules/libpr0n/src/imgContainer.cpp
++	(imgContainer::RestoreDiscardedData): Call ReloadImages().
++	(imgContainer::ReloadImages): Implement.
++	(class ContainerLoader): New helper class that implements
++	imgILoader and imgIDecoderObserver.  We'll use this to re-load the
++	imgContainer from an image decoder.
++
++2007-08-31  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/src/imgContainer.cpp
++	(imgContainer::RestoreDiscardedData): Reset the timer; if we got
++	here it means that the data may be used again soon.
++
++2007-08-30  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/src/imgContainer.h (class imgContainer): Add an
++	mDiscarded field.  We'll use it to know if the uncompressed image
++	data has been discarded already and needs to be regenerated on
++	demand.
++	(class imgContainer): New prototype for a RestoreDiscardedData() method.
++
++	* modules/libpr0n/src/imgContainer.cpp (imgContainer): Initialize
++	mDiscarded.
++	(imgContainer::GetCurrentFrameNoRef): Return an nsresult rather
++	than the image frame; return the actual image frame as a
++	reference.  Ensure that the discarded data gets restored.
++	(imgContainer::GetCurrentFrame): Return the error from
++	GetCurrentFrameNoRef() if it fails.
++	(imgContainer::StartAnimation): Likewise.
++	(imgContainer::GetFrameAt): Ensure that the discarded data gets restored.
++	(imgContainer::ResetAnimation): Likewise.
++	(imgContainer::Notify): Likewise.
++	(imgContainer::RestoreDiscardedData): Just a stub for now.
++
++	* modules/libpr0n/decoders/jpeg/nsJPEGDecoder.cpp
++	(nsJPEGDecoder::WriteFrom): Oops, use "count" for the restore
++	data, not "mBufferLen".
++
++2007-08-29  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/src/imgContainer.h (class imgContainer): Add a
++	mNumFrames field.  Since we'll discard the contents of mFrames, we
++	can't rely on mFrames.Count() for the frame count.
++
++	* modules/libpr0n/src/imgContainer.cpp (imgContainer): Initialize mNumFrames.
++	(imgContainer::AppendFrame): Maintain the frame count in mNumFrames.
++	(imgContainer::GetNumFrames): Use mNumFrames instead of mFrames.Count().
++	(imgContainer::GetFrameAt): Likewise.
++	(imgContainer::DecodingComplete): Likewise.
++	(imgContainer::SetAnimationMode): Likewise.
++	(imgContainer::StartAnimation): Likewise.
++	(imgContainer::Notify): Likewise.
++
++2007-08-29  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/src/imgContainer.h
++	(imgContainer::inlinedGetCurrentFrame): Removed to make it not
++	inline.
++	(imgContainer::GetCurrentFrameNoRef): New prototype.
++
++	* modules/libpr0n/src/imgContainer.cpp
++	(imgContainer::GetCurrentFrameNoRef): Implement this here.
++	(imgContainer::GetCurrentFrame, imgContainer::StartAnimation): Use
++	GetCurrentFrameNoRef() instead of inlinedGetCurrentFrame().
++
++2007-08-28  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/public/imgIContainer.idl (restoreDataDone): New
++	method.  We'll use this to tell the container when we finish
++	feeding it the compressed data.  After that, it can begin its
++	discard process whenever it wants.
++
++	* modules/libpr0n/src/imgContainer.h (class imgContainer): Add 
++	mRestoreDataDone and mDiscardTimer fields.
++
++	* modules/libpr0n/src/imgContainer.cpp (imgContainer): Initialize
++	the new fields.
++	(imgContainer::RestoreDataDone): Implement.  When turned on, we
++	start the discard timer.
++	(imgContainer::ResetDiscardTimer): New method.
++	(~imgContainer): Cancel and destroy the timer.
++	(imgContainer::sDiscardTimerCallback): New callback.  Here we'll
++	discard the uncompressed image data in the image frames.  For now
++	this is just a stub.
++
++	* modules/libpr0n/decoders/jpeg/nsJPEGDecoder.cpp
++	(nsJPEGDecoder::WriteFrom): Tell the imgContainer when we are done
++	feeding data to it.
++
++2007-08-28  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/src/imgContainer.cpp (discarding_is_enabled):
++	Stub function, to be replaced with something better in the
++	future.  This lets us disable image discarding by setting a
++	MOZ_DISABLE_IMAGE_DISCARD environment variable.
++	(imgContainer::SetDiscardable): Noop if discarding is disabled.
++	(imgContainer::AddRestoreData): Likewise.
++
++2007-08-28  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/decoders/jpeg/nsJPEGDecoder.cpp
++	(nsJPEGDecoder::WriteFrom): Mark the imgContainer as discardable
++	when we create it.  And when writing to the JPEG decoder, add the
++	compressed data to the imgContainer so that it can restore itself
++	later.
++
++2007-08-28  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/src/imgContainer.cpp
++	(gCompressedImageAccountingLog): Create a
++	"CompressedImageAccounting" log domain.
++	(~imgContainer): Log the destruction of compressed data.
++	(imgContainer::AddRestoreData): Log the addition of compressed data.
++	(imgContainer::SetDiscardable): Log the creation of a compressed imgContainer.
++
++2007-08-28  Federico Mena Quintero  <federico@novell.com>
++
++
++	* modules/libpr0n/src/imgContainer.cpp (~imgContainer): Free the
++	restore data and the MIME type.
++
++2007-08-22  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/public/imgIContainer.idl (setDiscardable): New
++	method.  When this is called (can be called only once) from an
++	image decoder, the image container will discard its uncompressed
++	image data after a timeout.
++	(addRestoreData): New method.  Image decoders should call this
++	repeatedly after calling setDiscardable(); this is used to feed
++	the original, compressed image data to the image container so that
++	it can uncompress it on demand after discarding it.
++
++	* modules/libpr0n/src/imgContainer.cpp (imgContainer::SetDiscardable):
++	Implement.
++	(imgContainer::AddRestoreData): Implement.
++
++2007-08-20  Federico Mena Quintero  <federico@novell.com>
++
++	* gfx/thebes/src/gfxXlibSurface.cpp
++	(gfxXlibSurface::LogSurfaceCreation, surface_destroy_func): Count
++	the number of surfaces in addition to the number of pixels.
++
++2007-08-17  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/public/ImageLogging.h: Remove gImgAccountingLog
++	from here.
++
++	* modules/libpr0n/src/imgRequest.cpp: Likewise.
++
++	* modules/libpr0n/decoders/jpeg/nsJPEGDecoder.cpp
++	(gJPEGDecodeAccountingLog): Create a "JPEGDecoderAccounting" log domain.
++	(nsJPEGDecoder::WriteFrom): Use that log domain.
++
++	* gfx/thebes/src/gfxXlibSurface.cpp (gXlibSurfaceAccountingLog):
++	Define a "XlibSurfaceAccounting" log domain.
++	(gfxXlibSurface::LogSurfaceCreation):  New method to log when an
++	Xlib surface is created from a pixmap.  Keeps a counter of how
++	many pixels are allocated globally.
++	(gfxXlibSurface::HookSurfaceDestructionForLogging): Utility method
++	to set user data on the cairo surface, so that we can know when it
++	is destroyed.
++	(gfxXlibSurface::gfxXlibSurface): Log the creation of the surface,
++	and hook it so that we can know when it is destroyed.
++
++2007-08-17  Federico Mena Quintero  <federico@novell.com>
++
++	* modules/libpr0n/src/imgRequest.cpp (gImgAccountingLog): New
++	logging domain "imgAccounting".  We'll use this to log when images
++	get allocated, freed, requested, etc.
++
++	* modules/libpr0n/public/ImageLogging.h (gImgAccountingLog):
++	Declare this.
++
++	* modules/libpr0n/decoders/jpeg/nsJPEGDecoder.cpp
++	(nsJPEGDecoder::WriteFrom): Log the creation of an image frame.
++
+diff --git gfx/thebes/public/gfxXlibSurface.h gfx/thebes/public/gfxXlibSurface.h
+index 078dc73..ea7ba24 100644
+--- gfx/thebes/public/gfxXlibSurface.h
++++ gfx/thebes/public/gfxXlibSurface.h
+@@ -21,6 +21,7 @@
+  * Contributor(s):
+  *   Stuart Parmenter <pavlov@pavlov.net>
+  *   Vladimir Vukicevic <vladimir@pobox.com>
++ *   Federico Mena-Quintero <federico@novell.com>
+  *
+  * Alternatively, the contents of this file may be used under the terms of
+  * either the GNU General Public License Version 2 or later (the "GPL"), or
+@@ -85,6 +86,9 @@ public:
+     // when the gfxXlibSurface is destroyed.
+     void TakePixmap();
+ 
++    void LogSurfaceCreation ();
++    void HookSurfaceDestructionForLogging ();
++
+ protected:
+     // if TakePixmap() was already called on this
+     PRBool mPixmapTaken;
+diff --git gfx/thebes/src/gfxXlibSurface.cpp gfx/thebes/src/gfxXlibSurface.cpp
+index dc2a19f..f9c191c 100644
+--- gfx/thebes/src/gfxXlibSurface.cpp
++++ gfx/thebes/src/gfxXlibSurface.cpp
+@@ -21,6 +21,7 @@
+  * Contributor(s):
+  *   Stuart Parmenter <pavlov@pavlov.net>
+  *   Vladimir Vukicevic <vladimir@pobox.com>
++ *   Federico Mena-Quintero <federico@novell.com>
+  *
+  * Alternatively, the contents of this file may be used under the terms of
+  * either the GNU General Public License Version 2 or later (the "GPL"), or
+@@ -37,6 +38,7 @@
+  * ***** END LICENSE BLOCK ***** */
+ 
+ #include "gfxXlibSurface.h"
++#include "prlog.h"
+ 
+ #include "cairo.h"
+ #include "cairo-xlib.h"
+@@ -51,6 +53,18 @@ typedef struct {
+ 
+ static void pixmap_free_func (void *);
+ 
++
++#if defined(PR_LOGGING)
++static PRLogModuleInfo *gXlibSurfaceAccountingLog = PR_NewLogModule ("XlibSurfaceAccounting");
++#else
++#define gXlibSurfaceAccountingLog
++#endif
++
++static cairo_user_data_key_t surface_free_key;
++static int num_surfaces_allocated;
++static PRInt64 pixels_allocated;
++
++
+ #define XLIB_IMAGE_SIDE_SIZE_LIMIT 0xffff
+ 
+ gfxXlibSurface::gfxXlibSurface(Display *dpy, Drawable drawable, Visual *visual)
+@@ -59,6 +73,9 @@ gfxXlibSurface::gfxXlibSurface(Display *dpy, Drawable drawable, Visual *visual)
+     DoSizeQuery();
+     cairo_surface_t *surf = cairo_xlib_surface_create(dpy, drawable, visual, mSize.width, mSize.height);
+     Init(surf);
++
++    LogSurfaceCreation ();
++    HookSurfaceDestructionForLogging();
+ }
+ 
+ gfxXlibSurface::gfxXlibSurface(Display *dpy, Drawable drawable, Visual *visual, const gfxIntSize& size)
+@@ -69,6 +86,9 @@ gfxXlibSurface::gfxXlibSurface(Display *dpy, Drawable drawable, Visual *visual,
+ 
+     cairo_surface_t *surf = cairo_xlib_surface_create(dpy, drawable, visual, mSize.width, mSize.height);
+     Init(surf);
++
++    LogSurfaceCreation ();
++    HookSurfaceDestructionForLogging();
+ }
+ 
+ gfxXlibSurface::gfxXlibSurface(Display *dpy, Visual *visual, const gfxIntSize& size)
+@@ -87,6 +107,9 @@ gfxXlibSurface::gfxXlibSurface(Display *dpy, Visual *visual, const gfxIntSize& s
+ 
+     Init(surf);
+     TakePixmap();
++
++    LogSurfaceCreation ();
++    HookSurfaceDestructionForLogging();
+ }
+ 
+ gfxXlibSurface::gfxXlibSurface(Display *dpy, Drawable drawable, XRenderPictFormat *format,
+@@ -100,6 +123,9 @@ gfxXlibSurface::gfxXlibSurface(Display *dpy, Drawable drawable, XRenderPictForma
+                                                                           ScreenOfDisplay(dpy,DefaultScreen(dpy)),
+                                                                           format, mSize.width, mSize.height);
+     Init(surf);
++
++    LogSurfaceCreation ();
++    HookSurfaceDestructionForLogging();
+ }
+ 
+ gfxXlibSurface::gfxXlibSurface(Display *dpy, XRenderPictFormat *format, const gfxIntSize& size)
+@@ -115,6 +141,9 @@ gfxXlibSurface::gfxXlibSurface(Display *dpy, XRenderPictFormat *format, const gf
+                                                                           format, mSize.width, mSize.height);
+     Init(surf);
+     TakePixmap();
++
++    LogSurfaceCreation ();
++    HookSurfaceDestructionForLogging();
+ }
+ 
+ gfxXlibSurface::gfxXlibSurface(cairo_surface_t *csurf)
+@@ -124,6 +153,9 @@ gfxXlibSurface::gfxXlibSurface(cairo_surface_t *csurf)
+     mDisplay = cairo_xlib_surface_get_display(csurf);
+ 
+     Init(csurf, PR_TRUE);
++
++    LogSurfaceCreation ();
++    HookSurfaceDestructionForLogging();
+ }
+ 
+ gfxXlibSurface::~gfxXlibSurface()
+@@ -198,3 +230,63 @@ pixmap_free_func (void *data)
+ 
+     delete pfs;
+ }
++
++void
++gfxXlibSurface::LogSurfaceCreation ()
++{
++    gfxIntSize size;
++
++    size = GetSize ();
++
++    num_surfaces_allocated++;
++    pixels_allocated += (PRInt64) size.width * size.height;
++
++    PR_LOG (gXlibSurfaceAccountingLog, PR_LOG_DEBUG,
++            ("XlibSurfaceAccounting: Xlib surface %p created, %ux%u pixels - %d surfaces with %lld global pixels allocated",
++             CairoSurface (),
++             size.width,
++             size.height,
++             num_surfaces_allocated,
++             pixels_allocated));
++}
++
++struct SurfaceFreeData {
++    gfxIntSize size;
++    cairo_surface_t *surface;
++};
++
++static void
++surface_destroy_func (void *closure)
++{
++    SurfaceFreeData *data;
++
++    data = (SurfaceFreeData *) closure;
++
++    num_surfaces_allocated--;
++    pixels_allocated -= (PRInt64) data->size.width * data->size.height;
++
++    PR_LOG (gXlibSurfaceAccountingLog, PR_LOG_DEBUG,
++            ("XlibSurfaceAccounting: Destroying Xlib surface %p, %dx%d pixels - %d surfaces with %lld global pixels allocated",
++             data->surface,
++             data->size.width,
++             data->size.height,
++             num_surfaces_allocated,
++             pixels_allocated));
++
++    delete data;
++}
++
++void
++gfxXlibSurface::HookSurfaceDestructionForLogging ()
++{
++    SurfaceFreeData *data;
++
++    data = new SurfaceFreeData;
++    data->size = GetSize ();
++    data->surface = CairoSurface ();
++
++    cairo_surface_set_user_data (data->surface,
++                                 &surface_free_key,
++                                 data,
++                                 surface_destroy_func);
++}
+diff --git modules/libpr0n/decoders/jpeg/nsJPEGDecoder.cpp modules/libpr0n/decoders/jpeg/nsJPEGDecoder.cpp
+index 16b9fd8..48431e4 100644
+--- modules/libpr0n/decoders/jpeg/nsJPEGDecoder.cpp
++++ modules/libpr0n/decoders/jpeg/nsJPEGDecoder.cpp
+@@ -22,6 +22,7 @@
+  *
+  * Contributor(s):
+  *   Stuart Parmenter <stuart@mozilla.com>
++ *   Federico Mena-Quintero <federico@novell.com>
+  *
+  * Alternatively, the contents of this file may be used under the terms of
+  * either the GNU General Public License Version 2 or later (the "GPL"), or
+@@ -63,8 +64,10 @@ NS_IMPL_ISUPPORTS1(nsJPEGDecoder, imgIDecoder)
+ 
+ #if defined(PR_LOGGING)
+ PRLogModuleInfo *gJPEGlog = PR_NewLogModule("JPEGDecoder");
++static PRLogModuleInfo *gJPEGDecoderAccountingLog = PR_NewLogModule ("JPEGDecoderAccounting");
+ #else
+ #define gJPEGlog
++#define gJPEGDecoderAccountingLog
+ #endif
+ 
+ 
+@@ -208,6 +211,15 @@ NS_IMETHODIMP nsJPEGDecoder::WriteFrom(nsIInputStream *inStr, PRUint32 count, PR
+     nsresult rv = inStr->Read((char*)mBuffer, count, &mBufferLen);
+     *_retval = mBufferLen;
+ 
++    if (mImage) {
++      nsresult result = mImage->AddRestoreData ((char *) mBuffer, count);
++
++      if (NS_FAILED (result)) {
++        mState = JPEG_ERROR;
++        return result;
++      }
++    }
++
+     NS_ASSERTION(NS_SUCCEEDED(rv), "nsJPEGDecoder::WriteFrom -- inStr->Read failed");
+   }
+   // else no input stream.. Flush() ?
+@@ -357,6 +369,9 @@ NS_IMETHODIMP nsJPEGDecoder::WriteFrom(nsIInputStream *inStr, PRUint32 count, PR
+     /* Check if the request already has an image container.
+        this is the case when multipart/x-mixed-replace is being downloaded
+        if we already have one and it has the same width and height, reuse it.
++
++       This is also the case when an existing container is reloading itself from
++       us.
+      */
+     mImageLoad->GetImage(getter_AddRefs(mImage));
+     if (mImage) {
+@@ -370,6 +385,8 @@ NS_IMETHODIMP nsJPEGDecoder::WriteFrom(nsIInputStream *inStr, PRUint32 count, PR
+     }
+ 
+     if (!mImage) {
++      nsresult result;
++
+       mImage = do_CreateInstance("@mozilla.org/image/container;1");
+       if (!mImage) {
+         mState = JPEG_ERROR;
+@@ -377,6 +394,18 @@ NS_IMETHODIMP nsJPEGDecoder::WriteFrom(nsIInputStream *inStr, PRUint32 count, PR
+       }
+       mImageLoad->SetImage(mImage);
+       mImage->Init(mInfo.image_width, mInfo.image_height, mObserver);
++
++      result = mImage->SetDiscardable ("image/jpeg"); /* FIXME: is this MIME type always right for this decoder? */
++      if (NS_FAILED (result)) {
++        mState = JPEG_ERROR;
++        return result;
++      }
++
++      result = mImage->AddRestoreData ((char *) mBuffer, count);
++      if (NS_FAILED (result)) {
++        mState = JPEG_ERROR;
++        return result;
++      }
+     }
+ 
+     mObserver->OnStartContainer(nsnull, mImage);
+@@ -416,7 +445,11 @@ NS_IMETHODIMP nsJPEGDecoder::WriteFrom(nsIInputStream *inStr, PRUint32 count, PR
+       }
+ 
+       mImage->AppendFrame(mFrame);
+-    }      
++
++      PR_LOG (gJPEGDecoderAccountingLog, PR_LOG_DEBUG,
++              ("JPEGDecoderAccounting: nsJPEGDecoder::WriteFrom -- created image frame with %ux%u pixels",
++               mInfo.image_width, mInfo.image_height));
++    }
+ 
+     mObserver->OnStartFrame(nsnull, mFrame);
+ 
+@@ -538,6 +571,8 @@ NS_IMETHODIMP nsJPEGDecoder::WriteFrom(nsIInputStream *inStr, PRUint32 count, PR
+ 
+   case JPEG_DONE:
+   {
++    nsresult result;
++
+     LOG_SCOPE(gJPEGlog, "nsJPEGDecoder::WriteFrom -- entering JPEG_DONE case");
+ 
+     /* Step 7: Finish decompression */
+@@ -547,6 +582,12 @@ NS_IMETHODIMP nsJPEGDecoder::WriteFrom(nsIInputStream *inStr, PRUint32 count, PR
+ 
+     mState = JPEG_SINK_NON_JPEG_TRAILER;
+ 
++    result = mImage->RestoreDataDone ();
++    if (NS_FAILED (result)) {
++      mState = JPEG_ERROR;
++      return result;
++    }
++
+     /* we're done dude */
+     break;
+   }
+diff --git modules/libpr0n/decoders/png/nsPNGDecoder.cpp modules/libpr0n/decoders/png/nsPNGDecoder.cpp
+index 85f0216..15abc9f 100644
+--- modules/libpr0n/decoders/png/nsPNGDecoder.cpp
++++ modules/libpr0n/decoders/png/nsPNGDecoder.cpp
+@@ -23,6 +23,7 @@
+  * Contributor(s):
+  *   Stuart Parmenter <stuart@mozilla.com>
+  *   Andrew Smith
++ *   Federico Mena-Quintero <federico@novell.com>
+  *
+  * Alternatively, the contents of this file may be used under the terms of
+  * either the GNU General Public License Version 2 or later (the "GPL"), or
+@@ -73,6 +74,7 @@ static void PNGAPI warning_callback(png_structp png_ptr, png_const_charp warning
+ 
+ #ifdef PR_LOGGING
+ PRLogModuleInfo *gPNGLog = PR_NewLogModule("PNGDecoder");
++static PRLogModuleInfo *gPNGDecoderAccountingLog = PR_NewLogModule ("PNGDecoderAccounting");
+ #endif
+ 
+ NS_IMPL_ISUPPORTS1(nsPNGDecoder, imgIDecoder)
+@@ -119,6 +121,11 @@ void nsPNGDecoder::CreateFrame(png_uint_32 x_offset, png_uint_32 y_offset,
+   
+   if (mObserver)
+     mObserver->OnStartFrame(nsnull, mFrame);
++
++  PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
++          ("PNGDecoderAccounting: nsPNGDecoder::CreateFrame -- created image frame with %dx%d pixels in container %p",
++           width, height,
++           mImage.get ()));
+ }
+ 
+ // set timeout and frame disposal method for the current frame
+@@ -213,9 +220,25 @@ NS_IMETHODIMP nsPNGDecoder::Init(imgILoad *aLoad)
+ /* void close (); */
+ NS_IMETHODIMP nsPNGDecoder::Close()
+ {
++  nsresult result;
++
+   if (mPNG)
+     png_destroy_read_struct(&mPNG, mInfo ? &mInfo : NULL, NULL);
+ 
++  result = mImage->RestoreDataDone ();
++  if (NS_FAILED (result)) {
++    PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
++            ("PNGDecoderAccounting: nsPNGDecoder::Close(): failure in RestoreDataDone() for image container %p",
++             mImage.get ()));
++
++    mError = PR_TRUE;
++    return result;
++  }
++
++  PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
++          ("PNGDecoderAccounting: nsPNGDecoder::Close(): image container %p is now with RestoreDataDone",
++           mImage.get ()));
++
+   return NS_OK;
+ }
+ 
+@@ -234,6 +257,7 @@ static NS_METHOD ReadDataOut(nsIInputStream* in,
+                              PRUint32 *writeCount)
+ {
+   nsPNGDecoder *decoder = static_cast<nsPNGDecoder*>(closure);
++  nsresult result;
+ 
+   if (decoder->mError) {
+     *writeCount = 0;
+@@ -248,10 +272,24 @@ static NS_METHOD ReadDataOut(nsIInputStream* in,
+     *writeCount = 0;
+     return NS_ERROR_FAILURE;
+   }
+-
+   png_process_data(decoder->mPNG, decoder->mInfo,
+                    reinterpret_cast<unsigned char *>(const_cast<char *>(fromRawSegment)), count);
+ 
++  result = decoder->mImage->AddRestoreData ((char *) fromRawSegment, count);
++  if (NS_FAILED (result)) {
++    PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
++            ("PNGDecoderAccounting: ReadDataOut(): failed to add restore data to image container %p",
++             decoder->mImage.get ()));
++
++    decoder->mError = PR_TRUE;
++    *writeCount = 0;
++    return result;
++  }
++
++  PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
++          ("PNGDecoderAccounting: ReadDataOut(): Added restore data to image container %p",
++           decoder->mImage.get ()));
++
+   *writeCount = count;
+   return NS_OK;
+ }
+@@ -525,13 +563,41 @@ info_callback(png_structp png_ptr, png_infop info_ptr)
+   if (decoder->mObserver)
+     decoder->mObserver->OnStartDecode(nsnull);
+ 
+-  decoder->mImage = do_CreateInstance("@mozilla.org/image/container;1");
+-  if (!decoder->mImage)
+-    longjmp(decoder->mPNG->jmpbuf, 5); // NS_ERROR_OUT_OF_MEMORY
++  /* The image container may already exist if it is reloading itself from us.
++   * Check that it has the same width/height; otherwise create a new container.
++   */
++  decoder->mImageLoad->GetImage (getter_AddRefs (decoder->mImage));
++  if (decoder->mImage) {
++    PRInt32 container_width, container_height;
++
++    decoder->mImage->GetWidth (&container_width);
++    decoder->mImage->GetHeight (&container_height);
+ 
+-  decoder->mImageLoad->SetImage(decoder->mImage);
++    if (container_width != width || container_height != height)
++      decoder->mImage = nsnull;
++  }
+ 
+-  decoder->mImage->Init(width, height, decoder->mObserver);
++  if (!decoder->mImage) {
++    decoder->mImage = do_CreateInstance("@mozilla.org/image/container;1");
++    if (!decoder->mImage)
++      longjmp(decoder->mPNG->jmpbuf, 5); // NS_ERROR_OUT_OF_MEMORY
++
++    decoder->mImageLoad->SetImage(decoder->mImage);
++
++    decoder->mImage->Init(width, height, decoder->mObserver);
++
++    /* FIXME: is this MIME type always right for this decoder? */
++    if (NS_FAILED (decoder->mImage->SetDiscardable ("image/png"))) {
++      PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
++              ("PNGDecoderAccounting: info_callback(): failed to set image container %p as discardable",
++               decoder->mImage.get ()));
++      longjmp(decoder->mPNG->jmpbuf, 5); // NS_ERROR_OUT_OF_MEMORY
++    }
++
++    PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
++            ("PNGDecoderAccounting: info_callback(): set image container %p as discardable",
++             decoder->mImage.get ()));
++  }
+ 
+   if (decoder->mObserver)
+     decoder->mObserver->OnStartContainer(nsnull, decoder->mImage);
+@@ -757,7 +823,7 @@ end_callback(png_structp png_ptr, png_infop info_ptr)
+   }
+   
+   decoder->mImage->DecodingComplete();
+-  
++
+   if (decoder->mObserver) {
+     if (!(decoder->apngFlags & FRAME_HIDDEN))
+       decoder->mObserver->OnStopFrame(nsnull, decoder->mFrame);
+diff --git modules/libpr0n/public/imgIContainer.idl modules/libpr0n/public/imgIContainer.idl
+index fc42335..524af96 100644
+--- modules/libpr0n/public/imgIContainer.idl
++++ modules/libpr0n/public/imgIContainer.idl
+@@ -22,6 +22,7 @@
+  *
+  * Contributor(s):
+  *   Stuart Parmenter <pavlov@netscape.com>
++ *   Federico Mena-Quintero <federico@novell.com>
+  *
+  * Alternatively, the contents of this file may be used under the terms of
+  * either the GNU General Public License Version 2 or later (the "GPL"), or
+@@ -144,4 +145,10 @@ interface imgIContainer : nsISupports
+    * @note -1 means forever.
+    */
+   attribute long loopCount;
++
++  /* Methods to discard uncompressed images and restore them again */
++  [noscript] void setDiscardable(in string aMimeType);
++  [noscript] void addRestoreData(in charPtr aBuffer,
++                                 in unsigned long aCount);
++  [noscript] void restoreDataDone();
+ };
+diff --git modules/libpr0n/src/imgContainer.cpp modules/libpr0n/src/imgContainer.cpp
+index 776c4ee..22d8735 100644
+--- modules/libpr0n/src/imgContainer.cpp
++++ modules/libpr0n/src/imgContainer.cpp
+@@ -25,6 +25,7 @@
+  *   Asko Tontti <atontti@cc.hut.fi>
+  *   Arron Mogge <paper@animecity.nu>
+  *   Andrew Smith
++ *   Federico Mena-Quintero <federico@novell.com>
+  *
+  * Alternatively, the contents of this file may be used under the terms of
+  * either the GNU General Public License Version 2 or later (the "GPL"), or
+@@ -42,23 +43,49 @@
+ 
+ #include "nsComponentManagerUtils.h"
+ #include "imgIContainerObserver.h"
++#include "ImageErrors.h"
+ #include "nsIImage.h"
++#include "imgILoad.h"
++#include "imgIDecoder.h"
++#include "imgIDecoderObserver.h"
+ #include "imgContainer.h"
+ #include "nsIInterfaceRequestor.h"
+ #include "nsIInterfaceRequestorUtils.h"
+ #include "nsAutoPtr.h"
++#include "nsStringStream.h"
++#include "prmem.h"
++#include "prlog.h"
+ 
+ #include "gfxContext.h"
+ 
++/* Accounting for compressed data */
++#if defined(PR_LOGGING)
++static PRLogModuleInfo *gCompressedImageAccountingLog = PR_NewLogModule ("CompressedImageAccounting");
++#else
++#define gCompressedImageAccountingLog
++#endif
++
++static int num_containers_with_discardable_data;
++static PRInt64 num_compressed_image_bytes;
++
++
+ NS_IMPL_ISUPPORTS3(imgContainer, imgIContainer, nsITimerCallback, nsIProperties)
+ 
+ //******************************************************************************
+ imgContainer::imgContainer() :
+   mSize(0,0),
++  mNumFrames(0),
+   mAnim(nsnull),
+   mAnimationMode(kNormalAnimMode),
+   mLoopCount(-1),
+-  mObserver(nsnull)
++  mObserver(nsnull),
++  mDiscardable(PR_FALSE),
++  mDiscarded(PR_FALSE),
++  mDiscardableMimeType(nsnull),
++  mRestoreData(nsnull),
++  mRestoreDataLength(0),
++  mRestoreDataDone(PR_FALSE),
++  mDiscardTimer(nsnull)
+ {
+ }
+ 
+@@ -67,6 +94,32 @@ imgContainer::~imgContainer()
+ {
+   if (mAnim)
+     delete mAnim;
++
++  if (mDiscardableMimeType) {
++    free (mDiscardableMimeType);
++    mDiscardableMimeType = nsnull;
++  }
++
++  if (mRestoreData) {
++    PR_Free (mRestoreData);
++
++    num_containers_with_discardable_data--;
++    num_compressed_image_bytes -= mRestoreDataLength;
++
++    PR_LOG (gCompressedImageAccountingLog, PR_LOG_DEBUG,
++            ("CompressedImageAccounting: destroying imgContainer %p.  "
++             "Compressed containers: %d, Compressed data bytes: %lld",
++             this,
++             num_containers_with_discardable_data,
++             num_compressed_image_bytes));
++
++    mRestoreDataLength = 0;
++  }
++
++  if (mDiscardTimer) {
++    mDiscardTimer->Cancel ();
++    mDiscardTimer = nsnull;
++  }
+ }
+ 
+ //******************************************************************************
+@@ -124,15 +177,53 @@ NS_IMETHODIMP imgContainer::GetHeight(PRInt32 *aHeight)
+   return NS_OK;
+ }
+ 
++nsresult imgContainer::GetCurrentFrameNoRef (gfxIImageFrame** aFrame)
++{
++  nsresult result;
++
++  result = RestoreDiscardedData ();
++  if (NS_FAILED (result)) {
++    PR_LOG (gCompressedImageAccountingLog, PR_LOG_DEBUG,
++            ("CompressedImageAccounting: imgContainer::GetCurrentFrameNoRef(): error %d in RestoreDiscardedData(); "
++             "returning a null frame from imgContainer %p",
++             result,
++             this));
++
++    *aFrame = nsnull;
++    return result;
++  }
++
++  if (!mAnim)
++    *aFrame = mFrames.SafeObjectAt(0);
++  else if (mAnim->lastCompositedFrameIndex == mAnim->currentAnimationFrameIndex)
++    *aFrame = mAnim->compositingFrame;
++  else
++    *aFrame = mFrames.SafeObjectAt(mAnim->currentAnimationFrameIndex);
++
++  if (!*aFrame)
++    PR_LOG (gCompressedImageAccountingLog, PR_LOG_DEBUG,
++            ("CompressedImageAccounting: imgContainer::GetCurrentFrameNoRef(): returning null frame from imgContainer %p "
++             "(no errors when restoring data)",
++              this));
++
++  return NS_OK;
++}
++
+ //******************************************************************************
+ /* readonly attribute gfxIImageFrame currentFrame; */
+ NS_IMETHODIMP imgContainer::GetCurrentFrame(gfxIImageFrame **aCurrentFrame)
+ {
++  nsresult result;
++
+   NS_ASSERTION(aCurrentFrame, "imgContainer::GetCurrentFrame; Invalid Arg");
+   if (!aCurrentFrame)
+     return NS_ERROR_INVALID_POINTER;
+   
+-  if (!(*aCurrentFrame = inlinedGetCurrentFrame()))
++  result = GetCurrentFrameNoRef (aCurrentFrame);
++  if (NS_FAILED (result))
++    return result;
++
++  if (!*aCurrentFrame)
+     return NS_ERROR_FAILURE;
+ 
+   NS_ADDREF(*aCurrentFrame);
+@@ -148,7 +239,7 @@ NS_IMETHODIMP imgContainer::GetNumFrames(PRUint32 *aNumFrames)
+   if (!aNumFrames)
+     return NS_ERROR_INVALID_ARG;
+ 
+-  *aNumFrames = mFrames.Count();
++  *aNumFrames = mNumFrames;
+   
+   return NS_OK;
+ }
+@@ -157,16 +248,24 @@ NS_IMETHODIMP imgContainer::GetNumFrames(PRUint32 *aNumFrames)
+ /* gfxIImageFrame getFrameAt (in unsigned long index); */
+ NS_IMETHODIMP imgContainer::GetFrameAt(PRUint32 index, gfxIImageFrame **_retval)
+ {
++  nsresult result;
++
+   NS_ASSERTION(_retval, "imgContainer::GetFrameAt; Invalid Arg");
+   if (!_retval)
+     return NS_ERROR_INVALID_POINTER;
+ 
+-  if (!mFrames.Count()) {
++  if (mNumFrames == 0) {
+     *_retval = nsnull;
+     return NS_OK;
+   }
+ 
+-  NS_ENSURE_ARG(index < static_cast<PRUint32>(mFrames.Count()));
++  NS_ENSURE_ARG((int) index < mNumFrames);
++
++  result = RestoreDiscardedData ();
++  if (NS_FAILED (result)) {
++    *_retval = nsnull;
++    return result;
++  }
+   
+   if (!(*_retval = mFrames[index]))
+     return NS_ERROR_FAILURE;
+@@ -183,16 +282,17 @@ NS_IMETHODIMP imgContainer::AppendFrame(gfxIImageFrame *item)
+   NS_ASSERTION(item, "imgContainer::AppendFrame; Invalid Arg");
+   if (!item)
+     return NS_ERROR_INVALID_ARG;
+-  
+-  PRInt32 numFrames = mFrames.Count();
+-  
+-  if (numFrames == 0) {
++
++  if (mFrames.Count () == 0) {
+     // This may not be an animated image, don't do all the animation stuff.
+     mFrames.AppendObject(item);
++
++    mNumFrames++;
++
+     return NS_OK;
+   }
+   
+-  if (numFrames == 1) {
++  if (mFrames.Count () == 1) {
+     // Now that we got a second frame, initialize animation stuff.
+     if (!ensureAnimExists())
+       return NS_ERROR_OUT_OF_MEMORY;
+@@ -216,11 +316,13 @@ NS_IMETHODIMP imgContainer::AppendFrame(gfxIImageFrame *item)
+                                          itemRect);
+   
+   mFrames.AppendObject(item);
++
++  mNumFrames++;
+   
+   // If this is our second frame, start the animation.
+   // Must be called after AppendObject because StartAnimation checks for > 1
+   // frame
+-  if (numFrames == 1)
++  if (mFrames.Count () == 1)
+     StartAnimation();
+   
+   return NS_OK;
+@@ -230,6 +332,7 @@ NS_IMETHODIMP imgContainer::AppendFrame(gfxIImageFrame *item)
+ /* void removeFrame (in gfxIImageFrame item); */
+ NS_IMETHODIMP imgContainer::RemoveFrame(gfxIImageFrame *item)
+ {
++  /* Remember to decrement mNumFrames if you implement this */
+   return NS_ERROR_NOT_IMPLEMENTED;
+ }
+ 
+@@ -253,7 +356,7 @@ NS_IMETHODIMP imgContainer::DecodingComplete(void)
+     mAnim->doneDecoding = PR_TRUE;
+   // If there's only 1 frame, optimize it.
+   // Optimizing animated images is not supported
+-  if (mFrames.Count() == 1)
++  if (mNumFrames == 1)
+     mFrames[0]->SetMutable(PR_FALSE);
+   return NS_OK;
+ }
+@@ -292,11 +395,11 @@ NS_IMETHODIMP imgContainer::SetAnimationMode(PRUint16 aAnimationMode)
+       break;
+     case kNormalAnimMode:
+       if (mLoopCount != 0 || 
+-          (mAnim && (mAnim->currentAnimationFrameIndex + 1 < mFrames.Count())))
++          (mAnim && (mAnim->currentAnimationFrameIndex + 1 < mNumFrames)))
+         StartAnimation();
+       break;
+     case kLoopOnceAnimMode:
+-      if (mAnim && (mAnim->currentAnimationFrameIndex + 1 < mFrames.Count()))
++      if (mAnim && (mAnim->currentAnimationFrameIndex + 1 < mNumFrames))
+         StartAnimation();
+       break;
+   }
+@@ -312,12 +415,18 @@ NS_IMETHODIMP imgContainer::StartAnimation()
+       (mAnim && (mAnim->timer || mAnim->animating)))
+     return NS_OK;
+   
+-  if (mFrames.Count() > 1) {
++  if (mNumFrames > 1) {
+     if (!ensureAnimExists())
+       return NS_ERROR_OUT_OF_MEMORY;
+     
+     PRInt32 timeout;
+-    gfxIImageFrame *currentFrame = inlinedGetCurrentFrame();
++    nsresult result;
++    gfxIImageFrame *currentFrame;
++
++    result = GetCurrentFrameNoRef (&currentFrame);
++    if (NS_FAILED (result))
++      return result;
++
+     if (currentFrame) {
+       currentFrame->GetTimeout(&timeout);
+       if (timeout <= 0) // -1 means display this frame forever
+@@ -376,8 +485,15 @@ NS_IMETHODIMP imgContainer::ResetAnimation()
+   mAnim->currentAnimationFrameIndex = 0;
+   // Update display
+   nsCOMPtr<imgIContainerObserver> observer(do_QueryReferent(mObserver));
+-  if (observer)
++  if (observer) {
++    nsresult result;
++
++    result = RestoreDiscardedData ();
++    if (NS_FAILED (result))
++      return result;
++
+     observer->FrameChanged(this, mFrames[0], &(mAnim->firstFrameRefreshArea));
++  }
+ 
+   if (oldAnimating)
+     return StartAnimation();
+@@ -411,10 +527,161 @@ NS_IMETHODIMP imgContainer::SetLoopCount(PRInt32 aLoopCount)
+   return NS_OK;
+ }
+ 
++static PRBool
++discarding_is_enabled (void)
++{
++  static PRBool inited;
++  static PRBool enabled;
++
++  if (!inited) {
++    inited = PR_TRUE;
++
++    enabled = (getenv ("MOZ_DISABLE_IMAGE_DISCARD") == nsnull);
++  }
++
++  return enabled;
++}
++
++//******************************************************************************
++/* void setDiscardable(in string mime_type); */
++NS_IMETHODIMP imgContainer::SetDiscardable (const char* aMimeType)
++{
++  NS_ASSERTION(aMimeType, "imgContainer::SetDiscardable() called with null aMimeType");
++
++  if (!discarding_is_enabled ())
++    return NS_OK;
++
++  if (mDiscardable) {
++    NS_WARNING ("imgContainer::SetDiscardable(): cannot change an imgContainer which is already discardable");
++    return NS_ERROR_FAILURE;
++  }
++
++  mDiscardableMimeType = strdup (aMimeType);
++  if (!mDiscardableMimeType)
++    return NS_ERROR_OUT_OF_MEMORY;
++
++  mDiscardable = PR_TRUE;
++
++  num_containers_with_discardable_data++;
++  PR_LOG (gCompressedImageAccountingLog, PR_LOG_DEBUG,
++          ("CompressedImageAccounting: Making imgContainer %p (%s) discardable.  "
++           "Compressed containers: %d, Compressed data bytes: %lld",
++           this,
++           aMimeType,
++           num_containers_with_discardable_data,
++           num_compressed_image_bytes));
++
++  return NS_OK;
++}
++
++//******************************************************************************
++/* void addRestoreData(in nsIInputStream aInputStream, in unsigned long aCount); */
++NS_IMETHODIMP imgContainer::AddRestoreData (char *aBuffer, PRUint32 aCount)
++{
++  PRSize new_size;
++  char *new_buffer;
++
++  NS_ASSERTION(aBuffer, "imgContainer::AddRestoreData() called with null aBuffer");
++
++  if (!discarding_is_enabled ())
++    return NS_OK;
++
++  if (!mDiscardable) {
++    NS_WARNING ("imgContainer::AddRestoreData() can only be called if SetDiscardable is called first");
++    return NS_ERROR_FAILURE;
++  }
++
++  if (mRestoreDataDone) {
++    /* We are being called from the decoder while the data is being restored
++     * (i.e. we were fully loaded once, then we discarded the image data, then
++     * we are being restored).  We don't want to save the compressed data again,
++     * since we already have it.
++     */
++    return NS_OK;
++  }
++
++  new_size = mRestoreDataLength + aCount;
++
++  new_buffer = (char *) PR_Realloc (mRestoreData, new_size);
++  if (new_buffer)
++    mRestoreData = new_buffer;
++  else {
++    /* Hmm, should we discard the whole buffer?  The caller isn't going to be able to recover... */
++    return NS_ERROR_OUT_OF_MEMORY;
++  }
++
++  memcpy (mRestoreData + mRestoreDataLength, aBuffer, aCount);
++  mRestoreDataLength = new_size;
++
++  num_compressed_image_bytes += aCount;
++
++  PR_LOG (gCompressedImageAccountingLog, PR_LOG_DEBUG,
++          ("CompressedImageAccounting: Added compressed data to imgContainer %p (%s).  "
++           "Compressed containers: %d, Compressed data bytes: %lld",
++           this,
++           mDiscardableMimeType,
++           num_containers_with_discardable_data,
++           num_compressed_image_bytes));
++
++  return NS_OK;
++}
++
++/* Note!  buf must be declared as char buf[9]; */
++static void
++get_header_str (char *buf, char *data, PRSize data_len)
++{
++  int i;
++  int n;
++  static char hex[] = "0123456789abcdef";
++
++  n = data_len < 4 ? data_len : 4;
++
++  for (i = 0; i < n; i++) {
++    buf[i * 2]     = hex[(data[i] >> 4) & 0x0f];
++    buf[i * 2 + 1] = hex[data[i] & 0x0f];
++  }
++
++  buf[i * 2] = 0;
++}
++
++//******************************************************************************
++/* void restoreDataDone(); */
++NS_IMETHODIMP imgContainer::RestoreDataDone (void)
++{
++  char buf[9];
++
++  if (!discarding_is_enabled ())
++    return NS_OK;
++
++  if (mRestoreDataDone)
++    return NS_OK;
++
++  mRestoreDataDone = PR_TRUE;
++
++  get_header_str (buf, mRestoreData, mRestoreDataLength);
++  PR_LOG (gCompressedImageAccountingLog, PR_LOG_DEBUG,
++          ("CompressedImageAccounting: imgContainer::RestoreDataDone() - data is done for container %p (%s), %d real frames (cached as %d frames) - header %p is 0x%s (length %d)",
++           this,
++           mDiscardableMimeType,
++           mFrames.Count (),
++           mNumFrames,
++           mRestoreData,
++           buf,
++           (int) mRestoreDataLength));
++
++  return ResetDiscardTimer ();
++}
++
+ //******************************************************************************
+ /* void notify(in nsITimer timer); */
+ NS_IMETHODIMP imgContainer::Notify(nsITimer *timer)
+ {
++  nsresult result;
++
++  result = RestoreDiscardedData ();
++  if (NS_FAILED (result))
++    return result;
++
+   // This should never happen since the timer is only set up in StartAnimation()
+   // after mAnim is checked to exist.
+   NS_ASSERTION(mAnim, "imgContainer::Notify() called but mAnim is null");
+@@ -433,8 +700,7 @@ NS_IMETHODIMP imgContainer::Notify(nsITimer *timer)
+     return NS_OK;
+   }
+ 
+-  PRInt32 numFrames = mFrames.Count();
+-  if (!numFrames)
++  if (mNumFrames == 0)
+     return NS_OK;
+   
+   gfxIImageFrame *nextFrame = nsnull;
+@@ -448,7 +714,7 @@ NS_IMETHODIMP imgContainer::Notify(nsITimer *timer)
+   // finished decoding (see EndFrameDecode)
+   if (mAnim->doneDecoding || 
+       (nextFrameIndex < mAnim->currentDecodingFrameIndex)) {
+-    if (numFrames == nextFrameIndex) {
++    if (mNumFrames == nextFrameIndex) {
+       // End of Animation
+ 
+       // If animation mode is "loop once", it's time to stop animating
+@@ -875,3 +1141,328 @@ NS_IMETHODIMP imgContainer::GetKeys(PRUint32 *count, char ***keys)
+   }
+   return mProperties->GetKeys(count, keys);
+ }
++
++static int
++get_discard_timer_ms (void)
++{
++  /* FIXME: don't hardcode this */
++  return 5000; /* 5 seconds */
++}
++
++void
++imgContainer::sDiscardTimerCallback (nsITimer *aTimer, void *aClosure)
++{
++  imgContainer *self = (imgContainer *) aClosure;
++  int old_frame_count;
++
++  NS_ASSERTION (aTimer == self->mDiscardTimer,
++                "imgContainer::DiscardTimerCallback() got a callback for an unknown timer");
++
++  self->mDiscardTimer = nsnull;
++
++  old_frame_count = self->mFrames.Count ();
++
++  if (self->mAnim) {
++    delete self->mAnim;
++    self->mAnim = nsnull;
++  }
++
++  self->mFrames.Clear ();
++
++  self->mDiscarded = PR_TRUE;
++
++  PR_LOG (gCompressedImageAccountingLog, PR_LOG_DEBUG,
++          ("CompressedImageAccounting: discarded uncompressed image data from imgContainer %p (%s) - %d frames (cached count: %d); "
++           "Compressed containers: %d, Compressed data bytes: %lld",
++           self,
++           self->mDiscardableMimeType,
++           old_frame_count,
++           self->mNumFrames,
++           num_containers_with_discardable_data,
++           num_compressed_image_bytes));
++}
++
++nsresult
++imgContainer::ResetDiscardTimer (void)
++{
++  if (!discarding_is_enabled ())
++    return NS_OK;
++
++  if (!mDiscardTimer) {
++    mDiscardTimer = do_CreateInstance("@mozilla.org/timer;1");
++
++    if (!mDiscardTimer)
++      return NS_ERROR_OUT_OF_MEMORY;
++  } else {
++    if (NS_FAILED (mDiscardTimer->Cancel ()))
++      return NS_ERROR_FAILURE;
++  }
++
++  return mDiscardTimer->InitWithFuncCallback (sDiscardTimerCallback,
++                                              (void *) this,
++                                              get_discard_timer_ms (),
++                                              nsITimer::TYPE_ONE_SHOT);
++}
++
++nsresult
++imgContainer::RestoreDiscardedData (void)
++{
++  nsresult result;
++  int num_expected_frames;
++
++  if (!mDiscarded)
++    return NS_OK;
++
++  result = ResetDiscardTimer ();
++  if (NS_FAILED (result))
++    return result;
++
++  num_expected_frames = mNumFrames;
++
++  result = ReloadImages ();
++  if (NS_FAILED (result)) {
++    PR_LOG (gCompressedImageAccountingLog, PR_LOG_DEBUG,
++            ("CompressedImageAccounting: imgContainer::RestoreDiscardedData() for container %p failed to ReloadImages()",
++             this));
++    return result;
++  }
++
++  mDiscarded = PR_FALSE;
++
++  NS_ASSERTION (mNumFrames == mFrames.Count (),
++                "number of restored image frames doesn't match");
++  NS_ASSERTION (num_expected_frames == mNumFrames,
++                "number of restored image frames doesn't match the original number of frames!");
++  
++  PR_LOG (gCompressedImageAccountingLog, PR_LOG_DEBUG,
++          ("CompressedImageAccounting: imgContainer::RestoreDiscardedData() restored discarded data "
++           "for imgContainer %p (%s) - %d image frames.  "
++           "Compressed containers: %d, Compressed data bytes: %lld",
++           this,
++           mDiscardableMimeType,
++           mNumFrames,
++           num_containers_with_discardable_data,
++           num_compressed_image_bytes));
++
++  return NS_OK;
++}
++
++class ContainerLoader : public imgILoad,
++                        public imgIDecoderObserver,
++                        public nsSupportsWeakReference
++{
++public:
++
++  NS_DECL_ISUPPORTS
++  NS_DECL_IMGILOAD
++  NS_DECL_IMGIDECODEROBSERVER
++  NS_DECL_IMGICONTAINEROBSERVER
++
++  ContainerLoader (void);
++
++private:
++
++  imgIContainer *mContainer;
++};
++
++NS_IMPL_ISUPPORTS4 (ContainerLoader, imgILoad, imgIDecoderObserver, imgIContainerObserver, nsISupportsWeakReference)
++
++ContainerLoader::ContainerLoader (void)
++{
++}
++
++/* Implement imgILoad::image getter */
++NS_IMETHODIMP
++ContainerLoader::GetImage(imgIContainer **aImage)
++{
++  *aImage = mContainer;
++  NS_IF_ADDREF (*aImage);
++  return NS_OK;
++}
++
++/* Implement imgILoad::image setter */
++NS_IMETHODIMP
++ContainerLoader::SetImage(imgIContainer *aImage)
++{
++  mContainer = aImage;
++  return NS_OK;
++}
++
++/* Implement imgILoad::isMultiPartChannel getter */
++NS_IMETHODIMP
++ContainerLoader::GetIsMultiPartChannel(PRBool *aIsMultiPartChannel)
++{
++  *aIsMultiPartChannel = PR_FALSE; /* FIXME: is this always right? */
++  return NS_OK;
++}
++
++/* Implement imgIDecoderObserver::onStartRequest() */
++NS_IMETHODIMP
++ContainerLoader::OnStartRequest (imgIRequest *aRequest)
++{
++  return NS_OK;
++}
++
++/* Implement imgIDecoderObserver::onStartDecode() */
++NS_IMETHODIMP
++ContainerLoader::OnStartDecode (imgIRequest *aRequest)
++{
++  return NS_OK;
++}
++
++/* Implement imgIDecoderObserver::onStartContainer() */
++NS_IMETHODIMP
++ContainerLoader::OnStartContainer (imgIRequest *aRequest, imgIContainer *aContainer)
++{
++  return NS_OK;
++}
++
++/* Implement imgIDecoderObserver::onStartFrame() */
++NS_IMETHODIMP
++ContainerLoader::OnStartFrame (imgIRequest *aRequest, gfxIImageFrame *aFrame)
++{
++  return NS_OK;
++}
++
++/* Implement imgIDecoderObserver::onDataAvailable() */
++NS_IMETHODIMP
++ContainerLoader::OnDataAvailable (imgIRequest *aRequest, gfxIImageFrame *aFrame, const nsIntRect * aRect)
++{
++  return NS_OK;
++}
++
++/* Implement imgIDecoderObserver::onStopFrame() */
++NS_IMETHODIMP
++ContainerLoader::OnStopFrame (imgIRequest *aRequest, gfxIImageFrame *aFrame)
++{
++  return NS_OK;
++}
++
++/* Implement imgIDecoderObserver::onStopContainer() */
++NS_IMETHODIMP
++ContainerLoader::OnStopContainer (imgIRequest *aRequest, imgIContainer *aContainer)
++{
++  return NS_OK;
++}
++
++/* Implement imgIDecoderObserver::onStopDecode() */
++NS_IMETHODIMP
++ContainerLoader::OnStopDecode (imgIRequest *aRequest, nsresult status, const PRUnichar *statusArg)
++{
++  return NS_OK;
++}
++
++/* Implement imgIDecoderObserver::onStopRequest() */
++NS_IMETHODIMP
++ContainerLoader::OnStopRequest (imgIRequest *aRequest, PRBool aIsLastPart)
++{
++  return NS_OK;
++}
++
++/* implement imgIContainerObserver::frameChanged() */
++NS_IMETHODIMP
++ContainerLoader::FrameChanged (imgIContainer *aContainer, gfxIImageFrame *aFrame, nsIntRect * aDirtyRect)
++{
++  return NS_OK;
++}
++
++static char *
++make_id_from_mime_type (char *mime_type)
++{
++  const char idbase[] = "@mozilla.org/image/decoder;2?type=";
++  int idbase_len = strlen (idbase);
++  char *id;
++
++  id = (char *) PR_Malloc (strlen (mime_type) + idbase_len + 1);
++  if (!id)
++    return nsnull;
++
++  strcpy (id, idbase);
++  strcpy (id + idbase_len, mime_type);
++
++  return id;
++}
++
++nsresult
++imgContainer::ReloadImages (void)
++{
++  char *id;
++  nsCOMPtr<imgILoad> loader;
++  nsCOMPtr<imgIDecoder> decoder;
++  nsresult result;
++  PRUint32 written;
++  nsCOMPtr<nsIInputStream> stream;
++  char buf[9];
++
++  NS_ASSERTION (mRestoreData,
++                "imgContainer::ReloadImages(): mRestoreData should not be null");
++  NS_ASSERTION (mRestoreDataDone,
++                "imgContainer::ReloadImages(): mRestoreDataDone shoudl be true!");
++
++  id = make_id_from_mime_type (mDiscardableMimeType);
++  if (!id)
++    return NS_ERROR_OUT_OF_MEMORY;
++
++  mNumFrames = 0;
++  NS_ASSERTION (mFrames.Count() == 0,
++                "imgContainer::ReloadImages(): mFrames should be empty");
++
++  decoder = do_CreateInstance (id);
++  PR_Free (id);
++
++  if (!decoder) {
++    PR_LOG (gCompressedImageAccountingLog, PR_LOG_WARNING,
++            ("CompressedImageAccounting: imgContainer::ReloadImages() could not create decoder for %s",
++             mDiscardableMimeType));
++    return NS_IMAGELIB_ERROR_NO_DECODER;
++  }
++
++  loader = new ContainerLoader ();
++  if (!loader) {
++    PR_LOG (gCompressedImageAccountingLog, PR_LOG_WARNING,
++            ("CompressedImageAccounting: imgContainer::ReloadImages() could not allocate ContainerLoader "
++             "when reloading the images for container %p",
++             this));
++    return NS_ERROR_OUT_OF_MEMORY;
++  }
++
++  loader->SetImage (this);
++
++  result = decoder->Init (loader);
++  if (NS_FAILED (result)) {
++    PR_LOG (gCompressedImageAccountingLog, PR_LOG_WARNING,
++            ("CompressedImageAccounting: imgContainer::ReloadImages() image container %p "
++             "failed to initialize the decoder (%s)",
++             this,
++             mDiscardableMimeType));
++    return result;
++  }
++
++  result = NS_NewByteInputStream (getter_AddRefs (stream), mRestoreData, mRestoreDataLength, NS_ASSIGNMENT_DEPEND);
++  NS_ENSURE_SUCCESS (result, result);
++
++  get_header_str (buf, mRestoreData, mRestoreDataLength);
++  PR_LOG (gCompressedImageAccountingLog, PR_LOG_WARNING,
++          ("CompressedImageAccounting: imgContainer::ReloadImages() starting to restore images for container %p (%s) - "
++           "header %p is 0x%s (length %d)",
++           this,
++           mDiscardableMimeType,
++           mRestoreData,
++           buf,
++           (int) mRestoreDataLength));
++
++  result = decoder->WriteFrom (stream, mRestoreDataLength, &written);
++  NS_ENSURE_SUCCESS (result, result);
++
++  result = decoder->Flush ();
++  if (!(result == NS_OK || result == NS_ERROR_NOT_IMPLEMENTED)) /* PNG doesn't implement Flush(), for example */
++    return result;
++
++  result = decoder->Close ();
++  NS_ENSURE_SUCCESS (result, result);
++
++  NS_ASSERTION (mFrames.Count() == mNumFrames,
++                "imgContainer::ReloadImages(): the restored mFrames.Count() doesn't match mNumFrames!");
++
++  return result;
++}
+diff --git modules/libpr0n/src/imgContainer.h modules/libpr0n/src/imgContainer.h
+index 3db7034..aa56939 100644
+--- modules/libpr0n/src/imgContainer.h
++++ modules/libpr0n/src/imgContainer.h
+@@ -23,6 +23,7 @@
+  * Contributor(s):
+  *   Stuart Parmenter <pavlov@netscape.com>
+  *   Chris Saari <saari@netscape.com>
++ *   Federico Mena-Quintero <federico@novell.com>
+  *
+  * Alternatively, the contents of this file may be used under the terms of
+  * either the GNU General Public License Version 2 or later (the "GPL"), or
+@@ -194,14 +195,8 @@ private:
+         timer->Cancel();
+     }
+   };
+-  
+-  inline gfxIImageFrame* inlinedGetCurrentFrame() {
+-    if (!mAnim)
+-      return mFrames.SafeObjectAt(0);
+-    if (mAnim->lastCompositedFrameIndex == mAnim->currentAnimationFrameIndex)
+-      return mAnim->compositingFrame;
+-    return mFrames.SafeObjectAt(mAnim->currentAnimationFrameIndex);
+-  }
++
++  nsresult GetCurrentFrameNoRef(gfxIImageFrame** aFrame);
+   
+   inline Anim* ensureAnimExists() {
+     if (!mAnim)
+@@ -274,10 +269,15 @@ private:
+   nsIntSize                  mSize;
+   
+   //! All the <gfxIImageFrame>s of the PNG
++  // *** IMPORTANT: if you use mFrames in a method, call RestoreDiscardedData() first to ensure
++  //     that the frames actually exist (they may have been discarded to save memory).
+   nsCOMArray<gfxIImageFrame> mFrames;
++  int                        mNumFrames; /* stored separately from mFrames.Count() to support discarded images */
+   
+   nsCOMPtr<nsIProperties>    mProperties;
+-  
++
++  // *** IMPORTANT: if you use mAnim in a method, call RestoreDiscardedData() first to ensure
++  //     that the frames actually exist (they may have been discarded to save memory).
+   imgContainer::Anim*        mAnim;
+   
+   //! See imgIContainer for mode constants
+@@ -288,6 +288,19 @@ private:
+   
+   //! imgIContainerObserver
+   nsWeakPtr                  mObserver;
++
++  PRBool                     mDiscardable;
++  PRBool                     mDiscarded;
++  char*                      mDiscardableMimeType;
++  char*                      mRestoreData;
++  PRSize                     mRestoreDataLength;
++  PRBool                     mRestoreDataDone;
++  nsCOMPtr<nsITimer>         mDiscardTimer;
++
++  nsresult ResetDiscardTimer (void);
++  nsresult RestoreDiscardedData (void);
++  nsresult ReloadImages (void);
++  static void sDiscardTimerCallback (nsITimer *aTimer, void *aClosure);
+ };
+ 
+ #endif /* __imgContainer_h__ */
