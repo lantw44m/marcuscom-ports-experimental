@@ -5,7 +5,7 @@
 # Whom:			Michael Johnson <ahze@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/www/mozilla/bsd.gecko.mk,v 1.6 2007/09/19 23:49:35 ahze Exp $
+#   $MCom: ports-experimental/Mk/bsd.gecko.mk,v 1.1 2007/09/20 18:09:32 ahze Exp $
 #
 # 4 column tabs prevent hair loss and tooth decay!
 
@@ -216,13 +216,6 @@ gecko-post-patch:
 #			build directory. Options will have to be
 #			specified in CONFIGURE_ARGS instead
 
-BUILD_DEPENDS+=	zip:${PORTSDIR}/archivers/zip
-LIB_DEPENDS+=	jpeg.9:${PORTSDIR}/graphics/jpeg \
-		png.5:${PORTSDIR}/graphics/png \
-		nspr4:${PORTSDIR}/devel/nspr \
-		nss3:${PORTSDIR}/security/nss \
-		Xft.2:${PORTSDIR}/x11-fonts/libXft
-
 MAINTAINER?=	gnome@FreeBSD.org
 
 MOZILLA?=	${PORTNAME}
@@ -296,6 +289,17 @@ OPTIONS+=	${option:U} ${${option}_OPTION}
 _${option}=	${TRUE}
 .endif
 .endfor
+
+# Standard depends
+zip_DEPENDS=	zip:${PORTSDIR}/archivers/zip
+jpeg_LIB_DEPEDNS
+
+BUILD_DEPENDS+= zip:${PORTSDIR}/archivers/zip
+LIB_DEPENDS+=   jpeg.9:${PORTSDIR}/graphics/jpeg \
+                png.5:${PORTSDIR}/graphics/png \
+                nspr4:${PORTSDIR}/devel/nspr \
+                nss3:${PORTSDIR}/security/nss \
+                Xft.2:${PORTSDIR}/x11-fonts/libXft
 
 # Standard options from README
 MOZ_TOOLKIT?=	gtk2
@@ -597,4 +601,4 @@ gecko-post-install:
 
 .endif
 .endif
-# HERE THERE BE TACOS
+# HERE THERE BE TACOS -- adamw
