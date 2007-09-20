@@ -3,7 +3,7 @@
 # Whom:			eivind/dima/jseger
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/www/mozilla/Makefile,v 1.5 2007/09/19 23:49:35 ahze Exp $
 #
 
 PORTNAME=	mozilla
@@ -25,6 +25,7 @@ DEPRECATED=	The mozilla team has shifted the development branch of mozilla to \
 		seamonkey, this port is outdated and has many vulnerabilities. \
 		Please consider using www/seamonkey or www/firefox instead.
 
+USE_GECKO=	gecko
 MAKE_ENV+=	LD_LIBRARY_PATH=${WRKSRC}/dist/bin
 USE_GMAKE=	yes
 USE_BZIP2=	yes
@@ -158,5 +159,4 @@ do-install:
 post-install:
 	@${CHMOD} -R u-w ${PREFIX}/lib/${MOZILLA}/components
 
-.include "${.CURDIR}/Makefile.common"
 .include <bsd.port.post.mk>
