@@ -3,7 +3,7 @@
 # Whom:				Alan Eldridge <alane@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/www/firefox-devel/Makefile,v 1.4 2007/09/19 23:49:33 ahze Exp $
 
 PORTNAME=	firefox
 DISTVERSION=	3.0.a7
@@ -18,6 +18,7 @@ DISTNAME=	granparadiso-alpha7-source
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Web browser based on the browser portion of Mozilla
 
+USE_GECKO=	gecko
 MOZILLA_NAME=	Firefox-${MOZILLA_SUFX}
 MOZILLA_SUFX=	-devel
 MOZILLA=	${PORTNAME}${MOZILLA_SUFX}
@@ -97,5 +98,4 @@ post-install:
 	${MKDIR} ${PREFIX}/lib/${MOZILLA}/chrome/icons/default
 	${LN} -sf ${FIREFOX_ICON_SRC} ${PREFIX}/share/pixmaps/${FIREFOX_ICON}
 
-.include "${PORTSDIR}/www/mozilla/Makefile.common"
 .include <bsd.port.post.mk>
