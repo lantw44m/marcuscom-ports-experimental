@@ -5,7 +5,7 @@
 # Whom:			Michael Johnson <ahze@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/Mk/bsd.gecko.mk,v 1.2 2007/09/20 20:15:28 ahze Exp $
+#   $MCom: ports-experimental/Mk/bsd.gecko.mk,v 1.3 2007/09/26 15:09:40 ahze Exp $
 #
 # 4 column tabs prevent hair loss and tooth decay!
 
@@ -318,7 +318,7 @@ BUILD_DEPENDS+=	${${dep}_DEPENDS}
 LIB_DEPENDS+=	${${dep}_LIB_DEPENDS}
 RUN_DEPENDS+=	${${dep}_DEPENDS}
 MOZ_OPTIONS+=	${${dep}_MOZ_OPTIONS}
-EXTRACT_AFTER_ARGS+=	${${dep_EXTRACT_AFTER_ARGS}
+EXTRACT_AFTER_ARGS+=	${${dep}_EXTRACT_AFTER_ARGS}
 .endfor
 
 # Standard options from README
