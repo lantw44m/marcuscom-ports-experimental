@@ -5,7 +5,7 @@
 # Whom:			Michael Johnson <ahze@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/Mk/bsd.gecko.mk,v 1.1 2007/09/20 18:09:32 ahze Exp $
+#   $MCom: ports-experimental/Mk/bsd.gecko.mk,v 1.2 2007/09/20 20:15:28 ahze Exp $
 #
 # 4 column tabs prevent hair loss and tooth decay!
 
@@ -15,13 +15,13 @@
 # can handle, and ${GECKO} is set by bsd.gecko.mk to be the chosen backend.
 # Users set ${WITH_GECKO} to the list of gecko backends they want on their system.
 
+.if defined(USE_GECKO) && ${USE_GECKO}!="gecko"
+
 .if defined(_POSTMKINCLUDED) && !defined(Gecko_Pre_Include)
 # Please make sure all changes to this file are passed through the maintainer.
 # Do not commit them yourself (unless of course you're the Port's Wraith ;).
 Gecko_Include_MAINTAINER=		gnome@FreeBSD.org
 Gecko_Pre_Include=			bsd.gecko.mk
-
-.if defined(USE_GECKO) && ${USE_GECKO}!="gecko"
 
 # Users should use the following syntax:
 #
@@ -167,8 +167,12 @@ gecko-post-patch:
 	${FIND} ${WRKSRC} -name "Makefile.in" -type f -o -name "configure" -type f | \
 		${XARGS} ${REINPLACE_CMD} -e ${${GECKO}_HACK}
 .endif
+.endif
 
-.else
+.else # split
+
+.if !defined(_POSTMKINCLUDED) && !defined(Gecko_Pre_Include)
+Gecko_Pre_Include=	bsd.gecko.mk
 
 # This file contains some reusable components for mozilla ports. It's of
 # use primarily to apps from the mozilla project itself (such as Firefox,
@@ -254,11 +258,8 @@ PKGDEINSTALL_INC?=	${MASTER_MOZDIR}/pkg-deinstall.in
 EXTRACT_AFTER_ARGS?=	| ${TAR} -xf - --exclude */CVS/*	\
 			--exclude */macbuild/*			\
 			--exclude */package/*			\
-			--exclude mozilla/jpeg			\
 			--exclude mozilla/dbm			\
-			--exclude mozilla/security/nss		\
-			--exclude mozilla/gc/boehm		\
-			--exclude mozilla/gfx/cairo
+			--exclude mozilla/gc/boehm
 
 JPI_LIST?=\
 	${LOCALBASE}/jdk1.5.0/jre/plugin/${ARCH}/ns7/libjavaplugin_oji.so \
@@ -291,15 +292,34 @@ _${option}=	${TRUE}
 .endfor
 
 # Standard depends
-zip_DEPENDS=	zip:${PORTSDIR}/archivers/zip
-jpeg_LIB_DEPEDNS
+_ALL_DEPENDS=	cairo jpeg nspr nss png xft zip
 
-BUILD_DEPENDS+= zip:${PORTSDIR}/archivers/zip
-LIB_DEPENDS+=   jpeg.9:${PORTSDIR}/graphics/jpeg \
-                png.5:${PORTSDIR}/graphics/png \
-                nspr4:${PORTSDIR}/devel/nspr \
-                nss3:${PORTSDIR}/security/nss \
-                Xft.2:${PORTSDIR}/x11-fonts/libXft
+cairo_LIB_DEPENDS=	cairo.2:${PORTSDIR}/graphics/cairo
+cairo_EXTRACT_AFTER_ARGS=	--exclude mozilla/gfx/cairo
+
+jpeg_LIB_DEPENDS=	jpeg.9:${PORTSDIR}/graphics/jpeg
+jpeg_MOZ_OPTIONS=	--with-system-jpeg=${LOCALBASE
+jpeg_EXTRACT_AFTER_ARGS=	--exclude mozilla/jpeg
+
+nspr_LIB_DEPENDS=	nspr4:${PORTSDIR}/devel/nspr
+nspr_MOZ_OPTIONS=	--with-system-nspr
+
+nss_LIB_DEPENDS=	nss3:${PORTSDIR}/security/nss
+nss_EXTRACT_AFTER_ARGS=	--exclude mozilla/security/nss
+
+png_LIB_DEPENDS=	png.5:${PORTSDIR}/graphics/png
+png_MOZ_OPTIONS=	--with-system-png=${LOCALBASE}
+
+xft_LIB_DEPENDS=	Xft.2:${PORTSDIR}/x11-fonts/libXft
+zip_DEPENDS=		zip:${PORTSDIR}/archivers/zip
+
+.for dep in ${_ALL_DEPENDS}
+BUILD_DEPENDS+=	${${dep}_DEPENDS}
+LIB_DEPENDS+=	${${dep}_LIB_DEPENDS}
+RUN_DEPENDS+=	${${dep}_DEPENDS}
+MOZ_OPTIONS+=	${${dep}_MOZ_OPTIONS}
+EXTRACT_AFTER_ARGS+=	${${dep_EXTRACT_AFTER_ARGS}
+.endfor
 
 # Standard options from README
 MOZ_TOOLKIT?=	gtk2
@@ -327,11 +347,8 @@ MOZ_OPTIONS+=	--enable-necko-protocols=default
 MOZ_OPTIONS+=	--enable-necko-protocols=${MOZ_PROTOCOLS}
 .endif
 # others 
-MOZ_OPTIONS+=	--with-system-jpeg=${LOCALBASE} \
-		--with-system-zlib=/usr		\
-		--with-system-png=${LOCALBASE}	\
+MOZ_OPTIONS+=	--with-system-zlib=/usr		\
 		--with-gssapi=${KRB5_HOME}	\
-		--with-system-nspr		\
 		--disable-auto-deps		\
 		--enable-chrome-format=jar	\
 		--disable-cpp-exceptions	\
@@ -416,6 +433,8 @@ LIB_BZ2=	-lbz2_p
 .else
 LIB_BZ2=	-lbz2
 .endif
+
+.else
 
 post-patch: gecko-post-patch gecko-moz-pis-patch
 
