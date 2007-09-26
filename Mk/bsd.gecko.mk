@@ -5,7 +5,7 @@
 # Whom:			Michael Johnson <ahze@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/Mk/bsd.gecko.mk,v 1.3 2007/09/26 15:09:40 ahze Exp $
+#   $MCom: ports-experimental/Mk/bsd.gecko.mk,v 1.4 2007/09/26 15:16:44 ahze Exp $
 #
 # 4 column tabs prevent hair loss and tooth decay!
 
@@ -298,7 +298,7 @@ cairo_LIB_DEPENDS=	cairo.2:${PORTSDIR}/graphics/cairo
 cairo_EXTRACT_AFTER_ARGS=	--exclude mozilla/gfx/cairo
 
 jpeg_LIB_DEPENDS=	jpeg.9:${PORTSDIR}/graphics/jpeg
-jpeg_MOZ_OPTIONS=	--with-system-jpeg=${LOCALBASE
+jpeg_MOZ_OPTIONS=	--with-system-jpeg=${LOCALBASE}
 jpeg_EXTRACT_AFTER_ARGS=	--exclude mozilla/jpeg
 
 nspr_LIB_DEPENDS=	nspr4:${PORTSDIR}/devel/nspr
@@ -313,12 +313,18 @@ png_MOZ_OPTIONS=	--with-system-png=${LOCALBASE}
 xft_LIB_DEPENDS=	Xft.2:${PORTSDIR}/x11-fonts/libXft
 zip_DEPENDS=		zip:${PORTSDIR}/archivers/zip
 
+.for use in ${USE_MOZILLA}
+${use:S/-/_WITHOUT_/}=	${TRUE}
+.endfor
+
 .for dep in ${_ALL_DEPENDS}
+.if !defined(_WITHOUT_${dep})
 BUILD_DEPENDS+=	${${dep}_DEPENDS}
 LIB_DEPENDS+=	${${dep}_LIB_DEPENDS}
 RUN_DEPENDS+=	${${dep}_DEPENDS}
 MOZ_OPTIONS+=	${${dep}_MOZ_OPTIONS}
 EXTRACT_AFTER_ARGS+=	${${dep}_EXTRACT_AFTER_ARGS}
+.endif
 .endfor
 
 # Standard options from README
@@ -434,7 +440,7 @@ LIB_BZ2=	-lbz2_p
 LIB_BZ2=	-lbz2
 .endif
 
-.else
+.else # bsd.port.post.mk
 
 post-patch: gecko-post-patch gecko-moz-pis-patch
 
@@ -516,7 +522,7 @@ post-build: gecko-post-build
 
 gecko-post-build:
 	@${REINPLACE_CMD} -e "s|\(Libs:.*\)\($$\)|\1 -Wl,-rpath,${PREFIX}/lib/${MOZ_RPATH}\2|" \
-		${WRKSRC}/build/unix/*.pc
+		${WRKSRC}/build/unix/*.pc || ${TRUE}
 
 pre-install: gecko-moz-pis-pre-install gecko-pre-install port-pre-install gecko-create-plist
 
@@ -533,19 +539,19 @@ gecko-pre-install:
 		${MAKEFILE} ${MAKE_ARGS} prefix=${FAKEDIR} ${INSTALL_TARGET}
 .if defined(MOZILLA_SUFX) && ${MOZILLA_SUFX}!="none"
 	${MV} ${FAKEDIR}/bin/${MOZILLA:S/${MOZILLA_SUFX}//} ${FAKEDIR}/bin/${MOZILLA}
+.if exists(${FAKEDIR}/bin/${MOZILLA:S/${MOZILLA_SUFX}//}-config)
 	${MV} ${FAKEDIR}/bin/${MOZILLA:S/${MOZILLA_SUFX}//}-config ${FAKEDIR}/bin/${MOZILLA}-config
+.endif
 .for pc in ${MOZ_PKGCONFIG_FILES:S|${MOZILLA_SUFX}||}
 	${SED} -e 's|Requires: ${MOZILLA:S/${MOZILLA_SUFX}//}|Requires: ${MOZILLA}|' \
 	${FAKEDIR}/lib/pkgconfig/${pc}.pc > ${FAKEDIR}/lib/pkgconfig/${pc:S/${MOZILLA:S,${MOZILLA_SUFX},,}/${MOZILLA}/}.pc
 .endfor
 	@${REINPLACE_CMD} -e 's|${MOZILLA}-bin|${MOZILLA:S/${MOZILLA_SUFX}//}|; \
 		s|$${progbase}-bin|${MOZILLA:S/${MOZILLA_SUFX}//}-bin|' \
-		${FAKEDIR}/bin/${MOZILLA} \
-		${FAKEDIR}/bin/${MOZILLA}-config
+		${FAKEDIR}/bin/${MOZILLA}*
 .endif
 	@${REINPLACE_CMD} -e 's|${FAKEDIR}|${PREFIX}|g' \
-		${FAKEDIR}/bin/${MOZILLA}	\
-		${FAKEDIR}/bin/${MOZILLA}-config
+		${FAKEDIR}/bin/${MOZILLA}*
 	${RM} -f ${FAKEDIR}/bin/*.bak
 .endif
 
@@ -561,7 +567,7 @@ gecko-create-plist:
 	${ECHO_CMD} "${BROWSER_PLUGINS_DIR}/.${MOZILLA}.keep" >> ${PLIST}
 	${ECHO_CMD} "@unexec ${RMDIR} %D/${BROWSER_PLUGINS_DIR} 2>/dev/null || ${TRUE}" >> ${PLIST}
 	${MKDIR} ${FAKEDIR}/libdata
-	${MV} -f ${FAKEDIR}/lib/pkgconfig ${FAKEDIR}/libdata/
+	${MV} -f ${FAKEDIR}/lib/pkgconfig ${FAKEDIR}/libdata/ || ${TRUE}
 	${RM} -f ${FAKEDIR}/lib/pkgconfig
 .for dir in ${MOZILLA_PLIST_DIRS}
 	@cd ${FAKEDIR}/${dir} && ${FIND} -s * -type f -o -type l | \

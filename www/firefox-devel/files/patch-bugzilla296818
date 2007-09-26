@@ -578,156 +578,6 @@ index 16b9fd8..48431e4 100644
      /* we're done dude */
      break;
    }
-diff --git modules/libpr0n/decoders/png/nsPNGDecoder.cpp modules/libpr0n/decoders/png/nsPNGDecoder.cpp
-index 85f0216..15abc9f 100644
---- modules/libpr0n/decoders/png/nsPNGDecoder.cpp
-+++ modules/libpr0n/decoders/png/nsPNGDecoder.cpp
-@@ -23,6 +23,7 @@
-  * Contributor(s):
-  *   Stuart Parmenter <stuart@mozilla.com>
-  *   Andrew Smith
-+ *   Federico Mena-Quintero <federico@novell.com>
-  *
-  * Alternatively, the contents of this file may be used under the terms of
-  * either the GNU General Public License Version 2 or later (the "GPL"), or
-@@ -73,6 +74,7 @@ static void PNGAPI warning_callback(png_structp png_ptr, png_const_charp warning
- 
- #ifdef PR_LOGGING
- PRLogModuleInfo *gPNGLog = PR_NewLogModule("PNGDecoder");
-+static PRLogModuleInfo *gPNGDecoderAccountingLog = PR_NewLogModule ("PNGDecoderAccounting");
- #endif
- 
- NS_IMPL_ISUPPORTS1(nsPNGDecoder, imgIDecoder)
-@@ -119,6 +121,11 @@ void nsPNGDecoder::CreateFrame(png_uint_32 x_offset, png_uint_32 y_offset,
-   
-   if (mObserver)
-     mObserver->OnStartFrame(nsnull, mFrame);
-+
-+  PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
-+          ("PNGDecoderAccounting: nsPNGDecoder::CreateFrame -- created image frame with %dx%d pixels in container %p",
-+           width, height,
-+           mImage.get ()));
- }
- 
- // set timeout and frame disposal method for the current frame
-@@ -213,9 +220,25 @@ NS_IMETHODIMP nsPNGDecoder::Init(imgILoad *aLoad)
- /* void close (); */
- NS_IMETHODIMP nsPNGDecoder::Close()
- {
-+  nsresult result;
-+
-   if (mPNG)
-     png_destroy_read_struct(&mPNG, mInfo ? &mInfo : NULL, NULL);
- 
-+  result = mImage->RestoreDataDone ();
-+  if (NS_FAILED (result)) {
-+    PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
-+            ("PNGDecoderAccounting: nsPNGDecoder::Close(): failure in RestoreDataDone() for image container %p",
-+             mImage.get ()));
-+
-+    mError = PR_TRUE;
-+    return result;
-+  }
-+
-+  PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
-+          ("PNGDecoderAccounting: nsPNGDecoder::Close(): image container %p is now with RestoreDataDone",
-+           mImage.get ()));
-+
-   return NS_OK;
- }
- 
-@@ -234,6 +257,7 @@ static NS_METHOD ReadDataOut(nsIInputStream* in,
-                              PRUint32 *writeCount)
- {
-   nsPNGDecoder *decoder = static_cast<nsPNGDecoder*>(closure);
-+  nsresult result;
- 
-   if (decoder->mError) {
-     *writeCount = 0;
-@@ -248,10 +272,24 @@ static NS_METHOD ReadDataOut(nsIInputStream* in,
-     *writeCount = 0;
-     return NS_ERROR_FAILURE;
-   }
--
-   png_process_data(decoder->mPNG, decoder->mInfo,
-                    reinterpret_cast<unsigned char *>(const_cast<char *>(fromRawSegment)), count);
- 
-+  result = decoder->mImage->AddRestoreData ((char *) fromRawSegment, count);
-+  if (NS_FAILED (result)) {
-+    PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
-+            ("PNGDecoderAccounting: ReadDataOut(): failed to add restore data to image container %p",
-+             decoder->mImage.get ()));
-+
-+    decoder->mError = PR_TRUE;
-+    *writeCount = 0;
-+    return result;
-+  }
-+
-+  PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
-+          ("PNGDecoderAccounting: ReadDataOut(): Added restore data to image container %p",
-+           decoder->mImage.get ()));
-+
-   *writeCount = count;
-   return NS_OK;
- }
-@@ -525,13 +563,41 @@ info_callback(png_structp png_ptr, png_infop info_ptr)
-   if (decoder->mObserver)
-     decoder->mObserver->OnStartDecode(nsnull);
- 
--  decoder->mImage = do_CreateInstance("@mozilla.org/image/container;1");
--  if (!decoder->mImage)
--    longjmp(decoder->mPNG->jmpbuf, 5); // NS_ERROR_OUT_OF_MEMORY
-+  /* The image container may already exist if it is reloading itself from us.
-+   * Check that it has the same width/height; otherwise create a new container.
-+   */
-+  decoder->mImageLoad->GetImage (getter_AddRefs (decoder->mImage));
-+  if (decoder->mImage) {
-+    PRInt32 container_width, container_height;
-+
-+    decoder->mImage->GetWidth (&container_width);
-+    decoder->mImage->GetHeight (&container_height);
- 
--  decoder->mImageLoad->SetImage(decoder->mImage);
-+    if (container_width != width || container_height != height)
-+      decoder->mImage = nsnull;
-+  }
- 
--  decoder->mImage->Init(width, height, decoder->mObserver);
-+  if (!decoder->mImage) {
-+    decoder->mImage = do_CreateInstance("@mozilla.org/image/container;1");
-+    if (!decoder->mImage)
-+      longjmp(decoder->mPNG->jmpbuf, 5); // NS_ERROR_OUT_OF_MEMORY
-+
-+    decoder->mImageLoad->SetImage(decoder->mImage);
-+
-+    decoder->mImage->Init(width, height, decoder->mObserver);
-+
-+    /* FIXME: is this MIME type always right for this decoder? */
-+    if (NS_FAILED (decoder->mImage->SetDiscardable ("image/png"))) {
-+      PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
-+              ("PNGDecoderAccounting: info_callback(): failed to set image container %p as discardable",
-+               decoder->mImage.get ()));
-+      longjmp(decoder->mPNG->jmpbuf, 5); // NS_ERROR_OUT_OF_MEMORY
-+    }
-+
-+    PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
-+            ("PNGDecoderAccounting: info_callback(): set image container %p as discardable",
-+             decoder->mImage.get ()));
-+  }
- 
-   if (decoder->mObserver)
-     decoder->mObserver->OnStartContainer(nsnull, decoder->mImage);
-@@ -757,7 +823,7 @@ end_callback(png_structp png_ptr, png_infop info_ptr)
-   }
-   
-   decoder->mImage->DecodingComplete();
--  
-+
-   if (decoder->mObserver) {
-     if (!(decoder->apngFlags & FRAME_HIDDEN))
-       decoder->mObserver->OnStopFrame(nsnull, decoder->mFrame);
-diff --git modules/libpr0n/public/imgIContainer.idl modules/libpr0n/public/imgIContainer.idl
-index fc42335..524af96 100644
 --- modules/libpr0n/public/imgIContainer.idl
 +++ modules/libpr0n/public/imgIContainer.idl
 @@ -22,6 +22,7 @@
@@ -1619,3 +1469,150 @@ index 3db7034..aa56939 100644
  };
  
  #endif /* __imgContainer_h__ */
+--- modules/libpr0n/decoders/png/nsPNGDecoder.cpp.orig	2007-09-10 16:01:18.000000000 -0400
++++ modules/libpr0n/decoders/png/nsPNGDecoder.cpp	2007-09-26 13:39:26.000000000 -0400
+@@ -23,6 +23,7 @@
+  * Contributor(s):
+  *   Stuart Parmenter <stuart@mozilla.com>
+  *   Andrew Smith
++ *   Federico Mena-Quintero <federico@novell.com>
+  *
+  * Alternatively, the contents of this file may be used under the terms of
+  * either the GNU General Public License Version 2 or later (the "GPL"), or
+@@ -73,6 +74,7 @@
+ 
+ #ifdef PR_LOGGING
+ PRLogModuleInfo *gPNGLog = PR_NewLogModule("PNGDecoder");
++static PRLogModuleInfo *gPNGDecoderAccountingLog = PR_NewLogModule ("PNGDecoderAccounting");
+ #endif
+ 
+ NS_IMPL_ISUPPORTS1(nsPNGDecoder, imgIDecoder)
+@@ -119,6 +121,12 @@
+   
+   if (mObserver)
+     mObserver->OnStartFrame(nsnull, mFrame);
++ 
++    PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
++           ("PNGDecoderAccounting: nsPNGDecoder::CreateFrame -- created image frame with %dx%d pixels in container %p",
++            width, height,
++            mImage.get ()));
++
+ 
+   mFrameHasNoAlpha = PR_TRUE;
+ }
+@@ -215,9 +223,25 @@
+ /* void close (); */
+ NS_IMETHODIMP nsPNGDecoder::Close()
+ {
++  nsresult result;
++
+   if (mPNG)
+     png_destroy_read_struct(&mPNG, mInfo ? &mInfo : NULL, NULL);
+ 
++  result = mImage->RestoreDataDone ();
++  if (NS_FAILED (result)) {
++    PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
++            ("PNGDecoderAccounting: nsPNGDecoder::Close(): failure in RestoreDataDone() for image container %p",
++             mImage.get ()));
++
++    mError = PR_TRUE;
++    return result;
++  }
++
++  PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
++          ("PNGDecoderAccounting: nsPNGDecoder::Close(): image container %p is now with RestoreDataDone",
++           mImage.get ()));
++
+   return NS_OK;
+ }
+ 
+@@ -236,6 +260,7 @@
+                              PRUint32 *writeCount)
+ {
+   nsPNGDecoder *decoder = static_cast<nsPNGDecoder*>(closure);
++  nsresult result;
+ 
+   if (decoder->mError) {
+     *writeCount = 0;
+@@ -250,10 +275,24 @@
+     *writeCount = 0;
+     return NS_ERROR_FAILURE;
+   }
+-
+   png_process_data(decoder->mPNG, decoder->mInfo,
+                    reinterpret_cast<unsigned char *>(const_cast<char *>(fromRawSegment)), count);
+ 
++  result = decoder->mImage->AddRestoreData ((char *) fromRawSegment, count);
++  if (NS_FAILED (result)) {
++    PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
++            ("PNGDecoderAccounting: ReadDataOut(): failed to add restore data to image container %p",
++             decoder->mImage.get ()));
++
++    decoder->mError = PR_TRUE;
++    *writeCount = 0;
++    return result;
++  }
++
++  PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
++          ("PNGDecoderAccounting: ReadDataOut(): Added restore data to image container %p",
++           decoder->mImage.get ()));
++
+   *writeCount = count;
+   return NS_OK;
+ }
+@@ -527,13 +566,41 @@
+   if (decoder->mObserver)
+     decoder->mObserver->OnStartDecode(nsnull);
+ 
+-  decoder->mImage = do_CreateInstance("@mozilla.org/image/container;1");
+-  if (!decoder->mImage)
+-    longjmp(decoder->mPNG->jmpbuf, 5); // NS_ERROR_OUT_OF_MEMORY
++  /* The image container may already exist if it is reloading itself from us.
++   * Check that it has the same width/height; otherwise create a new container.
++   */
++  decoder->mImageLoad->GetImage (getter_AddRefs (decoder->mImage));
++  if (decoder->mImage) {
++    PRInt32 container_width, container_height;
+ 
+-  decoder->mImageLoad->SetImage(decoder->mImage);
++    decoder->mImage->GetWidth (&container_width);
++    decoder->mImage->GetHeight (&container_height);
+ 
+-  decoder->mImage->Init(width, height, decoder->mObserver);
++    if (container_width != width || container_height != height)
++      decoder->mImage = nsnull;
++  }
++
++  if (!decoder->mImage) {
++    decoder->mImage = do_CreateInstance("@mozilla.org/image/container;1");
++    if (!decoder->mImage)
++      longjmp(decoder->mPNG->jmpbuf, 5); // NS_ERROR_OUT_OF_MEMORY
++
++    decoder->mImageLoad->SetImage(decoder->mImage);
++
++    decoder->mImage->Init(width, height, decoder->mObserver);
++
++    /* FIXME: is this MIME type always right for this decoder? */
++    if (NS_FAILED (decoder->mImage->SetDiscardable ("image/png"))) {
++      PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
++              ("PNGDecoderAccounting: info_callback(): failed to set image container %p as discardable",
++               decoder->mImage.get ()));
++      longjmp(decoder->mPNG->jmpbuf, 5); // NS_ERROR_OUT_OF_MEMORY
++    }
++
++    PR_LOG (gPNGDecoderAccountingLog, PR_LOG_DEBUG,
++            ("PNGDecoderAccounting: info_callback(): set image container %p as discardable",
++             decoder->mImage.get ()));
++  }
+ 
+   if (decoder->mObserver)
+     decoder->mObserver->OnStartContainer(nsnull, decoder->mImage);
+@@ -775,7 +842,7 @@
+   }
+   
+   decoder->mImage->DecodingComplete();
+-  
++
+   if (decoder->mObserver) {
+     if (!(decoder->apngFlags & FRAME_HIDDEN))
+       decoder->mObserver->OnStopFrame(nsnull, decoder->mFrame);

@@ -3,22 +3,24 @@
 # Whom:				Alan Eldridge <alane@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/www/firefox-devel/Makefile,v 1.4 2007/09/19 23:49:33 ahze Exp $
+#   $MCom: ports-experimental/www/firefox-devel/Makefile,v 1.5 2007/09/20 18:09:32 ahze Exp $
 
 PORTNAME=	firefox
-DISTVERSION=	3.0.a7
+DISTVERSION=	3.0.a8
 PORTEPOCH=	1
 CATEGORIES=	www ipv6
 MASTER_SITES=	${MASTER_SITE_MOZILLA}
-MASTER_SITE_SUBDIR=	${PORTNAME}/releases/granparadiso/alpha7/source/
+MASTER_SITE_SUBDIR=	${PORTNAME}/releases/granparadiso/alpha8/source/
 #MASTER_SITE_SUBDIR=	${PORTNAME}/releases/${DISTVERSION}/source
-DISTNAME=	granparadiso-alpha7-source
+DISTNAME=	granparadiso-alpha8-source
 #DISTNAME=	${PORTNAME}-${DISTVERSION}-source
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Web browser based on the browser portion of Mozilla
 
 USE_GECKO=	gecko
+MOZ_PKGCONFIG_FILES=	# empty
+USE_MOZILLA=	-png
 MOZILLA_NAME=	Firefox-${MOZILLA_SUFX}
 MOZILLA_SUFX=	-devel
 MOZILLA=	${PORTNAME}${MOZILLA_SUFX}
@@ -37,7 +39,6 @@ NO_MOZPKGINSTALL=yes
 
 FIREFOX_ICON=		${MOZILLA}.xpm
 FIREFOX_ICON_SRC=	${PREFIX}/lib/firefox-devel/chrome/icons/default/default.xpm
-MOZ_PKGCONFIG_FILES=	${MOZILLA}-js ${MOZILLA}-xpcom ${MOZILLA}-plugin
 MOZ_OPTIONS=	--enable-application=browser \
 		--enable-system-cairo	\
 		--enable-official-branding \
@@ -70,7 +71,7 @@ post-patch:
 .endfor
 
 port-pre-install:
-	${SED} -e 's|1.9a7|0|' ${WRKSRC}/dist/bin/application.ini ${FAKEDIR}/lib
+#	${SED} -e 's|1.9a7|0|' ${WRKSRC}/dist/bin/application.ini ${FAKEDIR}/lib
 	${ECHO_CMD} 'share/applications/${MOZILLA}.desktop' >> ${PLIST}
 	${ECHO_CMD} "@unexec ${RMDIR} %D/share/applications 2>/dev/null || ${TRUE}" >> ${PLIST}
 	${ECHO_CMD} 'share/pixmaps/${FIREFOX_ICON}' >> ${PLIST}

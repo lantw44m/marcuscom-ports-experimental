@@ -4,7 +4,7 @@
  ifeq (86,$(findstring 86,$(OS_TEST)))
  CPPSRCS		:= xptcinvoke_unixish_x86.cpp xptcstubs_unixish_x86.cpp
  endif
-+ifeq (amd64,$(OS_TEST))
++ifeq (x86_64,$(OS_TEST))
 +CPPSRCS		:= xptcinvoke_x86_64_linux.cpp xptcstubs_x86_64_linux.cpp
 +endif
  endif
