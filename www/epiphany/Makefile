@@ -3,7 +3,7 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/www/epiphany/Makefile,v 1.1 2007/10/22 00:05:50 ahze Exp $
 #
 
 PORTNAME=	epiphany
@@ -53,15 +53,16 @@ WITH_GNOME=	yes
 
 .if defined(EPHY_SLAVE) && ${EPHY_SLAVE}=="webkit"
 LIB_DEPENDS+=	WebKitGtk.1:${PORTSDIR}/www/webkit
-CONFIGURE_ARGS+=	--program-transform-name='s|epiphany|epiphany-webkit|' \
-			--with-engine=webkit
+CONFIGURE_ARGS+=	--with-engine=webkit
 EXTRA_CFLAGS+=	`pkg-config --cflags WebKitGtk`
 EXTRA_LIBS+=	`pkg-config --libs WebKitGtk`
+CONFLICTS=	epiphany-[1-9]*
 .else
 USE_GECKO+=	firefox seamonkey firefox15<->firefox xulrunner
 CONFIGURE_ARGS+=	--with-gecko=${GECKO} \
 			--with-engine=mozilla
 .include "${PORTSDIR}/www/mozilla/bsd.gecko.mk"
+CONFLICTS=	epiphany-webkit-[1-9]*
 .endif
 
 NO_WERROR=	yes
