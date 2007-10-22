@@ -3,7 +3,7 @@
 # Whom:			Michael Johnson <ahze@FreeBSD.org>
 #
 # $FreeBSD$
-#    $MCom: ports-experimental/www/webkit/Makefile,v 1.1 2007/10/21 23:55:30 ahze Exp $
+#    $MCom: ports-experimental/www/webkit/Makefile,v 1.2 2007/10/22 01:03:32 ahze Exp $
 
 PORTNAME=	webkit
 PORTVERSION=	26843
@@ -31,6 +31,10 @@ USE_LDCONFIG=	yes
 post-patch:
 	@${REINPLACE_CMD} -e 's|Linux i686|${OPSYS} ${ARCH}|' \
 		${WRKSRC}/WebKit/gtk/WebCoreSupport/FrameLoaderClientGtk.cpp
+.if defined(WITH_SAFARI_HACK)
+	@${REINPLACE_CMD} -e 's|Gecko)|Gecko) Safari/4.20|' \
+		${WRKSRC}/WebKit/gtk/WebCoreSupport/FrameLoaderClientGtk.cpp
+.endif
 
 do-build:
 	@(cd ${WRKSRC} && ${SETENV} QMAKESPEC=${QMAKESPEC} ${PERL5} ${BUILD_SCRIPT} --gtk --qmake=${QMAKE} \
@@ -43,6 +47,6 @@ pre-install:
 	@${CP} -Rf ${INSTALL_WRKSRC}/lib/pkgconfig ${INSTALL_WRKSRC}/libdata/
 
 do-install:
-	@(cd ${INSTALL_WRKSRC} && ${MAKE} install INSTALL_ROOT=${PREFIX})
+	@(cd ${INSTALL_WRKSRC} && ${MAKE} install)
 
 .include <bsd.port.mk>
