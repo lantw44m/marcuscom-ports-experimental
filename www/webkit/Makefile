@@ -3,7 +3,7 @@
 # Whom:			Michael Johnson <ahze@FreeBSD.org>
 #
 # $FreeBSD$
-#    $MCom$
+#    $MCom: ports-experimental/www/webkit/Makefile,v 1.1 2007/10/21 23:55:30 ahze Exp $
 
 PORTNAME=	webkit
 PORTVERSION=	26843
@@ -28,6 +28,10 @@ INSTALL_WRKSRC=	${WRKSRC}/WebKitBuild/Release
 BUILD_SCRIPT=	WebKitTools/Scripts/build-webkit
 USE_LDCONFIG=	yes
 
+post-patch:
+	@${REINPLACE_CMD} -e 's|Linux i686|${OPSYS} ${ARCH}|' \
+		${WRKSRC}/WebKit/gtk/WebCoreSupport/FrameLoaderClientGtk.cpp
+
 do-build:
 	@(cd ${WRKSRC} && ${SETENV} QMAKESPEC=${QMAKESPEC} ${PERL5} ${BUILD_SCRIPT} --gtk --qmake=${QMAKE} \
 	--qmakearg=WEBKIT_INC_DIR=${PREFIX}/include/WebKit --qmakearg=WEBKIT_LIB_DIR=${PREFIX}/lib)
@@ -37,8 +41,6 @@ pre-install:
 		${INSTALL_WRKSRC}/WebCore/Makefile
 	@${MKDIR} ${INSTALL_WRKSRC}/libdata
 	@${CP} -Rf ${INSTALL_WRKSRC}/lib/pkgconfig ${INSTALL_WRKSRC}/libdata/
-#	@${REINPLACE_CMD} -e 's|/lib|$${prefix}/lib|; s|/include|$${prefix}/include|' \
-#		${INSTALL_WRKSRC}/libdata/pkgconfig/WebKitGtk.pc
 
 do-install:
 	@(cd ${INSTALL_WRKSRC} && ${MAKE} install INSTALL_ROOT=${PREFIX})
