@@ -1,0 +1,17 @@
+include/QtWebKit/qcookiejar.h
+include/QtWebKit/qwebframe.h
+include/QtWebKit/qwebhistoryinterface.h
+include/QtWebKit/qwebkitglobal.h
+include/QtWebKit/qwebnetworkinterface.h
+include/QtWebKit/qwebobjectplugin.h
+include/QtWebKit/qwebobjectpluginconnector.h
+include/QtWebKit/qwebpage.h
+include/QtWebKit/qwebpagehistory.h
+include/QtWebKit/qwebsettings.h
+lib/libQtWebKit.prl
+lib/libQtWebKit.so
+lib/libQtWebKit.so.1
+lib/libQtWebKit.so.1.0
+lib/libQtWebKit.so.1.0.0
+libdata/pkgconfig/QtWebKit.pc
+mkspecs/features/qtwebkit.prf
