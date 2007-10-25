@@ -3,12 +3,13 @@
 # Whom:			Michael Johnson <ahze@FreeBSD.org>
 #
 # $FreeBSD$
-#    $MCom: ports-experimental/www/webkit/Makefile,v 1.3 2007/10/22 01:19:39 ahze Exp $
+#    $MCom: ports-experimental/www/webkit/Makefile,v 1.4 2007/10/25 11:41:05 ahze Exp $
 
 PORTNAME=	webkit
-PORTVERSION=	26843
+PORTVERSION=	27033
 CATEGORIES=	www gnome
-MASTER_SITES=	LOCAL/ahze
+MASTER_SITES=	http://nightly.webkit.org/files/trunk/src/
+#MASTER_SITES=	LOCAL/ahze
 DISTNAME=	WebKit-r${PORTVERSION}
 
 MAINTAINER=	gnome@FreeBSD.org
