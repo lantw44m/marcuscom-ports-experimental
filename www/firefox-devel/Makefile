@@ -3,17 +3,15 @@
 # Whom:				Alan Eldridge <alane@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/www/firefox-devel/Makefile,v 1.5 2007/09/20 18:09:32 ahze Exp $
+#   $MCom: ports-experimental/www/firefox-devel/Makefile,v 1.6 2007/09/26 18:33:23 ahze Exp $
 
 PORTNAME=	firefox
-DISTVERSION=	3.0.a8
+DISTVERSION=	3.0b1
 PORTEPOCH=	1
 CATEGORIES=	www ipv6
 MASTER_SITES=	${MASTER_SITE_MOZILLA}
-MASTER_SITE_SUBDIR=	${PORTNAME}/releases/granparadiso/alpha8/source/
-#MASTER_SITE_SUBDIR=	${PORTNAME}/releases/${DISTVERSION}/source
-DISTNAME=	granparadiso-alpha8-source
-#DISTNAME=	${PORTNAME}-${DISTVERSION}-source
+MASTER_SITE_SUBDIR=	${PORTNAME}/releases/${DISTVERSION}/source
+DISTNAME=	${PORTNAME}-${DISTVERSION}-source
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Web browser based on the browser portion of Mozilla
