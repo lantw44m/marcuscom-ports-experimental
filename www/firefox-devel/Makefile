@@ -3,10 +3,10 @@
 # Whom:				Alan Eldridge <alane@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/www/firefox-devel/Makefile,v 1.6 2007/09/26 18:33:23 ahze Exp $
+#   $MCom: ports-experimental/www/firefox-devel/Makefile,v 1.7 2007/11/20 14:26:27 ahze Exp $
 
 PORTNAME=	firefox
-DISTVERSION=	3.0b1
+DISTVERSION=	3.0b3
 PORTEPOCH=	1
 CATEGORIES=	www ipv6
 MASTER_SITES=	${MASTER_SITE_MOZILLA}

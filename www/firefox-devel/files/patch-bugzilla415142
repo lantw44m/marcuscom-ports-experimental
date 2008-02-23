@@ -1,0 +1,640 @@
+Index: Makefile.in
+===================================================================
+RCS file: /cvsroot/mozilla/js/src/Makefile.in,v
+retrieving revision 3.117
+diff -p -u -1 -0 -r3.117 Makefile.in
+--- js/src/Makefile.in	16 Jan 2008 20:42:51 -0000	3.117
++++ js/src/Makefile.in	19 Feb 2008 08:17:04 -0000
+@@ -143,21 +143,20 @@ EXPORTS		= \
+ 		jshash.h \
+ 		jsinterp.h \
+ 		jsiter.h \
+ 		jslock.h \
+ 		jslong.h \
+ 		jsmath.h \
+ 		jsnum.h \
+ 		jsobj.h \
+ 		jsopcode.tbl \
+ 		jsopcode.h \
+-		jsosdep.h \
+ 		jsotypes.h \
+ 		jsparse.h \
+ 		jsprf.h \
+ 		jsproto.tbl \
+ 		jsprvtd.h \
+ 		jspubtd.h \
+ 		jsregexp.h \
+ 		jsscan.h \
+ 		jsscope.h \
+ 		jsscript.h \
+Index: Makefile.ref
+===================================================================
+RCS file: /cvsroot/mozilla/js/src/Makefile.ref,v
+retrieving revision 3.49
+diff -p -u -1 -0 -r3.49 Makefile.ref
+--- js/src/Makefile.ref	17 Feb 2008 03:27:30 -0000	3.49
++++ js/src/Makefile.ref	19 Feb 2008 08:17:04 -0000
+@@ -158,21 +158,20 @@ JS_HFILES =		\
+ 	jsnum.h		\
+ 	jsobj.h		\
+ 	jsopcode.h      \
+ 	jsparse.h	\
+ 	jsarena.h	\
+ 	jsclist.h	\
+ 	jsdhash.h	\
+ 	jsdtoa.h	\
+ 	jshash.h	\
+ 	jslong.h	\
+-	jsosdep.h	\
+ 	jstypes.h	\
+ 	jsprvtd.h	\
+ 	jspubtd.h	\
+ 	jsregexp.h	\
+ 	jsscan.h	\
+ 	jsscope.h	\
+ 	jsscript.h	\
+ 	jsstr.h		\
+ 	jsxdrapi.h	\
+ 	jsxml.h		\
+Index: README.html
+===================================================================
+RCS file: /cvsroot/mozilla/js/src/README.html,v
+retrieving revision 3.11
+diff -p -u -1 -0 -r3.11 README.html
+--- js/src/README.html	25 Apr 2007 19:39:15 -0000	3.11
++++ js/src/README.html	19 Feb 2008 08:17:05 -0000
+@@ -782,24 +782,20 @@ prhash.c, prhash.h</h4>
+ Portable, extensible hash tables. These use multiplicative hash for strength
+ reduction over division hash, yet with very good key distribution over
+ power of two table sizes. Collisions resolve via chaining, so each entry
+ burns a malloc and can fragment the heap.
+ <h4>
+ prlong.c, prlong.h</h4>
+ 64-bit integer emulation, and compatible macros that use C's long long
+ type where it exists (my last company mapped long long to a 128-bit type,
+ but no real architecture does 128-bit ints yet).
+ <h4>
+-jsosdep.h</h4>
+-Annoying OS dependencies rationalized into a few "feature-test" macros
+-such as <tt>JS_HAVE_LONG_LONG</tt>.
+-<h4>
+ jsprf.*</h4>
+ Portable, buffer-overrun-resistant sprintf and friends. For no good reason
+ save lack of time, the %e, %f, and %g formats cause your system's native
+ sprintf, rather than <tt>JS_dtoa()</tt>, to be used. This bug doesn't affect
+ JSRef, because it uses its own <tt>JS_dtoa()</tt> call in <i>jsnum.c</i>
+ to convert from double to string, but it's a bug that we'll fix later,
+ and one you should be aware of if you intend to use a <tt>JS_*printf()</tt>&nbsp;
+ function with your own floating type arguments - various vendor sprintf's
+ mishandle NaN, +/-Inf, and some even print normal floating values inaccurately.
+ <h4>
+Index: jscpucfg.c
+===================================================================
+RCS file: /cvsroot/mozilla/js/src/jscpucfg.c,v
+retrieving revision 3.26
+diff -p -u -1 -0 -r3.26 jscpucfg.c
+--- js/src/jscpucfg.c	21 May 2007 22:55:48 -0000	3.26
++++ js/src/jscpucfg.c	19 Feb 2008 08:17:07 -0000
+@@ -57,21 +57,21 @@
+ #ifdef WIN32
+ #if defined(__GNUC__)
+ #define INT64   long long
+ #else
+ #define INT64   _int64
+ #endif /* __GNUC__ */
+ #else
+ #define INT64   long
+ #endif
+ #else
+-#if defined(HPUX) || defined(__QNX__) || defined(_SCO_DS) || defined(UNIXWARE)
++#if defined(HPUX) || defined(__QNX__)
+ #define INT64   long
+ #else
+ #define INT64   long long
+ #endif
+ #endif
+ 
+ #endif /* CROSS_COMPILE */
+ 
+ #ifdef __GNUC__
+ #define NS_NEVER_INLINE __attribute__((noinline))
+@@ -366,15 +366,18 @@ int main(int argc, char **argv)
+     printf("\n");
+ 
+     printf("#define JS_BYTES_PER_WORD_LOG2   %dL\n", Log2(sizeof_word));
+     printf("#define JS_BYTES_PER_DWORD_LOG2  %dL\n", Log2(sizeof_dword));
+     printf("#define JS_WORDS_PER_DWORD_LOG2  %dL\n", Log2(sizeof_dword/sizeof_word));
+     printf("\n");
+ 
+     printf("#define JS_STACK_GROWTH_DIRECTION (%d)\n", StackGrowthDirection(&dummy1));
+     printf("\n");
+ 
++    printf("#define JS_HAVE_LONG_LONG\n");
++    printf("\n");
++
+     printf("#endif /* js_cpucfg___ */\n");
+ 
+     return EXIT_SUCCESS;
+ }
+ 
+Index: jscpucfg.h
+===================================================================
+RCS file: /cvsroot/mozilla/js/src/jscpucfg.h,v
+retrieving revision 3.22
+diff -p -u -1 -0 -r3.22 jscpucfg.h
+--- js/src/jscpucfg.h	3 Nov 2005 02:23:59 -0000	3.22
++++ js/src/jscpucfg.h	19 Feb 2008 08:17:08 -0000
+@@ -33,21 +33,21 @@
+  * decision by deleting the provisions above and replace them with the notice
+  * and other provisions required by the GPL or the LGPL. If you do not delete
+  * the provisions above, a recipient may use your version of this file under
+  * the terms of any one of the MPL, the GPL or the LGPL.
+  *
+  * ***** END LICENSE BLOCK ***** */
+ 
+ #ifndef js_cpucfg___
+ #define js_cpucfg___
+ 
+-#include "jsosdep.h"
++#define JS_HAVE_LONG_LONG
+ 
+ #if defined(XP_WIN) || defined(XP_OS2) || defined(WINCE)
+ 
+ #if defined(_WIN64)
+ 
+ #if defined(_M_X64) || defined(_M_AMD64) || defined(_AMD64_)
+ #define IS_LITTLE_ENDIAN 1
+ #undef  IS_BIG_ENDIAN
+ 
+ #define JS_BYTES_PER_BYTE   1L
+Index: jslibmath.h
+===================================================================
+RCS file: /cvsroot/mozilla/js/src/jslibmath.h,v
+retrieving revision 3.22
+diff -p -u -1 -0 -r3.22 jslibmath.h
+--- js/src/jslibmath.h	13 Jul 2006 14:01:41 -0000	3.22
++++ js/src/jslibmath.h	19 Feb 2008 08:17:08 -0000
+@@ -108,21 +108,21 @@ extern double js_copysign(double, double
+  * Use math routines in fdlibm.
+  */
+ 
+ #undef __P
+ #ifdef __STDC__
+ #define __P(p)  p
+ #else
+ #define __P(p)  ()
+ #endif
+ 
+-#if (defined _WIN32 && !defined WINCE) || defined SUNOS4
++#if defined _WIN32 && !defined WINCE
+ 
+ #define fd_acos acos
+ #define fd_asin asin
+ #define fd_atan atan
+ #define fd_cos cos
+ #define fd_sin sin
+ #define fd_tan tan
+ #define fd_exp exp
+ #define fd_log log
+ #define fd_sqrt sqrt
+Index: jslock.c
+===================================================================
+RCS file: /cvsroot/mozilla/js/src/jslock.c,v
+retrieving revision 3.79
+diff -p -u -1 -0 -r3.79 jslock.c
+--- js/src/jslock.c	15 Feb 2008 00:44:47 -0000	3.79
++++ js/src/jslock.c	19 Feb 2008 08:17:09 -0000
+@@ -132,58 +132,20 @@ js_CompareAndSwap(jsword *w, jsword ov, 
+                           "lock\n"
+                           "cmpxchgl %2, (%1)\n"
+                           "sete %%al\n"
+                           "andl $1, %%eax\n"
+                           : "=a" (res)
+                           : "r" (w), "r" (nv), "a" (ov)
+                           : "cc", "memory");
+     return (int)res;
+ }
+ 
+-#elif (defined(__USLC__) || defined(_SCO_DS)) && defined(i386)
+-
+-/* Note: This fails on 386 cpus, cmpxchgl is a >= 486 instruction */
+-
+-asm int
+-js_CompareAndSwap(jsword *w, jsword ov, jsword nv)
+-{
+-%ureg w, nv;
+-	movl	ov,%eax
+-	lock
+-	cmpxchgl nv,(w)
+-	sete	%al
+-	andl	$1,%eax
+-%ureg w;  mem ov, nv;
+-	movl	ov,%eax
+-	movl	nv,%ecx
+-	lock
+-	cmpxchgl %ecx,(w)
+-	sete	%al
+-	andl	$1,%eax
+-%ureg nv;
+-	movl	ov,%eax
+-	movl	w,%edx
+-	lock
+-	cmpxchgl nv,(%edx)
+-	sete	%al
+-	andl	$1,%eax
+-%mem w, ov, nv;
+-	movl	ov,%eax
+-	movl	nv,%ecx
+-	movl	w,%edx
+-	lock
+-	cmpxchgl %ecx,(%edx)
+-	sete	%al
+-	andl	$1,%eax
+-}
+-#pragma asm full_optimization js_CompareAndSwap
+-
+ #elif defined(SOLARIS) && defined(sparc) && defined(ULTRA_SPARC)
+ 
+ static JS_INLINE int
+ js_CompareAndSwap(jsword *w, jsword ov, jsword nv)
+ {
+ #if defined(__GNUC__)
+     unsigned int res;
+     JS_ASSERT(ov != nv);
+     asm volatile ("\
+ stbar\n\
+Index: jslock.h
+===================================================================
+RCS file: /cvsroot/mozilla/js/src/jslock.h,v
+retrieving revision 3.39
+diff -p -u -1 -0 -r3.39 jslock.h
+--- js/src/jslock.h	15 Feb 2008 00:44:47 -0000	3.39
++++ js/src/jslock.h	19 Feb 2008 08:17:09 -0000
+@@ -243,21 +243,20 @@ extern JSBool js_IsTitleLocked(JSContext
+ 
+ #define JS_LOCK_VOID(cx, e)                                                   \
+     JS_BEGIN_MACRO                                                            \
+         JSRuntime *_rt = (cx)->runtime;                                       \
+         JS_LOCK_RUNTIME_VOID(_rt, e);                                         \
+     JS_END_MACRO
+ 
+ #if defined(JS_USE_ONLY_NSPR_LOCKS) ||                                        \
+     !( (defined(_WIN32) && defined(_M_IX86)) ||                               \
+        (defined(__GNUC__) && defined(__i386__)) ||                            \
+-       ((defined(__USLC__) || defined(_SCO_DS)) && defined(i386)) ||          \
+        (defined(SOLARIS) && defined(sparc) && defined(ULTRA_SPARC)) ||        \
+        defined(AIX) )
+ 
+ #define NSPR_LOCK 1
+ 
+ #undef JS_LOCK0
+ #undef JS_UNLOCK0
+ #define JS_LOCK0(P,M)   (JS_ACQUIRE_LOCK(((JSLock*)(P)->fat)), (P)->owner = (M))
+ #define JS_UNLOCK0(P,M) ((P)->owner = 0, JS_RELEASE_LOCK(((JSLock*)(P)->fat)))
+ 
+Index: jsosdep.h
+===================================================================
+RCS file: jsosdep.h
+diff -N jsosdep.h
+--- js/src/jsosdep.h	20 May 2006 22:27:28 -0000	3.21
++++ js/src//dev/null	1 Jan 1970 00:00:00 -0000
+@@ -1,115 +0,0 @@
+-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+- *
+- * ***** BEGIN LICENSE BLOCK *****
+- * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+- *
+- * The contents of this file are subject to the Mozilla Public License Version
+- * 1.1 (the "License"); you may not use this file except in compliance with
+- * the License. You may obtain a copy of the License at
+- * http://www.mozilla.org/MPL/
+- *
+- * Software distributed under the License is distributed on an "AS IS" basis,
+- * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+- * for the specific language governing rights and limitations under the
+- * License.
+- *
+- * The Original Code is Mozilla Communicator client code, released
+- * March 31, 1998.
+- *
+- * The Initial Developer of the Original Code is
+- * Netscape Communications Corporation.
+- * Portions created by the Initial Developer are Copyright (C) 1998
+- * the Initial Developer. All Rights Reserved.
+- *
+- * Contributor(s):
+- *
+- * Alternatively, the contents of this file may be used under the terms of
+- * either of the GNU General Public License Version 2 or later (the "GPL"),
+- * or the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+- * in which case the provisions of the GPL or the LGPL are applicable instead
+- * of those above. If you wish to allow use of your version of this file only
+- * under the terms of either the GPL or the LGPL, and not to allow others to
+- * use your version of this file under the terms of the MPL, indicate your
+- * decision by deleting the provisions above and replace them with the notice
+- * and other provisions required by the GPL or the LGPL. If you do not delete
+- * the provisions above, a recipient may use your version of this file under
+- * the terms of any one of the MPL, the GPL or the LGPL.
+- *
+- * ***** END LICENSE BLOCK ***** */
+-
+-#ifndef jsosdep_h___
+-#define jsosdep_h___
+-/*
+- * OS (and machine, and compiler XXX) dependent information.
+- */
+-
+-#if defined(XP_WIN) || defined(XP_OS2)
+-
+-#if defined(_WIN32) || defined (XP_OS2)
+-#define JS_HAVE_LONG_LONG
+-#else
+-#undef JS_HAVE_LONG_LONG
+-#endif
+-#endif /* XP_WIN || XP_OS2 */
+-
+-#ifdef XP_BEOS
+-#define JS_HAVE_LONG_LONG
+-#endif
+-
+-
+-#ifdef XP_UNIX
+-
+-/*
+- * Get OS specific header information.
+- */
+-#if defined(XP_MACOSX) || defined(DARWIN)
+-#define JS_HAVE_LONG_LONG
+-
+-#elif defined(AIXV3) || defined(AIX)
+-#define JS_HAVE_LONG_LONG
+-
+-#elif defined(BSDI)
+-#define JS_HAVE_LONG_LONG
+-
+-#elif defined(HPUX)
+-#define JS_HAVE_LONG_LONG
+-
+-#elif defined(IRIX)
+-#define JS_HAVE_LONG_LONG
+-
+-#elif defined(linux)
+-#define JS_HAVE_LONG_LONG
+-
+-#elif defined(OSF1)
+-#define JS_HAVE_LONG_LONG
+-
+-#elif defined(_SCO_DS)
+-#undef JS_HAVE_LONG_LONG
+-
+-#elif defined(SOLARIS)
+-#define JS_HAVE_LONG_LONG
+-
+-#elif defined(FREEBSD)
+-#define JS_HAVE_LONG_LONG
+-
+-#elif defined(SUNOS4)
+-#undef JS_HAVE_LONG_LONG
+-
+-/*
+-** Missing function prototypes
+-*/
+-
+-extern void *sbrk(int);
+-
+-#elif defined(UNIXWARE)
+-#undef JS_HAVE_LONG_LONG
+-
+-#elif defined(VMS) && defined(__ALPHA)
+-#define JS_HAVE_LONG_LONG
+-
+-#endif
+-
+-#endif /* XP_UNIX */
+-
+-#endif /* jsosdep_h___ */
+-
+Index: prmjtime.c
+===================================================================
+RCS file: /cvsroot/mozilla/js/src/prmjtime.c,v
+retrieving revision 3.65
+diff -p -u -1 -0 -r3.65 prmjtime.c
+--- js/src/prmjtime.c	17 Nov 2007 08:25:23 -0000	3.65
++++ js/src/prmjtime.c	19 Feb 2008 08:17:10 -0000
+@@ -103,27 +103,21 @@ static void PRMJ_basetime(JSInt64 tsecs,
+  */
+ JSInt32
+ PRMJ_LocalGMTDifference()
+ {
+     struct tm ltime;
+ 
+     /* get the difference between this time zone and GMT */
+     memset((char *)&ltime,0,sizeof(ltime));
+     ltime.tm_mday = 2;
+     ltime.tm_year = 70;
+-#ifdef SUNOS4
+-    ltime.tm_zone = 0;
+-    ltime.tm_gmtoff = 0;
+-    return timelocal(&ltime) - (24 * 3600);
+-#else
+     return (JSInt32)mktime(&ltime) - (24L * 3600L);
+-#endif
+ }
+ 
+ /* Constants for GMT offset from 1970 */
+ #define G1970GMTMICROHI        0x00dcdcad /* micro secs to 1970 hi */
+ #define G1970GMTMICROLOW       0x8b3fa000 /* micro secs to 1970 low */
+ 
+ #define G2037GMTMICROHI        0x00e45fab /* micro secs to 2037 high */
+ #define G2037GMTMICROLOW       0x7a238000 /* micro secs to 2037 low */
+ 
+ /* Convert from base time to extended time */
+@@ -631,32 +625,20 @@ PRMJ_FormatTime(char *buf, int buflen, c
+     a.tm_yday = prtm->tm_yday;
+     a.tm_isdst = prtm->tm_isdst;
+ 
+     /*
+      * Even with the above, SunOS 4 seems to detonate if tm_zone and tm_gmtoff
+      * are null.  This doesn't quite work, though - the timezone is off by
+      * tzoff + dst.  (And mktime seems to return -1 for the exact dst
+      * changeover time.)
+      */
+ 
+-#if defined(SUNOS4)
+-    if (mktime(&a) == -1) {
+-        /* Seems to fail whenever the requested date is outside of the 32-bit
+-         * UNIX epoch.  We could proceed at this point (setting a.tm_zone to
+-         * "") but then strftime returns a string with a 2-digit field of
+-         * garbage for the year.  So we return 0 and hope jsdate.c
+-         * will fall back on toString.
+-         */
+-        return 0;
+-    }
+-#endif
+-
+ #ifdef NS_HAVE_INVALID_PARAMETER_HANDLER
+     oldHandler = _set_invalid_parameter_handler(PRMJ_InvalidParameterHandler);
+     oldReportMode = _CrtSetReportMode(_CRT_ASSERT, 0);
+ #endif
+ 
+     result = strftime(buf, buflen, fmt, &a);
+ 
+ #ifdef NS_HAVE_INVALID_PARAMETER_HANDLER
+     _set_invalid_parameter_handler(oldHandler);
+     _CrtSetReportMode(_CRT_ASSERT, oldReportMode);
+--- js/src/js.mak.orig	2006-04-04 11:50:15.000000000 -0400
++++ js/src/js.mak	2008-02-22 23:24:27.000000000 -0500
+@@ -999,7 +999,6 @@
+ 	".\jscompat.h"\
+ 	".\jscpucfg.h"\
+ 	".\jslong.h"\
+-	".\jsosdep.h"\
+ 	".\jsotypes.h"\
+ 	".\jsstddef.h"\
+ 	".\jstypes.h"\
+@@ -1021,7 +1020,6 @@
+ 	".\jscompat.h"\
+ 	".\jscpucfg.h"\
+ 	".\jslong.h"\
+-	".\jsosdep.h"\
+ 	".\jsotypes.h"\
+ 	".\jsstddef.h"\
+ 	".\jstypes.h"\
+@@ -1621,7 +1619,6 @@
+ 	".\jscpucfg.h"\
+ 	".\jsdhash.h"\
+ 	".\jslong.h"\
+-	".\jsosdep.h"\
+ 	".\jsotypes.h"\
+ 	".\jstypes.h"\
+ 	".\jsutil.h"\
+@@ -1642,7 +1639,6 @@
+ 	".\jscpucfg.h"\
+ 	".\jsdhash.h"\
+ 	".\jslong.h"\
+-	".\jsosdep.h"\
+ 	".\jsotypes.h"\
+ 	".\jstypes.h"\
+ 	".\jsutil.h"\
+@@ -1670,7 +1666,6 @@
+ 	".\jscpucfg.h"\
+ 	".\jsdtoa.h"\
+ 	".\jslong.h"\
+-	".\jsosdep.h"\
+ 	".\jsotypes.h"\
+ 	".\jsprf.h"\
+ 	".\jsstddef.h"\
+@@ -1693,7 +1688,6 @@
+ 	".\jscpucfg.h"\
+ 	".\jsdtoa.h"\
+ 	".\jslong.h"\
+-	".\jsosdep.h"\
+ 	".\jsotypes.h"\
+ 	".\jsprf.h"\
+ 	".\jsstddef.h"\
+@@ -2121,7 +2115,6 @@
+ 	".\jscpucfg.h"\
+ 	".\jshash.h"\
+ 	".\jslong.h"\
+-	".\jsosdep.h"\
+ 	".\jsotypes.h"\
+ 	".\jstypes.h"\
+ 	".\jsutil.h"\
+@@ -2142,7 +2135,6 @@
+ 	".\jscpucfg.h"\
+ 	".\jshash.h"\
+ 	".\jslong.h"\
+-	".\jsosdep.h"\
+ 	".\jsotypes.h"\
+ 	".\jstypes.h"\
+ 	".\jsutil.h"\
+@@ -2364,7 +2356,6 @@
+ DEP_CPP_JSLOG=\
+ 	".\jsbit.h"\
+ 	".\jscpucfg.h"\
+-	".\jsosdep.h"\
+ 	".\jsotypes.h"\
+ 	".\jstypes.h"\
+ 	{$(INCLUDE)}"\sys\types.h"\
+@@ -2381,7 +2372,6 @@
+ DEP_CPP_JSLOG=\
+ 	".\jsbit.h"\
+ 	".\jscpucfg.h"\
+-	".\jsosdep.h"\
+ 	".\jsotypes.h"\
+ 	".\jstypes.h"\
+ 	{$(INCLUDE)}"\sys\types.h"\
+@@ -2406,7 +2396,6 @@
+ DEP_CPP_JSLON=\
+ 	".\jscpucfg.h"\
+ 	".\jslong.h"\
+-	".\jsosdep.h"\
+ 	".\jsotypes.h"\
+ 	".\jstypes.h"\
+ 	{$(INCLUDE)}"\sys\types.h"\
+@@ -2423,7 +2412,6 @@
+ DEP_CPP_JSLON=\
+ 	".\jscpucfg.h"\
+ 	".\jslong.h"\
+-	".\jsosdep.h"\
+ 	".\jsotypes.h"\
+ 	".\jstypes.h"\
+ 	{$(INCLUDE)}"\sys\types.h"\
+@@ -2946,7 +2934,6 @@
+ DEP_CPP_JSPRF=\
+ 	".\jscpucfg.h"\
+ 	".\jslong.h"\
+-	".\jsosdep.h"\
+ 	".\jsotypes.h"\
+ 	".\jsprf.h"\
+ 	".\jstypes.h"\
+@@ -2965,7 +2952,6 @@
+ DEP_CPP_JSPRF=\
+ 	".\jscpucfg.h"\
+ 	".\jslong.h"\
+-	".\jsosdep.h"\
+ 	".\jsotypes.h"\
+ 	".\jsprf.h"\
+ 	".\jstypes.h"\
+@@ -3524,7 +3510,6 @@
+ 
+ DEP_CPP_JSUTI=\
+ 	".\jscpucfg.h"\
+-	".\jsosdep.h"\
+ 	".\jsotypes.h"\
+ 	".\jsprf.h"\
+ 	".\jstypes.h"\
+@@ -3542,7 +3527,6 @@
+ 
+ DEP_CPP_JSUTI=\
+ 	".\jscpucfg.h"\
+-	".\jsosdep.h"\
+ 	".\jsotypes.h"\
+ 	".\jsprf.h"\
+ 	".\jstypes.h"\
+@@ -3742,7 +3726,6 @@
+ 	".\jscompat.h"\
+ 	".\jscpucfg.h"\
+ 	".\jslong.h"\
+-	".\jsosdep.h"\
+ 	".\jsotypes.h"\
+ 	".\jsprf.h"\
+ 	".\jstypes.h"\
+@@ -3763,7 +3746,6 @@
+ 	".\jscompat.h"\
+ 	".\jscpucfg.h"\
+ 	".\jslong.h"\
+-	".\jsosdep.h"\
+ 	".\jsotypes.h"\
+ 	".\jsprf.h"\
+ 	".\jstypes.h"\
+--- js/src/jstypes.h.orig	2008-02-22 23:37:59.000000000 -0500
++++ js/src/jstypes.h	2008-02-22 23:38:06.000000000 -0500
+@@ -250,7 +250,6 @@
+ #    include "jscpucfg.h"        /* Use standard Mac or Windows configuration */
+ #elif defined(XP_UNIX) || defined(XP_BEOS) || defined(XP_OS2) || defined(CROSS_COMPILE)
+ #    include "jsautocfg.h"       /* Use auto-detected configuration */
+-#    include "jsosdep.h"         /* ...and platform-specific flags */
+ #else
+ #    error "Must define one of XP_BEOS, XP_OS2, XP_WIN or XP_UNIX"
+ #endif
