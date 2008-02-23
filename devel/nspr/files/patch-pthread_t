@@ -18,10 +18,9 @@ Better to just keep calling it pthread_t isntead of casting to anything.
 +NSPR_API(pthread_t) PR_GetThreadID(PRThread *thread);
  
  /*
---- ../pr/src/pthreads/ptthread.c.orig	2007-07-05 08:21:07.000000000 -0400
-+++ ../pr/src/pthreads/ptthread.c	2007-07-05 08:32:39.000000000 -0400
-@@ -1059,12 +1059,12 @@
-     _exit(status);
+--- ../pr/src/pthreads/ptthread.c	Wed May 25 22:27:51 2005
++++ ../pr/src/pthreads/ptthread.c	Tue Jul 12 00:49:50 2005
+@@ -979,10 +979,10 @@
  }
  
 -PR_IMPLEMENT(PRUint32) PR_GetThreadID(PRThread *thred)
@@ -34,14 +33,3 @@ Better to just keep calling it pthread_t isntead of casting to anything.
 +    return thred->id;  /* and I don't know what they will do with it */
  #endif
  }
- 
-@@ -1196,7 +1196,9 @@
-     PRIntn count = 0;
-     PRStatus rv = PR_SUCCESS;
-     PRThread* thred = pt_book.first;
-+#if !defined(_PR_DCETHREADS) && (defined(DEBUG) || defined(FORCE_PR_ASSERT))
-     PRThread *me = PR_GetCurrentThread();
-+#endif
- 
-     PR_LOG(_pr_gc_lm, PR_LOG_ALWAYS, ("Begin PR_EnumerateThreads\n"));
-     /*

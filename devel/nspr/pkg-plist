@@ -22,7 +22,6 @@ include/nspr/md/_os2.cfg
 include/nspr/md/_osf1.cfg
 include/nspr/md/_qnx.cfg
 include/nspr/md/_reliantunix.cfg
-include/nspr/md/_rhapsody.cfg
 include/nspr/md/_riscos.cfg
 include/nspr/md/_scoos.cfg
 include/nspr/md/_solaris.cfg
