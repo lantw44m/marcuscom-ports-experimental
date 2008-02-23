@@ -3,10 +3,11 @@
 # Whom:					Maxim Sobolev <sobomax@FreeBSD.org>
 #
 # $FreeBSD$
-#    $MCom: ports-experimental/security/nss/Makefile,v 1.2 2007/11/20 13:33:29 ahze Exp $
+#    $MCom: ports-experimental/security/nss/Makefile,v 1.3 2007/12/24 14:34:28 ahze Exp $
 
 PORTNAME=	nss
-DISTVERSION=	${_MAJOR}.${_MINOR}.${_PATCH}-4
+DISTVERSION=	${_MAJOR}.${_MINOR}.${_PATCH}-5
+PORTREVISION=	1
 CATEGORIES=	security
 MASTER_SITES=	LOCAL
 MASTER_SITE_SUBDIR=	ahze
@@ -33,7 +34,7 @@ USE_PERL5_BUILD=yes
 MAKE_ENV=	BSD_LDOPTS="${PTHREAD_LIBS} -L${LOCALBASE}/lib" \
 		BUILD_OPT=1
 ALL_TARGET=	nss_build_all
-CFLAGS+=	-I${LOCALBASE}/include/nspr
+CFLAGS+=	-I${LOCALBASE}/include/nspr -L${LOCALBASE}/lib
 
 DIST=		${WRKSRC:H:H}/dist
 
@@ -98,7 +99,5 @@ do-install:
 	    	${TAR} -cf - *.so | ${TAR} --unlink -C ${PREFIX}/lib/nss -xf -
 	${INSTALL_SCRIPT} ${WRKDIR}/nss-config ${PREFIX}/bin
 	${INSTALL_DATA} ${WRKDIR}/nss.pc ${PREFIX}/libdata/pkgconfig
-#### Causes problems with older geckos, and it's not needed *yet*
-	${RM} -f ${PREFIX}/lib/nss/libsqlite3.so.1 ${PREFIX}/lib/nss/libsqlite3.so
 
 .include <bsd.port.post.mk>

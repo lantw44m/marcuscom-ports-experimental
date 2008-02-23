@@ -13,21 +13,6 @@
  RANLIB			= ranlib
  
  ifeq ($(OS_TEST),alpha)
-@@ -49,8 +49,14 @@
- endif
- 
- OS_CFLAGS		= $(DSO_CFLAGS) -ansi -Wall -DFREEBSD -DHAVE_STRERROR -DHAVE_BSD_FLOCK
-+OS_LIBS			= $(BSD_LDOPTS)
-+OPTIMIZER		=
- 
-+ifeq ($(OS_TEST),sparc64)
- DSO_CFLAGS		= -fPIC
-+else
-+DSO_CFLAGS		= -fpic
-+endif
- DSO_LDOPTS		= -shared -Wl,-soname -Wl,$(notdir $@)
- 
- #
 @@ -60,20 +66,18 @@
  USE_PTHREADS		= 1
  DEFINES			+= -D_THREAD_SAFE -D_REENTRANT
