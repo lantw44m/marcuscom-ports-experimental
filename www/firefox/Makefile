@@ -3,12 +3,12 @@
 # Whom:				Alan Eldridge <alane@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/www/firefox/Makefile,v 1.2 2007/12/03 21:01:20 ahze Exp $
+#   $MCom: ports-experimental/www/firefox/Makefile,v 1.3 2008/02/23 04:29:58 ahze Exp $
 #
 
 PORTNAME=	firefox
 DISTVERSION=	2.0.0.12
-PORTREVISION=	1
+PORTREVISION=	2
 PORTEPOCH=	1
 CATEGORIES=	www ipv6
 MASTER_SITES=	${MASTER_SITE_MOZILLA_EXTENDED}
@@ -21,7 +21,6 @@ COMMENT=	Web browser based on the browser portion of Mozilla
 BUILD_DEPENDS=	nss>=3.11.2:${PORTSDIR}/security/nss
 
 MOZILLA_NAME=	Firefox
-MOZ_OPTIONS=	--program-transform-name='s/firefox/${MOZILLA}/'
 
 USE_GECKO=	gecko
 WANT_GNOME=	yes
@@ -38,7 +37,9 @@ GECKO_PLIST_PRE_DIRS=	lib/${MOZILLA}/chrome/icons/default lib/${MOZILLA}/chrome/
 
 FIREFOX_ICON=		${MOZILLA}.xpm
 FIREFOX_ICON_SRC=	${PREFIX}/lib/${MOZILLA}/icons/default.xpm
-MOZ_OPTIONS=	--enable-application=browser \
+MOZ_OPTIONS=	--program-transform-name='s/firefox/${MOZILLA}/' \
+		--with-default-mozilla-five-home=${PREFIX}/lib/${MOZILLA} \
+		--enable-application=browser \
 		--enable-system-cairo	\
 		--enable-official-branding \
 		--enable-canvas	\

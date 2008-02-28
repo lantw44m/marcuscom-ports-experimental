@@ -3,10 +3,11 @@
 # Whom:				Alan Eldridge <alane@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/www/firefox-devel/Makefile,v 1.7 2007/11/20 14:26:27 ahze Exp $
+#   $MCom: ports-experimental/www/firefox-devel/Makefile,v 1.8 2008/02/23 15:51:24 ahze Exp $
 
 PORTNAME=	firefox
 DISTVERSION=	3.0b3
+PORTREVISION=	1
 PORTEPOCH=	1
 CATEGORIES=	www ipv6
 MASTER_SITES=	${MASTER_SITE_MOZILLA}
@@ -22,8 +23,6 @@ USE_MOZILLA=	-png
 MOZILLA_NAME=	Firefox-${MOZILLA_SUFX}
 MOZILLA_SUFX=	-devel
 MOZILLA=	${PORTNAME}${MOZILLA_SUFX}
-MOZ_OPTIONS=	--program-transform-name='s/firefox/${MOZILLA}/' \
-		--enable-svg --enable-svg-renderer=cairo
 MOZ_TOOLKIT=	cairo-gtk2
 
 WANT_GNOME=	yes
@@ -37,7 +36,10 @@ NO_MOZPKGINSTALL=yes
 
 FIREFOX_ICON=		${MOZILLA}.xpm
 FIREFOX_ICON_SRC=	${PREFIX}/lib/firefox-devel/chrome/icons/default/default.xpm
-MOZ_OPTIONS=	--enable-application=browser \
+MOZ_OPTIONS=	--program-transform-name='s/firefox/${MOZILLA}/' \
+		--with-default-mozilla-five-home=${PREFIX}/lib/${MOZILLA} \
+		--enable-svg --enable-svg-renderer=cairo
+		--enable-application=browser \
 		--enable-system-cairo	\
 		--enable-official-branding \
 		--enable-canvas	\
