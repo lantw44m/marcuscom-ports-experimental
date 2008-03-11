@@ -3,7 +3,7 @@
 # Whom:				Alan Eldridge <alane@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/www/firefox-devel/Makefile,v 1.8 2008/02/23 15:51:24 ahze Exp $
+#   $MCom: ports-experimental/www/firefox-devel/Makefile,v 1.9 2008/02/28 21:09:25 mezz Exp $
 
 PORTNAME=	firefox
 DISTVERSION=	3.0b3
@@ -38,7 +38,7 @@ FIREFOX_ICON=		${MOZILLA}.xpm
 FIREFOX_ICON_SRC=	${PREFIX}/lib/firefox-devel/chrome/icons/default/default.xpm
 MOZ_OPTIONS=	--program-transform-name='s/firefox/${MOZILLA}/' \
 		--with-default-mozilla-five-home=${PREFIX}/lib/${MOZILLA} \
-		--enable-svg --enable-svg-renderer=cairo
+		--enable-svg --enable-svg-renderer=cairo \
 		--enable-application=browser \
 		--enable-system-cairo	\
 		--enable-official-branding \
