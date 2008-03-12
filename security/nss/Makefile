@@ -3,11 +3,10 @@
 # Whom:					Maxim Sobolev <sobomax@FreeBSD.org>
 #
 # $FreeBSD$
-#    $MCom: ports-experimental/security/nss/Makefile,v 1.3 2007/12/24 14:34:28 ahze Exp $
+#    $MCom: ports-experimental/security/nss/Makefile,v 1.4 2008/02/23 15:47:28 ahze Exp $
 
 PORTNAME=	nss
-DISTVERSION=	${_MAJOR}.${_MINOR}.${_PATCH}-5
-PORTREVISION=	1
+DISTVERSION=	${_MAJOR}.${_MINOR}.${_PATCH}-6
 CATEGORIES=	security
 MASTER_SITES=	LOCAL
 MASTER_SITE_SUBDIR=	ahze
@@ -24,7 +23,7 @@ USE_BZIP2=yes
 
 _MAJOR=	3
 _MINOR=	11
-_PATCH=	7
+_PATCH=	9
 
 WRKSRC=		${WRKDIR}/${DISTNAME}/mozilla/security/nss
 
