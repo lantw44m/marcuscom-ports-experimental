@@ -3,10 +3,10 @@
 # Whom:					Maxim Sobolev <sobomax@FreeBSD.org>
 #
 # $FreeBSD$
-#    $MCom: ports-experimental/devel/nspr/Makefile,v 1.3 2007/12/24 14:24:35 ahze Exp $
+#    $MCom: ports-experimental/devel/nspr/Makefile,v 1.4 2008/02/23 05:55:07 ahze Exp $
 
 PORTNAME=	nspr
-DISTVERSION=	4.6.7-5
+DISTVERSION=	4.6.7-6
 CATEGORIES=	devel
 MASTER_SITES=	LOCAL/ahze
 #MASTER_SITES=	${MASTER_SITE_MOZILLA}
