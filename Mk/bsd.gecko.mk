@@ -5,7 +5,7 @@
 # Whom:			Michael Johnson <ahze@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/Mk/bsd.gecko.mk,v 1.4 2007/09/26 15:16:44 ahze Exp $
+#   $MCom: ports-experimental/Mk/bsd.gecko.mk,v 1.5 2007/09/26 18:33:23 ahze Exp $
 #
 # 4 column tabs prevent hair loss and tooth decay!
 
@@ -71,7 +71,7 @@ Gecko_Pre_Include=			bsd.gecko.mk
 
 .if ${OSVERSION} >= 500000
 .if (${ARCH}!="sparc64" || ${OSVERSION} >= 601101) && ${ARCH}!="ia64"
-_GECKO_ALL=	firefox nvu seamonkey thunderbird xulrunner flock firefox15
+_GECKO_ALL=	firefox nvu seamonkey thunderbird xulrunner flock
 .endif
 .endif
 _GECKO_ALL+=	mozilla
