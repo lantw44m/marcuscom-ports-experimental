@@ -3,10 +3,11 @@
 # Whom:					Maxim Sobolev <sobomax@FreeBSD.org>
 #
 # $FreeBSD$
-#    $MCom: ports-experimental/security/nss/Makefile,v 1.4 2008/02/23 15:47:28 ahze Exp $
+#    $MCom: ports-experimental/security/nss/Makefile,v 1.5 2008/03/12 13:20:10 ahze Exp $
 
 PORTNAME=	nss
 DISTVERSION=	${_MAJOR}.${_MINOR}.${_PATCH}-6
+PORTREVISION=	1
 CATEGORIES=	security
 MASTER_SITES=	LOCAL
 MASTER_SITE_SUBDIR=	ahze
@@ -31,7 +32,7 @@ USE_LDCONFIG=	${PREFIX}/lib/nss
 USE_GMAKE=	yes
 USE_PERL5_BUILD=yes
 MAKE_ENV=	BSD_LDOPTS="${PTHREAD_LIBS} -L${LOCALBASE}/lib" \
-		BUILD_OPT=1
+		BUILD_OPT=1 NSS_ENABLE_ECC=1
 ALL_TARGET=	nss_build_all
 CFLAGS+=	-I${LOCALBASE}/include/nspr -L${LOCALBASE}/lib
 
