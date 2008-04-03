@@ -1,1 +1,1 @@
-.error This file has now been moved to ${PORTSDIR}/Mk/bsd.gecko.mk please update ${PORTNAME}
+.warn This file has now been moved to ${PORTSDIR}/Mk/bsd.gecko.mk please update ${PORTNAME}
