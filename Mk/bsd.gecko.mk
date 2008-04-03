@@ -5,7 +5,7 @@
 # Whom:			Michael Johnson <ahze@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/Mk/bsd.gecko.mk,v 1.5 2007/09/26 18:33:23 ahze Exp $
+#   $MCom: ports-experimental/Mk/bsd.gecko.mk,v 1.6 2008/03/20 13:11:01 ahze Exp $
 #
 # 4 column tabs prevent hair loss and tooth decay!
 
@@ -306,6 +306,7 @@ nspr_MOZ_OPTIONS=	--with-system-nspr
 
 nss_LIB_DEPENDS=	nss3:${PORTSDIR}/security/nss
 nss_EXTRACT_AFTER_ARGS=	--exclude mozilla/security/nss
+nss_MOZ_OPTIONS=	--with-system-nss
 
 png_LIB_DEPENDS=	png.5:${PORTSDIR}/graphics/png
 png_MOZ_OPTIONS=	--with-system-png=${LOCALBASE}
