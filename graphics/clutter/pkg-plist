@@ -141,6 +141,7 @@ libdata/pkgconfig/cogl-gl-1.0.pc
 %%DOCSDIR%%/ClutterTimeline.html
 %%DOCSDIR%%/actor-box.png
 %%DOCSDIR%%/additionaldocs.html
+%%DOCSDIR%%/animator-key-frames.png
 %%DOCSDIR%%/annotation-glossary.html
 %%DOCSDIR%%/bin-layout.png
 %%DOCSDIR%%/box-layout.png
