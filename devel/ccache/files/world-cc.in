@@ -1,0 +1,3 @@
+#!/bin/sh
+unset CCACHE_PATH
+exec %%PREFIX%%/%%CCLINKDIR%%/cc "$@"

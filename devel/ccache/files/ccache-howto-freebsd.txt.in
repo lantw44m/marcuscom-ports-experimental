@@ -1,0 +1,66 @@
+#
+# $FreeBSD$
+#
+
+To use ccache add the following to /etc/make.conf
+
+.if (!empty(.CURDIR:M/usr/src*) || !empty(.CURDIR:M/usr/obj*)) && !defined(NOCCACHE)
+CC=%%PREFIX%%/%%CCLINKDIR%%/world-cc
+CXX=%%PREFIX%%/%%CCLINKDIR%%/world-c++
+.endif
+
+For Korn/Bourne shells Add the following to /etc/profile:
+ export PATH=%%PREFIX%%/%%CCLINKDIR%%:$PATH
+ export CCACHE_PATH=/usr/bin:%%LOCALBASE%%/bin
+
+For csh/tcsh Add the following to /etc/csh.cshrc:
+ setenv PATH %%PREFIX%%/%%CCLINKDIR%%:$PATH
+ setenv CCACHE_PATH /usr/bin:%%LOCALBASE%%/bin
+
+For icc users:
+ Add %%ICCPREFIX%% to CCACHE_PATH
+
+--
+
+To use distcc:
+
+For Korn/Bourne shells Add the following to /etc/profile:
+ export CCACHE_PREFIX=distcc
+ export DISTCC_HOSTS="localhost host1 host2"
+
+For csh/tcsh Add the following to /etc/csh.cshrc:
+ setenv CCACHE_PREFIX distcc
+ setenv DISTCC_HOSTS "localhost host1 host2"
+
+--
+
+If you have a problem building world
+define NOCCACHE and try again.
+
+If you have a problem building a port
+reset PATH=$CCACHE_PATH and try again.
+
+--
+
+Ccache has installed links for the following compilers
+%%CCACHE_COMPILERS%%
+in %%PREFIX%%/%%CCLINKDIR%%
+
+!!! WARNING !!!
+Please make sure you have the compiler installed before you do this or your
+build will fail because it will not be able to find the compiler.
+
+Any time you change CC/CXX you need to reinstall devel/libtool15 or you 
+will run in to problems.
+
+--
+
+Ccache's default cache size is 1GB and this is larger than the default size of
+the root partition (/) on FreeBSD. To over come this you may specify a new 
+cache location on a different partition with the following examples.
+
+For Korn/Bourne shells Add the following to /etc/profile:
+ export CCACHE_DIR=/usr/.ccache
+
+For csh/tcsh Add the following to /etc/csh.cshrc
+ setenv CCACHE_DIR "/usr/.ccache"
