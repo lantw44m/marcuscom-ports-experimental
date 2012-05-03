@@ -1,0 +1,31 @@
+--- glib/Makefile.in.orig	2012-05-02 22:23:41.000000000 -0500
++++ glib/Makefile.in	2012-05-02 22:25:02.000000000 -0500
+@@ -550,7 +550,7 @@
+ #
+ DISTCLEANFILES = glibconfig-stamp glibconfig.h
+ CLEANFILES = libglib-gdb.py glib-public-headers.txt $(am__append_5)
+-configexecincludedir = $(libdir)/glib-2.0/include
++configexecincludedir = $(includedir)/glib-2.0
+ nodist_configexecinclude_HEADERS = glibconfig.h
+ @HAVE_GOOD_PRINTF_FALSE@PRINTF_SUBDIR = gnulib
+ @HAVE_GOOD_PRINTF_FALSE@printf_la = gnulib/libgnulib.la
+@@ -1565,7 +1565,7 @@
+ info-am:
+ 
+ install-data-am: install-data-local install-deprecatedincludeHEADERS \
+-	install-dist_gdbSCRIPTS install-glibincludeHEADERS \
++	install-glibincludeHEADERS \
+ 	install-glibsubincludeHEADERS install-tapsetDATA
+ 	@$(NORMAL_INSTALL)
+ 	$(MAKE) $(AM_MAKEFLAGS) install-data-hook
+@@ -1853,9 +1853,7 @@
+ libglib-gdb.py: libglib-gdb.py.in
+ 	$(AM_V_GEN) $(SED) -e "s|\@datadir\@|$(datadir)|" $(srcdir)/libglib-gdb.py.in > $(builddir)/libglib-gdb.py
+ 
+-install-data-hook: libglib-gdb.py
+-	mkdir -p $(DESTDIR)$(datadir)/gdb/auto-load$(ABS_GLIB_RUNTIME_LIBDIR)
+-	$(INSTALL) $(builddir)/libglib-gdb.py $(DESTDIR)$(datadir)/gdb/auto-load$(ABS_GLIB_RUNTIME_LIBDIR)/libglib-2.0.so.0.$(LT_CURRENT).$(LT_REVISION)-gdb.py
++install-data-hook:
+ @HAVE_GLIB_RUNTIME_LIBDIR_TRUE@	mkdir -p $(DESTDIR)$(libdir)/$(GLIB_RUNTIME_LIBDIR)
+ @HAVE_GLIB_RUNTIME_LIBDIR_TRUE@	mv $(DESTDIR)$(libdir)/libglib-2.0.so.0 $(DESTDIR)$(libdir)/$(GLIB_RUNTIME_LIBDIR)
+ @HAVE_GLIB_RUNTIME_LIBDIR_TRUE@	mv $(DESTDIR)$(libdir)/libglib-2.0.so.0.$(LT_CURRENT).$(LT_REVISION) $(DESTDIR)$(libdir)/$(GLIB_RUNTIME_LIBDIR)
