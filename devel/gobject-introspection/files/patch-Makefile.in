@@ -1,0 +1,18 @@
+--- Makefile.in.orig	2011-09-15 18:46:37.000000000 +0200
++++ Makefile.in	2011-09-15 18:48:02.000000000 +0200
+@@ -881,13 +881,13 @@
+ GLib_2_0_gir_PACKAGES = glib-2.0
+ GLib_2_0_gir_CFLAGS = \
+             -I$(GLIB_INCLUDEDIR) \
+-            -I$(GLIB_LIBDIR)/glib-2.0/include \
++            -I$(GLIB_INCLUDEDIR)/.. \
+             -DGETTEXT_PACKAGE=Dummy \
+             -DGLIB_COMPILATION \
+             -D__G_I18N_LIB_H__
+ 
+ GLib_2_0_gir_FILES = \
+-                $(GLIB_LIBDIR)/glib-2.0/include/glibconfig.h \
++                $(GLIB_INCLUDEDIR)/glibconfig.h \
+ 		$(GLIB_INCLUDEDIR)/glib/*.h \
+ 		$(GLIB_INCLUDEDIR)/gobject/glib-types.h \
+                 gir/glib-2.0.c
