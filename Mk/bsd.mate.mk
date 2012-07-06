@@ -3,7 +3,7 @@
 #
 # $FreeBSD$
 #	$NetBSD$
-#     $MCom$
+#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.1 2012/07/06 02:48:06 mezz Exp $
 #
 # Please view me with 4 column tabs!
 
@@ -41,11 +41,14 @@ Mate_Pre_Include=			bsd.mate.mk
 # and MAKE_ENV defined.
 #
 
-# non-version specific components
+# non-version specific components. Do not use :build/:run on those.
 _USE_MATE_ALL=	autogen intlhack intltool ltasneededhack lthack ltverhack \
 				matehack
 
-# MATE components
+# MATE components, you can use the :build or :run if need. Without the :build
+# and :run, it will be added in both build and run dependency. It will check
+# for the library dependency first. If not exists then do the build/run on
+# the *.pc file instead.
 _USE_MATE_ALL+=	canvas common component componentui conf corba docutils \
 				mimedata lib vfs
 
