@@ -1,0 +1,38 @@
+-Clean up in the bsd.mate.mk.
+-Document in the bsd.mate.mk.
+-Create matehier and clean up all pkg-plist.
+-Test these ports in the runtime.
+-Ports that need to be recopied. The single space means that it's done.
+
+------------------------------
+ devel/gnome-common -> devel/mate-common
+ textproc/gnome-doc-utils -> textproc/mate-doc-utils
+ devel/ORBit2 -> devel/mate-corba
+ devel/gconf2 -> devel/mate-conf
+ devel/libbonobo -> devel/libmatecomponent
+ misc/gnome-mime-data -> misc/mate-mime-data
+ devel/gnome-vfs -> devel/mate-vfs
+ x11/libgnome -> x11/libmate
+ graphics/libgnomecanvas -> graphics/libmatecanvas
+ x11-toolkits/libbonoboui -> x11-toolkits/libmatecomponentui
+security/libgnome-keyring -> security/libmatekeyring
+security/gnome-keyring -> security/mate-keyring
+x11-toolkits/libgnomeui -> x11-toolkits/libmateui
+devel/libnotify -> devel/libmatenotify
+x11/libgnomekbd -> x11/libmatekbd
+net/libgweather -> net/libmateweather
+misc/gnome-icon-theme -> misc/mate-icon-theme
+x11/zenity -> x11/mate-dialogs
+x11/gnome-desktop -> x11/mate-desktop
+x11-fm/nautilus -> x11-fm/mate-file-manager (or caja?)
+deskutils/notification-daemon -> deskutils/mate-notification-daemon
+x11-themes/gnome-backgrounds -> x11-themes/mate-backgrounds
+x11/gnome-menus -> x11/mate-menus
+x11-wm/metacity -> x11-wm/mate-window-manager (or marco?)
+sysutils/polkit-gnome -> sysutils/mate-polkit
+sysutils/gnome-settings-daemon -> sysutils/mate-settings-daemon
+sysutils/gnome-control-center -> sysutils/mate-control-center
+x11/gnome-panel -> x11/mate-panel
+x11/gnome-session -> x11/mate-session-manager (or mate-session?)
+x11-themes/gnome-themes -> x11-themes/mate-themes
+------------------------------
