@@ -3,7 +3,7 @@
 #
 # $FreeBSD$
 #	$NetBSD$
-#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.1 2012/07/06 02:48:06 mezz Exp $
+#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.2 2012/07/06 03:16:36 mezz Exp $
 #
 # Please view me with 4 column tabs!
 
@@ -49,8 +49,9 @@ _USE_MATE_ALL=	autogen intlhack intltool ltasneededhack lthack ltverhack \
 # and :run, it will be added in both build and run dependency. It will check
 # for the library dependency first. If not exists then do the build/run on
 # the *.pc file instead.
-_USE_MATE_ALL+=	canvas common component componentui conf corba docutils \
-				mimedata lib vfs
+_USE_MATE_ALL+=	caja canvas common component componentui conf corba desktop \
+				docutils icontheme mimedata keyring lib libmatekbd \
+				libmatekeyring libmatenotify libmateui libmateweather vfs
 
 MATE_MAKEFILEIN?=	Makefile.*
 SCROLLKEEPER_DIR=	/var/db/rarian
@@ -68,6 +69,11 @@ matehack_PRE_PATCH=	${FIND} ${WRKSRC} -name "${MATE_MAKEFILEIN}*" -type f | ${XA
 
 lthack_PRE_PATCH=	${FIND} ${WRKSRC} -name "configure" -type f | ${XARGS} ${REINPLACE_CMD} -e \
 				'/^LIBTOOL_DEPS="$$ac_aux_dir\/ltmain.sh"$$/s|$$|; $$ac_aux_dir/ltconfig $$LIBTOOL_DEPS;|'
+
+caja_DETECT=			${LOCALBASE}/libdata/pkgconfig/libcaja-extension.pc
+caja_BUILD_DEPENDS=		${caja_DETECT}:${PORTSDIR}/x11-fm/mate-file-manager
+caja_LIB_DEPENDS=		caja-extension:${PORTSDIR}/x11-fm/mate-file-manager
+caja_RUN_DEPENDS=		${caja_DETECT}:${PORTSDIR}/x11-fm/mate-file-manager
 
 canvas_DETECT=			${LOCALBASE}/libdata/pkgconfig/libmatecanvas-2.0.pc
 canvas_BUILD_DEPENDS=	${canvas_DETECT}:${PORTSDIR}/graphics/libmatecanvas
@@ -102,9 +108,18 @@ corba_BUILD_DEPENDS=	${corba_DETECT}:${PORTSDIR}/devel/mate-corba
 corba_LIB_DEPENDS=		MateCORBA-2:${PORTSDIR}/devel/mate-corba
 corba_RUN_DEPENDS=		${corba_DETECT}:${PORTSDIR}/devel/mate-corba
 
+desktop_DETECT=			${LOCALBASE}/libdata/pkgconfig/mate-desktop-2.0.pc
+desktop_BUILD_DEPENDS=	${desktop_DETECT}:${PORTSDIR}/x11/mate-desktop
+desktop_LIB_DEPENDS=	mate-desktop-2:${PORTSDIR}/x11/mate-desktop
+desktop_RUN_DEPENDS=	${desktop_DETECT}:${PORTSDIR}/x11/mate-desktop
+
 docutils_DETECT=		${LOCALBASE}/libdata/pkgconfig/mate-doc-utils.pc
 docutils_BUILD_DEPENDS=	${docutils_DETECT}:${PORTSDIR}/textproc/mate-doc-utils
 docutils_RUN_DEPENDS=	${docutils_DETECT}:${PORTSDIR}/textproc/mate-doc-utils
+
+icontheme_DETECT=		${LOCALBASE}/libdata/pkgconfig/mate-icon-theme.pc
+icontheme_BUILD_DEPENDS=${icontheme_DETECT}:${PORTSDIR}/x11-themes/mate-icon-theme
+icontheme_RUN_DEPENDS=	${icontheme_DETECT}:${PORTSDIR}/x11-themes/mate-icon-theme
 
 intltool_DETECT=		${LOCALBASE}/bin/intltool-extract
 intltool_BUILD_DEPENDS=	${intltool_DETECT}:${PORTSDIR}/textproc/intltool
@@ -118,10 +133,40 @@ intlhack_PRE_PATCH=		${FIND} ${WRKSRC} -name "intltool-merge.in" | ${XARGS} ${RE
 USE_MATE+=				intltool
 .endif
 
+keyring_DETECT=			${LOCALBASE}/libdata/pkgconfig/mate-gcr-0.pc
+keyring_BUILD_DEPENDS=	${keyring_DETECT}:${PORTSDIR}/security/mate-keyring
+keyring_LIB_DEPENDS=	mategcr:${PORTSDIR}/security/mate-keyring
+keyring_RUN_DEPENDS=	${keyring_DETECT}:${PORTSDIR}/security/mate-keyring
+
 lib_DETECT=				${LOCALBASE}/libdata/pkgconfig/libmate-2.0.pc
 lib_BUILD_DEPENDS=		${lib_DETECT}:${PORTSDIR}/x11/libmate
 lib_LIB_DEPENDS=		mate-2:${PORTSDIR}/x11/libmate
 lib_RUN_DEPENDS=		${lib_DETECT}:${PORTSDIR}/x11/libmate
+
+libmatekbd_DETECT=		${LOCALBASE}/libdata/pkgconfig/libmatekbd.pc
+libmatekbd_BUILD_DEPENDS=${libmatekbd_DETECT}:${PORTSDIR}/x11/libmatekbd
+libmatekbd_LIB_DEPENDS=	matekbd:${PORTSDIR}/x11/libmatekbd
+libmatekbd_RUN_DEPENDS=	${libmatekbd_DETECT}:${PORTSDIR}/x11/libmatekbd
+
+libmatekeyring_DETECT=	${LOCALBASE}/libdata/pkgconfig/mate-keyring-1.pc
+libmatekeyring_BUILD_DEPENDS=${libmatekeyring_DETECT}:${PORTSDIR}/security/libmatekeyring
+libmatekeyring_LIB_DEPENDS=mate-keyring:${PORTSDIR}/security/libmatekeyring
+libmatekeyring_RUN_DEPENDS=${libmatekeyring_DETECT}:${PORTSDIR}/security/libmatekeyring
+
+libmatenotify_DETECT=		${LOCALBASE}/libdata/pkgconfig/libmatenotify.pc
+libmatenotify_BUILD_DEPENDS=${libmatenotify_DETECT}:${PORTSDIR}/devel/libmatenotify
+libmatenotify_LIB_DEPENDS=	matenotify:${PORTSDIR}/devel/libmatenotify
+libmatenotify_RUN_DEPENDS=	${libmatenotify_DETECT}:${PORTSDIR}/devel/libmatenotify
+
+libmateui_DETECT=		${LOCALBASE}/libdata/pkgconfig/libmateui-2.0.pc
+libmateui_BUILD_DEPENDS=${libmateui_DETECT}:${PORTSDIR}/x11-toolkits/libmateui
+libmateui_LIB_DEPENDS=	mateui-2:${PORTSDIR}/x11-toolkits/libmateui
+libmateui_RUN_DEPENDS=	${libmateui_DETECT}:${PORTSDIR}/x11-toolkits/libmateui
+
+libmateweather_DETECT=	${LOCALBASE}/libdata/pkgconfig/mateweather.pc
+libmateweather_BUILD_DEPENDS=${libmateweather_DETECT}:${PORTSDIR}/net/libmateweather
+libmateweather_LIB_DEPENDS=mateweather:${PORTSDIR}/net/libmateweather
+libmateweather_RUN_DEPENDS=${libmateweather_DETECT}:${PORTSDIR}/net/libmateweather
 
 mimedata_DETECT=		${LOCALBASE}/libdata/pkgconfig/mate-mime-data-2.0.pc
 mimedata_BUILD_DEPENDS=	${mimedata_DETECT}:${PORTSDIR}/misc/mate-mime-data

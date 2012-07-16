@@ -15,16 +15,16 @@
  x11/libgnome -> x11/libmate
  graphics/libgnomecanvas -> graphics/libmatecanvas
  x11-toolkits/libbonoboui -> x11-toolkits/libmatecomponentui
-security/libgnome-keyring -> security/libmatekeyring
-security/gnome-keyring -> security/mate-keyring
-x11-toolkits/libgnomeui -> x11-toolkits/libmateui
-devel/libnotify -> devel/libmatenotify
-x11/libgnomekbd -> x11/libmatekbd
-net/libgweather -> net/libmateweather
-misc/gnome-icon-theme -> misc/mate-icon-theme
-x11/zenity -> x11/mate-dialogs
-x11/gnome-desktop -> x11/mate-desktop
-x11-fm/nautilus -> x11-fm/mate-file-manager (or caja?)
+ security/libgnome-keyring -> security/libmatekeyring
+ security/gnome-keyring -> security/mate-keyring
+ x11-toolkits/libgnomeui -> x11-toolkits/libmateui
+ devel/libnotify -> devel/libmatenotify
+ x11/libgnomekbd -> x11/libmatekbd
+ net/libgweather -> net/libmateweather
+ misc/gnome-icon-theme -> misc/mate-icon-theme
+ x11/zenity -> x11/mate-dialogs
+ x11/gnome-desktop -> x11/mate-desktop
+ x11-fm/nautilus -> x11-fm/mate-file-manager (or caja?)
 deskutils/notification-daemon -> deskutils/mate-notification-daemon
 x11-themes/gnome-backgrounds -> x11-themes/mate-backgrounds
 x11/gnome-menus -> x11/mate-menus
