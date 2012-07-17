@@ -21,7 +21,7 @@
  devel/libnotify -> devel/libmatenotify
  x11/libgnomekbd -> x11/libmatekbd
  net/libgweather -> net/libmateweather
- misc/gnome-icon-theme -> misc/mate-icon-theme
+ misc/gnome-icon-theme -> x11-themes/mate-icon-theme
  x11/zenity -> x11/mate-dialogs
  x11/gnome-desktop -> x11/mate-desktop
  x11-fm/nautilus -> x11-fm/mate-file-manager (or caja?)
