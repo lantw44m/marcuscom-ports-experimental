@@ -3,7 +3,7 @@
 #
 # $FreeBSD$
 #	$NetBSD$
-#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.2 2012/07/06 03:16:36 mezz Exp $
+#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.3 2012/07/16 22:52:50 mezz Exp $
 #
 # Please view me with 4 column tabs!
 
@@ -50,8 +50,9 @@ _USE_MATE_ALL=	autogen intlhack intltool ltasneededhack lthack ltverhack \
 # for the library dependency first. If not exists then do the build/run on
 # the *.pc file instead.
 _USE_MATE_ALL+=	caja canvas common component componentui conf corba desktop \
-				docutils icontheme mimedata keyring lib libmatekbd \
-				libmatekeyring libmatenotify libmateui libmateweather vfs
+				dialog docutils icontheme keyring lib libmatekbd \
+				libmatekeyring libmatenotify libmateui libmateweather marco \
+				menus mimedata notificationdaemon vfs
 
 MATE_MAKEFILEIN?=	Makefile.*
 SCROLLKEEPER_DIR=	/var/db/rarian
@@ -113,6 +114,10 @@ desktop_BUILD_DEPENDS=	${desktop_DETECT}:${PORTSDIR}/x11/mate-desktop
 desktop_LIB_DEPENDS=	mate-desktop-2:${PORTSDIR}/x11/mate-desktop
 desktop_RUN_DEPENDS=	${desktop_DETECT}:${PORTSDIR}/x11/mate-desktop
 
+dialog_DETECT=			${LOCALBASE}/bin/matedialog
+dialog_BUILD_DEPENDS=	${dialog_DETECT}:${PORTSDIR}/x11/mate-dialogs
+dialog_RUN_DEPENDS=		${dialog_DETECT}:${PORTSDIR}/x11/mate-dialogs
+
 docutils_DETECT=		${LOCALBASE}/libdata/pkgconfig/mate-doc-utils.pc
 docutils_BUILD_DEPENDS=	${docutils_DETECT}:${PORTSDIR}/textproc/mate-doc-utils
 docutils_RUN_DEPENDS=	${docutils_DETECT}:${PORTSDIR}/textproc/mate-doc-utils
@@ -168,9 +173,23 @@ libmateweather_BUILD_DEPENDS=${libmateweather_DETECT}:${PORTSDIR}/net/libmatewea
 libmateweather_LIB_DEPENDS=mateweather:${PORTSDIR}/net/libmateweather
 libmateweather_RUN_DEPENDS=${libmateweather_DETECT}:${PORTSDIR}/net/libmateweather
 
+marco_DETECT=			${LOCALBASE}/libdata/pkgconfig/libmarco-private.pc
+marco_BUILD_DEPENDS=	${marco_DETECT}:${PORTSDIR}/x11-wm/mate-window-manager
+marco_LIB_DEPENDS=		marco-private:${PORTSDIR}/x11-wm/mate-window-manager
+marco_RUN_DEPENDS=		${marco_DETECT}:${PORTSDIR}/x11-wm/mate-window-manager
+
+menus_DETECT=			${LOCALBASE}/libdata/pkgconfig/libmate-menu.pc
+menus_BUILD_DEPENDS=	${menus_DETECT}:${PORTSDIR}/x11/mate-menus
+menus_LIB_DEPENDS=		mate-menu:${PORTSDIR}/x11/mate-menus
+menus_RUN_DEPENDS=		${menus_DETECT}:${PORTSDIR}/x11/mate-menus
+
 mimedata_DETECT=		${LOCALBASE}/libdata/pkgconfig/mate-mime-data-2.0.pc
 mimedata_BUILD_DEPENDS=	${mimedata_DETECT}:${PORTSDIR}/misc/mate-mime-data
 mimedata_RUN_DEPENDS=	${mimedata_DETECT}:${PORTSDIR}/misc/mate-mime-data
+
+notificationdaemon_DETECT=${LOCALBASE}/libexec/mate-notification-daemon
+notificationdaemon_BUILD_DEPENDS=${notificationdaemon_DETECT}:${PORTSDIR}/deskutils/mate-notification-daemon
+notificationdaemon_RUN_DEPENDS=${notificationdaemon_DETECT}:${PORTSDIR}/deskutils/mate-notification-daemon
 
 vfs_DETECT=				${LOCALBASE}/libdata/pkgconfig/mate-vfs-2.0.pc
 vfs_BUILD_DEPENDS=		${vfs_DETECT}:${PORTSDIR}/devel/mate-vfs

@@ -25,10 +25,10 @@
  x11/zenity -> x11/mate-dialogs
  x11/gnome-desktop -> x11/mate-desktop
  x11-fm/nautilus -> x11-fm/mate-file-manager (or caja?)
-deskutils/notification-daemon -> deskutils/mate-notification-daemon
-x11-themes/gnome-backgrounds -> x11-themes/mate-backgrounds
-x11/gnome-menus -> x11/mate-menus
-x11-wm/metacity -> x11-wm/mate-window-manager (or marco?)
+ deskutils/notification-daemon -> deskutils/mate-notification-daemon
+ x11-themes/gnome-backgrounds -> x11-themes/mate-backgrounds
+ x11/gnome-menus -> x11/mate-menus
+ x11-wm/metacity -> x11-wm/mate-window-manager (or marco?)
 sysutils/polkit-gnome -> sysutils/mate-polkit
 sysutils/gnome-settings-daemon -> sysutils/mate-settings-daemon
 sysutils/gnome-control-center -> sysutils/mate-control-center
