@@ -3,7 +3,7 @@
 #
 # $FreeBSD$
 #	$NetBSD$
-#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.3 2012/07/16 22:52:50 mezz Exp $
+#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.4 2012/07/17 03:25:37 mezz Exp $
 #
 # Please view me with 4 column tabs!
 
@@ -49,10 +49,10 @@ _USE_MATE_ALL=	autogen intlhack intltool ltasneededhack lthack ltverhack \
 # and :run, it will be added in both build and run dependency. It will check
 # for the library dependency first. If not exists then do the build/run on
 # the *.pc file instead.
-_USE_MATE_ALL+=	caja canvas common component componentui conf corba desktop \
-				dialog docutils icontheme keyring lib libmatekbd \
+_USE_MATE_ALL+=	caja canvas common component componentui conf controlcenter \
+				corba desktop dialog docutils icontheme keyring lib libmatekbd \
 				libmatekeyring libmatenotify libmateui libmateweather marco \
-				menus mimedata notificationdaemon vfs
+				menus mimedata notificationdaemon polkit settingsdaemon vfs
 
 MATE_MAKEFILEIN?=	Makefile.*
 SCROLLKEEPER_DIR=	/var/db/rarian
@@ -103,6 +103,11 @@ MATECONF_CONFIG_OPTIONS?=merged
 MATECONF_CONFIG_DIRECTORY?=etc/mateconf/mateconf.xml.defaults
 MATECONF_CONFIG_SOURCE?=xml:${MATECONF_CONFIG_OPTIONS}:${PREFIX}/${MATECONF_CONFIG_DIRECTORY}
 MATECONF_PREFIX=		--with-mateconf-source=${MATECONF_CONFIG_SOURCE}
+
+controlcenter_DETECT=	${LOCALBASE}/libdata/pkgconfig/mate-window-settings-2.0.pc
+controlcenter_BUILD_DEPENDS=${controlcenter_DETECT}:${PORTSDIR}/sysutils/mate-control-center
+controlcenter_LIB_DEPENDS=mate-window-settings:${PORTSDIR}/sysutils/mate-control-center
+controlcenter_RUN_DEPENDS=${controlcenter_DETECT}:${PORTSDIR}/sysutils/mate-control-center
 
 corba_DETECT=			${LOCALBASE}/libdata/pkgconfig/MateCORBA-2.0.pc
 corba_BUILD_DEPENDS=	${corba_DETECT}:${PORTSDIR}/devel/mate-corba
@@ -190,6 +195,15 @@ mimedata_RUN_DEPENDS=	${mimedata_DETECT}:${PORTSDIR}/misc/mate-mime-data
 notificationdaemon_DETECT=${LOCALBASE}/libexec/mate-notification-daemon
 notificationdaemon_BUILD_DEPENDS=${notificationdaemon_DETECT}:${PORTSDIR}/deskutils/mate-notification-daemon
 notificationdaemon_RUN_DEPENDS=${notificationdaemon_DETECT}:${PORTSDIR}/deskutils/mate-notification-daemon
+
+polkit_DETECT=			${LOCALBASE}/libdata/pkgconfig/polkit-gtk-mate-1.pc
+polkit_BUILD_DEPENDS=	${polkit_DETECT}:${PORTSDIR}/sysutils/mate-polkit
+polkit_LIB_DEPENDS=		polkit-gtk-mate:${PORTSDIR}/sysutils/mate-polkit
+polkit_RUN_DEPENDS=		${polkit_DETECT}:${PORTSDIR}/sysutils/mate-polkit
+
+settingsdaemon_DETECT=	${LOCALBASE}/libdata/pkgconfig/mate-settings-daemon.pc
+settingsdaemon_BUILD_DEPENDS=${settingsdaemon_DETECT}:${PORTSDIR}/sysutils/mate-settings-daemon
+settingsdaemon_RUN_DEPENDS=${settingsdaemon_DETECT}:${PORTSDIR}/sysutils/mate-settings-daemon
 
 vfs_DETECT=				${LOCALBASE}/libdata/pkgconfig/mate-vfs-2.0.pc
 vfs_BUILD_DEPENDS=		${vfs_DETECT}:${PORTSDIR}/devel/mate-vfs

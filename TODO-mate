@@ -29,9 +29,9 @@
  x11-themes/gnome-backgrounds -> x11-themes/mate-backgrounds
  x11/gnome-menus -> x11/mate-menus
  x11-wm/metacity -> x11-wm/mate-window-manager (or marco?)
-sysutils/polkit-gnome -> sysutils/mate-polkit
-sysutils/gnome-settings-daemon -> sysutils/mate-settings-daemon
-sysutils/gnome-control-center -> sysutils/mate-control-center
+ sysutils/polkit-gnome -> sysutils/mate-polkit
+ sysutils/gnome-settings-daemon -> sysutils/mate-settings-daemon
+ sysutils/gnome-control-center -> sysutils/mate-control-center
 x11/gnome-panel -> x11/mate-panel
 x11/gnome-session -> x11/mate-session-manager (or mate-session?)
 x11-themes/gnome-themes -> x11-themes/mate-themes
