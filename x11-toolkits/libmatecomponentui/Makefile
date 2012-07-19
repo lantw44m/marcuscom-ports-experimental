@@ -3,7 +3,7 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/x11-toolkits/libmatecomponentui/Makefile,v 1.1 2012/07/06 02:48:08 mezz Exp $
 #
 
 PORTNAME=	libmatecomponentui
@@ -16,13 +16,13 @@ MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	GUI frontend to the libbonobo component of MATE
 
 BUILD_DEPENDS=	gtkdoc-check:${PORTSDIR}/textproc/gtk-doc
-LIB_DEPENDS=	popt.0:${PORTSDIR}/devel/popt
+LIB_DEPENDS=	popt:${PORTSDIR}/devel/popt
 
 USE_XZ=		yes
 USE_MATE=	autogen canvas common:build component conf intlhack lib \
 		ltverhack matehack
 USE_GMAKE=	yes
-USE_GNOME=	glib20 gtk20 libglade2 libxml2
+USE_GNOME=	glib20 gtk20 libglade2 libxml2 pkgconfig
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env

@@ -3,7 +3,7 @@
 # Whom:				Chia-liang Kao <clkao@CirX.ORG>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/devel/mate-corba/Makefile,v 1.1 2012/07/06 02:48:07 mezz Exp $
 #
 
 PORTNAME=	mate-corba
@@ -20,7 +20,7 @@ BUILD_DEPENDS=	gtkdoc-check:${PORTSDIR}/textproc/gtk-doc
 USE_XZ=		yes
 USE_MATE=	autogen common:build ltverhack matehack
 USE_GMAKE=	yes
-USE_GNOME=	glib20 libidl
+USE_GNOME=	glib20 libidl pkgconfig
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env

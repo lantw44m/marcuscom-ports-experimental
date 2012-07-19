@@ -3,7 +3,7 @@
 # Whom:					Joe Marcus Clarke <marcus@FreBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/x11-toolkits/libmateui/Makefile,v 1.1 2012/07/16 22:52:52 mezz Exp $
 #
 
 PORTNAME=	libmateui
@@ -16,7 +16,7 @@ MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Libraries for the MATE GUI, a GNU desktop environment
 
 BUILD_DEPENDS=	gtkdoc-check:${PORTSDIR}/textproc/gtk-doc
-LIB_DEPENDS+=	popt.0:${PORTSDIR}/devel/popt
+LIB_DEPENDS+=	popt:${PORTSDIR}/devel/popt
 
 USE_XZ=		yes
 USE_MATE=	autogen canvas common:build componentui conf icontheme:run lib \

@@ -3,7 +3,7 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/x11/mate-session-manager/Makefile,v 1.1 2012/07/19 15:07:26 mezz Exp $
 #
 
 PORTNAME=	mate-session-manager
@@ -15,8 +15,8 @@ DIST_SUBDIR=	mate
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Session component for the MATE desktop
 
-LIB_DEPENDS=	dbus-glib-1.2:${PORTSDIR}/devel/dbus-glib \
-		upower-glib.1:${PORTSDIR}/sysutils/upower \
+LIB_DEPENDS=	dbus-glib-1:${PORTSDIR}/devel/dbus-glib \
+		upower-glib:${PORTSDIR}/sysutils/upower \
 		execinfo:${PORTSDIR}/devel/libexecinfo
 RUN_DEPENDS=	${LOCALBASE}/sbin/console-kit-daemon:${PORTSDIR}/sysutils/consolekit \
 		${LOCALBASE}/bin/xdpyinfo:${PORTSDIR}/x11/xdpyinfo

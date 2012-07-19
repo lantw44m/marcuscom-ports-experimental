@@ -3,7 +3,7 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/x11/mate-desktop/Makefile,v 1.1 2012/07/16 22:52:51 mezz Exp $
 #
 
 PORTNAME=	mate-desktop
@@ -16,7 +16,7 @@ MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Additional UI API for MATE
 
 BUILD_DEPENDS=	gtkdoc-check:${PORTSDIR}/textproc/gtk-doc
-LIB_DEPENDS=	startup-notification-1.0:${PORTSDIR}/x11/startup-notification
+LIB_DEPENDS=	startup-notification-1:${PORTSDIR}/x11/startup-notification
 
 USE_XZ=		yes
 USE_MATE=	autogen common:build conf docutils intlhack ltverhack matehack

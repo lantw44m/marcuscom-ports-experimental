@@ -3,7 +3,7 @@
 # Whom:					Ade Lovett <ade@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/devel/mate-vfs/Makefile,v 1.1 2012/07/06 02:48:07 mezz Exp $
 #
 
 PORTNAME=	mate-vfs
@@ -16,13 +16,13 @@ MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	MATE Virtual File System
 
 BUILD_DEPENDS=	gtkdoc-check:${PORTSDIR}/textproc/gtk-doc
-LIB_DEPENDS=	dbus-glib-1.2:${PORTSDIR}/devel/dbus-glib
+LIB_DEPENDS=	dbus-glib-1:${PORTSDIR}/devel/dbus-glib
 RUN_DEPENDS=	${LOCALBASE}/share/mime/magic:${PORTSDIR}/misc/shared-mime-info
 
 USE_XZ=		yes
 USE_MATE=	autogen common:build conf intlhack ltverhack matehack mimedata
 USE_GMAKE=	yes
-USE_GNOME=	glib20 libxml2
+USE_GNOME=	glib20 libxml2 pkgconfig
 USE_GETTEXT=	yes
 USE_OPENSSL=	yes
 USE_LDCONFIG=	yes
@@ -62,18 +62,18 @@ CONFIGURE_ARGS+=--disable-fam
 .endif
 
 .if exists(${LOCALBASE}/lib/libkrb5.so)
-LIB_DEPENDS+=	krb5:${PORTSDIR}/security/heimdal
+LIB_DEPENDS+=	krb5.26:${PORTSDIR}/security/heimdal
 .endif
 
 .if !defined(WITHOUT_HAL)
 CONFIGURE_ARGS+=--enable-hal
-LIB_DEPENDS+=	hal.1:${PORTSDIR}/sysutils/hal
+LIB_DEPENDS+=	hal:${PORTSDIR}/sysutils/hal
 .else
 CONFIGURE_ARGS+=--disable-hal
 .endif
 
 .if !defined(WITHOUT_SAMBA)
-LIB_DEPENDS+=	smbclient.0:${PORTSDIR}/net/samba-libsmbclient
+LIB_DEPENDS+=	smbclient:${PORTSDIR}/net/samba-libsmbclient
 PLIST_SUB+=	SAMBA=""
 .else
 PLIST_SUB+=	SAMBA="@comment "

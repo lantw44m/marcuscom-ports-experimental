@@ -3,7 +3,7 @@
 # Whom:					Yukihiro Nakai <Nakai@technologist.com>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/x11/libmate/Makefile,v 1.1 2012/07/06 02:48:08 mezz Exp $
 #
 
 PORTNAME=	libmate
@@ -16,7 +16,8 @@ MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Libraries for MATE, a GNU desktop environment
 
 BUILD_DEPENDS=	gtkdoc-check:${PORTSDIR}/textproc/gtk-doc
-LIB_DEPENDS=	canberra-gtk.0:${PORTSDIR}/audio/libcanberra
+LIB_DEPENDS=	canberra-gtk:${PORTSDIR}/audio/libcanberra \
+		popt:${PORTSDIR}/devel/popt
 
 USE_XZ=		yes
 USE_MATE=	autogen common:build component conf intlhack ltverhack \
@@ -24,7 +25,7 @@ USE_MATE=	autogen common:build component conf intlhack ltverhack \
 USE_XORG=	xpm
 USE_BISON=	build
 USE_GMAKE=	yes
-USE_GNOME=	glib20
+USE_GNOME=	glib20 pkgconfig
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env

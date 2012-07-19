@@ -3,7 +3,7 @@
 # Whom:				Maxim Sobolev <sobomax@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/devel/libmatecomponent/Makefile,v 1.1 2012/07/06 02:48:06 mezz Exp $
 #
 
 PORTNAME=	libmatecomponent
@@ -16,13 +16,13 @@ MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	A component and compound document system for MATE
 
 BUILD_DEPENDS=	gtkdoc-check:${PORTSDIR}/textproc/gtk-doc
-LIB_DEPENDS=	popt.0:${PORTSDIR}/devel/popt
+LIB_DEPENDS=	popt:${PORTSDIR}/devel/popt
 
 USE_XZ=		yes
 USE_MATE=	autogen common:build corba intlhack ltverhack matehack
 USE_BISON=	build
 USE_GMAKE=	yes
-USE_GNOME=	libxml2
+USE_GNOME=	glib20 libxml2 pkgconfig
 USE_PERL5=	yes
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes

@@ -3,7 +3,7 @@
 # Whom:					Ade Lovett <ade@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/devel/mate-conf/Makefile,v 1.1 2012/07/06 02:48:07 mezz Exp $
 #
 
 PORTNAME=	mate-conf
@@ -17,13 +17,15 @@ COMMENT=	A configuration database system for MATE
 
 BUILD_DEPENDS=	gtkdoc-check:${PORTSDIR}/textproc/gtk-doc \
 		g-ir-scanner:${PORTSDIR}/devel/gobject-introspection
-LIB_DEPENDS=	dbus-glib-1.2:${PORTSDIR}/devel/dbus-glib \
-		polkit-gobject-1.0:${PORTSDIR}/sysutils/polkit
+LIB_DEPENDS=	dbus-1:${PORTSDIR}/devel/dbus \
+		dbus-glib-1:${PORTSDIR}/devel/dbus-glib \
+		polkit-gobject-1:${PORTSDIR}/sysutils/polkit
+RUN_DEPENDS=	g-ir-scanner:${PORTSDIR}/devel/gobject-introspection
 
 USE_XZ=		yes
 USE_MATE=	autogen common:build corba ltverhack intlhack matehack
 USE_GMAKE=	yes
-USE_GNOME=	gtk20 libxml2
+USE_GNOME=	glib20 gtk20 libxml2 pkgconfig
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
