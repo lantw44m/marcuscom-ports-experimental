@@ -3,7 +3,7 @@
 #
 # $FreeBSD$
 #	$NetBSD$
-#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.4 2012/07/17 03:25:37 mezz Exp $
+#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.5 2012/07/17 19:10:38 mezz Exp $
 #
 # Please view me with 4 column tabs!
 
@@ -52,7 +52,8 @@ _USE_MATE_ALL=	autogen intlhack intltool ltasneededhack lthack ltverhack \
 _USE_MATE_ALL+=	caja canvas common component componentui conf controlcenter \
 				corba desktop dialog docutils icontheme keyring lib libmatekbd \
 				libmatekeyring libmatenotify libmateui libmateweather marco \
-				menus mimedata notificationdaemon polkit settingsdaemon vfs
+				menus mimedata notificationdaemon panel polkit settingsdaemon \
+				vfs
 
 MATE_MAKEFILEIN?=	Makefile.*
 SCROLLKEEPER_DIR=	/var/db/rarian
@@ -195,6 +196,11 @@ mimedata_RUN_DEPENDS=	${mimedata_DETECT}:${PORTSDIR}/misc/mate-mime-data
 notificationdaemon_DETECT=${LOCALBASE}/libexec/mate-notification-daemon
 notificationdaemon_BUILD_DEPENDS=${notificationdaemon_DETECT}:${PORTSDIR}/deskutils/mate-notification-daemon
 notificationdaemon_RUN_DEPENDS=${notificationdaemon_DETECT}:${PORTSDIR}/deskutils/mate-notification-daemon
+
+panel_DETECT=			${LOCALBASE}/libdata/pkgconfig/libmatepanelapplet-3.0.pc
+panel_BUILD_DEPENDS=	${panel_DETECT}:${PORTSDIR}/x11/mate-panel
+panel_LIB_DEPENDS=		mate-panel-applet-3:${PORTSDIR}/x11/mate-panel
+panel_RUN_DEPENDS=		${panel_DETECT}:${PORTSDIR}/x11/mate-panel
 
 polkit_DETECT=			${LOCALBASE}/libdata/pkgconfig/polkit-gtk-mate-1.pc
 polkit_BUILD_DEPENDS=	${polkit_DETECT}:${PORTSDIR}/sysutils/mate-polkit
