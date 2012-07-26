@@ -3,7 +3,7 @@
 #
 # $FreeBSD$
 #	$NetBSD$
-#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.6 2012/07/19 15:07:26 mezz Exp $
+#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.7 2012/07/26 17:03:41 mezz Exp $
 #
 # Please view me with 4 column tabs!
 
@@ -51,9 +51,9 @@ _USE_MATE_ALL=	autogen intlhack intltool ltasneededhack lthack ltverhack \
 # the *.pc file instead.
 _USE_MATE_ALL+=	caja canvas common component componentui conf controlcenter \
 				corba desktop dialog docutils icontheme keyring lib libmatekbd \
-				libmatekeyring libmatenotify libmateui libmateweather marco \
-				menus mimedata notificationdaemon panel polkit settingsdaemon \
-				vfs
+				libmatekeyring libmatenotify libmateui libmateweather \
+				libmatewnck marco menus mimedata notificationdaemon panel \
+				polkit settingsdaemon vfs
 
 MATE_MAKEFILEIN?=	Makefile.*
 SCROLLKEEPER_DIR=	/var/db/rarian
@@ -178,6 +178,11 @@ libmateweather_DETECT=	${LOCALBASE}/libdata/pkgconfig/mateweather.pc
 libmateweather_BUILD_DEPENDS=${libmateweather_DETECT}:${PORTSDIR}/net/libmateweather
 libmateweather_LIB_DEPENDS=mateweather:${PORTSDIR}/net/libmateweather
 libmateweather_RUN_DEPENDS=${libmateweather_DETECT}:${PORTSDIR}/net/libmateweather
+
+libmatewnck_DETECT=		${LOCALBASE}/libdata/pkgconfig/libmatewnck.pc
+libmatewnck_BUILD_DEPENDS=${libmatewnck_DETECT}:${PORTSDIR}/x11-toolkits/libmatewnck
+libmatewnck_LIB_DEPENDS=matewnck:${PORTSDIR}/x11-toolkits/libmatewnck
+libmatewnck_RUN_DEPENDS=${libmatewnck_DETECT}:${PORTSDIR}/x11-toolkits/libmatewnck
 
 marco_DETECT=			${LOCALBASE}/libdata/pkgconfig/libmarco-private.pc
 marco_BUILD_DEPENDS=	${marco_DETECT}:${PORTSDIR}/x11-wm/mate-window-manager
