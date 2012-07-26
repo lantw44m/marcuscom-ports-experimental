@@ -3,11 +3,11 @@
 # Whom:					Joe Marcus Clarke <marcus@FreBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11-toolkits/libmateui/Makefile,v 1.1 2012/07/16 22:52:52 mezz Exp $
+#   $MCom: ports-experimental/x11-toolkits/libmateui/Makefile,v 1.2 2012/07/19 21:39:47 mezz Exp $
 #
 
 PORTNAME=	libmateui
-PORTVERSION=	1.2.0
+PORTVERSION=	1.4.0
 CATEGORIES=	x11-toolkits mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate

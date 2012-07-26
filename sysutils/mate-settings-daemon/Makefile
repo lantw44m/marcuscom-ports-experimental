@@ -3,11 +3,11 @@
 # Whom:					Koop Mast <kwm@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/sysutils/mate-settings-daemon/Makefile,v 1.1 2012/07/17 19:10:39 mezz Exp $
 #
 
 PORTNAME=	mate-settings-daemon
-PORTVERSION=	1.2.0
+PORTVERSION=	1.4.0
 CATEGORIES=	sysutils mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate

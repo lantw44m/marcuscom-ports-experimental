@@ -3,11 +3,11 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/sysutils/mate-control-center/Makefile,v 1.1 2012/07/17 19:10:38 mezz Exp $
 #
 
 PORTNAME=	mate-control-center
-PORTVERSION=	1.2.1
+PORTVERSION=	1.4.0
 CATEGORIES=	sysutils mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate

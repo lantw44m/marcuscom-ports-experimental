@@ -3,11 +3,11 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11/mate-session-manager/Makefile,v 1.1 2012/07/19 15:07:26 mezz Exp $
+#   $MCom: ports-experimental/x11/mate-session-manager/Makefile,v 1.2 2012/07/19 21:39:46 mezz Exp $
 #
 
 PORTNAME=	mate-session-manager
-PORTVERSION=	1.2.0
+PORTVERSION=	1.4.0
 CATEGORIES=	x11 mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate

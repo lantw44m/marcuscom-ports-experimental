@@ -3,11 +3,11 @@
 # Whom:				Maxim Sobolev <sobomax@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/devel/libmatecomponent/Makefile,v 1.1 2012/07/06 02:48:06 mezz Exp $
+#   $MCom: ports-experimental/devel/libmatecomponent/Makefile,v 1.2 2012/07/19 21:39:46 mezz Exp $
 #
 
 PORTNAME=	libmatecomponent
-PORTVERSION=	1.2.1
+PORTVERSION=	1.4.0
 CATEGORIES=	devel mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate

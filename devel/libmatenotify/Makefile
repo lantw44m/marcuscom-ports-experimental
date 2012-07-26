@@ -3,11 +3,11 @@
 # Whom:					Andreas Kohn <andreas@syndrom23.de>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/devel/libmatenotify/Makefile,v 1.1 2012/07/16 22:52:50 mezz Exp $
 #
 
 PORTNAME=	libmatenotify
-PORTVERSION=	1.2.0
+PORTVERSION=	1.4.0
 CATEGORIES=	devel mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate

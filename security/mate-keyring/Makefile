@@ -3,11 +3,11 @@
 # Whom:				Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/security/mate-keyring/Makefile,v 1.1 2012/07/16 22:52:51 mezz Exp $
 #
 
 PORTNAME=	mate-keyring
-PORTVERSION=	1.2.1
+PORTVERSION=	1.4.0
 CATEGORIES=	security mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate
@@ -30,7 +30,7 @@ USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-pam-dir="${PREFIX}/lib" \
-		--with-root-certs="${LOCALBASE}/share/certs/ca-root-nss.crt" \
+		--with-root-certs="${LOCALBASE}/share/certs" \
 		--with-gtk=2.0 \
 		--disable-gtk-doc \
 		--with-html-dir=${PREFIX}/share/doc

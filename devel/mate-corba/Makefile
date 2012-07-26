@@ -3,11 +3,11 @@
 # Whom:				Chia-liang Kao <clkao@CirX.ORG>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/devel/mate-corba/Makefile,v 1.1 2012/07/06 02:48:07 mezz Exp $
+#   $MCom: ports-experimental/devel/mate-corba/Makefile,v 1.2 2012/07/19 21:39:46 mezz Exp $
 #
 
 PORTNAME=	mate-corba
-PORTVERSION=	1.2.2
+PORTVERSION=	1.4.0
 CATEGORIES=	devel gnome
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate

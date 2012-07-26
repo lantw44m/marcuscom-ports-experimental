@@ -252,5 +252,3 @@ share/themes/eOS/metacity-1/unmaximize_unfocused_over.png
 @dirrm etc/mateconf/schemas
 @dirrm etc/mateconf/mateconf.xml.defaults
 @dirrm etc/mateconf
-@dirrm etc/gconf/gconf.xml.defaults
-@dirrm etc/gconf

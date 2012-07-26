@@ -3,11 +3,11 @@
 # Whom:                Garrett Rooney <rooneg@electricjellyfish.net>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/x11-wm/mate-window-manager/Makefile,v 1.1 2012/07/17 03:25:38 mezz Exp $
 #
 
 PORTNAME=	mate-window-manager
-PORTVERSION=	1.2.0
+PORTVERSION=	1.4.0
 CATEGORIES=	x11-wm mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate

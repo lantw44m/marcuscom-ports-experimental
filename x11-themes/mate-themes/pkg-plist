@@ -2513,6 +2513,7 @@ share/locale/el/LC_MESSAGES/mate-themes.mo
 share/locale/en@shaw/LC_MESSAGES/mate-themes.mo
 share/locale/en_CA/LC_MESSAGES/mate-themes.mo
 share/locale/en_GB/LC_MESSAGES/mate-themes.mo
+share/locale/eo/LC_MESSAGES/mate-themes.mo
 share/locale/es/LC_MESSAGES/mate-themes.mo
 share/locale/et/LC_MESSAGES/mate-themes.mo
 share/locale/eu/LC_MESSAGES/mate-themes.mo
@@ -3062,10 +3063,61 @@ share/themes/Simply/gtk-2.0/gtkrc
 share/themes/TraditionalOk/index.theme
 share/themes/TraditionalOk/metacity-1/metacity-theme-1.xml
 share/themes/TraditionalOkClassic/gtk-2.0/gtkrc
+share/themes/TraditionalOkClassic/gtk-3.0/assets/Makefile.am
+share/themes/TraditionalOkClassic/gtk-3.0/assets/button-active-border-panel.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/button-active-border.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/button-border-panel.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/button-border.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/button-default-border.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/checkbox-checked-insensitive.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/checkbox-checked.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/checkbox-menuitem-checked-selected.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/checkbox-menuitem-checked.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/checkbox-mixed.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/checkbox-unchecked-insensitive.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/checkbox-unchecked.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/combobox-entry-border-active.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/entry-border-focused.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/entry-border-normal.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/primary-toolbar-button-active-border.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/primary-toolbar-raised-button-border.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/progressbar-border-vertical.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/progressbar-border.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/radio-menuitem-checked-selected.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/radio-menuitem-checked.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/radio-mixed.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/radio-selected-insensitive.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/radio-selected.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/radio-unselected-insensitive.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/radio-unselected.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/scale-slider-horizontal-insensitive.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/scale-slider-horizontal.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/scale-slider-marks-above-horizontal-insensitive.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/scale-slider-marks-above-horizontal.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/scale-slider-marks-above-vertical-insensitive.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/scale-slider-marks-above-vertical.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/scale-slider-marks-below-horizontal-insensitive.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/scale-slider-marks-below-horizontal.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/scale-slider-marks-below-vertical-insensitive.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/scale-slider-marks-below-vertical.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/scale-slider-vertical-insensitive.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/scale-slider-vertical.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/switch-slider-active-border.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/switch-slider-border.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/trough-active-border-horizontal.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/trough-active-border-vertical.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/trough-border-horizontal.svg
+share/themes/TraditionalOkClassic/gtk-3.0/assets/trough-border-vertical.svg
+share/themes/TraditionalOkClassic/gtk-3.0/gtk-widgets-assets.css
+share/themes/TraditionalOkClassic/gtk-3.0/gtk-widgets.css
+share/themes/TraditionalOkClassic/gtk-3.0/gtk.css
+share/themes/TraditionalOkClassic/gtk-3.0/settings.ini
 share/themes/TraditionalOkClassic/metacity-1/metacity-theme-1.xml
 @dirrm share/themes/TraditionalOkClassic/metacity-1
+@dirrm share/themes/TraditionalOkClassic/gtk-3.0/assets
+@dirrm share/themes/TraditionalOkClassic/gtk-3.0
 @dirrm share/themes/TraditionalOkClassic/gtk-2.0
-@dirrm share/themes/TraditionalOkClassic
+@dirrmtry share/themes/TraditionalOkClassic
 @dirrm share/themes/TraditionalOk/metacity-1
 @dirrmtry share/themes/TraditionalOk
 @dirrm share/themes/Simply/gtk-2.0

@@ -1,6 +1,7 @@
 bin/mate-notify-send
 include/libmatenotify/notification.h
 include/libmatenotify/notify-enum-types.h
+include/libmatenotify/notify-features.h
 include/libmatenotify/notify.h
 lib/libmatenotify.a
 lib/libmatenotify.la

@@ -50,10 +50,10 @@ share/icons/hicolor/24x24/apps/mate-preferences-desktop-display.png
 share/icons/hicolor/32x32/apps/mate-network-properties.png
 share/icons/hicolor/32x32/apps/mate-preferences-desktop-display.png
 share/icons/hicolor/48x48/apps/mate-network-properties.png
-share/icons/hicolor/48x48/apps/typing-monitor.png
+share/icons/hicolor/48x48/apps/mate-typing-monitor.png
 share/icons/hicolor/scalable/apps/mate-network-properties.svg
 share/icons/hicolor/scalable/apps/mate-preferences-desktop-display.svg
-share/icons/hicolor/scalable/apps/typing-monitor.svg
+share/icons/hicolor/scalable/apps/mate-typing-monitor.svg
 share/locale/af/LC_MESSAGES/mate-control-center.mo
 share/locale/am/LC_MESSAGES/mate-control-center.mo
 share/locale/ar/LC_MESSAGES/mate-control-center.mo
@@ -147,7 +147,6 @@ share/locale/zh_CN/LC_MESSAGES/mate-control-center.mo
 share/locale/zh_HK/LC_MESSAGES/mate-control-center.mo
 share/locale/zh_TW/LC_MESSAGES/mate-control-center.mo
 share/locale/zu/LC_MESSAGES/mate-control-center.mo
-%%DATADIR%%/default-apps/mate-default-applications.xml
 %%DATADIR%%/keybindings/00-multimedia-key.xml
 %%DATADIR%%/keybindings/01-desktop-key.xml
 %%DATADIR%%/pixmaps/at-startup.png
@@ -284,7 +283,6 @@ share/polkit-1/actions/org.mate.randr.policy
 @dirrm %%DATADIR%%/ui
 @dirrm %%DATADIR%%/pixmaps
 @dirrm %%DATADIR%%/keybindings
-@dirrm %%DATADIR%%/default-apps
 @dirrm %%DATADIR%%
 @dirrm share/mate
 @dirrmtry share/locale/zu/LC_MESSAGES

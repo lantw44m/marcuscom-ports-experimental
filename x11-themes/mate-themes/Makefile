@@ -3,11 +3,11 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/x11-themes/mate-themes/Makefile,v 1.1 2012/07/19 15:07:26 mezz Exp $
 #
 
 PORTNAME=	mate-themes
-PORTVERSION=	1.2.2
+PORTVERSION=	1.4.0
 CATEGORIES=	x11-themes mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate

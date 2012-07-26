@@ -3,11 +3,11 @@
 # Whom:					Andreas Kohn <andreas@syndrom23.de>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/deskutils/mate-notification-daemon/Makefile,v 1.1 2012/07/17 03:25:37 mezz Exp $
 #
 
 PORTNAME=	mate-notification-daemon
-PORTVERSION=	1.2.0
+PORTVERSION=	1.4.0
 CATEGORIES=	deskutils mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate
@@ -23,10 +23,11 @@ LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 USE_XZ=		yes
-USE_MATE=	autogen common:build conf intlhack libmatenotify matehack
+USE_MATE=	autogen common:build conf intlhack libmatenotify libmatewnck \
+		matehack
 USE_XORG=	x11
 USE_GMAKE=	yes
-USE_GNOME=	glib20 gtk20 librsvg2 libwnck pkgconfig
+USE_GNOME=	glib20 gtk20 librsvg2 pkgconfig
 USE_GETTEXT=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
 GNU_CONFIGURE=	yes

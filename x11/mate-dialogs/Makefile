@@ -3,11 +3,11 @@
 # Whom:					Franz Klammer <klammer@webonaut.com>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/x11/mate-dialogs/Makefile,v 1.1 2012/07/16 22:52:52 mezz Exp $
 #
 
 PORTNAME=	mate-dialogs
-PORTVERSION=	1.2.0
+PORTVERSION=	1.4.0
 CATEGORIES=	x11 mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate

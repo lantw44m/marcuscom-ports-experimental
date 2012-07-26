@@ -3,11 +3,11 @@
 # Whom:					Adam Weinberger <adamw@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/textproc/mate-doc-utils/Makefile,v 1.1 2012/07/06 02:48:08 mezz Exp $
+#   $MCom: ports-experimental/textproc/mate-doc-utils/Makefile,v 1.2 2012/07/19 21:39:46 mezz Exp $
 #
 
 PORTNAME=	mate-doc-utils
-PORTVERSION=	1.2.1
+PORTVERSION=	1.4.0
 CATEGORIES=	textproc mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate

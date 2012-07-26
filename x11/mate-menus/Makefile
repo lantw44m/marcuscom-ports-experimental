@@ -3,11 +3,11 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/x11/mate-menus/Makefile,v 1.1 2012/07/17 03:25:37 mezz Exp $
 #
 
 PORTNAME=	mate-menus
-PORTVERSION=	1.2.0
+PORTVERSION=	1.4.0
 CATEGORIES=	x11 mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate

@@ -3,11 +3,11 @@
 # Whom:					Yukihiro Nakai <Nakai@technologist.com>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11/libmate/Makefile,v 1.1 2012/07/06 02:48:08 mezz Exp $
+#   $MCom: ports-experimental/x11/libmate/Makefile,v 1.2 2012/07/19 21:39:46 mezz Exp $
 #
 
 PORTNAME=	libmate
-PORTVERSION=	1.2.0
+PORTVERSION=	1.4.0
 CATEGORIES=	x11 mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate

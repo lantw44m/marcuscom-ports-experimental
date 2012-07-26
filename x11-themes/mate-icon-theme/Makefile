@@ -3,12 +3,12 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/x11-themes/mate-icon-theme/Makefile,v 1.1 2012/07/16 22:52:52 mezz Exp $
 #
 
 PORTNAME=	mate-icon-theme
-PORTVERSION=	1.2.0
-CATEGORIES=	misc mate
+PORTVERSION=	1.4.0
+CATEGORIES=	x11-themes mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate
 

@@ -3,11 +3,11 @@
 # Whom:                 		ade, archie
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/x11-fm/mate-file-manager/Makefile,v 1.1 2012/07/16 22:52:52 mezz Exp $
 #
 
 PORTNAME=	mate-file-manager
-PORTVERSION=	1.2.2
+PORTVERSION=	1.4.0
 CATEGORIES=	x11-fm mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate

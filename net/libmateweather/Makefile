@@ -3,11 +3,11 @@
 # Whom:					Koop Mast <kwm@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/net/libmateweather/Makefile,v 1.1 2012/07/16 22:52:51 mezz Exp $
 #
 
 PORTNAME=	libmateweather
-PORTVERSION=	1.2.0
+PORTVERSION=	1.4.0
 CATEGORIES=	net mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate

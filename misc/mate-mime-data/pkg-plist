@@ -4,6 +4,7 @@ share/application-registry/mate-vfs.applications
 share/locale/af/LC_MESSAGES/mate-mime-data.mo
 share/locale/am/LC_MESSAGES/mate-mime-data.mo
 share/locale/ar/LC_MESSAGES/mate-mime-data.mo
+share/locale/ast/LC_MESSAGES/mate-mime-data.mo
 share/locale/az/LC_MESSAGES/mate-mime-data.mo
 share/locale/be/LC_MESSAGES/mate-mime-data.mo
 share/locale/bg/LC_MESSAGES/mate-mime-data.mo
@@ -59,8 +60,8 @@ share/locale/sk/LC_MESSAGES/mate-mime-data.mo
 share/locale/sl/LC_MESSAGES/mate-mime-data.mo
 share/locale/sq/LC_MESSAGES/mate-mime-data.mo
 share/locale/sr/LC_MESSAGES/mate-mime-data.mo
-share/locale/sr@Latn/LC_MESSAGES/mate-mime-data.mo
 share/locale/sr@ije/LC_MESSAGES/mate-mime-data.mo
+share/locale/sr@latin/LC_MESSAGES/mate-mime-data.mo
 share/locale/sv/LC_MESSAGES/mate-mime-data.mo
 share/locale/ta/LC_MESSAGES/mate-mime-data.mo
 share/locale/th/LC_MESSAGES/mate-mime-data.mo
@@ -83,10 +84,14 @@ share/mime-info/mate-vfs.mime
 @dirrmtry share/locale/yi
 @dirrmtry share/locale/xh/LC_MESSAGES
 @dirrmtry share/locale/xh
+@dirrmtry share/locale/sr@latin/LC_MESSAGES
+@dirrmtry share/locale/sr@latin
 @dirrmtry share/locale/sr@ije/LC_MESSAGES
 @dirrmtry share/locale/sr@ije
 @dirrmtry share/locale/rw/LC_MESSAGES
 @dirrmtry share/locale/rw
 @dirrmtry share/locale/nso/LC_MESSAGES
 @dirrmtry share/locale/nso
+@dirrmtry share/locale/ast/LC_MESSAGES
+@dirrmtry share/locale/ast
 @dirrm share/application-registry

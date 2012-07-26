@@ -3,11 +3,11 @@
 # Whom:					Maxim Sobolev <sobomax@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/graphics/libmatecanvas/Makefile,v 1.1 2012/07/06 02:48:08 mezz Exp $
+#   $MCom: ports-experimental/graphics/libmatecanvas/Makefile,v 1.2 2012/07/19 21:39:46 mezz Exp $
 #
 
 PORTNAME=	libmatecanvas
-PORTVERSION=	1.2.0
+PORTVERSION=	1.4.0
 CATEGORIES=	graphics mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate

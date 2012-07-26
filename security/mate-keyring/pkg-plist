@@ -4,91 +4,107 @@ etc/xdg/autostart/mate-keyring-gpg.desktop
 etc/xdg/autostart/mate-keyring-pkcs11.desktop
 etc/xdg/autostart/mate-keyring-secrets.desktop
 etc/xdg/autostart/mate-keyring-ssh.desktop
-include/gp11/pkcs11.h
-include/gp11/pkcs11g.h
-include/gp11/pkcs11n.h
-include/mate-gp11/gp11.h
+include/gck/pkcs11.h
+include/gck/pkcs11n.h
+include/gck/pkcs11x.h
+include/mate-gck/gck.h
 include/mategcr/gcr/gcr-certificate-basics-widget.h
+include/mategcr/gcr/gcr-certificate-chain.h
 include/mategcr/gcr/gcr-certificate-details-widget.h
+include/mategcr/gcr/gcr-certificate-renderer.h
+include/mategcr/gcr/gcr-certificate-widget.h
 include/mategcr/gcr/gcr-certificate.h
 include/mategcr/gcr/gcr-importer.h
+include/mategcr/gcr/gcr-key-renderer.h
+include/mategcr/gcr/gcr-key-widget.h
+include/mategcr/gcr/gcr-library.h
 include/mategcr/gcr/gcr-parser.h
+include/mategcr/gcr/gcr-pkcs11-certificate.h
+include/mategcr/gcr/gcr-renderer.h
 include/mategcr/gcr/gcr-simple-certificate.h
+include/mategcr/gcr/gcr-trust.h
 include/mategcr/gcr/gcr-types.h
 include/mategcr/gcr/gcr-unlock-options-widget.h
 include/mategcr/gcr/gcr-unlock-options.h
+include/mategcr/gcr/gcr-viewer.h
 include/mategcr/gcr/gcr.h
+lib/libmategck.a
+lib/libmategck.la
+lib/libmategck.so
+lib/libmategck.so.0
 lib/libmategcr.a
 lib/libmategcr.la
 lib/libmategcr.so
 lib/libmategcr.so.0
-lib/libmategp11.a
-lib/libmategp11.la
-lib/libmategp11.so
-lib/libmategp11.so.0
+lib/mate-keyring/devel/gkm-mate2-store-standalone.a
+lib/mate-keyring/devel/gkm-mate2-store-standalone.la
+lib/mate-keyring/devel/gkm-mate2-store-standalone.so
+lib/mate-keyring/devel/gkm-roots-store-standalone.a
+lib/mate-keyring/devel/gkm-roots-store-standalone.la
+lib/mate-keyring/devel/gkm-roots-store-standalone.so
 lib/mate-keyring/devel/gkm-ssh-store-standalone.a
 lib/mate-keyring/devel/gkm-ssh-store-standalone.la
 lib/mate-keyring/devel/gkm-ssh-store-standalone.so
-lib/mate-keyring/devel/gkm-user-store-standalone.a
-lib/mate-keyring/devel/gkm-user-store-standalone.la
-lib/mate-keyring/devel/gkm-user-store-standalone.so
-lib/mate-keyring/mate-keyring-pkcs11.a
-lib/mate-keyring/mate-keyring-pkcs11.la
-lib/mate-keyring/mate-keyring-pkcs11.so
-lib/mate-keyring/standalone/gkm-roots-store-standalone.a
-lib/mate-keyring/standalone/gkm-roots-store-standalone.la
-lib/mate-keyring/standalone/gkm-roots-store-standalone.so
+lib/mate-keyring/devel/gkm-xdg-store-standalone.a
+lib/mate-keyring/devel/gkm-xdg-store-standalone.la
+lib/mate-keyring/devel/gkm-xdg-store-standalone.so
 lib/mate-keyring/standalone/gkm-secret-store-standalone.a
 lib/mate-keyring/standalone/gkm-secret-store-standalone.la
 lib/mate-keyring/standalone/gkm-secret-store-standalone.so
 lib/pam_mate_keyring.a
 lib/pam_mate_keyring.la
 lib/pam_mate_keyring.so
+lib/pkcs11/mate-keyring-pkcs11.a
+lib/pkcs11/mate-keyring-pkcs11.la
+lib/pkcs11/mate-keyring-pkcs11.so
+libdata/pkgconfig/mate-gck-0.pc
 libdata/pkgconfig/mate-gcr-0.pc
-libdata/pkgconfig/mate-gp11-0.pc
 libexec/mate-keyring-prompt
 share/MateConf/gsettings/org.mate.crypto.cache.convert
 share/MateConf/gsettings/org.mate.crypto.pgp.convert
 share/dbus-1/services/org.mate-freedesktop.secrets.service
 share/dbus-1/services/org.mate.keyring.service
-share/doc/mate-gcr-0/ch01.html
+share/doc/mate-gck/GckModule.html
+share/doc/mate-gck/GckObject.html
+share/doc/mate-gck/GckSession.html
+share/doc/mate-gck/GckSlot.html
+share/doc/mate-gck/ch01.html
+share/doc/mate-gck/gck-Errors.html
+share/doc/mate-gck/gck-GckAttribute.html
+share/doc/mate-gck/gck-GckAttributes.html
+share/doc/mate-gck/gck-Miscellaneous-Functions.html
+share/doc/mate-gck/gck-PKCS11-URIs.html
+share/doc/mate-gck/gck.devhelp
+share/doc/mate-gck/gck.devhelp2
+share/doc/mate-gck/home.png
+share/doc/mate-gck/index.html
+share/doc/mate-gck/index.sgml
+share/doc/mate-gck/left.png
+share/doc/mate-gck/right.png
+share/doc/mate-gck/style.css
+share/doc/mate-gck/up.png
+share/doc/mate-gcr-0/GcrCertificateChain.html
+share/doc/mate-gcr-0/GcrPkcs11Certificate.html
+share/doc/mate-gcr-0/GcrSimpleCertificate.html
+share/doc/mate-gcr-0/certificates.html
 share/doc/mate-gcr-0/gcr-GcrCertificate.html
-share/doc/mate-gcr-0/gcr-gcr-certificate-basics-widget.html
-share/doc/mate-gcr-0/gcr-gcr-certificate-details-widget.html
-share/doc/mate-gcr-0/gcr-gcr-import-dialog.html
+share/doc/mate-gcr-0/gcr-Library-Settings.html
+share/doc/mate-gcr-0/gcr-Trust-Storage-and-Lookups.html
 share/doc/mate-gcr-0/gcr-gcr-importer.html
 share/doc/mate-gcr-0/gcr-gcr-initializer.html
 share/doc/mate-gcr-0/gcr-gcr-parser.html
-share/doc/mate-gcr-0/gcr-gcr-simple-certificate.html
-share/doc/mate-gcr-0/gcr-gcr-types.html
-share/doc/mate-gcr-0/gcr-gcr-xxx.html
 share/doc/mate-gcr-0/gcr.devhelp
 share/doc/mate-gcr-0/gcr.devhelp2
 share/doc/mate-gcr-0/home.png
 share/doc/mate-gcr-0/index.html
 share/doc/mate-gcr-0/index.sgml
 share/doc/mate-gcr-0/left.png
+share/doc/mate-gcr-0/misc.html
 share/doc/mate-gcr-0/right.png
+share/doc/mate-gcr-0/storage.html
 share/doc/mate-gcr-0/style.css
 share/doc/mate-gcr-0/up.png
-share/doc/mate-gp11/GP11Module.html
-share/doc/mate-gp11/GP11Object.html
-share/doc/mate-gp11/GP11Session.html
-share/doc/mate-gp11/GP11Slot.html
-share/doc/mate-gp11/ch01.html
-share/doc/mate-gp11/gp11-Errors.html
-share/doc/mate-gp11/gp11-GP11Attribute.html
-share/doc/mate-gp11/gp11-GP11Attributes.html
-share/doc/mate-gp11/gp11-Miscellaneous-Functions.html
-share/doc/mate-gp11/gp11.devhelp
-share/doc/mate-gp11/gp11.devhelp2
-share/doc/mate-gp11/home.png
-share/doc/mate-gp11/index.html
-share/doc/mate-gp11/index.sgml
-share/doc/mate-gp11/left.png
-share/doc/mate-gp11/right.png
-share/doc/mate-gp11/style.css
-share/doc/mate-gp11/up.png
+share/locale/af/LC_MESSAGES/mate-keyring.mo
 share/locale/ar/LC_MESSAGES/mate-keyring.mo
 share/locale/as/LC_MESSAGES/mate-keyring.mo
 share/locale/ast/LC_MESSAGES/mate-keyring.mo
@@ -163,30 +179,26 @@ share/locale/ta/LC_MESSAGES/mate-keyring.mo
 share/locale/te/LC_MESSAGES/mate-keyring.mo
 share/locale/th/LC_MESSAGES/mate-keyring.mo
 share/locale/tr/LC_MESSAGES/mate-keyring.mo
+share/locale/ug/LC_MESSAGES/mate-keyring.mo
 share/locale/uk/LC_MESSAGES/mate-keyring.mo
 share/locale/vi/LC_MESSAGES/mate-keyring.mo
 share/locale/xh/LC_MESSAGES/mate-keyring.mo
 share/locale/zh_CN/LC_MESSAGES/mate-keyring.mo
 share/locale/zh_HK/LC_MESSAGES/mate-keyring.mo
 share/locale/zh_TW/LC_MESSAGES/mate-keyring.mo
-%%DATADIR%%/introspect/introspect-collection.xml
-%%DATADIR%%/introspect/introspect-item.xml
-%%DATADIR%%/introspect/introspect-prompt.xml
-%%DATADIR%%/introspect/introspect-service.xml
-%%DATADIR%%/introspect/introspect-session.xml
 %%DATADIR%%/ui/gku-prompt.ui
-share/mategcr/ui/gcr-certificate-basics-widget.ui
 share/mategcr/ui/gcr-import-dialog.ui
 share/mategcr/ui/gcr-unlock-options-widget.ui
 @dirrm share/mategcr/ui
 @dirrm share/mategcr
 @dirrm %%DATADIR%%/ui
-@dirrm %%DATADIR%%/introspect
 @dirrm %%DATADIR%%
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
 @dirrmtry share/locale/zh_HK
 @dirrmtry share/locale/xh/LC_MESSAGES
 @dirrmtry share/locale/xh
+@dirrmtry share/locale/ug/LC_MESSAGES
+@dirrmtry share/locale/ug
 @dirrmtry share/locale/te/LC_MESSAGES
 @dirrmtry share/locale/te
 @dirrmtry share/locale/sr@latin/LC_MESSAGES
@@ -219,18 +231,19 @@ share/mategcr/ui/gcr-unlock-options-widget.ui
 @dirrmtry share/locale/as
 @dirrm share/glib-2.0/schemas
 @dirrm share/glib-2.0
-@dirrm share/doc/mate-gp11
 @dirrm share/doc/mate-gcr-0
+@dirrm share/doc/mate-gck
 @dirrm share/dbus-1/services
 @dirrm share/dbus-1
 @dirrm share/MateConf/gsettings
 @dirrm share/MateConf
+@dirrm lib/pkcs11
 @dirrm lib/mate-keyring/standalone
 @dirrm lib/mate-keyring/devel
 @dirrm lib/mate-keyring
 @dirrm include/mategcr/gcr
 @dirrm include/mategcr
-@dirrm include/mate-gp11
-@dirrm include/gp11
+@dirrm include/mate-gck
+@dirrm include/gck
 @dirrm etc/xdg/autostart
 @dirrm etc/xdg
