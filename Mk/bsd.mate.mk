@@ -3,7 +3,7 @@
 #
 # $FreeBSD$
 #	$NetBSD$
-#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.5 2012/07/17 19:10:38 mezz Exp $
+#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.6 2012/07/19 15:07:26 mezz Exp $
 #
 # Please view me with 4 column tabs!
 
@@ -271,7 +271,7 @@ ltasneededhack_PRE_PATCH=	if [ -f ${WRKDIR}/mate-libtool ]; then \
 
 # Comparing between USE_MATE and _USE_MATE_ALL to make sure the component
 # exists in _USE_MATE_ALL. If it does not exist then give an error about it.
-. for component in ${USE_MATE:C/^([^:]+).*/\1/}
+. for component in ${USE_MATE:O:u:C/^([^:]+).*/\1/}
 .  if ${_USE_MATE_ALL:M${component}}==""
 .error cannot install: Unknown component USE_MATE=${component}
 .  endif
@@ -282,7 +282,7 @@ MATE_PRE_PATCH+=	${lthacks_PRE_PATCH}
 CONFIGURE_ENV+=		${lthacks_CONFIGURE_ENV}
 . endif
 
-. for component in ${USE_MATE:C/^([^:]+).*/\1/}
+. for component in ${USE_MATE:O:u:C/^([^:]+).*/\1/}
 .  if defined(${component}_PATCH_DEPENDS)
 PATCH_DEPENDS+=	${${component}_PATCH_DEPENDS}
 .  endif
