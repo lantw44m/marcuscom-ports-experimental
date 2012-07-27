@@ -3,11 +3,12 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11/mate-panel/Makefile,v 1.2 2012/07/26 04:37:54 mezz Exp $
+#   $MCom: ports-experimental/x11/mate-panel/Makefile,v 1.3 2012/07/27 01:34:27 mezz Exp $
 #
 
 PORTNAME=	mate-panel
 PORTVERSION=	1.4.0
+PORTREVISION=	1
 CATEGORIES=	x11 mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate
