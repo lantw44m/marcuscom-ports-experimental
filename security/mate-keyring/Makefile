@@ -3,11 +3,12 @@
 # Whom:				Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/security/mate-keyring/Makefile,v 1.2 2012/07/26 04:37:53 mezz Exp $
+#   $MCom: ports-experimental/security/mate-keyring/Makefile,v 1.3 2012/07/27 01:34:26 mezz Exp $
 #
 
 PORTNAME=	mate-keyring
 PORTVERSION=	1.4.0
+PORTREVISION=	1
 CATEGORIES=	security mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate
@@ -22,7 +23,7 @@ LIB_DEPENDS=	dbus-1:${PORTSDIR}/devel/dbus \
 RUN_DEPENDS=	${LOCALBASE}/share/certs/ca-root-nss.crt:${PORTSDIR}/security/ca_root_nss
 
 USE_XZ=		yes
-USE_MATE=	autogen common:build intlhack ltverhack matehack
+USE_MATE=	autogen common:build intlhack libmatekeyring ltverhack matehack
 USE_GMAKE=	yes
 USE_GNOME=	glib20 gtk20
 USE_GETTEXT=	yes
