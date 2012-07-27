@@ -3,11 +3,12 @@
 # Whom:                 		ade, archie
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11-fm/mate-file-manager/Makefile,v 1.2 2012/07/26 04:37:55 mezz Exp $
+#   $MCom: ports-experimental/x11-fm/mate-file-manager/Makefile,v 1.3 2012/07/27 01:34:27 mezz Exp $
 #
 
 PORTNAME=	mate-file-manager
 PORTVERSION=	1.4.0
+PORTREVISION=	1
 CATEGORIES=	x11-fm mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate
@@ -17,13 +18,14 @@ COMMENT?=	File manager for the MATE desktop
 
 BUILD_DEPENDS=	gtkdoc-check:${PORTSDIR}/textproc/gtk-doc \
 		g-ir-compiler:${PORTSDIR}/devel/gobject-introspection
-LIB_DEPENDS=	exif.12:${PORTSDIR}/graphics/libexif \
-		unique-1.0.2:${PORTSDIR}/x11-toolkits/unique \
-		exempi.3:${PORTSDIR}/textproc/exempi
+LIB_DEPENDS=	exif:${PORTSDIR}/graphics/libexif \
+		unique-1.0:${PORTSDIR}/x11-toolkits/unique \
+		exempi:${PORTSDIR}/textproc/exempi
+RUN_DEPENDS=	${LOCALBASE}/libexec/gvfsd:${PORTSDIR}/devel/gvfs
 
 USE_XZ=		yes
-USE_MATE=	autogen common:build desktop intlhack ltasneededhack ltverhack \
-		matehack
+USE_MATE=	autogen common:build desktop icontheme:run intlhack \
+		ltasneededhack ltverhack matehack
 USE_XORG=	ice x11 xrender
 USE_GMAKE=	yes
 USE_GNOME=	desktopfileutils glib20 gtk20 libxml2 pango
