@@ -3,7 +3,7 @@
 # Whom:                Garrett Rooney <rooneg@electricjellyfish.net>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11-wm/mate-window-manager/Makefile,v 1.2 2012/07/26 04:37:56 mezz Exp $
+#   $MCom: ports-experimental/x11-wm/mate-window-manager/Makefile,v 1.3 2012/07/27 01:34:27 mezz Exp $
 #
 
 PORTNAME=	mate-window-manager
@@ -19,7 +19,7 @@ LIB_DEPENDS=	startup-notification-1:${PORTSDIR}/x11/startup-notification \
 		canberra-gtk:${PORTSDIR}/audio/libcanberra
 
 USE_XZ=		yes
-USE_MATE=	autogen common:build conf dialog docutils intlhack ltverhack \
+USE_MATE=	autogen common:build conf dialogs docutils intlhack ltverhack \
 		matehack
 USE_XORG=	x11 xcomposite xcursor xdamage xrandr
 USE_GMAKE=	yes

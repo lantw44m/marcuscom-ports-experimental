@@ -3,7 +3,7 @@
 #
 # $FreeBSD$
 #	$NetBSD$
-#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.7 2012/07/26 17:03:41 mezz Exp $
+#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.8 2012/07/26 19:05:42 mezz Exp $
 #
 # Please view me with 4 column tabs!
 
@@ -50,7 +50,7 @@ _USE_MATE_ALL=	autogen intlhack intltool ltasneededhack lthack ltverhack \
 # for the library dependency first. If not exists then do the build/run on
 # the *.pc file instead.
 _USE_MATE_ALL+=	caja canvas common component componentui conf controlcenter \
-				corba desktop dialog docutils icontheme keyring lib libmatekbd \
+				corba desktop dialogs docutils icontheme keyring lib libmatekbd \
 				libmatekeyring libmatenotify libmateui libmateweather \
 				libmatewnck marco menus mimedata notificationdaemon panel \
 				polkit settingsdaemon vfs
@@ -120,9 +120,9 @@ desktop_BUILD_DEPENDS=	${desktop_DETECT}:${PORTSDIR}/x11/mate-desktop
 desktop_LIB_DEPENDS=	mate-desktop-2:${PORTSDIR}/x11/mate-desktop
 desktop_RUN_DEPENDS=	${desktop_DETECT}:${PORTSDIR}/x11/mate-desktop
 
-dialog_DETECT=			${LOCALBASE}/bin/matedialog
-dialog_BUILD_DEPENDS=	${dialog_DETECT}:${PORTSDIR}/x11/mate-dialogs
-dialog_RUN_DEPENDS=		${dialog_DETECT}:${PORTSDIR}/x11/mate-dialogs
+dialogs_DETECT=			${LOCALBASE}/bin/matedialog
+dialogs_BUILD_DEPENDS=	${dialogs_DETECT}:${PORTSDIR}/x11/mate-dialogs
+dialogs_RUN_DEPENDS=	${dialogs_DETECT}:${PORTSDIR}/x11/mate-dialogs
 
 docutils_DETECT=		${LOCALBASE}/libdata/pkgconfig/mate-doc-utils.pc
 docutils_BUILD_DEPENDS=	${docutils_DETECT}:${PORTSDIR}/textproc/mate-doc-utils

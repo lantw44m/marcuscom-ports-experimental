@@ -3,7 +3,7 @@
 # Whom:			Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD: ports/x11/gnome2/Makefile,v 1.172 2012/02/16 15:57:29 ashish Exp $
-#   $MCom: ports/x11/gnome2/Makefile,v 1.300 2010/11/18 01:37:46 kwm Exp $
+#   $MCom: ports-experimental/x11/mate-base/Makefile,v 1.1 2012/07/27 17:37:20 mezz Exp $
 #
 
 PORTNAME=	mate-base
@@ -23,7 +23,7 @@ RUN_DEPENDS=	${LOCALBASE}/lib/X11/fonts/bitstream-vera/Vera.ttf:${PORTSDIR}/x11-
 		mate-themes>=1.4.0:${PORTSDIR}/x11-themes/mate-themes \
 		mate-icon-theme-faenza>=1.4.0:${PORTSDIR}/x11-themes/mate-icon-theme-faenza
 
-USE_MATE=	caja:run controlcenter:run dialog:run icontheme:run \
+USE_MATE=	caja:run controlcenter:run dialogs:run icontheme:run \
 		keyring:run marco:run notificationdaemon:run panel:run \
 		polkit:run
 
