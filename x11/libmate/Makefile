@@ -3,11 +3,12 @@
 # Whom:					Yukihiro Nakai <Nakai@technologist.com>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11/libmate/Makefile,v 1.3 2012/07/26 04:37:54 mezz Exp $
+#   $MCom: ports-experimental/x11/libmate/Makefile,v 1.4 2012/07/27 01:34:26 mezz Exp $
 #
 
 PORTNAME=	libmate
 PORTVERSION=	1.4.0
+PORTREVISION=	1
 CATEGORIES=	x11 mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate
@@ -18,6 +19,7 @@ COMMENT=	Libraries for MATE, a GNU desktop environment
 BUILD_DEPENDS=	gtkdoc-check:${PORTSDIR}/textproc/gtk-doc
 LIB_DEPENDS=	canberra-gtk:${PORTSDIR}/audio/libcanberra \
 		popt:${PORTSDIR}/devel/popt
+RUN_DEPENDS=	${LOCALBASE}/share/sounds/freedesktop/index.theme:${PORTSDIR}/audio/freedesktop-sound-theme
 
 USE_XZ=		yes
 USE_MATE=	autogen common:build component conf intlhack ltverhack \
