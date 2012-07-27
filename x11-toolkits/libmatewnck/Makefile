@@ -3,7 +3,7 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/x11-toolkits/libmatewnck/Makefile,v 1.1 2012/07/26 04:37:55 mezz Exp $
 #
 
 PORTNAME=	libmatewnck
@@ -23,11 +23,13 @@ USE_XZ=		yes
 USE_MATE=	autogen common:build intlhack ltverhack matehack
 USE_XORG=	x11 xres
 USE_GMAKE=	yes
-USE_GNOME=	gdkpixbuf2 glib20 gtk20 pkgconfig
+USE_GNOME=	gdkpixbuf2 glib20 gtk20
 USE_BISON=	build
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
+USE_PKGCONFIG=	build
+GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-gtk-doc \
 		--with-html-dir=${PREFIX}/share/doc
 CPPFLAGS+=	-I${LOCALBASE}/include

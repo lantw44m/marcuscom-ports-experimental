@@ -3,7 +3,7 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11/mate-menus/Makefile,v 1.1 2012/07/17 03:25:37 mezz Exp $
+#   $MCom: ports-experimental/x11/mate-menus/Makefile,v 1.2 2012/07/26 04:37:54 mezz Exp $
 #
 
 PORTNAME=	mate-menus
@@ -20,11 +20,12 @@ BUILD_DEPENDS=	g-ir-scanner:${PORTSDIR}/devel/gobject-introspection
 USE_XZ=		yes
 USE_MATE=	autogen common:build intlhack ltverhack matehack
 USE_GMAKE=	yes
-USE_GNOME=	glib20 pkgconfig
+USE_GNOME=	glib20
 USE_PYTHON=	yes
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
+USE_PKGCONFIG=	build
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib

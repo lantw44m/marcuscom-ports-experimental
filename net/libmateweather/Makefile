@@ -3,7 +3,7 @@
 # Whom:					Koop Mast <kwm@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/net/libmateweather/Makefile,v 1.1 2012/07/16 22:52:51 mezz Exp $
+#   $MCom: ports-experimental/net/libmateweather/Makefile,v 1.2 2012/07/26 04:37:53 mezz Exp $
 #
 
 PORTNAME=	libmateweather
@@ -21,10 +21,11 @@ LIB_DEPENDS=	soup-2.4:${PORTSDIR}/devel/libsoup
 USE_XZ=		yes
 USE_MATE=	autogen common:build conf intlhack ltverhack matehack
 USE_GMAKE=	yes
-USE_GNOME=	glib20 gtk20 libxml2 pkgconfig
+USE_GNOME=	glib20 gtk20 libxml2
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
+USE_PKGCONFIG=	build
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-gtk-doc \
 		--with-html-dir=${PREFIX}/share/doc \

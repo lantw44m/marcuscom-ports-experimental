@@ -3,7 +3,7 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11/mate-desktop/Makefile,v 1.2 2012/07/19 21:39:46 mezz Exp $
+#   $MCom: ports-experimental/x11/mate-desktop/Makefile,v 1.3 2012/07/26 04:37:54 mezz Exp $
 #
 
 PORTNAME=	mate-desktop
@@ -23,11 +23,13 @@ USE_MATE=	autogen common:build conf docutils intlhack ltverhack matehack
 USE_XORG=	x11 xrandr
 USE_BISON=	build
 USE_GMAKE=	yes
-USE_GNOME=	gdkpixbuf2 glib20 gtk20 pkgconfig
+USE_GNOME=	gdkpixbuf2 glib20 gtk20
 USE_PYTHON=	yes
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
+USE_PKGCONFIG=	build
+GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-gtk=2.0 \
 		--disable-gtk-doc \
 		--with-html-dir=${PREFIX}/share/doc \

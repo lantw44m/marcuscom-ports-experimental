@@ -3,7 +3,7 @@
 # Whom:			Michael Johnson <ahze@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11/libmatekbd/Makefile,v 1.1 2012/07/16 22:52:51 mezz Exp $
+#   $MCom: ports-experimental/x11/libmatekbd/Makefile,v 1.2 2012/07/26 04:37:54 mezz Exp $
 #
 
 PORTNAME=	libmatekbd
@@ -20,10 +20,11 @@ LIB_DEPENDS=	xklavier:${PORTSDIR}/x11/libxklavier
 USE_XZ=		yes
 USE_MATE=	autogen common:build conf intlhack ltverhack matehack
 USE_GMAKE=	yes
-USE_GNOME=	glib20 gtk20 pkgconfig
+USE_GNOME=	glib20 gtk20
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
+USE_PKGCONFIG=	build
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-gtk=2.0 \
 		${MATECONF_PREFIX}

@@ -3,7 +3,7 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11/mate-panel/Makefile,v 1.1 2012/07/19 15:07:26 mezz Exp $
+#   $MCom: ports-experimental/x11/mate-panel/Makefile,v 1.2 2012/07/26 04:37:54 mezz Exp $
 #
 
 PORTNAME=	mate-panel
@@ -26,12 +26,13 @@ USE_MATE=	autogen common:build componentui conf corba desktop docutils \
 		intlhack libmateweather libmatewnck ltverhack matehack menus
 USE_XORG=	ice sm x11 xau xrandr
 USE_GMAKE=	yes
-USE_GNOME=	gdkpixbuf2 glib20 gtk20 librsvg2 pango pkgconfig
+USE_GNOME=	gdkpixbuf2 glib20 gtk20 librsvg2 pango
 USE_PYTHON=	yes
 USE_GETTEXT=	yes
 INSTALLS_OMF=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
+USE_PKGCONFIG=	build
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-network-manager \
 		--disable-eds \

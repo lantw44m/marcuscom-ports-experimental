@@ -3,7 +3,7 @@
 # Whom:					Ade Lovett <ade@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/devel/mate-conf/Makefile,v 1.2 2012/07/19 21:39:46 mezz Exp $
+#   $MCom: ports-experimental/devel/mate-conf/Makefile,v 1.3 2012/07/26 04:37:52 mezz Exp $
 #
 
 PORTNAME=	mate-conf
@@ -25,10 +25,11 @@ RUN_DEPENDS=	g-ir-scanner:${PORTSDIR}/devel/gobject-introspection
 USE_XZ=		yes
 USE_MATE=	autogen common:build corba ltverhack intlhack matehack
 USE_GMAKE=	yes
-USE_GNOME=	glib20 gtk20 libxml2 pkgconfig
+USE_GNOME=	glib20 gtk20 libxml2
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
+USE_PKGCONFIG=	build
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-html-dir=${PREFIX}/share/doc \
 		--disable-gtk-doc \

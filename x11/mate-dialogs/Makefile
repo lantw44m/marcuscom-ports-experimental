@@ -3,7 +3,7 @@
 # Whom:					Franz Klammer <klammer@webonaut.com>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11/mate-dialogs/Makefile,v 1.1 2012/07/16 22:52:52 mezz Exp $
+#   $MCom: ports-experimental/x11/mate-dialogs/Makefile,v 1.2 2012/07/26 04:37:54 mezz Exp $
 #
 
 PORTNAME=	mate-dialogs
@@ -21,10 +21,11 @@ RUN_DEPENDS=	rarian-sk-config:${PORTSDIR}/textproc/rarian
 USE_XZ=		yes
 USE_MATE=	autogen common:build docutils intlhack matehack
 USE_GMAKE=	yes
-USE_GNOME=	glib20 gtk20 pkgconfig
+USE_GNOME=	glib20 gtk20
 USE_GETTEXT=	yes
 INSTALLS_OMF=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env
+USE_PKGCONFIG=	build
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-gtk=2.0
 CONFIGURE_ENV=	LIBS="-L${LOCALBASE}/lib ${PTHREAD_LIBS}"

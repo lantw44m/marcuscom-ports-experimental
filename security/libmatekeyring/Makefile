@@ -3,7 +3,7 @@
 # Whom:			Michael Johnson <ahze@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/security/libmatekeyring/Makefile,v 1.1 2012/07/16 22:52:51 mezz Exp $
+#   $MCom: ports-experimental/security/libmatekeyring/Makefile,v 1.2 2012/07/26 04:37:53 mezz Exp $
 #
 
 PORTNAME=	libmatekeyring
@@ -21,11 +21,12 @@ LIB_DEPENDS=	gcrypt:${PORTSDIR}/security/libgcrypt \
 
 USE_XZ=		yes
 USE_MATE=	autogen common:build intlhack ltverhack matehack
-USE_GNOME=	glib20 pkgconfig
+USE_GNOME=	glib20
 USE_GMAKE=	yes
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
+USE_PKGCONFIG=	build
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-gtk-doc \
 		--with-html-dir=${PREFIX}/share/doc

@@ -3,7 +3,7 @@
 # Whom:					Maxim Sobolev <sobomax@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/graphics/libmatecanvas/Makefile,v 1.2 2012/07/19 21:39:46 mezz Exp $
+#   $MCom: ports-experimental/graphics/libmatecanvas/Makefile,v 1.3 2012/07/26 04:37:53 mezz Exp $
 #
 
 PORTNAME=	libmatecanvas
@@ -20,10 +20,11 @@ BUILD_DEPENDS=	gtkdoc-check:${PORTSDIR}/textproc/gtk-doc
 USE_XZ=		yes
 USE_MATE=	autogen common:build intlhack ltverhack matehack
 USE_GMAKE=	yes
-USE_GNOME=	glib20 gtk20 libartlgpl2 libglade2 pango pkgconfig
+USE_GNOME=	glib20 gtk20 libartlgpl2 libglade2 pango
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
+USE_PKGCONFIG=	build
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-html-dir=${PREFIX}/share/doc \
 		--enable-glade \

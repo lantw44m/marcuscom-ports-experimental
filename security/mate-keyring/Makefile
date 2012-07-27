@@ -3,7 +3,7 @@
 # Whom:				Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/security/mate-keyring/Makefile,v 1.1 2012/07/16 22:52:51 mezz Exp $
+#   $MCom: ports-experimental/security/mate-keyring/Makefile,v 1.2 2012/07/26 04:37:53 mezz Exp $
 #
 
 PORTNAME=	mate-keyring
@@ -24,10 +24,11 @@ RUN_DEPENDS=	${LOCALBASE}/share/certs/ca-root-nss.crt:${PORTSDIR}/security/ca_ro
 USE_XZ=		yes
 USE_MATE=	autogen common:build intlhack ltverhack matehack
 USE_GMAKE=	yes
-USE_GNOME=	glib20 gtk20 pkgconfig
+USE_GNOME=	glib20 gtk20
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
+USE_PKGCONFIG=	build
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-pam-dir="${PREFIX}/lib" \
 		--with-root-certs="${LOCALBASE}/share/certs" \

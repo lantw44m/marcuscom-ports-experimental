@@ -3,7 +3,7 @@
 # Whom:                 		ade, archie
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11-fm/mate-file-manager/Makefile,v 1.1 2012/07/16 22:52:52 mezz Exp $
+#   $MCom: ports-experimental/x11-fm/mate-file-manager/Makefile,v 1.2 2012/07/26 04:37:55 mezz Exp $
 #
 
 PORTNAME=	mate-file-manager
@@ -26,10 +26,11 @@ USE_MATE=	autogen common:build desktop intlhack ltasneededhack ltverhack \
 		matehack
 USE_XORG=	ice x11 xrender
 USE_GMAKE=	yes
-USE_GNOME=	desktopfileutils glib20 gtk20 libxml2 pango pkgconfig
+USE_GNOME=	desktopfileutils glib20 gtk20 libxml2 pango
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
+USE_PKGCONFIG=	build
 GNU_CONFIGURE=	yes
 CONFIGURE_ENV=	LIBS="${PTHREAD_LIBS} -L${LOCALBASE}/lib -liconv" \
 		LIBPNG="-L${LOCALBASE}/lib -lpng -lz"

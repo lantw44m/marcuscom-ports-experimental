@@ -3,7 +3,7 @@
 # Whom:                Garrett Rooney <rooneg@electricjellyfish.net>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11-wm/mate-window-manager/Makefile,v 1.1 2012/07/17 03:25:38 mezz Exp $
+#   $MCom: ports-experimental/x11-wm/mate-window-manager/Makefile,v 1.2 2012/07/26 04:37:56 mezz Exp $
 #
 
 PORTNAME=	mate-window-manager
@@ -23,10 +23,11 @@ USE_MATE=	autogen common:build conf dialog docutils intlhack ltverhack \
 		matehack
 USE_XORG=	x11 xcomposite xcursor xdamage xrandr
 USE_GMAKE=	yes
-USE_GNOME=	gdkpixbuf2 glib20 gtk20 pango pkgconfig
+USE_GNOME=	gdkpixbuf2 glib20 gtk20 pango
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
+USE_PKGCONFIG=	build
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-gtk=2.0 \
 		${MATECONF_PREFIX}

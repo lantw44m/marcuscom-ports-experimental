@@ -3,7 +3,7 @@
 # Whom:					Andreas Kohn <andreas@syndrom23.de>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/devel/libmatenotify/Makefile,v 1.1 2012/07/16 22:52:50 mezz Exp $
+#   $MCom: ports-experimental/devel/libmatenotify/Makefile,v 1.2 2012/07/26 04:37:52 mezz Exp $
 #
 
 PORTNAME=	libmatenotify
@@ -27,10 +27,11 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 USE_XZ=		yes
 USE_MATE=	autogen common:build ltverhack matehack
 USE_GMAKE=	yes
-USE_GNOME=	glib20 gtk20 pkgconfig
+USE_GNOME=	glib20 gtk20
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
+USE_PKGCONFIG=	build
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-gtk-doc \
 		--with-html-dir=${PREFIX}/share/doc

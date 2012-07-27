@@ -3,7 +3,7 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11-themes/mate-icon-theme/Makefile,v 1.1 2012/07/16 22:52:52 mezz Exp $
+#   $MCom: ports-experimental/x11-themes/mate-icon-theme/Makefile,v 1.2 2012/07/26 04:37:55 mezz Exp $
 #
 
 PORTNAME=	mate-icon-theme
@@ -22,9 +22,9 @@ RUN_DEPENDS=	${LOCALBASE}/share/icons/hicolor/index.theme:${PORTSDIR}/misc/hicol
 USE_XZ=		yes
 USE_MATE=	autogen common:build intlhack matehack
 USE_GMAKE=	yes
-USE_GNOME=	pkgconfig
 USE_GETTEXT=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env
+USE_PKGCONFIG=	build
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include

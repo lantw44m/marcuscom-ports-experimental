@@ -3,7 +3,7 @@
 # Whom:					Adam Weinberger <adamw@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/textproc/mate-doc-utils/Makefile,v 1.2 2012/07/19 21:39:46 mezz Exp $
+#   $MCom: ports-experimental/textproc/mate-doc-utils/Makefile,v 1.3 2012/07/26 04:37:54 mezz Exp $
 #
 
 PORTNAME=	mate-doc-utils
@@ -25,11 +25,12 @@ RUN_DEPENDS=	rarian-sk-config:${PORTSDIR}/textproc/rarian \
 USE_XZ=		yes
 USE_MATE=	autogen common:build matehack intlhack
 USE_GMAKE=	yes
-USE_GNOME=	libxml2 libxslt pkgconfig
+USE_GNOME=	libxml2 libxslt
 USE_PYTHON=	build
 USE_GETTEXT=	yes
 INSTALLS_OMF=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env
+USE_PKGCONFIG=	build
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=--with-omf-dir=${PREFIX}/share/omf
 CPPFLAGS+=	-I${LOCALBASE}/include

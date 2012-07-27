@@ -3,7 +3,7 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11-themes/mate-themes/Makefile,v 1.1 2012/07/19 15:07:26 mezz Exp $
+#   $MCom: ports-experimental/x11-themes/mate-themes/Makefile,v 1.2 2012/07/26 04:37:55 mezz Exp $
 #
 
 PORTNAME=	mate-themes
@@ -22,9 +22,11 @@ RUN_DEPENDS=	gtk-engines2>=2.15.0:${PORTSDIR}/x11-themes/gtk-engines2
 USE_XZ=		yes
 USE_MATE=	autogen common:build intlhack marco matehack
 USE_GMAKE=	yes
-USE_GNOME=	gdkpixbuf2 gtk20 pkgconfig
+USE_GNOME=	gdkpixbuf2 gtk20
 USE_GETTEXT=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
+USE_PKGCONFIG=	build
+GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib

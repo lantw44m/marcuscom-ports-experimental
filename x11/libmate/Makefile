@@ -3,7 +3,7 @@
 # Whom:					Yukihiro Nakai <Nakai@technologist.com>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11/libmate/Makefile,v 1.2 2012/07/19 21:39:46 mezz Exp $
+#   $MCom: ports-experimental/x11/libmate/Makefile,v 1.3 2012/07/26 04:37:54 mezz Exp $
 #
 
 PORTNAME=	libmate
@@ -25,10 +25,11 @@ USE_MATE=	autogen common:build component conf intlhack ltverhack \
 USE_XORG=	xpm
 USE_BISON=	build
 USE_GMAKE=	yes
-USE_GNOME=	glib20 pkgconfig
+USE_GNOME=	glib20
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
+USE_PKGCONFIG=	build
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	${MATECONF_PREFIX} \
 		--disable-gtk-doc \

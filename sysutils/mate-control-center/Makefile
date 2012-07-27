@@ -3,7 +3,7 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/sysutils/mate-control-center/Makefile,v 1.1 2012/07/17 19:10:38 mezz Exp $
+#   $MCom: ports-experimental/sysutils/mate-control-center/Makefile,v 1.2 2012/07/26 04:37:53 mezz Exp $
 #
 
 PORTNAME=	mate-control-center
@@ -27,11 +27,12 @@ USE_MATE=	autogen common:build conf desktop docutils intlhack \
 		ltverhack libmatekbd marco matehack menus settingsdaemon
 USE_XORG=	x11 xcursor xext xxf86misc xft xi xrandr xscrnsaver
 USE_GMAKE=	yes
-USE_GNOME=	desktopfileutils glib20 gtk20 libxml2 pango pkgconfig
+USE_GNOME=	desktopfileutils glib20 gtk20 libxml2 pango
 USE_GETTEXT=	yes
 INSTALLS_OMF=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
+USE_PKGCONFIG=	build
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--enable-appindicator=no \
 		${MATECONF_PREFIX}
