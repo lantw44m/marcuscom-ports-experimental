@@ -4,6 +4,7 @@
 -Test these ports in the runtime.
 -Ports that need to be recopied. The single space means that it's done.
 
+Base (x11/mate-base):
 ------------------------------
  devel/gnome-common -> devel/mate-common
  textproc/gnome-doc-utils -> textproc/mate-doc-utils
@@ -35,4 +36,23 @@
  x11/gnome-panel -> x11/mate-panel
  x11/gnome-session -> x11/mate-session-manager
  x11-themes/gnome-themes -> x11-themes/mate-themes
+------------------------------
+
+Extras (x11/mate):
+------------------------------
+ editors/gedit -> editors/mate-text-editor
+ x11/gnome-terminal -> x11/mate-terminal
+x11/gnome-screensaver -> x11/mate-screensaver
+math/gcalctool -> math/mate-calc
+sysutils/gconf-editor -> sysutils/mate-conf-editor
+deskutils/gnome-utils -> deskutils/mate-utils
+sysutils/gnome-system-tools -> sysutils/mate-system-tools
+sysutils/gnome-system-monitor -> sysutils/mate-system-monitor
+graphics/eog -> graphics/mate-image-viewer
+archivers/file-roller -> archivers/mate-file-archiver
+graphics/evince -> graphics/mate-document-viewer
+audio/gnome-media -> audio/mate-media
+sysutils/gnome-power-manager -> sysutils/mate-power-manager
+deskutils/alacarte -> deskutils/mate-menu-editor
+x11/gnome-applets -> x11/mate-applets
 ------------------------------

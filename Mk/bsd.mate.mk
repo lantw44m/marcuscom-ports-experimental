@@ -3,7 +3,7 @@
 #
 # $FreeBSD$
 #	$NetBSD$
-#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.8 2012/07/26 19:05:42 mezz Exp $
+#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.9 2012/07/27 17:45:05 mezz Exp $
 #
 # Please view me with 4 column tabs!
 
@@ -50,10 +50,10 @@ _USE_MATE_ALL=	autogen intlhack intltool ltasneededhack lthack ltverhack \
 # for the library dependency first. If not exists then do the build/run on
 # the *.pc file instead.
 _USE_MATE_ALL+=	caja canvas common component componentui conf controlcenter \
-				corba desktop dialogs docutils icontheme keyring lib libmatekbd \
-				libmatekeyring libmatenotify libmateui libmateweather \
-				libmatewnck marco menus mimedata notificationdaemon panel \
-				polkit settingsdaemon vfs
+				corba desktop dialogs docutils icontheme keyring lib \
+				libmatekbd libmatekeyring libmatenotify libmateui \
+				libmateweather libmatewnck marco menus mimedata \
+				notificationdaemon panel polkit pluma settingsdaemon vfs
 
 MATE_MAKEFILEIN?=	Makefile.*
 SCROLLKEEPER_DIR=	/var/db/rarian
@@ -211,6 +211,10 @@ polkit_DETECT=			${LOCALBASE}/libdata/pkgconfig/polkit-gtk-mate-1.pc
 polkit_BUILD_DEPENDS=	${polkit_DETECT}:${PORTSDIR}/sysutils/mate-polkit
 polkit_LIB_DEPENDS=		polkit-gtk-mate:${PORTSDIR}/sysutils/mate-polkit
 polkit_RUN_DEPENDS=		${polkit_DETECT}:${PORTSDIR}/sysutils/mate-polkit
+
+pluma_DETECT=			${LOCALBASE}/libdata/pkgconfig/pluma.pc
+pluma_BUILD_DEPENDS=	${pluma_DETECT}:${PORTSDIR}/editors/mate-text-editor
+pluma_RUN_DEPENDS=		${pluma_DETECT}:${PORTSDIR}/editors/mate-text-editor
 
 settingsdaemon_DETECT=	${LOCALBASE}/libdata/pkgconfig/mate-settings-daemon.pc
 settingsdaemon_BUILD_DEPENDS=${settingsdaemon_DETECT}:${PORTSDIR}/sysutils/mate-settings-daemon
