@@ -3,11 +3,12 @@
 # Whom:					Adam Weinberger <adamw@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/textproc/mate-doc-utils/Makefile,v 1.3 2012/07/26 04:37:54 mezz Exp $
+#   $MCom: ports-experimental/textproc/mate-doc-utils/Makefile,v 1.4 2012/07/27 01:34:26 mezz Exp $
 #
 
 PORTNAME=	mate-doc-utils
 PORTVERSION=	1.4.0
+PORTREVISION=	1
 CATEGORIES=	textproc mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate
@@ -20,7 +21,8 @@ BUILD_DEPENDS=	rarian-sk-config:${PORTSDIR}/textproc/rarian \
     		gawk:${PORTSDIR}/lang/gawk
 RUN_DEPENDS=	rarian-sk-config:${PORTSDIR}/textproc/rarian \
 		${LOCALBASE}/share/xml/docbook/4.3/catalog.xml:${PORTSDIR}/textproc/docbook-xml-430 \
-		${LOCALBASE}/share/xml/docbook/4.4/catalog.xml:${PORTSDIR}/textproc/docbook-xml-440
+		${LOCALBASE}/share/xml/docbook/4.4/catalog.xml:${PORTSDIR}/textproc/docbook-xml-440 \
+		xml2po:${PORTSDIR}/textproc/gnome-doc-utils
 
 USE_XZ=		yes
 USE_MATE=	autogen common:build matehack intlhack
