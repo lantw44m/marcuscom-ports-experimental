@@ -44,8 +44,8 @@ Extras (x11/mate):
  x11/gnome-terminal -> x11/mate-terminal
  x11/gnome-screensaver -> x11/mate-screensaver
  math/gcalctool -> math/mate-calc
-sysutils/gconf-editor -> sysutils/mate-conf-editor
-deskutils/gnome-utils -> deskutils/mate-utils
+ sysutils/gconf-editor -> sysutils/mate-conf-editor
+ deskutils/gnome-utils -> deskutils/mate-utils
 sysutils/gnome-system-tools -> sysutils/mate-system-tools
 sysutils/gnome-system-monitor -> sysutils/mate-system-monitor
 graphics/eog -> graphics/mate-image-viewer
