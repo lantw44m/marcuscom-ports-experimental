@@ -3,7 +3,7 @@
 # Whom:					Andreas Kohn <andreas@syndrom23.de>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/deskutils/mate-notification-daemon/Makefile,v 1.2 2012/07/26 04:37:52 mezz Exp $
+#   $MCom: ports-experimental/deskutils/mate-notification-daemon/Makefile,v 1.3 2012/07/27 01:34:25 mezz Exp $
 #
 
 PORTNAME=	mate-notification-daemon
@@ -15,8 +15,8 @@ DIST_SUBDIR=	mate
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Send small notifications to your desktop
 
-LIB_DEPENDS=	dbus-1.3:${PORTSDIR}/devel/dbus \
-		dbus-glib-1.2:${PORTSDIR}/devel/dbus-glib \
+LIB_DEPENDS=	dbus-1:${PORTSDIR}/devel/dbus \
+		dbus-glib-1:${PORTSDIR}/devel/dbus-glib \
 		canberra-gtk:${PORTSDIR}/audio/libcanberra
 
 LICENSE=	GPLv2
