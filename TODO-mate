@@ -50,8 +50,8 @@ Extras (x11/mate):
  graphics/eog -> graphics/mate-image-viewer
  archivers/file-roller -> archivers/mate-file-archiver
  graphics/evince -> graphics/mate-document-viewer
-audio/gnome-media -> audio/mate-media
-sysutils/gnome-power-manager -> sysutils/mate-power-manager
+ audio/gnome-media -> audio/mate-media
+ sysutils/gnome-power-manager -> sysutils/mate-power-manager
 deskutils/alacarte -> deskutils/mate-menu-editor
 x11/gnome-applets -> x11/mate-applets
 ------------------------------

@@ -3,7 +3,7 @@
 # Whom:					Adam Weinberger <adamw@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/graphics/mate-document-viewer/Makefile,v 1.1 2012/07/28 22:42:16 mezz Exp $
 #
 
 PORTNAME=	mate-document-viewer
@@ -22,7 +22,7 @@ RUN_DEPENDS=	${LOCALBASE}/share/icons/hicolor/index.theme:${PORTSDIR}/misc/hicol
 
 USE_XZ=		yes
 USE_MATE=	autogen common:build conf docutils icontheme intlhack \
-		ltasneededhack matehack
+		ltasneededhack ltverhack matehack
 USE_XORG=	sm
 USE_GMAKE=	yes
 USE_GNOME=	desktopfileutils glib20 gtk20 libxml2
