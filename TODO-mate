@@ -52,6 +52,8 @@ Extras (x11/mate):
  graphics/evince -> graphics/mate-document-viewer
  audio/gnome-media -> audio/mate-media
  sysutils/gnome-power-manager -> sysutils/mate-power-manager
-deskutils/alacarte -> deskutils/mate-menu-editor
+ devel/py-orbit -> devel/python-corba
+ x11-toolkits/py-gnome2 -> x11-toolkits/python-mate
+ deskutils/alacarte -> deskutils/mate-menu-editor
 x11/gnome-applets -> x11/mate-applets
 ------------------------------

@@ -3,7 +3,7 @@
 #
 # $FreeBSD$
 #	$NetBSD$
-#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.9 2012/07/27 17:45:05 mezz Exp $
+#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.10 2012/07/28 02:49:41 mezz Exp $
 #
 # Please view me with 4 column tabs!
 
@@ -53,7 +53,8 @@ _USE_MATE_ALL+=	caja canvas common component componentui conf controlcenter \
 				corba desktop dialogs docutils icontheme keyring lib \
 				libmatekbd libmatekeyring libmatenotify libmateui \
 				libmateweather libmatewnck marco menus mimedata \
-				notificationdaemon panel polkit pluma settingsdaemon vfs
+				notificationdaemon panel polkit pluma pycorba pymate \
+				settingsdaemon vfs
 
 MATE_MAKEFILEIN?=	Makefile.*
 SCROLLKEEPER_DIR=	/var/db/rarian
@@ -215,6 +216,14 @@ polkit_RUN_DEPENDS=		${polkit_DETECT}:${PORTSDIR}/sysutils/mate-polkit
 pluma_DETECT=			${LOCALBASE}/libdata/pkgconfig/pluma.pc
 pluma_BUILD_DEPENDS=	${pluma_DETECT}:${PORTSDIR}/editors/mate-text-editor
 pluma_RUN_DEPENDS=		${pluma_DETECT}:${PORTSDIR}/editors/mate-text-editor
+
+pycorba_DETECT=			${LOCALBASE}/libdata/pkgconfig/pymatecorba-2.pc
+pycorba_BUILD_DEPENDS=	${pycorba_DETECT}:${PORTSDIR}/devel/python-corba
+pycorba_RUN_DEPENDS=	${pycorba_DETECT}:${PORTSDIR}/devel/python-corba
+
+pymate_DETECT=			${LOCALBASE}/libdata/pkgconfig/mate-python-2.0.pc
+pymate_BUILD_DEPENDS=	${pymate_DETECT}:${PORTSDIR}/x11-toolkits/python-mate
+pymate_RUN_DEPENDS=		${pymate_DETECT}:${PORTSDIR}/x11-toolkits/python-mate
 
 settingsdaemon_DETECT=	${LOCALBASE}/libdata/pkgconfig/mate-settings-daemon.pc
 settingsdaemon_BUILD_DEPENDS=${settingsdaemon_DETECT}:${PORTSDIR}/sysutils/mate-settings-daemon
