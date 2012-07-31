@@ -3,11 +3,12 @@
 # Whom:					Ade Lovett <ade@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/devel/mate-conf/Makefile,v 1.3 2012/07/26 04:37:52 mezz Exp $
+#   $MCom: ports-experimental/devel/mate-conf/Makefile,v 1.4 2012/07/27 01:34:25 mezz Exp $
 #
 
 PORTNAME=	mate-conf
 PORTVERSION=	1.4.0
+PORTREVISION=	1
 CATEGORIES=	devel mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate
