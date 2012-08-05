@@ -3,7 +3,7 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11-toolkits/libmatecomponentui/Makefile,v 1.3 2012/07/26 04:37:55 mezz Exp $
+#   $MCom: ports-experimental/x11-toolkits/libmatecomponentui/Makefile,v 1.4 2012/07/27 01:34:27 mezz Exp $
 #
 
 PORTNAME=	libmatecomponentui
@@ -19,7 +19,7 @@ BUILD_DEPENDS=	gtkdoc-check:${PORTSDIR}/textproc/gtk-doc
 LIB_DEPENDS=	popt:${PORTSDIR}/devel/popt
 
 USE_XZ=		yes
-USE_MATE=	autogen canvas common:build component conf intlhack lib \
+USE_MATE=	autogen canvas common:build component conf intlhack libmate \
 		ltverhack matehack
 USE_GMAKE=	yes
 USE_GNOME=	glib20 gtk20 libglade2 libxml2

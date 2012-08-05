@@ -3,7 +3,7 @@
 #
 # $FreeBSD$
 #	$NetBSD$
-#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.10 2012/07/28 02:49:41 mezz Exp $
+#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.11 2012/07/29 17:29:11 mezz Exp $
 #
 # Please view me with 4 column tabs!
 
@@ -50,7 +50,7 @@ _USE_MATE_ALL=	autogen intlhack intltool ltasneededhack lthack ltverhack \
 # for the library dependency first. If not exists then do the build/run on
 # the *.pc file instead.
 _USE_MATE_ALL+=	caja canvas common component componentui conf controlcenter \
-				corba desktop dialogs docutils icontheme keyring lib \
+				corba desktop dialogs docutils icontheme keyring libmate \
 				libmatekbd libmatekeyring libmatenotify libmateui \
 				libmateweather libmatewnck marco menus mimedata \
 				notificationdaemon panel polkit pluma pycorba pymate \
@@ -150,10 +150,10 @@ keyring_BUILD_DEPENDS=	${keyring_DETECT}:${PORTSDIR}/security/mate-keyring
 keyring_LIB_DEPENDS=	mategcr:${PORTSDIR}/security/mate-keyring
 keyring_RUN_DEPENDS=	${keyring_DETECT}:${PORTSDIR}/security/mate-keyring
 
-lib_DETECT=				${LOCALBASE}/libdata/pkgconfig/libmate-2.0.pc
-lib_BUILD_DEPENDS=		${lib_DETECT}:${PORTSDIR}/x11/libmate
-lib_LIB_DEPENDS=		mate-2:${PORTSDIR}/x11/libmate
-lib_RUN_DEPENDS=		${lib_DETECT}:${PORTSDIR}/x11/libmate
+libmate_DETECT=			${LOCALBASE}/libdata/pkgconfig/libmate-2.0.pc
+libmate_BUILD_DEPENDS=	${libmate_DETECT}:${PORTSDIR}/x11/libmate
+libmate_LIB_DEPENDS=	mate-2:${PORTSDIR}/x11/libmate
+libmate_RUN_DEPENDS=	${libmate_DETECT}:${PORTSDIR}/x11/libmate
 
 libmatekbd_DETECT=		${LOCALBASE}/libdata/pkgconfig/libmatekbd.pc
 libmatekbd_BUILD_DEPENDS=${libmatekbd_DETECT}:${PORTSDIR}/x11/libmatekbd

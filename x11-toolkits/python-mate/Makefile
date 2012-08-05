@@ -3,7 +3,7 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/x11-toolkits/python-mate/Makefile,v 1.1 2012/07/29 17:29:11 mezz Exp $
 #
 
 PORTNAME=	python-mate
@@ -20,7 +20,7 @@ BUILD_DEPENDS=	gtkdoc-check:${PORTSDIR}/textproc/gtk-doc
 
 USE_XZ=		yes
 USE_MATE=	autogen canvas common:build component componentui conf corba \
-		lib libmateui matehack pycorba vfs
+		libmate libmateui matehack pycorba vfs
 USE_GMAKE=	yes
 USE_GNOME=	glib20 gtk20 pygobject pygtk2
 USE_PYTHON=	yes
