@@ -156,7 +156,7 @@ share/locale/zh_CN/LC_MESSAGES/libmate.mo
 share/locale/zh_HK/LC_MESSAGES/libmate.mo
 share/locale/zh_TW/LC_MESSAGES/libmate.mo
 share/mate-background-properties/mate-default.xml
-@dirrm share/mate-background-properties
+@dirrmtry share/mate-background-properties
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
 @dirrmtry share/locale/zh_HK
 @dirrmtry share/locale/yi/LC_MESSAGES
@@ -206,14 +206,5 @@ share/mate-background-properties/mate-default.xml
 @dirrmtry share/locale/as/LC_MESSAGES
 @dirrmtry share/locale/as
 @dirrm %%DOCSDIR%%
-@dirrm libdata/matecomponent/servers
-@dirrm libdata/matecomponent
-@dirrm lib/matecomponent/monikers
-@dirrm lib/matecomponent
 @dirrm include/libmate-2.0/libmate
 @dirrm include/libmate-2.0
-@dirrm etc/sound/events
-@dirrm etc/sound
-@dirrm etc/mateconf/schemas
-@dirrm etc/mateconf/mateconf.xml.defaults
-@dirrm etc/mateconf

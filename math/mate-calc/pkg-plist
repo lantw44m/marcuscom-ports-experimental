@@ -733,9 +733,7 @@ share/mate/help/mate-calc/zh_TW/variables.page
 @dirrm share/mate/help/mate-calc/bg
 @dirrm share/mate/help/mate-calc/C
 @dirrm share/mate/help/mate-calc
-@dirrm share/mate/help
 @dirrm %%DATADIR%%
-@dirrm share/mate
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
 @dirrmtry share/locale/zh_HK
 @dirrmtry share/locale/xh/LC_MESSAGES
@@ -778,6 +776,6 @@ share/mate/help/mate-calc/zh_TW/variables.page
 @dirrmtry share/locale/ast
 @dirrmtry share/locale/as/LC_MESSAGES
 @dirrmtry share/locale/as
-@dirrm share/glib-2.0/schemas
-@dirrm share/glib-2.0
+@dirrmtry share/glib-2.0/schemas
+@dirrmtry share/glib-2.0
 @dirrmtry share/applications

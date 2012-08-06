@@ -121,6 +121,3 @@ share/locale/zh_TW/LC_MESSAGES/libmatekbd.mo
 @dirrm %%DATADIR%%
 @dirrmtry share/applications
 @dirrm include/libmatekbd
-@dirrm etc/mateconf/schemas
-@dirrm etc/mateconf/mateconf.xml.defaults
-@dirrm etc/mateconf

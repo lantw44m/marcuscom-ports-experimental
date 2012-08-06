@@ -334,7 +334,7 @@ share/pixmaps/mate-about-logo.png
 @dirrmtry share/locale/as/LC_MESSAGES
 @dirrmtry share/locale/as
 @dirrm %%DOCSDIR%%
-@dirrm lib/libglade/2.0
-@dirrm lib/libglade
+@dirrmtry lib/libglade/2.0
+@dirrmtry lib/libglade
 @dirrm include/libmateui-2.0/libmateui
 @dirrm include/libmateui-2.0

@@ -241,7 +241,6 @@ share/omf/mateconf-editor/mateconf-editor-th.omf
 share/omf/mateconf-editor/mateconf-editor-uk.omf
 share/omf/mateconf-editor/mateconf-editor-zh_CN.omf
 @dirrm share/omf/mateconf-editor
-@dirrm share/omf
 @dirrm share/mateconf-editor/icons/hicolor/16x16/status
 @dirrm share/mateconf-editor/icons/hicolor/16x16
 @dirrm share/mateconf-editor/icons/hicolor
@@ -280,8 +279,6 @@ share/omf/mateconf-editor/mateconf-editor-zh_CN.omf
 @dirrm share/mate/help/mateconf-editor/C/figures
 @dirrm share/mate/help/mateconf-editor/C
 @dirrm share/mate/help/mateconf-editor
-@dirrm share/mate/help
-@dirrm share/mate
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
 @dirrmtry share/locale/zh_HK
 @dirrmtry share/locale/xh/LC_MESSAGES
@@ -325,6 +322,3 @@ share/omf/mateconf-editor/mateconf-editor-zh_CN.omf
 @dirrmtry share/locale/as/LC_MESSAGES
 @dirrmtry share/locale/as
 @dirrmtry share/applications
-@dirrm etc/mateconf/schemas
-@dirrm etc/mateconf/mateconf.xml.defaults
-@dirrm etc/mateconf

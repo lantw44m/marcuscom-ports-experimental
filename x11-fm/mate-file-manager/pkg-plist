@@ -297,7 +297,7 @@ share/pixmaps/caja/thumbnail_frame.png
 @dirrmtry share/locale/ast
 @dirrmtry share/locale/as/LC_MESSAGES
 @dirrmtry share/locale/as
-@dirrm share/gir-1.0
+@dirrmtry share/gir-1.0
 @dirrm share/doc/libcaja-extension
 @dirrm share/caja/ui
 @dirrm share/caja/patterns
@@ -311,14 +311,11 @@ share/pixmaps/caja/thumbnail_frame.png
 @dirrm share/caja/icons
 @dirrm share/caja
 @dirrmtry share/applications
-@dirrm lib/girepository-1.0
+@dirrmtry lib/girepository-1.0
 @dirrm lib/caja/extensions-2.0
 @dirrm lib/caja
 @dirrm include/caja/libcaja-extension
 @dirrm include/caja
-@dirrm etc/mateconf/schemas
-@dirrm etc/mateconf/mateconf.xml.defaults
-@dirrm etc/mateconf
 @exec %%LOCALBASE%%/bin/update-mime-database %D/share/mime
 @unexec %%LOCALBASE%%/bin/update-mime-database %D/share/mime
 @exec %%LOCALBASE%%/bin/update-desktop-database > /dev/null || /usr/bin/true

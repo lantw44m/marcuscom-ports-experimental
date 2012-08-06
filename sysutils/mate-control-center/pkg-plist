@@ -250,10 +250,9 @@ share/omf/mate-control-center/mate-control-center-uk.omf
 share/omf/mate-control-center/mate-control-center-vi.omf
 share/omf/mate-control-center/mate-control-center-zh_CN.omf
 share/polkit-1/actions/org.mate.randr.policy
-@dirrm share/polkit-1/actions
-@dirrm share/polkit-1
+@dirrmtry share/polkit-1/actions
+@dirrmtry share/polkit-1
 @dirrm share/omf/mate-control-center
-@dirrm share/omf
 @dirrm share/mate/help/mate-control-center/zh_CN
 @dirrm share/mate/help/mate-control-center/vi
 @dirrm share/mate/help/mate-control-center/uk
@@ -278,13 +277,11 @@ share/polkit-1/actions/org.mate.randr.policy
 @dirrm share/mate/help/mate-control-center/ca
 @dirrm share/mate/help/mate-control-center/C
 @dirrm share/mate/help/mate-control-center
-@dirrm share/mate/help
 @dirrm share/mate/cursor-fonts
 @dirrm %%DATADIR%%/ui
 @dirrm %%DATADIR%%/pixmaps
 @dirrm %%DATADIR%%/keybindings
 @dirrm %%DATADIR%%
-@dirrm share/mate
 @dirrmtry share/locale/zu/LC_MESSAGES
 @dirrmtry share/locale/zu
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
@@ -335,16 +332,12 @@ share/polkit-1/actions/org.mate.randr.policy
 @dirrmtry share/locale/ast
 @dirrmtry share/locale/as/LC_MESSAGES
 @dirrmtry share/locale/as
-@dirrm share/desktop-directories
+@dirrmtry share/desktop-directories
 @dirrmtry share/applications
 @dirrm lib/window-manager-settings
 @dirrm include/mate-window-settings-2.0
-@dirrm etc/xdg/menus
+@dirrmtry etc/xdg/menus
 @dirrm etc/xdg/autostart
-@dirrm etc/xdg
-@dirrm etc/mateconf/schemas
-@dirrm etc/mateconf/mateconf.xml.defaults
-@dirrm etc/mateconf
 @exec %%LOCALBASE%%/bin/update-mime-database %D/share/mime
 @unexec %%LOCALBASE%%/bin/update-mime-database %D/share/mime
 @exec %%LOCALBASE%%/bin/update-desktop-database > /dev/null || /usr/bin/true

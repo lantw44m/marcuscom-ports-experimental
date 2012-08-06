@@ -1936,8 +1936,8 @@ share/pixmaps/mate-stickynotes/resize_se.png
 share/pixmaps/mate-stickynotes/resize_sw.png
 share/pixmaps/mate-stickynotes/unlocked.png
 share/polkit-1/actions/org.mate.cpufreqselector.policy
-@dirrm share/polkit-1/actions
-@dirrm share/polkit-1
+@dirrmtry share/polkit-1/actions
+@dirrmtry share/polkit-1
 @dirrm share/pixmaps/mate-stickynotes
 @dirrm share/pixmaps/mate-cpufreq-applet
 @dirrm share/pixmaps/mate-accessx-status-applet
@@ -1953,7 +1953,6 @@ share/polkit-1/actions/org.mate.cpufreqselector.policy
 @dirrm share/omf/mate-char-palette
 @dirrm share/omf/mate-battstat
 @dirrm share/omf/mate-accessx-status
-@dirrm share/omf
 @dirrm share/mate/help/mateweather/zh_CN/figures
 @dirrm share/mate/help/mateweather/zh_CN
 @dirrm share/mate/help/mateweather/uk/figures
@@ -2436,7 +2435,6 @@ share/polkit-1/actions/org.mate.cpufreqselector.policy
 @dirrm share/mate/help/mate-accessx-status/C/figures
 @dirrm share/mate/help/mate-accessx-status/C
 @dirrm share/mate/help/mate-accessx-status
-@dirrm share/mate/help
 @dirrm share/mate-panel/applets
 @dirrm share/mate-panel
 @dirrm %%DATADIR%%/geyes/Tango
@@ -2448,9 +2446,6 @@ share/polkit-1/actions/org.mate.cpufreqselector.policy
 @dirrm %%DATADIR%%/geyes
 @dirrm %%DATADIR%%/builder
 @dirrm %%DATADIR%%
-@dirrm share/mate-2.0/ui
-@dirrm share/mate-2.0
-@dirrm share/mate
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
 @dirrmtry share/locale/zh_HK
 @dirrmtry share/locale/xh/LC_MESSAGES
@@ -2529,20 +2524,13 @@ share/polkit-1/actions/org.mate.cpufreqselector.policy
 @dirrmtry share/locale/ast
 @dirrmtry share/locale/as/LC_MESSAGES
 @dirrmtry share/locale/as
-@dirrm share/icons/mate/48x48/apps
-@dirrm share/icons/mate/48x48
-@dirrm share/icons/mate
-@dirrm share/icons
-@dirrm share/dbus-1/system-services
-@dirrm share/dbus-1/services
-@dirrm share/dbus-1
+@dirrmtry share/icons/mate/48x48/apps
+@dirrmtry share/icons/mate/48x48
+@dirrmtry share/icons/mate
+@dirrmtry share/icons
+@dirrmtry share/dbus-1/system-services
+@dirrmtry share/dbus-1/services
+@dirrmtry share/dbus-1
 @dirrm libexec/mate-applets
-@dirrm libdata/matecomponent/servers
-@dirrm libdata/matecomponent
-@dirrm etc/sound/events
-@dirrm etc/sound
-@dirrm etc/mateconf/schemas
-@dirrm etc/mateconf/mateconf.xml.defaults
-@dirrm etc/mateconf
-@dirrm etc/dbus-1/system.d
-@dirrm etc/dbus-1
+@dirrmtry etc/dbus-1/system.d
+@dirrmtry etc/dbus-1

@@ -694,10 +694,9 @@ share/omf/mate-power-manager/mate-power-manager-ru.omf
 share/omf/mate-power-manager/mate-power-manager-sv.omf
 share/omf/mate-power-manager/mate-power-manager-zh_CN.omf
 share/polkit-1/actions/org.mate.power.policy
-@dirrm share/polkit-1/actions
-@dirrm share/polkit-1
+@dirrmtry share/polkit-1/actions
+@dirrmtry share/polkit-1
 @dirrm share/omf/mate-power-manager
-@dirrm share/omf
 @dirrm share/mate/help/mate-power-manager/zh_CN/figures
 @dirrm share/mate/help/mate-power-manager/zh_CN
 @dirrm share/mate/help/mate-power-manager/sv/figures
@@ -731,7 +730,6 @@ share/polkit-1/actions/org.mate.power.policy
 @dirrm share/mate/help/mate-power-manager/C/figures
 @dirrm share/mate/help/mate-power-manager/C
 @dirrm share/mate/help/mate-power-manager
-@dirrm share/mate/help
 @dirrm %%DATADIR%%/icons/hicolor/scalable/status
 @dirrm %%DATADIR%%/icons/hicolor/scalable/actions
 @dirrm %%DATADIR%%/icons/hicolor/scalable
@@ -753,9 +751,6 @@ share/polkit-1/actions/org.mate.power.policy
 @dirrm %%DATADIR%%/icons/hicolor
 @dirrm %%DATADIR%%/icons
 @dirrm %%DATADIR%%
-@dirrm share/mate-2.0/ui
-@dirrm share/mate-2.0
-@dirrm share/mate
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
 @dirrmtry share/locale/zh_HK
 @dirrmtry share/locale/te/LC_MESSAGES
@@ -788,13 +783,7 @@ share/polkit-1/actions/org.mate.power.policy
 @dirrmtry share/locale/ast
 @dirrmtry share/locale/as/LC_MESSAGES
 @dirrmtry share/locale/as
-@dirrm share/dbus-1/services
-@dirrm share/dbus-1
+@dirrmtry share/dbus-1/services
+@dirrmtry share/dbus-1
 @dirrmtry share/applications
-@dirrm libdata/matecomponent/servers
-@dirrm libdata/matecomponent
 @dirrm etc/xdg/autostart
-@dirrm etc/xdg
-@dirrm etc/mateconf/schemas
-@dirrm etc/mateconf/mateconf.xml.defaults
-@dirrm etc/mateconf

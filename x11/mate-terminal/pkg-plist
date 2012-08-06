@@ -189,7 +189,6 @@ share/omf/mate-terminal/mate-terminal-uk.omf
 share/omf/mate-terminal/mate-terminal-zh_CN.omf
 share/omf/mate-terminal/mate-terminal-zh_TW.omf
 @dirrm share/omf/mate-terminal
-@dirrm share/omf
 @dirrm share/mate/help/mate-terminal/zh_TW/figures
 @dirrm share/mate/help/mate-terminal/zh_TW
 @dirrm share/mate/help/mate-terminal/zh_CN/figures
@@ -233,9 +232,7 @@ share/omf/mate-terminal/mate-terminal-zh_TW.omf
 @dirrm share/mate/help/mate-terminal/C/figures
 @dirrm share/mate/help/mate-terminal/C
 @dirrm share/mate/help/mate-terminal
-@dirrm share/mate/help
 @dirrm %%DATADIR%%
-@dirrm share/mate
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
 @dirrmtry share/locale/zh_HK
 @dirrmtry share/locale/xh/LC_MESSAGES
@@ -285,6 +282,3 @@ share/omf/mate-terminal/mate-terminal-zh_TW.omf
 @dirrmtry share/locale/as/LC_MESSAGES
 @dirrmtry share/locale/as
 @dirrmtry share/applications
-@dirrm etc/mateconf/schemas
-@dirrm etc/mateconf/mateconf.xml.defaults
-@dirrm etc/mateconf

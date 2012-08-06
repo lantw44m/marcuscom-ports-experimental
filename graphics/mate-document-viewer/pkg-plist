@@ -297,7 +297,6 @@ share/omf/atril/atril-uk.omf
 share/omf/atril/atril-vi.omf
 share/omf/atril/atril-zh_CN.omf
 @dirrm share/omf/atril
-@dirrm share/omf
 @dirrm share/mate/help/atril/zh_CN/figures
 @dirrm share/mate/help/atril/zh_CN
 @dirrm share/mate/help/atril/vi/figures
@@ -345,8 +344,6 @@ share/omf/atril/atril-zh_CN.omf
 @dirrm share/mate/help/atril/C/figures
 @dirrm share/mate/help/atril/C
 @dirrm share/mate/help/atril
-@dirrm share/mate/help
-@dirrm share/mate
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
 @dirrmtry share/locale/zh_HK
 @dirrmtry share/locale/te/LC_MESSAGES
@@ -389,10 +386,10 @@ share/omf/atril/atril-zh_CN.omf
 @dirrmtry share/locale/ast
 @dirrmtry share/locale/as/LC_MESSAGES
 @dirrmtry share/locale/as
-@dirrm share/glib-2.0/schemas
-@dirrm share/glib-2.0
-@dirrm share/dbus-1/services
-@dirrm share/dbus-1
+@dirrmtry share/glib-2.0/schemas
+@dirrmtry share/glib-2.0
+@dirrmtry share/dbus-1/services
+@dirrmtry share/dbus-1
 @dirrm share/atril/icons/hicolor/scalable/mimetypes
 @dirrm share/atril/icons/hicolor/scalable/actions
 @dirrm share/atril/icons/hicolor/scalable
@@ -414,8 +411,6 @@ share/omf/atril/atril-zh_CN.omf
 @dirrm share/atril/icons
 @dirrm share/atril
 @dirrmtry share/applications
-@dirrm share/MateConf/gsettings
-@dirrm share/MateConf
 @dirrm lib/atril/3/backends
 @dirrm lib/atril/3
 @dirrm lib/atril
@@ -423,8 +418,5 @@ share/omf/atril/atril-zh_CN.omf
 @dirrm include/atril/2.32/libdocument
 @dirrm include/atril/2.32
 @dirrm include/atril
-@dirrm etc/mateconf/schemas
-@dirrm etc/mateconf/mateconf.xml.defaults
-@dirrm etc/mateconf
 @exec %%LOCALBASE%%/bin/update-desktop-database > /dev/null || /usr/bin/true
 @unexec %%LOCALBASE%%/bin/update-desktop-database > /dev/null || /usr/bin/true

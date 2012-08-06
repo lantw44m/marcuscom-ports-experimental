@@ -60,9 +60,8 @@ share/locale/zh_TW/LC_MESSAGES/mate-polkit.mo
 @dirrmtry share/locale/mr
 @dirrmtry share/locale/bn_IN/LC_MESSAGES
 @dirrmtry share/locale/bn_IN
-@dirrm share/gir-1.0
-@dirrm lib/girepository-1.0
+@dirrmtry share/gir-1.0
+@dirrmtry lib/girepository-1.0
 @dirrm include/polkit-gtk-mate-1/polkitgtkmate
 @dirrm include/polkit-gtk-mate-1
 @dirrm etc/xdg/autostart
-@dirrm etc/xdg

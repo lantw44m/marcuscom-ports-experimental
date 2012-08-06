@@ -176,8 +176,6 @@ share/locale/zu/LC_MESSAGES/libmatecomponentui.mo
 share/mate-2.0/ui/MateComponent_Sample_Container-ui.xml
 share/mate-2.0/ui/MateComponent_Sample_Hello.xml
 share/mate-2.0/ui/matecomponent-browser.xml
-@dirrm share/mate-2.0/ui
-@dirrm share/mate-2.0
 @dirrmtry share/locale/zu/LC_MESSAGES
 @dirrmtry share/locale/zu
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
@@ -224,11 +222,7 @@ share/mate-2.0/ui/matecomponent-browser.xml
 @dirrmtry share/locale/as
 @dirrm %%DOCSDIR%%
 @dirrmtry share/applications
-@dirrm libdata/matecomponent/servers
-@dirrm libdata/matecomponent
-@dirrm lib/matecomponent-2.0/samples
-@dirrm lib/matecomponent-2.0
-@dirrm lib/libglade/2.0
-@dirrm lib/libglade
+@dirrmtry lib/libglade/2.0
+@dirrmtry lib/libglade
 @dirrm include/libmatecomponentui-2.0/matecomponent
 @dirrm include/libmatecomponentui-2.0

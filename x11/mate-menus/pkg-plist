@@ -134,7 +134,6 @@ share/mate/desktop-directories/mate-utility.directory
 @dirrm share/mate/desktop-directories
 @dirrm %%DATADIR%%/examples
 @dirrm %%DATADIR%%
-@dirrm share/mate
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
 @dirrmtry share/locale/zh_HK
 @dirrmtry share/locale/yo/LC_MESSAGES
@@ -210,5 +209,4 @@ share/mate/desktop-directories/mate-utility.directory
 @dirrm %%PYTHON_SITELIBDIR%%
 @dirrm %%PYTHON_LIBDIR%%
 @dirrm include/mate-menus
-@dirrm etc/xdg/menus
-@dirrm etc/xdg
+@dirrmtry etc/xdg/menus

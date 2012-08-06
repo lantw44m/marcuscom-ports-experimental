@@ -537,7 +537,6 @@ share/pluma/ui/pluma-ui.xml
 @dirrm share/pluma/icons
 @dirrm share/pluma
 @dirrm share/omf/pluma
-@dirrm share/omf
 @dirrm share/mate/help/pluma/zh_TW/figures
 @dirrm share/mate/help/pluma/zh_TW
 @dirrm share/mate/help/pluma/zh_HK/figures
@@ -587,8 +586,6 @@ share/pluma/ui/pluma-ui.xml
 @dirrm share/mate/help/pluma/C/figures
 @dirrm share/mate/help/pluma/C
 @dirrm share/mate/help/pluma
-@dirrm share/mate/help
-@dirrm share/mate
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
 @dirrmtry share/locale/zh_HK
 @dirrmtry share/locale/xh/LC_MESSAGES
@@ -650,8 +647,5 @@ share/pluma/ui/pluma-ui.xml
 @dirrmtry lib/pluma
 @dirrm include/pluma/pluma
 @dirrm include/pluma
-@dirrm etc/mateconf/schemas
-@dirrm etc/mateconf/mateconf.xml.defaults
-@dirrm etc/mateconf
 @exec %%LOCALBASE%%/bin/update-desktop-database > /dev/null || /usr/bin/true
 @unexec %%LOCALBASE%%/bin/update-desktop-database > /dev/null || /usr/bin/true

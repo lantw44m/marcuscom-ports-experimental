@@ -3206,8 +3206,8 @@ share/themes/TraditionalOkClassic/metacity-1/metacity-theme-1.xml
 @dirrmtry share/locale/ast
 @dirrmtry share/locale/as/LC_MESSAGES
 @dirrmtry share/locale/as
-@dirrm share/icons/mate/cursors
-@dirrm share/icons/mate
+@dirrmtry share/icons/mate/cursors
+@dirrmtry share/icons/mate
 @dirrm share/icons/Quid/scalable/status
 @dirrm share/icons/Quid/scalable/places
 @dirrm share/icons/Quid/scalable/actions

@@ -306,7 +306,7 @@ share/mate-background-properties/cosmos.xml
 %%DATADIR%%/mate-screensaver-preferences.ui
 share/pixmaps/mate-logo-white.svg
 @dirrm %%DATADIR%%
-@dirrm share/mate-background-properties
+@dirrmtry share/mate-background-properties
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
 @dirrmtry share/locale/zh_HK
 @dirrmtry share/locale/te/LC_MESSAGES
@@ -345,15 +345,11 @@ share/pixmaps/mate-logo-white.svg
 @dirrmtry share/locale/ast
 @dirrmtry share/locale/as/LC_MESSAGES
 @dirrmtry share/locale/as
-@dirrm share/desktop-directories
+@dirrmtry share/desktop-directories
 @dirrm share/backgrounds/cosmos
 @dirrm share/backgrounds
 @dirrm share/applications/screensavers
 @dirrmtry share/applications
 @dirrm libexec/mate-screensaver
-@dirrm etc/xdg/menus
+@dirrmtry etc/xdg/menus
 @dirrm etc/xdg/autostart
-@dirrm etc/xdg
-@dirrm etc/mateconf/schemas
-@dirrm etc/mateconf/mateconf.xml.defaults
-@dirrm etc/mateconf

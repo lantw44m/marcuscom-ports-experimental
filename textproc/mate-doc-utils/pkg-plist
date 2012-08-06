@@ -255,14 +255,12 @@ share/xml/mate/xslt/mallard/html/mal2xhtml.xsl
 @dirrm share/xml/mate
 @dirrm share/omf/mate-doc-xslt
 @dirrm share/omf/mate-doc-make
-@dirrm share/omf
 @dirrm share/mate/help/mate-doc-xslt/de
 @dirrm share/mate/help/mate-doc-xslt/C
 @dirrm share/mate/help/mate-doc-xslt
 @dirrm share/mate/help/mate-doc-make/de
 @dirrm share/mate/help/mate-doc-make/C
 @dirrm share/mate/help/mate-doc-make
-@dirrm share/mate/help
 @dirrm %%DATADIR%%/watermarks
 @dirrm %%DATADIR%%/templates
 @dirrm %%DATADIR%%/icons/hicolor/scalable/status
@@ -272,7 +270,6 @@ share/xml/mate/xslt/mallard/html/mal2xhtml.xsl
 @dirrm %%DATADIR%%/icons/hicolor
 @dirrm %%DATADIR%%/icons
 @dirrm %%DATADIR%%
-@dirrm share/mate
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
 @dirrmtry share/locale/zh_HK
 @dirrmtry share/locale/ug/LC_MESSAGES

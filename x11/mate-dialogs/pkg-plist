@@ -322,7 +322,6 @@ share/omf/matedialog/matedialog-sv.omf
 share/omf/matedialog/matedialog-uk.omf
 share/omf/matedialog/matedialog-zh_CN.omf
 @dirrm share/omf/matedialog
-@dirrm share/omf
 @dirrm share/matedialog/clothes
 @dirrm share/matedialog
 @dirrm share/mate/help/matedialog/zh_CN/figures
@@ -360,8 +359,6 @@ share/omf/matedialog/matedialog-zh_CN.omf
 @dirrm share/mate/help/matedialog/C/figures
 @dirrm share/mate/help/matedialog/C
 @dirrm share/mate/help/matedialog
-@dirrm share/mate/help
-@dirrm share/mate
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
 @dirrmtry share/locale/zh_HK
 @dirrmtry share/locale/xh/LC_MESSAGES

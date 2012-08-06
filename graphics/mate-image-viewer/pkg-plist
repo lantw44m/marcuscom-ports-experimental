@@ -286,7 +286,6 @@ share/omf/eom/eom-uk.omf
 share/omf/eom/eom-zh_CN.omf
 share/omf/eom/eom-zh_TW.omf
 @dirrm share/omf/eom
-@dirrm share/omf
 @dirrm share/mate/help/eom/zh_TW/figures
 @dirrm share/mate/help/eom/zh_TW
 @dirrm share/mate/help/eom/zh_CN/figures
@@ -338,8 +337,6 @@ share/omf/eom/eom-zh_TW.omf
 @dirrm share/mate/help/eom/C/figures
 @dirrm share/mate/help/eom/C
 @dirrm share/mate/help/eom
-@dirrm share/mate/help
-@dirrm share/mate
 @dirrmtry share/locale/zu/LC_MESSAGES
 @dirrmtry share/locale/zu
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
@@ -415,8 +412,5 @@ share/omf/eom/eom-zh_TW.omf
 @dirrm lib/eom
 @dirrm include/eom-2.20/eom
 @dirrm include/eom-2.20
-@dirrm etc/mateconf/schemas
-@dirrm etc/mateconf/mateconf.xml.defaults
-@dirrm etc/mateconf
 @exec %%LOCALBASE%%/bin/update-desktop-database > /dev/null || /usr/bin/true
 @unexec %%LOCALBASE%%/bin/update-desktop-database > /dev/null || /usr/bin/true

@@ -301,7 +301,6 @@ share/pixmaps/mate-system-monitor/side.png
 share/pixmaps/mate-system-monitor/upload.svg
 @dirrm share/pixmaps/mate-system-monitor
 @dirrm share/omf/mate-system-monitor
-@dirrm share/omf
 @dirrm share/mate/help/mate-system-monitor/zh_CN/figures
 @dirrm share/mate/help/mate-system-monitor/zh_CN
 @dirrm share/mate/help/mate-system-monitor/sv/figures
@@ -331,8 +330,6 @@ share/pixmaps/mate-system-monitor/upload.svg
 @dirrm share/mate/help/mate-system-monitor/C/figures
 @dirrm share/mate/help/mate-system-monitor/C
 @dirrm share/mate/help/mate-system-monitor
-@dirrm share/mate/help
-@dirrm share/mate
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
 @dirrmtry share/locale/zh_HK
 @dirrmtry share/locale/ug/LC_MESSAGES
@@ -374,6 +371,3 @@ share/pixmaps/mate-system-monitor/upload.svg
 @dirrmtry share/locale/as/LC_MESSAGES
 @dirrmtry share/locale/as
 @dirrmtry share/applications
-@dirrm etc/mateconf/schemas
-@dirrm etc/mateconf/mateconf.xml.defaults
-@dirrm etc/mateconf

@@ -312,16 +312,10 @@ share/locale/zh_TW/LC_MESSAGES/libmatecomponent.mo
 @dirrmtry share/locale/as
 @dirrm share/idl/matecomponent-activation-2.0
 @dirrm share/idl/matecomponent-2.0
-@dirrm share/idl
+@dirrmtry share/idl
 @dirrm share/doc/matecomponent-activation
 @dirrm %%DOCSDIR%%
-@dirrm libdata/matecomponent/servers
-@dirrm libdata/matecomponent
 @dirrm lib/matecorba-2.0
-@dirrm lib/matecomponent/monikers
-@dirrm lib/matecomponent-2.0/samples
-@dirrm lib/matecomponent-2.0
-@dirrm lib/matecomponent
 @dirrm include/matecomponent-activation-2.0/matecomponent-activation
 @dirrm include/matecomponent-activation-2.0
 @dirrm include/libmatecomponent-2.0/matecomponent

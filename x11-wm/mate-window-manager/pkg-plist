@@ -190,10 +190,6 @@ share/themes/eOS/metacity-1/unmaximize_unfocused_over.png
 @dirrm share/mate/wm-properties
 @dirrm share/mate/help/creating-marco-themes/C
 @dirrm share/mate/help/creating-marco-themes
-@dirrm share/mate/help
-@dirrm share/mate-control-center/keybindings
-@dirrm share/mate-control-center
-@dirrm share/mate
 @dirrm share/marco/icons
 @dirrm share/marco
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
@@ -249,6 +245,3 @@ share/themes/eOS/metacity-1/unmaximize_unfocused_over.png
 @dirrmtry share/applications
 @dirrm include/marco-1/marco-private
 @dirrm include/marco-1
-@dirrm etc/mateconf/schemas
-@dirrm etc/mateconf/mateconf.xml.defaults
-@dirrm etc/mateconf

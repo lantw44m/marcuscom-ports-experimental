@@ -58,11 +58,8 @@ share/locale/zh_CN/LC_MESSAGES/mate-notification-daemon.mo
 @dirrmtry share/locale/es_CL
 @dirrmtry share/locale/ast/LC_MESSAGES
 @dirrmtry share/locale/ast
-@dirrm share/dbus-1/services
-@dirrm share/dbus-1
+@dirrmtry share/dbus-1/services
+@dirrmtry share/dbus-1
 @dirrmtry share/applications
 @dirrm lib/mate-notification-daemon/engines
 @dirrm lib/mate-notification-daemon
-@dirrm etc/mateconf/schemas
-@dirrm etc/mateconf/mateconf.xml.defaults
-@dirrm etc/mateconf

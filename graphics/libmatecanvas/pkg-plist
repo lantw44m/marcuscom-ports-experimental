@@ -180,7 +180,7 @@ share/locale/zh_TW/LC_MESSAGES/libmatecanvas.mo
 @dirrmtry share/locale/ang/LC_MESSAGES
 @dirrmtry share/locale/ang
 @dirrm %%DOCSDIR%%
-@dirrm lib/libglade/2.0
-@dirrm lib/libglade
+@dirrmtry lib/libglade/2.0
+@dirrmtry lib/libglade
 @dirrm include/libmatecanvas-2.0/libmatecanvas
 @dirrm include/libmatecanvas-2.0

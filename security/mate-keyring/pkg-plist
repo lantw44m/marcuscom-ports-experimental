@@ -229,14 +229,12 @@ share/mategcr/ui/gcr-unlock-options-widget.ui
 @dirrmtry share/locale/ast
 @dirrmtry share/locale/as/LC_MESSAGES
 @dirrmtry share/locale/as
-@dirrm share/glib-2.0/schemas
-@dirrm share/glib-2.0
+@dirrmtry share/glib-2.0/schemas
+@dirrmtry share/glib-2.0
 @dirrm share/doc/mate-gcr-0
 @dirrm share/doc/mate-gck
-@dirrm share/dbus-1/services
-@dirrm share/dbus-1
-@dirrm share/MateConf/gsettings
-@dirrm share/MateConf
+@dirrmtry share/dbus-1/services
+@dirrmtry share/dbus-1
 @dirrm lib/pkcs11
 @dirrm lib/mate-keyring/standalone
 @dirrm lib/mate-keyring/devel
@@ -246,4 +244,3 @@ share/mategcr/ui/gcr-unlock-options-widget.ui
 @dirrm include/mate-gck
 @dirrm include/gck
 @dirrm etc/xdg/autostart
-@dirrm etc/xdg

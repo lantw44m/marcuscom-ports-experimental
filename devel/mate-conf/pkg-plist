@@ -154,8 +154,8 @@ share/sgml/mateconf/mateconf-1.0.dtd
 @dirrm share/sgml/mateconf
 %%LDAP%%@dirrm share/MateConf/schema
 %%LDAP%%@dirrm share/MateConf
-@dirrm share/polkit-1/actions
-@dirrm share/polkit-1
+@dirrmtry share/polkit-1/actions
+@dirrmtry share/polkit-1
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
 @dirrmtry share/locale/zh_HK
 @dirrmtry share/locale/yi/LC_MESSAGES
@@ -196,25 +196,22 @@ share/sgml/mateconf/mateconf-1.0.dtd
 @dirrmtry share/locale/ast
 @dirrmtry share/locale/as/LC_MESSAGES
 @dirrmtry share/locale/as
-@dirrm share/gir-1.0
+@dirrmtry share/gir-1.0
 @dirrm share/doc/mateconf
-@dirrm share/dbus-1/system-services
-@dirrm share/dbus-1/services
-@dirrm share/dbus-1
-@dirrm lib/girepository-1.0
+@dirrmtry share/dbus-1/system-services
+@dirrmtry share/dbus-1/services
+@dirrmtry share/dbus-1
+@dirrmtry lib/girepository-1.0
 @dirrm lib/MateConf/2
 @dirrm lib/MateConf
 @dirrm include/mateconf/2/mateconf
 @dirrm include/mateconf/2
 @dirrm include/mateconf
 @dirrm etc/xdg/autostart
-@dirrm etc/xdg
 @dirrm etc/mateconf/mateconf.xml.system
 @dirrm etc/mateconf/mateconf.xml.mandatory
-@dirrm etc/mateconf/mateconf.xml.defaults
 @dirrm etc/mateconf/2
-@dirrm etc/mateconf
-@dirrm etc/dbus-1/system.d
-@dirrm etc/dbus-1
+@dirrmtry etc/dbus-1/system.d
+@dirrmtry etc/dbus-1
 @exec %D/bin/gio-querymodules %D/lib/gio/modules 2>/dev/null || /usr/bin/true
 @unexec %D/bin/gio-querymodules %D/lib/gio/modules 2>/dev/null || /usr/bin/true

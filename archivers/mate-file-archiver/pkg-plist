@@ -254,7 +254,6 @@ share/omf/engrampa/engrampa-uk.omf
 share/omf/engrampa/engrampa-vi.omf
 share/omf/engrampa/engrampa-zh_CN.omf
 @dirrm share/omf/engrampa
-@dirrm share/omf
 @dirrm share/mate/help/engrampa/zh_CN/figures
 @dirrm share/mate/help/engrampa/zh_CN
 @dirrm share/mate/help/engrampa/vi/figures
@@ -294,8 +293,6 @@ share/omf/engrampa/engrampa-zh_CN.omf
 @dirrm share/mate/help/engrampa/C/figures
 @dirrm share/mate/help/engrampa/C
 @dirrm share/mate/help/engrampa
-@dirrm share/mate/help
-@dirrm share/mate
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
 @dirrmtry share/locale/zh_HK
 @dirrmtry share/locale/xh/LC_MESSAGES
@@ -362,8 +359,5 @@ share/omf/engrampa/engrampa-zh_CN.omf
 @dirrm share/engrampa
 @dirrmtry share/applications
 @dirrm libexec/engrampa
-@dirrm etc/mateconf/schemas
-@dirrm etc/mateconf/mateconf.xml.defaults
-@dirrm etc/mateconf
 @exec %%LOCALBASE%%/bin/update-desktop-database > /dev/null || /usr/bin/true
 @unexec %%LOCALBASE%%/bin/update-desktop-database > /dev/null || /usr/bin/true
