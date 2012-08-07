@@ -1,8 +1,7 @@
 -Clean up in the bsd.mate.mk.
 -Document in the bsd.mate.mk.
--Create matehier and clean up all pkg-plist.
 -Test these ports in the runtime.
--Ports that need to be recopied. The single space means that it's done.
+**done** -Ports that need to be recopied. The single space means that it's done.
 
 Base (x11/mate-base):
 ------------------------------
