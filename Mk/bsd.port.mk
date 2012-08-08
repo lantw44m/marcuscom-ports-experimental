@@ -1,7 +1,7 @@
 #-*- tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.port.mk,v 1.736 2012/07/26 05:40:22 bapt Exp $
+# $FreeBSD: /usr/local/www/cvsroot/FreeBSD/ports/Mk/bsd.port.mk,v 1.738 2012/08/04 22:52:02 kwm Exp $
 #	$NetBSD: $
 #
 #	bsd.port.mk - 940820 Jordan K. Hubbard.
@@ -1947,7 +1947,7 @@ _GL_gl_LIB_DEPENDS=		GL.1:${PORTSDIR}/graphics/libGL
 _GL_glew_LIB_DEPENDS=		GLEW.1:${PORTSDIR}/graphics/glew
 _GL_glu_LIB_DEPENDS=		GLU.1:${PORTSDIR}/graphics/libGLU
 _GL_glw_LIB_DEPENDS=		GLw.1:${PORTSDIR}/graphics/libGLw
-_GL_glut_LIB_DEPENDS=		glut.3:${PORTSDIR}/graphics/libglut
+_GL_glut_LIB_DEPENDS=		glut.12:${PORTSDIR}/graphics/freeglut
 _GL_linux_RUN_DEPENDS=		${LINUXBASE}/usr/X11R6/lib/libGL.so.1:${PORTSDIR}/graphics/linux_dri
 
 .if defined(USE_GL)
@@ -5601,7 +5601,7 @@ _PRETTY_PRINT_DEPENDS_LIST=\
 
 .if !target(pretty-print-build-depends-list)
 pretty-print-build-depends-list:
-.if defined(PKG_PEPENDS) || defined(EXTRACT_DEPENDS) || defined(PATCH_DEPENDS) || \
+.if defined(PKG_DEPENDS) || defined(EXTRACT_DEPENDS) || defined(PATCH_DEPENDS) || \
 	defined(FETCH_DEPENDS) || defined(BUILD_DEPENDS) || defined(LIB_DEPENDS)
 	@${_PRETTY_PRINT_DEPENDS_LIST}
 .endif
