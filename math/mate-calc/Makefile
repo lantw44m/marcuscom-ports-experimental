@@ -3,7 +3,7 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/math/mate-calc/Makefile,v 1.1 2012/07/28 05:20:16 mezz Exp $
 #
 
 PORTNAME=	mate-calc
@@ -14,6 +14,8 @@ DIST_SUBDIR=	mate
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	A MATE calculator tool based on the old calctool for OpenWindows
+
+BUILD_DEPENDS=	${LOCALBASE}/bin/flex:${PORTSDIR}/textproc/flex
 
 USE_XZ=		yes
 USE_MATE=	autogen common:build docutils intlhack matehack
