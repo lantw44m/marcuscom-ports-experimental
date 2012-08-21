@@ -3,11 +3,12 @@
 # Whom:					Adam Weinberger <adamw@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/graphics/mate-document-viewer/Makefile,v 1.1 2012/07/28 22:42:16 mezz Exp $
+#   $MCom: ports-experimental/graphics/mate-document-viewer/Makefile,v 1.2 2012/07/29 04:54:54 mezz Exp $
 #
 
 PORTNAME=	mate-document-viewer
 PORTVERSION=	1.4.0
+PORTREVISION=	1
 CATEGORIES=	graphics print mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate
@@ -80,14 +81,15 @@ USE_MATE+=	caja
 CONFIGURE_ARGS+=--enable-caja
 PLIST_SUB+=	CAJA=""
 .else
+CONFIGURE_ARGS+=--disable-caja
+PLIST_SUB+=	CAJA="@comment "
+.endif
+
 . if !defined(WITHOUT_KEYRING)
 USE_MATE+=	libmatekeyring
 . else
 CONFIGURE_ARGS+=--without-keyring
 . endif
-CONFIGURE_ARGS+=--disable-caja
-PLIST_SUB+=	CAJA="@comment "
-.endif
 
 .if defined(WITH_IMPRESS)
 CONFIGURE_ARGS+=--enable-impress
