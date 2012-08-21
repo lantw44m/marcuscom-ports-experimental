@@ -3,7 +3,7 @@
 # Whom:					Maxim Sobolev <sobomax@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/misc/mate-mime-data/Makefile,v 1.4 2012/07/27 01:34:25 mezz Exp $
+#   $MCom: ports-experimental/misc/mate-mime-data/Makefile,v 1.5 2012/08/20 21:17:18 kwm Exp $
 #
 
 PORTNAME=	mate-mime-data
@@ -16,7 +16,7 @@ MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	A MIME and Application database for MATE
 
 USE_XZ=		yes
-USE_MATE=	autogen intlhack matehack common
+USE_MATE=	autogen intlhack matehack common:build
 USE_GNOME=	_glib20
 USE_GMAKE=	yes
 USE_GETTEXT=	yes
