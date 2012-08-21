@@ -14,6 +14,7 @@ include/panel-2.0/MATE_Panel.h
 include/panel-2.0/mate-panel-applet-enums.h
 include/panel-2.0/mate-panel-applet-mateconf.h
 include/panel-2.0/mate-panel-applet.h
+lib/girepository-1.0/MatePanelApplet-3.0.typelib
 lib/libmate-panel-applet-2.a
 lib/libmate-panel-applet-2.la
 lib/libmate-panel-applet-2.so
@@ -58,6 +59,7 @@ share/doc/mate-panel-applet/server-files.html
 share/doc/mate-panel-applet/session-saving.html
 share/doc/mate-panel-applet/style.css
 share/doc/mate-panel-applet/up.png
+share/gir-1.0/MatePanelApplet-3.0.gir
 share/icons/hicolor/16x16/apps/mate-panel-clock.png
 share/icons/hicolor/16x16/apps/mate-panel-drawer.png
 share/icons/hicolor/16x16/apps/mate-panel-fish.png
