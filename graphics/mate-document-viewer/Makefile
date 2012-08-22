@@ -3,7 +3,7 @@
 # Whom:					Adam Weinberger <adamw@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/graphics/mate-document-viewer/Makefile,v 1.2 2012/07/29 04:54:54 mezz Exp $
+#   $MCom: ports-experimental/graphics/mate-document-viewer/Makefile,v 1.3 2012/08/21 21:57:29 mezz Exp $
 #
 
 PORTNAME=	mate-document-viewer
@@ -16,6 +16,7 @@ DIST_SUBDIR=	mate
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	MATE multi-format document viewer
 
+BUILD_DEPENDS=	gtkdoc-scan:${PORTSDIR}/textproc/gtk-doc
 LIB_DEPENDS=	poppler-glib:${PORTSDIR}/graphics/poppler-glib \
 		spectre:${PORTSDIR}/print/libspectre \
 		cairo:${PORTSDIR}/graphics/cairo
