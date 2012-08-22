@@ -64,4 +64,3 @@ share/locale/zh_TW/LC_MESSAGES/mate-polkit.mo
 @dirrmtry lib/girepository-1.0
 @dirrm include/polkit-gtk-mate-1/polkitgtkmate
 @dirrm include/polkit-gtk-mate-1
-@dirrm etc/xdg/autostart
