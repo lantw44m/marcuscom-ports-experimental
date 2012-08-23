@@ -250,7 +250,6 @@ share/sounds/mate/default/alerts/sonar.ogg
 @dirrm share/sounds/mate/default/alerts
 @dirrm share/sounds/mate/default
 @dirrm share/sounds/mate
-@dirrm share/sounds
 @dirrm share/omf/mate-volume-control
 @dirrm share/omf/mate-gstreamer-properties
 @dirrm share/omf/mate-audio-profiles

@@ -208,7 +208,5 @@ share/mate/desktop-directories/mate-utility.directory
 @dirrmtry share/locale/as
 @dirrmtry share/locale/an/LC_MESSAGES
 @dirrmtry share/locale/an
-@dirrm %%PYTHON_SITELIBDIR%%
-@dirrm %%PYTHON_LIBDIR%%
 @dirrm include/mate-menus
 @dirrmtry etc/xdg/menus

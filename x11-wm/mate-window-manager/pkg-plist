@@ -186,7 +186,7 @@ share/themes/eOS/metacity-1/unmaximize_unfocused_over.png
 @dirrm share/themes/Dopple
 @dirrm share/themes/ClearlooksRe/metacity-1
 @dirrm share/themes/ClearlooksRe
-@dirrm share/themes
+@dirrmtry share/themes
 @dirrm share/mate/wm-properties
 @dirrm share/mate/help/creating-marco-themes/C
 @dirrm share/mate/help/creating-marco-themes

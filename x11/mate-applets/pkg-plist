@@ -2435,8 +2435,6 @@ share/polkit-1/actions/org.mate.cpufreqselector.policy
 @dirrm share/mate/help/mate-accessx-status/C/figures
 @dirrm share/mate/help/mate-accessx-status/C
 @dirrm share/mate/help/mate-accessx-status
-@dirrm share/mate-panel/applets
-@dirrm share/mate-panel
 @dirrm %%DATADIR%%/geyes/Tango
 @dirrm %%DATADIR%%/geyes/Horrid
 @dirrm %%DATADIR%%/geyes/Default-tiny
@@ -2528,9 +2526,4 @@ share/polkit-1/actions/org.mate.cpufreqselector.policy
 @dirrmtry share/icons/mate/48x48
 @dirrmtry share/icons/mate
 @dirrmtry share/icons
-@dirrmtry share/dbus-1/system-services
-@dirrmtry share/dbus-1/services
-@dirrmtry share/dbus-1
 @dirrm libexec/mate-applets
-@dirrmtry etc/dbus-1/system.d
-@dirrmtry etc/dbus-1

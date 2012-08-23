@@ -3,7 +3,7 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/audio/mate-media/Makefile,v 1.1 2012/07/29 04:54:54 mezz Exp $
 #
 
 PORTNAME=	mate-media
@@ -20,7 +20,7 @@ LIB_DEPENDS=	canberra-gtk:${PORTSDIR}/audio/libcanberra
 USE_XZ=		yes
 USE_MATE=	autogen common:build conf docutils intlhack ltverhack matehack
 USE_GMAKE=	yes
-USE_GNOME=	glib20 gtk20 libxml2
+USE_GNOME=	gnomehier glib20 gtk20 libxml2
 USE_GETTEXT=	yes
 INSTALLS_OMF=	yes
 USE_LDCONFIG=	yes

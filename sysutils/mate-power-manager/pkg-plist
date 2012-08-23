@@ -786,4 +786,3 @@ share/polkit-1/actions/org.mate.power.policy
 @dirrmtry share/dbus-1/services
 @dirrmtry share/dbus-1
 @dirrmtry share/applications
-@dirrm etc/xdg/autostart
