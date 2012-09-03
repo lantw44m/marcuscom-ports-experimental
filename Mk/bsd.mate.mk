@@ -3,7 +3,7 @@
 #
 # $FreeBSD$
 #	$NetBSD$
-#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.11 2012/07/29 17:29:11 mezz Exp $
+#     $MCom: ports-experimental/Mk/bsd.mate.mk,v 1.12 2012/08/05 17:04:12 mezz Exp $
 #
 # Please view me with 4 column tabs!
 
@@ -365,22 +365,19 @@ CONFIGURE_FAIL_MESSAGE= "Please run the gnomelogalyzer, available from \"http://
 .endif
 
 
-.if defined(MATECONF_SCHEMAS) || (defined(_USE_MATE) && ${_USE_MATE:Mmatehier}!="")
+.if defined(MATECONF_SCHEMAS)
 pre-su-install: mate-pre-su-install
 post-install: mate-post-install
 
 mate-pre-su-install:
-.if defined(_USE_MATE) && ${_USE_MATE:Mmatehier}!="" && !defined(NO_MTREE)
-	@${MTREE_CMD} ${MTREE_ARGS:S/${MTREE_FILE}/${MATE_MTREE_FILE}/} ${PREFIX}/ >/dev/null
-.endif
-.if defined(MATECONF_SCHEMAS)
+. if defined(MATECONF_SCHEMAS)
 	@${MKDIR} ${PREFIX}/etc/mateconf/mateconf.xml.defaults/
-.else
+. else
 	@${DO_NADA}
-.endif
+. endif
 
 mate-post-install:
-.  if defined(MATECONF_SCHEMAS)
+. if defined(MATECONF_SCHEMAS)
 	@for i in ${MATECONF_SCHEMAS}; do \
 		${ECHO_CMD} "@unexec env MATECONF_CONFIG_SOURCE=xml:${MATECONF_CONFIG_OPTIONS}:%D/${MATECONF_CONFIG_DIRECTORY} mateconftool-2 --makefile-uninstall-rule %D/etc/mateconf/schemas/$${i} > /dev/null || /usr/bin/true" \
 			>> ${TMPPLIST}; \
@@ -388,7 +385,7 @@ mate-post-install:
 		${ECHO_CMD} "@exec env MATECONF_CONFIG_SOURCE=xml:${MATECONF_CONFIG_OPTIONS}:%D/${MATECONF_CONFIG_DIRECTORY} mateconftool-2 --makefile-install-rule %D/etc/mateconf/schemas/$${i} > /dev/null || /usr/bin/true" \
 			>> ${TMPPLIST}; \
 	done
-.  endif
+. endif
 .endif
 
 .endif
