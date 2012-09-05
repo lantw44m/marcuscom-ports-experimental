@@ -3,11 +3,12 @@
 # Whom:			Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11/mate/Makefile,v 1.1 2012/07/31 23:35:21 mezz Exp $
+#   $MCom: ports-experimental/x11/mate/Makefile,v 1.2 2012/08/10 18:29:04 mezz Exp $
 #
 
 PORTNAME=	mate
 PORTVERSION=	1.4.0
+PORTREVISION=	1
 CATEGORIES=	x11 mate
 MASTER_SITES=	# empty
 DISTFILES=	# empty
@@ -16,7 +17,8 @@ EXTRACT_ONLY=	# empty
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	The "meta-port" for the MATE integrated X11 desktop
 
-RUN_DEPENDS=	mate-themes>=1.4.0:${PORTSDIR}/x11-themes/mate-themes \
+RUN_DEPENDS=	mate-base>=1.4.0:${PORTSDIR}/x11/mate-base \
+		mate-themes>=1.4.0:${PORTSDIR}/x11-themes/mate-themes \
 		mate-icon-theme-faenza>=1.4.0:${PORTSDIR}/x11-themes/mate-icon-theme-faenza \
 		mate-terminal:${PORTSDIR}/x11/mate-terminal \
 		mate-screensaver:${PORTSDIR}/x11/mate-screensaver \
