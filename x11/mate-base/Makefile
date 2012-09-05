@@ -3,7 +3,7 @@
 # Whom:			Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD: ports/x11/gnome2/Makefile,v 1.172 2012/02/16 15:57:29 ashish Exp $
-#   $MCom: ports-experimental/x11/mate-base/Makefile,v 1.1 2012/07/27 17:37:20 mezz Exp $
+#   $MCom: ports-experimental/x11/mate-base/Makefile,v 1.2 2012/07/27 17:45:05 mezz Exp $
 #
 
 PORTNAME=	mate-base
@@ -16,7 +16,7 @@ EXTRACT_ONLY=	# empty
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	The "meta-port" for the MATE base integrated X11 desktop
 
-RUN_DEPENDS=	${LOCALBASE}/lib/X11/fonts/bitstream-vera/Vera.ttf:${PORTSDIR}/x11-fonts/bitstream-vera \
+RUN_DEPENDS=	${LOCALBASE}/lib/X11/fonts/dejavu/DejaVuSerif.ttf:${PORTSDIR}/x11-fonts/dejavu \
 		${LOCALBASE}/share/hal/fdi/information/10freedesktop/10-camera-ptp.fdi:${PORTSDIR}/sysutils/hal-info \
 		${LOCALBASE}/share/mate-background-properties/mate-desktop.xml:${PORTSDIR}/x11-themes/mate-backgrounds \
 		${LOCALBASE}/bin/mate-session:${PORTSDIR}/x11/mate-session-manager \
