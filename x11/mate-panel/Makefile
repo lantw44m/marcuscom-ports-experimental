@@ -3,7 +3,7 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11/mate-panel/Makefile,v 1.3 2012/07/27 01:34:27 mezz Exp $
+#   $MCom: ports-experimental/x11/mate-panel/Makefile,v 1.4 2012/07/27 17:19:32 mezz Exp $
 #
 
 PORTNAME=	mate-panel
@@ -21,6 +21,8 @@ BUILD_DEPENDS=	gtkdoc-check:${PORTSDIR}/textproc/gtk-doc \
 LIB_DEPENDS=	dbus-glib-1:${PORTSDIR}/devel/dbus-glib \
 		canberra-gtk:${PORTSDIR}/audio/libcanberra \
 		cairo:${PORTSDIR}/graphics/cairo
+
+CONFLICT=	gnome-panel-*
 
 USE_XZ=		yes
 USE_MATE=	autogen common:build componentui conf corba desktop docutils \
