@@ -1,15 +1,10 @@
-# New ports collection makefile for:	gnomehier
-# Date created:				2 July 2002
-# Whom:					Maxim Sobolev <sobomax@FreeBSD.org>
-#
+# Created by: Maxim Sobolev <sobomax@FreeBSD.org>
 # $FreeBSD$
-#    $MCom$
-#
+#    $MCom: ports-experimental/misc/gnomehier/Makefile,v 1.1 2012/08/06 22:43:49 mezz Exp $
 # !!DON'T BUMP PORTREVISION ON MTREE CHANGES ANYMORE!!
 
 PORTNAME=	gnomehier
-PORTVERSION=	2.3
-PORTREVISION=	13
+PORTVERSION=	3.0
 CATEGORIES=	misc gnome
 MASTER_SITES=	# none
 DISTFILES=	# none
@@ -18,7 +13,7 @@ MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	A utility port that creates the GNOME directory tree
 
 NO_BUILD=	yes
-PLIST?=		${WRKDIR}/pkg-plist
+PLIST=		${WRKDIR}/pkg-plist
 PKGINSTALL=	${WRKDIR}/pkg-install
 
 GNOME_MTREE=	BSD.gnome.dist
@@ -44,8 +39,6 @@ pre-install:
 		< ${FILESDIR}/pkg-install.in > ${PKGINSTALL}
 
 pre-su-install:
-	${CHGRP} games ${WRKSRC}/share/games
-	${CHMOD} g=rwXs ${WRKSRC}/share/games
 	cd ${WRKSRC} && \
 		${MTREE_CMD} -U -d -n -i -c -k "uname, gname, mode" | \
 		${SED} -e 's|uname=[A-Za-z0-9_]*|uname=root|' \
