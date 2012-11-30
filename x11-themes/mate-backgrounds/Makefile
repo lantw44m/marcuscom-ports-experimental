@@ -3,7 +3,7 @@
 # Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
 #
 # $FreeBSD$
-#   $MCom: ports-experimental/x11-themes/mate-backgrounds/Makefile,v 1.1 2012/07/17 03:25:38 mezz Exp $
+#   $MCom: ports-experimental/x11-themes/mate-backgrounds/Makefile,v 1.2 2012/07/26 04:37:55 mezz Exp $
 #
 
 PORTNAME=	mate-backgrounds
@@ -17,6 +17,7 @@ COMMENT=	A collection of backgrounds for MATE
 
 USE_XZ=		yes
 USE_MATE=	autogen common:build intlhack matehack
+USE_GNOME=	glib20
 USE_GMAKE=	yes
 USE_GETTEXT=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env
