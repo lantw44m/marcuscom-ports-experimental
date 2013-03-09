@@ -1,10 +1,6 @@
-# New ports collection makefile for:	gnomedesktop
-# Date created:				13 April 2002
-# Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
-#
+# Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
 # $FreeBSD$
-#   $MCom: ports-experimental/x11/mate-desktop/Makefile,v 1.3 2012/07/26 04:37:54 mezz Exp $
-#
+#   $MCom: ports-experimental/x11/mate-desktop/Makefile,v 1.4 2012/07/27 01:34:26 mezz Exp $
 
 PORTNAME=	mate-desktop
 PORTVERSION=	1.4.1
@@ -21,7 +17,7 @@ LIB_DEPENDS=	startup-notification-1:${PORTSDIR}/x11/startup-notification
 USE_XZ=		yes
 USE_MATE=	autogen common:build conf docutils intlhack ltverhack matehack
 USE_XORG=	x11 xrandr
-USE_BISON=	build
+USES=		bison
 USE_GMAKE=	yes
 USE_GNOME=	gdkpixbuf2 glib20 gtk20
 USE_PYTHON=	yes

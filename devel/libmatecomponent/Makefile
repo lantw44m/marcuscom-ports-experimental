@@ -1,10 +1,6 @@
-# New ports collection makefile for:   libbonobo
-# Date Created:			14 February 2002
-# Whom:				Maxim Sobolev <sobomax@FreeBSD.org>
-#
+# Created by: Maxim Sobolev <sobomax@FreeBSD.org>
 # $FreeBSD$
-#   $MCom: ports-experimental/devel/libmatecomponent/Makefile,v 1.3 2012/07/26 04:37:52 mezz Exp $
-#
+#   $MCom: ports-experimental/devel/libmatecomponent/Makefile,v 1.4 2012/07/27 01:34:25 mezz Exp $
 
 PORTNAME=	libmatecomponent
 PORTVERSION=	1.4.0
@@ -20,7 +16,7 @@ LIB_DEPENDS=	popt:${PORTSDIR}/devel/popt
 
 USE_XZ=		yes
 USE_MATE=	autogen common:build corba intlhack ltverhack matehack
-USE_BISON=	build
+USES=		bison
 USE_GMAKE=	yes
 USE_GNOME=	glib20 libxml2
 USE_PERL5=	yes

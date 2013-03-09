@@ -1,10 +1,6 @@
-# New ports collection makefile for:	gcalctool
-# Date created:				12 Jun 2002
-# Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
-#
+# Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
 # $FreeBSD$
-#   $MCom: ports-experimental/math/mate-calc/Makefile,v 1.1 2012/07/28 05:20:16 mezz Exp $
-#
+#   $MCom: ports-experimental/math/mate-calc/Makefile,v 1.2 2012/08/17 11:37:06 mezz Exp $
 
 PORTNAME=	mate-calc
 PORTVERSION=	1.4.0
@@ -19,7 +15,7 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/flex:${PORTSDIR}/textproc/flex
 
 USE_XZ=		yes
 USE_MATE=	autogen common:build docutils intlhack matehack
-USE_BISON=	build
+USES=		bison
 USE_GMAKE=	yes
 USE_GNOME=	glib20 gtk20 libxml2
 USE_GETTEXT=	yes

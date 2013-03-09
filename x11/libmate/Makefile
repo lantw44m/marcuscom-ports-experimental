@@ -1,10 +1,6 @@
-# New ports collection makefile for:	libgnome
-# Date created:				17 June 1998
-# Whom:					Yukihiro Nakai <Nakai@technologist.com>
-#
+# Created by: Yukihiro Nakai <Nakai@technologist.com>
 # $FreeBSD$
-#   $MCom: ports-experimental/x11/libmate/Makefile,v 1.4 2012/07/27 01:34:26 mezz Exp $
-#
+#   $MCom: ports-experimental/x11/libmate/Makefile,v 1.5 2012/07/27 16:22:40 mezz Exp $
 
 PORTNAME=	libmate
 PORTVERSION=	1.4.0
@@ -25,7 +21,7 @@ USE_XZ=		yes
 USE_MATE=	autogen common:build component conf intlhack ltverhack \
 		matehack vfs
 USE_XORG=	xpm
-USE_BISON=	build
+USES=		bison
 USE_GMAKE=	yes
 USE_GNOME=	glib20
 USE_GETTEXT=	yes

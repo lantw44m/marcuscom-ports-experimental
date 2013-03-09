@@ -1,7 +1,7 @@
 #-*- tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: head/Mk/bsd.port.mk 310870 2013-01-23 14:32:20Z makc $
+# $FreeBSD: head/Mk/bsd.port.mk 313636 2013-03-08 11:34:33Z bapt $
 #	$NetBSD: $
 #
 #	bsd.port.mk - 940820 Jordan K. Hubbard.
@@ -91,9 +91,9 @@ FreeBSD_MAINTAINER=	portmgr@FreeBSD.org
 #				  Default: ${DISTNAME}${EXTRACT_SUFX}
 # EXTRACT_SUFX	- Suffix for archive names
 #				  You never have to set both DISTFILES and EXTRACT_SUFX.
-#				  Default: .tar.bz2 if USE_BZIP2 is set, .zip if USE_ZIP is
-#				  set, .tar.xz if USE_XZ is set, .run if USE_MAKESELF is set,
-#				  .tar.gz otherwise).
+#				  Default: .tar.bz2 if USE_BZIP2 is set, .lzh if USE_LHA is set,
+#				  .zip if USE_ZIP is set, .tar.xz if USE_XZ is set, .run if
+#				  USE_MAKESELF is set, .tar.gz otherwise).
 # MASTER_SITES	- Primary location(s) for distribution files if not found
 #				  locally.  See bsd.sites.mk for common choices for
 #				  MASTER_SITES.
@@ -303,6 +303,7 @@ FreeBSD_MAINTAINER=	portmgr@FreeBSD.org
 #
 # USE_BZIP2		- If set, this port tarballs use bzip2, not gzip, for
 #				  compression.
+# USE_LHA		- If set, this port distfile uses lha for compression
 # USE_XZ		- If set, this port tarballs use xz (or lzma)
 #				  for compression
 # USE_ZIP		- If set, this port distfile uses zip, not tar w/[bg]zip
@@ -349,10 +350,6 @@ FreeBSD_MAINTAINER=	portmgr@FreeBSD.org
 #				  used.  The valid value is "7", "8", or "9".  Note that
 #				  this is for users, not for port maintainers.  This
 #				  should not be used in Makefile.
-##
-# USE_BISON		- Implies that the port uses bison in one way or another:
-#				  'build', 'run', 'both', implying build,
-#				  runtime, and both build/run dependencies
 ##
 # USE_IMAKE		- If set, this port uses imake.
 # XMKMF			- Set to path of `xmkmf' if not in $PATH
@@ -407,9 +404,6 @@ FreeBSD_MAINTAINER=	portmgr@FreeBSD.org
 # WANT_FAM_SYSTEM
 #				- Legal values are: gamin (default),fam
 #				  If set to an unknown value, the port is marked IGNORE.
-##
-# USE_FUSE		- If set, make sure necessary components unavailable in base
-#				  are installed from ports.
 ##
 # USE_AUTOTOOLS	- If set, this port uses various GNU autotools
 #				  (libtool, autoconf, autoheader, automake et al.)
@@ -1157,6 +1151,7 @@ DISTDIR?=		${PORTSDIR}/distfiles
 _DISTDIR?=		${DISTDIR}/${DIST_SUBDIR}
 INDEXDIR?=		${PORTSDIR}
 SRC_BASE?=		/usr/src
+USESDIR?=		${PORTSDIR}/Mk/Uses
 
 .include "${PORTSDIR}/Mk/bsd.commands.mk"
 
@@ -1284,7 +1279,7 @@ GID_OFFSET?=	0
 
 # predefined accounts from src/etc/master.passwd
 # alpha numeric sort order
-USERS_BLACKLIST=	_dhcp _pflogd bin bind daemon games hast kmem mailnull man news nobody operator pop proxy root smmsp sshd toor tty uucp www
+USERS_BLACKLIST=	_dhcp _pflogd auditdistd bin bind daemon games hast kmem mailnull man news nobody operator pop proxy root smmsp sshd toor tty uucp www
 
 LDCONFIG_DIR=	libdata/ldconfig
 LDCONFIG32_DIR=	libdata/ldconfig32
@@ -1375,6 +1370,8 @@ ETCDIR?=		${PREFIX}/etc/${PORTNAME}
 
 .if defined(USE_BZIP2)
 EXTRACT_SUFX?=			.tar.bz2
+.elif defined(USE_LHA)
+EXTRACT_SUFX?=			.lzh
 .elif defined(USE_ZIP)
 EXTRACT_SUFX?=			.zip
 .elif defined(USE_XZ)
@@ -1467,7 +1464,7 @@ PKGCOMPATDIR?=		${LOCALBASE}/lib/compat/pkg
 .include "${PORTSDIR}/Mk/bsd.kde.mk"
 .endif
 
-.if defined(USE_QT_VER) && ${USE_QT_VER:L} == 4 || defined(USE_QT4)
+.if defined(USE_QT4)
 .include "${PORTSDIR}/Mk/bsd.qt.mk"
 .endif
 
@@ -1551,6 +1548,15 @@ check-makefile::
 .endif
 
 _POSTMKINCLUDED=	yes
+
+# Loading features
+.for f in ${USES}
+_f=${f:C/\:.*//g}
+.if ${_f} != ${f}
+${_f}_ARGS:=	${f:C/^[^\:]*\://g}
+.endif
+.include "${USESDIR}/${_f}.mk"
+.endfor
 
 WRKDIR?=		${WRKDIRPREFIX}${.CURDIR}/work
 .if !defined(IGNORE_MASTER_SITE_GITHUB) && defined(USE_GITHUB)
@@ -1676,6 +1682,9 @@ PKG_DEPENDS+=		${LOCALBASE}/sbin/pkg:${PORTSDIR}/ports-mgmt/pkg
 .endif
 .endif
 
+.if defined(USE_LHA)
+EXTRACT_DEPENDS+=	lha:${PORTSDIR}/archivers/lha
+.endif
 .if defined(USE_ZIP)
 EXTRACT_DEPENDS+=	${LOCALBASE}/bin/unzip:${PORTSDIR}/archivers/unzip
 .endif
@@ -1731,7 +1740,6 @@ MAKE_ENV+=	${b}="${${b}}"
 LIB_DEPENDS+=	readline.6:${PORTSDIR}/devel/readline
 CPPFLAGS+=		-I${LOCALBASE}/include
 LDFLAGS+=		-L${LOCALBASE}/lib -lreadline
-CONFIGURE_ENV+=	CPPFLAGS="${CPPFLAGS}" LDFLAGS="${LDFLAGS}"
 .endif
 .endif
 
@@ -1851,13 +1859,6 @@ LIB_DEPENDS+=	${FAM_SYSTEM_${FAM_SYSTEM:U}}
 IGNORE=		cannot be built with unknown FAM system: ${FAM_SYSTEM}
 .endif
 .endif # USE_FAM
-
-.if defined(USE_FUSE)
-LIB_DEPENDS+=	fuse:${PORTSDIR}/sysutils/fusefs-libs
-.if !exists(/sbin/mount_fusefs)
-RUN_DEPENDS+=	mount_fusefs:${PORTSDIR}/sysutils/fusefs-kmod
-.endif
-.endif
 
 .if defined(USE_RC_SUBR) && ${USE_RC_SUBR:U} != "YES"
 SUB_FILES+=	${USE_RC_SUBR}
@@ -2014,22 +2015,6 @@ RUN_DEPENDS+=	${_GL_${_component}_RUN_DEPENDS}
 . endfor
 .endif
 
-.if defined(USE_BISON)
-_BISON_DEPENDS=	bison:${PORTSDIR}/devel/bison
-
-. if ${USE_BISON:L} == "build"
-BUILD_DEPENDS+= ${_BISON_DEPENDS}
-. elif ${USE_BISON:L} == "run"
-RUN_DEPENDS+=	${_BISON_DEPENDS}
-. elif ${USE_BISON:L} == "both"
-BUILD_DEPENDS+= ${_BISON_DEPENDS}
-RUN_DEPENDS+=	${_BISON_DEPENDS}
-. else
-IGNORE=	uses unknown USE_BISON construct
-. endif
-
-.endif
-
 .if defined(WITH_PKGNG)
 .include "${PORTSDIR}/Mk/bsd.pkgng.mk"
 .endif
@@ -2067,7 +2052,7 @@ IGNORE=	uses unknown USE_BISON construct
 .include "${PORTSDIR}/Mk/bsd.linux-apps.mk"
 .endif
 
-.if defined(USE_QT_VER) && ${USE_QT_VER:L} == 4 || defined(USE_QT4)
+.if defined(USE_QT4)
 .include "${PORTSDIR}/Mk/bsd.qt.mk"
 .endif
 
@@ -2338,7 +2323,11 @@ PATCH_DIST_ARGS+=	--suffix .orig
 TAR?=	/usr/bin/tar
 
 # EXTRACT_SUFX is defined in .pre.mk section
-.if defined(USE_ZIP)
+.if defined(USE_LHA)
+EXTRACT_CMD?=		${LHA_CMD}
+EXTRACT_BEFORE_ARGS?=	xfqw=${WRKDIR}
+EXTRACT_AFTER_ARGS?=
+.elif defined(USE_ZIP)
 EXTRACT_CMD?=		${UNZIP_CMD}
 EXTRACT_BEFORE_ARGS?=	-qo
 EXTRACT_AFTER_ARGS?=	-d ${WRKDIR}
@@ -5752,7 +5741,9 @@ generate-plist:
 .endif
 .endif
 .endif
+.if !defined(WITH_PKGNG)
 	@cd ${.CURDIR} && { ${MAKE} pretty-print-config | fold -sw 120 | ${SED} -e 's/^/@comment OPTIONS:/'; } >> ${TMPPLIST}
+.endif
 .endif
 
 ${TMPPLIST}:

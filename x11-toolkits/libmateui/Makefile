@@ -1,10 +1,6 @@
-# New ports collection makefile for:	libgnomeui
-# Date created:				07 April 2002
-# Whom:					Joe Marcus Clarke <marcus@FreBSD.org>
-#
+# Created by: Joe Marcus Clarke <marcus@FreBSD.org>
 # $FreeBSD$
-#   $MCom: ports-experimental/x11-toolkits/libmateui/Makefile,v 1.4 2012/07/27 01:34:27 mezz Exp $
-#
+#   $MCom: ports-experimental/x11-toolkits/libmateui/Makefile,v 1.5 2012/08/05 17:04:12 mezz Exp $
 
 PORTNAME=	libmateui
 PORTVERSION=	1.4.0
@@ -22,7 +18,7 @@ USE_XZ=		yes
 USE_MATE=	autogen canvas common:build componentui conf icontheme:run \
 		libmate libmatekeyring ltverhack matehack vfs
 USE_XORG=	sm
-USE_BISON=	build
+USES=		bison
 USE_GMAKE=	yes
 USE_GNOME=	gdkpixbuf2 glib20 gtk20 libglade2 libxml2 pango
 USE_GETTEXT=	yes

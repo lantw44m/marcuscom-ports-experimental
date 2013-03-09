@@ -1,10 +1,6 @@
-# New ports collection makefile for:	libwnck
-# Date created:				12 April 2002
-# Whom:					Joe Marcus Clarke <marcus@FreeBSD.org>
-#
+# Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
 # $FreeBSD$
-#   $MCom: ports-experimental/x11-toolkits/libmatewnck/Makefile,v 1.1 2012/07/26 04:37:55 mezz Exp $
-#
+#   $MCom: ports-experimental/x11-toolkits/libmatewnck/Makefile,v 1.2 2012/07/27 01:34:27 mezz Exp $
 
 PORTNAME=	libmatewnck
 PORTVERSION=	1.4.0
@@ -24,7 +20,7 @@ USE_MATE=	autogen common:build intlhack ltverhack matehack
 USE_XORG=	x11 xres
 USE_GMAKE=	yes
 USE_GNOME=	gdkpixbuf2 glib20 gtk20
-USE_BISON=	build
+USES=		bison
 USE_GETTEXT=	yes
 USE_LDCONFIG=	yes
 USE_AUTOTOOLS=	aclocal:env autoconf:env automake:env libtool libtoolize:env
