@@ -1,9 +1,9 @@
 # Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
 # $FreeBSD$
-#   $MCom: ports-experimental/x11/mate-desktop/Makefile,v 1.4 2012/07/27 01:34:26 mezz Exp $
+#   $MCom: ports-experimental/x11/mate-desktop/Makefile,v 1.5 2013/03/09 09:44:23 kwm Exp $
 
 PORTNAME=	mate-desktop
-PORTVERSION=	1.4.1
+PORTVERSION=	1.4.2
 CATEGORIES=	x11 mate
 MASTER_SITES=	MATE
 DIST_SUBDIR=	mate
