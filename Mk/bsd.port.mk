@@ -1,7 +1,7 @@
 #-*- tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: head/Mk/bsd.port.mk 313636 2013-03-08 11:34:33Z bapt $
+# $FreeBSD$
 #	$NetBSD: $
 #
 #	bsd.port.mk - 940820 Jordan K. Hubbard.
@@ -1496,10 +1496,6 @@ PKGCOMPATDIR?=		${LOCALBASE}/lib/compat/pkg
 .include "${PORTSDIR}/Mk/bsd.gstreamer.mk"
 .endif
 
-.if defined(USE_QMAIL) || defined(USE_QMAIL_RUN) || defined(USE_QMAIL_BUILD) || defined(WANT_QMAIL)
-.include "${PORTSDIR}/Mk/bsd.mail.mk"
-.endif
-
 .if defined(USE_SDL) || defined(WANT_SDL)
 .include "${PORTSDIR}/Mk/bsd.sdl.mk"
 .endif
@@ -1517,6 +1513,23 @@ PKGCOMPATDIR?=		${LOCALBASE}/lib/compat/pkg
 .endif
 
 .include "${PORTSDIR}/Mk/bsd.pbi.mk"
+
+.if defined(USE_CMAKE)
+. if defined(CMAKE_OUTSOURCE)
+USES+=	cmake:outsource
+. else
+USES+=	cmake
+. endif
+.endif
+
+# Loading features
+.for f in ${USES}
+_f=${f:C/\:.*//g}
+.if ${_f} != ${f}
+${_f}_ARGS:=	${f:C/^[^\:]*\://g}
+.endif
+.include "${USESDIR}/${_f}.mk"
+.endfor
 
 # You can force skipping these test by defining IGNORE_PATH_CHECKS
 .if !defined(IGNORE_PATH_CHECKS)
@@ -1548,15 +1561,6 @@ check-makefile::
 .endif
 
 _POSTMKINCLUDED=	yes
-
-# Loading features
-.for f in ${USES}
-_f=${f:C/\:.*//g}
-.if ${_f} != ${f}
-${_f}_ARGS:=	${f:C/^[^\:]*\://g}
-.endif
-.include "${USESDIR}/${_f}.mk"
-.endfor
 
 WRKDIR?=		${WRKDIRPREFIX}${.CURDIR}/work
 .if !defined(IGNORE_MASTER_SITE_GITHUB) && defined(USE_GITHUB)
@@ -1953,11 +1957,7 @@ LIB_DEPENDS+=			ttf.4:${PORTSDIR}/print/freetype
 .endif
 
 X_IMAKE_PORT=		${PORTSDIR}/devel/imake
-X_LIBRARIES_PORT=	${PORTSDIR}/x11/xorg-libraries
-X_CLIENTS_PORT=		${PORTSDIR}/x11/xorg-apps
-X_SERVER_PORT=		${PORTSDIR}/x11-servers/xorg-server
 X_FONTSERVER_PORT=	${PORTSDIR}/x11-fonts/xfs
-X_PRINTSERVER_PORT=	${PORTSDIR}/x11-servers/xorg-printserver
 X_VFBSERVER_PORT=	${PORTSDIR}/x11-servers/xorg-vfbserver
 X_NESTSERVER_PORT=	${PORTSDIR}/x11-servers/xorg-nestserver
 X_FONTS_ENCODINGS_PORT=	${PORTSDIR}/x11-fonts/encodings
@@ -1988,10 +1988,7 @@ MAKE_ENV+=		DISPLAY="localhost:1001"
 .endif
 .endif
 
-XAWVER=				8
 PKG_IGNORE_DEPENDS?=		'this_port_does_not_exist'
-
-PLIST_SUB+=			XAWVER=${XAWVER}
 
 _GL_gl_LIB_DEPENDS=		GL.1:${PORTSDIR}/graphics/libGL
 _GL_glew_LIB_DEPENDS=		GLEW.1:${PORTSDIR}/graphics/glew
@@ -2116,10 +2113,6 @@ RUN_DEPENDS+=	${_GL_${_component}_RUN_DEPENDS}
 
 .if defined(USE_KDE4)
 .include "${PORTSDIR}/Mk/bsd.kde4.mk"
-.endif
-
-.if defined(USE_CMAKE)
-.include "${PORTSDIR}/Mk/bsd.cmake.mk"
 .endif
 
 .if exists(${PORTSDIR}/Makefile.inc)
@@ -2432,6 +2425,7 @@ COPYTREE_SHARE=	${SH} -c '(${FIND} -d $$0 $$2 | ${CPIO} -dumpl $$1 >/dev/null \
 
 DESCR?=			${PKGDIR}/pkg-descr
 PLIST?=			${PKGDIR}/pkg-plist
+PKGHELP?=		${PKGDIR}/pkg-help
 PKGINSTALL?=	${PKGDIR}/pkg-install
 PKGDEINSTALL?=	${PKGDIR}/pkg-deinstall
 PKGREQ?=		${PKGDIR}/pkg-req
@@ -4319,7 +4313,7 @@ _PKG_DEP=		check-sanity
 _PKG_SEQ=		pkg-depends
 _FETCH_DEP=		pkg
 _FETCH_SEQ=		fetch-depends pre-fetch pre-fetch-script \
-				do-fetch post-fetch post-fetch-script
+				do-fetch fetch-specials post-fetch post-fetch-script
 _EXTRACT_DEP=	fetch
 _EXTRACT_SEQ=	check-build-conflicts extract-message checksum extract-depends \
 				pre-extract pre-extract-script do-extract \
@@ -4739,8 +4733,6 @@ fetch-url-list-int:
 				SORTED_MASTER_SITES_CMD_TMP="${SORTED_MASTER_SITES_DEFAULT_CMD}" ; \
 			fi ; \
 			for site in `eval $$SORTED_MASTER_SITES_CMD_TMP ${_RANDOMIZE_SITES}`; do \
-				DIR=${DIST_SUBDIR:S/\//\\\\\//g:S/./\\\\./g:S/+/\\\\+/g:S/?/\\\\?/g}; \
-				CKSIZE=`${AWK} "/^SIZE \($${DIR:+$$DIR\/}$$fileptn\)/"'{print $$4}' ${DISTINFO_FILE}`; \
 				case $${file} in \
 				*/*)	args="-o $${file} $${site}$${file}";; \
 				*)		args=$${site}$${file};; \
@@ -4771,8 +4763,6 @@ fetch-url-list-int:
 				SORTED_PATCH_SITES_CMD_TMP="${SORTED_PATCH_SITES_DEFAULT_CMD}" ; \
 			fi ; \
 			for site in `eval $$SORTED_PATCH_SITES_CMD_TMP ${_RANDOMIZE_SITES}`; do \
-				DIR=${DIST_SUBDIR:S/\//\\\\\//g:S/./\\\\./g:S/+/\\\\+/g:S/?/\\\\?/g}; \
-				CKSIZE=`${AWK} "/^SIZE \($${DIR:+$$DIR\/}$$fileptn\)/"'{print $$4}' ${DISTINFO_FILE}`; \
 				case $${file} in \
 				*/*)	args="-o $${file} $${site}$${file}";; \
 				*)		args=$${site}$${file};; \
@@ -5189,6 +5179,7 @@ lib-depends:
 
 _UNIFIED_DEPENDS=${PKG_DEPENDS} ${EXTRACT_DEPENDS} ${PATCH_DEPENDS} ${FETCH_DEPENDS} ${BUILD_DEPENDS} ${LIB_DEPENDS} ${RUN_DEPENDS}
 _DEPEND_DIRS=	${_UNIFIED_DEPENDS:C,^[^:]*:([^:]*).*$,\1,}
+_DEPEND_SPECIALS=	${_UNIFIED_DEPENDS:M*\:*\:*:C,^[^:]*:([^:]*):.*$,\1,}
 
 all-depends-list:
 	@${ALL-DEPENDS-LIST}
@@ -5321,6 +5312,14 @@ limited-clean-depends:
 deinstall-depends:
 	@for dir in $$(${ALL-DEPENDS-LIST}); do \
 		(cd $$dir; ${MAKE} deinstall); \
+	done
+.endif
+
+.if !target(fetch-specials)
+fetch-specials:
+	@${ECHO_MSG} "===> Fetching all distfiles required by ${PKGNAME} for building"
+	@for dir in ${_DEPEND_SPECIALS}; do \
+		(cd $$dir; ${MAKE} fetch); \
 	done
 .endif
 
@@ -5836,11 +5835,15 @@ add-plist-info:
 .if defined(INFO)
 .for i in ${INFO}
 	install-info --quiet ${PREFIX}/${INFO_PATH}/$i.info ${PREFIX}/${INFO_PATH}/dir
+.if !defined(WITH_PKGNG)
 	@${ECHO_CMD} "@unexec install-info --quiet --delete %D/${INFO_PATH}/$i.info %D/${INFO_PATH}/dir" \
 		>> ${TMPPLIST}
 	@${LS} ${PREFIX}/${INFO_PATH}/$i.info* | ${SED} -e s:${PREFIX}/::g >> ${TMPPLIST}
 	@${ECHO_CMD} "@exec install-info --quiet %D/${INFO_PATH}/$i.info %D/${INFO_PATH}/dir" \
 		>> ${TMPPLIST}
+.else
+	@${LS} ${PREFIX}/${INFO_PATH}/$i.info* | ${SED} -e s:${PREFIX}/:@info\ :g >> ${TMPPLIST}
+.endif
 .endfor
 .if defined(INFO_SUBDIR)
 	@${ECHO_CMD} "@unexec ${RMDIR} %D/${INFO_PATH}/${INFO_SUBDIR} 2> /dev/null || true" >> ${TMPPLIST}
@@ -6088,7 +6091,7 @@ check-config: _check-config
 .if !target(sanity-config)
 sanity-config: _check-config
 .if !empty(_CHECK_CONFIG_ERROR)
-	@echo -n "Config is invalid. Re-edit? [Y/N] "; \
+	@echo -n "Config is invalid. Re-edit? [Y/n] "; \
 	read answer; \
 	case $$answer in \
 	[Nn]|[Nn][Oo]) \
@@ -6100,47 +6103,53 @@ sanity-config: _check-config
 
 .if !target(pre-config)
 pre-config:
+D4P_ENV=	PKGNAME="${PKGNAME}" \
+		PORT_OPTIONS="${PORT_OPTIONS}" \
+		ALL_OPTIONS="${ALL_OPTIONS}" \
+		OPTIONS_MULTI="${OPTIONS_MULTI}" \
+		OPTIONS_SINGLE="${OPTIONS_SINGLE}" \
+		OPTIONS_RADIO="${OPTIONS_RADIO}" \
+		OPTIONS_GROUP="${OPTIONS_GROUP}" \
+		DIALOG4PORTS="${DIALOG4PORTS}" \
+		PREFIX="${PREFIX}" \
+		LOCALBASE="${LOCALBASE}" \
+		PORTSDIR="${PORTSDIR}" \
+		MAKE="${MAKE}" \
+		D4PHEIGHT="${D4PHEIGHT}" \
+		D4PWIDTH="${D4PWIDTH}" \
+		D4PFULLSCREEN="${D4PFULLSCREEN}"
+.if exists(${PKGHELP})
+D4P_ENV+=	PKGHELP="${PKGHELP}"
+.endif
 .for opt in ${ALL_OPTIONS}
-.  if empty(PORT_OPTIONS:M${opt})
-DEFOPTIONS+=	${opt} ""${${opt}_DESC:Q} off
-.  else
-DEFOPTIONS+=	${opt} ""${${opt}_DESC:Q} on
-.  endif
+D4P_ENV+=	 ${opt}_DESC=""${${opt}_DESC:Q}""
 .endfor
 .for multi in ${OPTIONS_MULTI}
+D4P_ENV+=	OPTIONS_MULTI_${multi}="${OPTIONS_MULTI_${multi}}" \
+		${multi}_DESC=""${${opt}_DESC:Q}""
 .  for opt in ${OPTIONS_MULTI_${multi}}
-.    if empty(PORT_OPTIONS:M${opt})
-DEFOPTIONS+=	${opt} "M(${multi}): "${${opt}_DESC:Q} off
-.    else
-DEFOPTIONS+=    ${opt} "M(${multi}): "${${opt}_DESC:Q} on
-.    endif
+D4P_ENV+=	 ${opt}_DESC=""${${opt}_DESC:Q}""
 .  endfor
 .endfor
 .for single in ${OPTIONS_SINGLE}
+D4P_ENV+=	OPTIONS_SINGLE_${single}="${OPTIONS_SINGLE_${single}}" \
+		${single}_DESC=""${${single}_DESC:Q}""
 .  for opt in ${OPTIONS_SINGLE_${single}}
-.    if empty(PORT_OPTIONS:M${opt})
-DEFOPTIONS+=	${opt} "S(${single}): "${${opt}_DESC:Q} off
-.    else
-DEFOPTIONS+=	${opt} "S(${single}): "${${opt}_DESC:Q} on
-.    endif
+D4P_ENV+=	 ${opt}_DESC=""${${opt}_DESC:Q}""
 .  endfor
 .endfor
 .for radio in ${OPTIONS_RADIO}
+D4P_ENV+=	OPTIONS_RADIO_${radio}="${OPTIONS_RADIO_${radio}}" \
+		${radio}_DESC=""${${radio}_DESC:Q}""
 .  for opt in ${OPTIONS_RADIO_${radio}}
-.    if empty(PORT_OPTIONS:M${opt})
-DEFOPTIONS+=	${opt} "R(${radio}): "${${opt}_DESC:Q} off
-.    else
-DEFOPTIONS+=	${opt} "R(${radio}): "${${opt}_DESC:Q} on
-.    endif
+D4P_ENV+=	 ${opt}_DESC=""${${opt}_DESC:Q}""
 .  endfor
 .endfor
 .for group in ${OPTIONS_GROUP}
+D4P_ENV+=	OPTIONS_GROUP_${group}="${OPTIONS_GROUP_${group}}" \
+		${group}_DESC=""${${group}_DESC:Q}""
 .  for opt in ${OPTIONS_GROUP_${group}}
-.    if empty(PORT_OPTIONS:M${opt})
-DEFOPTIONS+=	${opt} "G(${group}): "${${opt}_DESC:Q} off
-.    else
-DEFOPTIONS+=	${opt} "G(${group}): "${${opt}_DESC:Q} on
-.    endif
+D4P_ENV+=	 ${opt}_DESC=""${${opt}_DESC:Q}""
 .  endfor
 .endfor
 .undef multi
@@ -6167,11 +6176,12 @@ do-config:
 .endif
 	@TMPOPTIONSFILE=$$(mktemp -t portoptions); \
 	trap "${RM} -f $${TMPOPTIONSFILE}; exit 1" 1 2 3 5 10 13 15; \
-	${DIALOG} --checklist "Options for ${PKGNAME:C/-([^-]+)$/ \1/}" 21 70 15 ${DEFOPTIONS} 2> $${TMPOPTIONSFILE} || { \
+	${SETENV} ${D4P_ENV} ${SH} ${PORTSDIR}/Tools/scripts/dialog4ports.sh $${TMPOPTIONSFILE} || { \
 		${RM} -f $${TMPOPTIONSFILE}; \
 		${ECHO_MSG} "===> Options unchanged"; \
 		exit 0; \
 	}; \
+	${ECHO_CMD}; \
 	if [ ! -e $${TMPOPTIONSFILE} ]; then \
 		${ECHO_MSG} "===> No user-specified options to save for ${PKGNAME}"; \
 		exit 0; \
@@ -6204,7 +6214,12 @@ do-config:
 .endif # do-config
 
 .if !target(config)
+.if !defined(NO_DIALOG)
 config: pre-config do-config
+.else
+config:
+	@${ECHO_MSG} "===> Skipping 'config' as NO_DIALOG is defined"
+.endif
 .endif # config
 
 .if !target(config-recursive)
@@ -6442,7 +6457,7 @@ desktop-categories:
 			lang)			c="Development"					;; \
 			lisp)			c="Development"					;; \
 			mail)			c="Office Email"				;; \
-			mate)			c="MATE GTK"		;; \
+			mate)			c="MATE GTK"					;; \
 			math)			c="Education Science Math"		;; \
 			mbone)			c="Network AudioVideo"			;; \
 			multimedia)		c="AudioVideo"					;; \
