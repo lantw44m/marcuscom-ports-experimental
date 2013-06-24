@@ -1,0 +1,11 @@
+--- GNUmakefile.in.orig	2013-06-13 23:04:47.000000000 +0000
++++ GNUmakefile.in	2013-06-13 23:04:57.000000000 +0000
+@@ -20548,7 +20548,7 @@
+ 	-fno-exceptions -DBUILDING_CAIRO__ -DBUILDING_GTK__ \
+ 	$(am__append_1) $(am__append_2)
+ global_cflags := 
+-global_cxxflags := -fno-rtti
++global_cxxflags := 
+ JSCORE_GIRSOURCES := $(am__append_39)
+ WEBKIT_GIRSOURCES := $(am__append_40)
+ typelibsdir := $(am__append_41)
