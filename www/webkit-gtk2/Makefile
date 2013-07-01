@@ -1,6 +1,6 @@
 # Created by: Michael Johnson <ahze@FreeBSD.org>
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/trunk/www/webkit-gtk2/Makefile 18589 2013-06-24 22:41:22Z kwm $
 
 PORTNAME=	webkit
 PORTVERSION=	2.0.3
@@ -18,6 +18,7 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/flex:${PORTSDIR}/textproc/flex \
 LIB_DEPENDS=	enchant:${PORTSDIR}/textproc/enchant \
 		secret-1:${PORTSDIR}/security/libsecret \
 		icutu:${PORTSDIR}/devel/icu \
+		harfbuzz:${PORTSDIR}/print/harfbuzz \
 		webp:${PORTSDIR}/graphics/webp \
 		curl:${PORTSDIR}/ftp/curl \
 		soup-2.4:${PORTSDIR}/devel/libsoup
