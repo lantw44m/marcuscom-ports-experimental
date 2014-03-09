@@ -1,6 +1,6 @@
 # Created by: Vanilla I. Shu <vanilla@MinJe.com.TW>
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/trunk/x11-toolkits/gtk30/Makefile 19035 2014-03-09 14:39:27Z gusi $
 # Please keep gtk30 and x11-themes/gnome-themes-standard minor version in sync
 
 PORTNAME=	gtk
@@ -37,7 +37,8 @@ USE_GNOME=	atk pango gdkpixbuf2 gtk-update-icon-cache \
 USES=		gettext gmake libtool pathfix perl5 pkgconfig
 USE_XORG=	xext xrender x11 xinerama xi xrandr xcursor xfixes xdamage \
 		xcomposite
-CONFIGURE_ARGS=	--enable-gtk2-dependency --disable-packagekit
+CONFIGURE_ARGS=	--enable-gtk2-dependency --disable-packagekit \
+		--enable-introspection
 CPPFLAGS+=	-I${LOCALBASE}/include -fno-omit-frame-pointer
 LDFLAGS+=	-L${LOCALBASE}/lib
 
