@@ -11,6 +11,7 @@ MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Code documentation system, originally for GTK+
 
 BUILD_DEPENDS=	jade:${PORTSDIR}/textproc/jade \
+		itstool:${PORTSDIR}/textproc/itstool \
 		${LOCALBASE}/share/xml/docbook/${DOCBOOK_VERSION}:${PORTSDIR}/textproc/docbook-xml \
 		${LOCALBASE}/share/xsl/docbook/xhtml/chunk.xsl:${PORTSDIR}/textproc/docbook-xsl \
 		rarian-sk-config:${PORTSDIR}/textproc/rarian
@@ -30,7 +31,6 @@ GNU_CONFIGURE=	yes
 USE_PYTHON=	yes
 USES=		gmake pathfix perl5 pkgconfig
 USE_GNOME=	gnomeprefix libxslt gnomedocutils
-INSTALLS_OMF=	yes
 CONFIGURE_ARGS=	--with-xml-catalog=${LOCALBASE}/share/xml/catalog.ports
 
 PLIST_SUB=	XMLCATMGR=${XMLCATMGR} \
