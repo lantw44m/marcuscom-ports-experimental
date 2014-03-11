@@ -1,6 +1,6 @@
 # Created by: Sunpoet Po-Chuan Hsieh <sunpoet@FreeBSD.org>
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/trunk/multimedia/libquvi-scripts/Makefile 19068 2014-03-11 08:48:35Z gusi $
 
 PORTNAME=	libquvi-scripts
 PORTVERSION=	0.9
@@ -14,8 +14,7 @@ WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}.20131130
 MAINTAINER=	sunpoet@FreeBSD.org
 COMMENT=	Embedded lua scripts for libquvi and utility scripts
 
-LICENSE=	LGPL21 LGPL3
-LICENSE_COMB=	dual
+LICENSE=	AGPLv3
 
 PORTSCOUT=	limit:0.4.[0-9]*
 
