@@ -1,0 +1,38 @@
+# Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
+# $FreeBSD$
+#   $MCom$
+
+PORTNAME=	gnome-menus
+PORTVERSION=	3.10.1
+CATEGORIES=	x11 gnome
+MASTER_SITES=	GNOME
+DIST_SUBDIR=	gnome3
+
+MAINTAINER=	gnome@FreeBSD.org
+COMMENT=	Implementation of the FreeDesktop Desktop Menu Spec
+
+USES=		gettext gmake pathfix pkgconfig
+USE_XZ=		yes
+USE_GNOME=	glib20 gnomehier gnomeprefix intlhack introspection:build \
+		ltverhack
+USE_AUTOTOOLS=	libtool
+USE_PYTHON=	yes
+USE_LDCONFIG=	yes
+CPPFLAGS+=	-I${LOCALBASE}/include
+LDFLAGS+=	-L${LOCALBASE}/lib
+
+post-patch:
+	@${SED} -e 's|/usr/local|${LOCALBASE}|g' \
+		< ${FILESDIR}/KDE.directory > ${WRKSRC}/KDE.directory
+	@${REINPLACE_CMD} -e 's|%%PTHREAD_LIBS%%|${PTHREAD_LIBS}|' \
+	    	${WRKSRC}/util/Makefile.in
+
+post-install:
+	@${MKDIR} -p ${STAGEDIR}${PREFIX}/etc/xdg/menus/ 
+	@${INSTALL_DATA} ${WRKSRC}/layout/gnome-applications.menu \
+		${STAGEDIR}${PREFIX}/etc/xdg/menus/gnome-applications.menu
+	@${INSTALL_DATA} ${WRKSRC}/KDE.directory \
+		${STAGEDIR}${PREFIX}/share/desktop-directories
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libgnome-menu-3.so.0
+
+.include <bsd.port.mk>
