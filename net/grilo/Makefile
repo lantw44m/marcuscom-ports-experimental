@@ -12,7 +12,8 @@ COMMENT=	Grilo is a framework focused on making media discovery and browsing
 
 BUILD_DEPENDS=	vapigen:${PORTSDIR}/lang/vala-vapigen
 LIB_DEPENDS=	libsoup-2.4.so:${PORTSDIR}/devel/libsoup \
-		liboauth.so:${PORTSDIR}/net/liboauth
+		liboauth.so:${PORTSDIR}/net/liboauth \
+		libtotem-plparser.so:${PORTSDIR}/multimedia/totem-pl-parser
 
 USES=		gettext gmake pathfix pkgconfig
 USE_XZ=		yes
@@ -36,5 +37,6 @@ UI_USE=		GNOME=gtk30
 post-install:
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libgrilo-0.2.so.1
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libgrlnet-0.2.so.0 
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libgrlpls-0.2.so.0 
 
 .include <bsd.port.mk>

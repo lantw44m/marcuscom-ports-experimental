@@ -17,6 +17,7 @@ include/grilo-0.2/grl-metadata-key.h
 include/grilo-0.2/grl-multiple.h
 include/grilo-0.2/grl-operation-options.h
 include/grilo-0.2/grl-operation.h
+include/grilo-0.2/pls/grl-pls.h
 include/grilo-0.2/grl-plugin.h
 include/grilo-0.2/grl-range-value.h
 include/grilo-0.2/grl-registry.h
@@ -28,6 +29,7 @@ include/grilo-0.2/net/grl-net-wc.h
 include/grilo-0.2/net/grl-net.h
 lib/girepository-1.0/Grl-0.2.typelib
 lib/girepository-1.0/GrlNet-0.2.typelib
+lib/girepository-1.0/GrlPls-0.2.typelib
 lib/libgrilo-0.2.a
 lib/libgrilo-0.2.la
 lib/libgrilo-0.2.so
@@ -36,11 +38,17 @@ lib/libgrlnet-0.2.a
 lib/libgrlnet-0.2.la
 lib/libgrlnet-0.2.so
 lib/libgrlnet-0.2.so.0
+lib/libgrlpls-0.2.a
+lib/libgrlpls-0.2.la
+lib/libgrlpls-0.2.so
+lib/libgrlpls-0.2.so.0
 libdata/pkgconfig/grilo-0.2.pc
 libdata/pkgconfig/grilo-net-0.2.pc
+libdata/pkgconfig/grilo-pls-0.2.pc
 man/man1/grl-inspect.1.gz
 share/gir-1.0/Grl-0.2.gir
 share/gir-1.0/GrlNet-0.2.gir
+share/gir-1.0/GrlPls-0.2.gir
 share/locale/as/LC_MESSAGES/grilo.mo
 share/locale/ca/LC_MESSAGES/grilo.mo
 share/locale/ca@valencia/LC_MESSAGES/grilo.mo
@@ -86,5 +94,6 @@ share/vala/vapi/grilo-net-0.2.vapi
 @dirrmtry share/locale/sr@latin
 @dirrmtry share/locale/as/LC_MESSAGES
 @dirrmtry share/locale/as
+@dirrm include/grilo-0.2/pls
 @dirrm include/grilo-0.2/net
 @dirrm include/grilo-0.2
