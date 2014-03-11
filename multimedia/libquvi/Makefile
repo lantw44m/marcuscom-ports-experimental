@@ -1,6 +1,6 @@
 # Created by: Sunpoet Po-Chuan Hsieh <sunpoet@FreeBSD.org>
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/trunk/multimedia/libquvi/Makefile 19069 2014-03-11 09:28:01Z gusi $
 
 PORTNAME=	libquvi
 PORTVERSION=	0.9.4
@@ -11,8 +11,7 @@ MASTER_SITES=	SF/quvi/${PORTVERSION:R}/${PORTNAME}/ \
 MAINTAINER=	sunpoet@FreeBSD.org
 COMMENT=	Cross-platform library for parsing flash media stream URLs
 
-LICENSE=	LGPL21 LGPL3
-LICENSE_COMB=	dual
+LICENSE=	AGPLv3
 
 BUILD_DEPENDS=	libquvi-scripts>=0.9:${PORTSDIR}/multimedia/libquvi-scripts
 LIB_DEPENDS=	libcurl.so:${PORTSDIR}/ftp/curl \
