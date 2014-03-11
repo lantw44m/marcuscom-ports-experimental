@@ -17,7 +17,6 @@ include/grilo-0.2/grl-metadata-key.h
 include/grilo-0.2/grl-multiple.h
 include/grilo-0.2/grl-operation-options.h
 include/grilo-0.2/grl-operation.h
-include/grilo-0.2/pls/grl-pls.h
 include/grilo-0.2/grl-plugin.h
 include/grilo-0.2/grl-range-value.h
 include/grilo-0.2/grl-registry.h
@@ -27,6 +26,7 @@ include/grilo-0.2/grl-util.h
 include/grilo-0.2/grl-value-helper.h
 include/grilo-0.2/net/grl-net-wc.h
 include/grilo-0.2/net/grl-net.h
+include/grilo-0.2/pls/grl-pls.h
 lib/girepository-1.0/Grl-0.2.typelib
 lib/girepository-1.0/GrlNet-0.2.typelib
 lib/girepository-1.0/GrlPls-0.2.typelib
