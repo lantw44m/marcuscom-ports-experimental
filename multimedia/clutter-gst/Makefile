@@ -1,6 +1,6 @@
 # Created by: Martin Wilke <miwi@FreeBSD.org>
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/trunk/multimedia/clutter-gst/Makefile 19077 2014-03-11 11:16:22Z gusi $
 
 PORTNAME=	clutter-gst
 PORTVERSION=	2.0.10
@@ -25,7 +25,7 @@ CPPFLAGS+=	-I${LOCALBASE}/include ${PTHREAD_CFLAGS}
 LDFLAGS+=	-L${LOCALBASE}/lib ${PTHREAD_LIBS}
 
 post-install:
-		${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/gstreamer-1.0/libgstclutter.so 
+		${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/gstreamer-1.0/libgstclutter.so
 		${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libclutter-gst-2.0.so.0
 
 .include <bsd.port.mk>
