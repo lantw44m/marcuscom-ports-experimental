@@ -1,6 +1,6 @@
 # Created by: Michael Johnson <ahze@FreeBSD.org>
 # $FreeBSD$
-#    $MCom$
+#    $MCom: ports-experimental/trunk/sysutils/brasero/Makefile 19099 2014-03-12 14:08:17Z gusi $
 
 PORTNAME=	brasero
 PORTVERSION=	3.11.3
@@ -30,7 +30,7 @@ INSTALLS_OMF=	yes
 INSTALLS_ICONS=	yes
 CONFIGURE_ARGS=	--disable-inotify --enable-search=no --enable-playlist=no \
 		--enable-introspection=yes
-CPPFLAGS+=	-I${LOCALBASE}/include -DHAVE_CAM_LIB_H=1
+CPPFLAGS+=	-I${LOCALBASE}/include -DHAVE_CAM_LIB_H=1 -Wno-error=format-nonliteral
 LDFLAGS+=	-L${LOCALBASE}/lib
 MAKE_ENV=	XDG_CACHE_HOME=${WRKDIR}
 
