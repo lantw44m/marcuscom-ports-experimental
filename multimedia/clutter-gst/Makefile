@@ -20,6 +20,7 @@ USE_GNOME=	introspection gnomehier gnomeprefix ltverhack
 USE_GSTREAMER1=	yes
 USE_XORG=	xp x11
 USE_LDCONFIG=	yes
+MAKE_ENV=	XDG_CACHE_HOME=${WRKDIR}
 
 CPPFLAGS+=	-I${LOCALBASE}/include ${PTHREAD_CFLAGS}
 LDFLAGS+=	-L${LOCALBASE}/lib ${PTHREAD_LIBS}
