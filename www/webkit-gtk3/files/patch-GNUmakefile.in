@@ -1,0 +1,11 @@
+--- GNUmakefile.in.orig	2014-03-03 11:32:20.000000000 +0000
++++ GNUmakefile.in	2014-03-11 18:08:38.461421957 +0000
+@@ -22760,7 +22760,7 @@
+ 	-fno-exceptions -DBUILDING_CAIRO__ -DBUILDING_GTK__ \
+ 	$(am__append_1) $(am__append_2)
+ global_cflags := 
+-global_cxxflags := -fno-rtti
++global_cxxflags :=
+ EXTRA_DIST := $(srcdir)/Source/autotools/symbols.filter \
+ 	$(srcdir)/Source/WebKit/LICENSE Source/JavaScriptCore/AUTHORS \
+ 	Source/JavaScriptCore/ChangeLog \
