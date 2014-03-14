@@ -1,0 +1,6 @@
+etc/dbus-1/system.d/org.freedesktop.GeoClue2.conf
+libdata/pkgconfig/geoclue-2.0.pc
+libexec/geoclue
+share/dbus-1/system-services/org.freedesktop.GeoClue2.service
+%%DATADIR%%-2.0/geoclue-interface.xml
+@dirrm %%DATADIR%%-2.0
