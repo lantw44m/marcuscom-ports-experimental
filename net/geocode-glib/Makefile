@@ -2,18 +2,18 @@
 # $FreeBSD$
 
 PORTNAME=	geocode-glib
-PORTVERSION=	0.99.0
+PORTVERSION=	3.11.91
 CATEGORIES=	net devel gnome
 MASTER_SITES=	GNOME
 
 MAINTAINER=	gnome@FreeBSD.org
-COMMENT=	Convenience library for the Yahoo! Place Finder APIs
+COMMENT=	Convenience library for the geocoding and reverse geocoding
 
 LIB_DEPENDS=	libjson-glib-1.0.so:${PORTSDIR}/devel/json-glib \
 		libsoup-2.4.so:${PORTSDIR}/devel/libsoup
 
 USES=		gettext gmake pathfix pkgconfig
-USE_BZIP2=	yes
+USE_XZ=		yes
 USE_AUTOTOOLS=	libtool
 USE_LDCONFIG=	yes
 USE_GNOME=	evolutiondataserver3 gnomedocutils gnomehier intlhack ltverhack
