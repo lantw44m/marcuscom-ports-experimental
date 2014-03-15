@@ -24,7 +24,10 @@ LIB_DEPENDS+=	libpcre.so:${PORTSDIR}/devel/pcre \
 
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
-USES=		gettext gmake iconv libtool pathfix perl5 pkgconfig shebangfix
+# iconv:wchar_t - our iconv in base doesn't support utf-8 -> wchar_t (boooo)
+# (wchar_t is used by glibmm, rawtherapee triggered this)
+USES=		gettext gmake iconv:wchar_t libtool pathfix perl5 pkgconfig \
+		shebangfix
 USE_PYTHON=	yes
 CONFIGURE_ARGS=	--disable-gtk-doc --with-html-dir=${PREFIX}/share/doc \
 		--disable-man --without-xml-catalog \
@@ -33,6 +36,7 @@ CONFIGURE_ARGS=	--disable-gtk-doc --with-html-dir=${PREFIX}/share/doc \
 CONFIGURE_ENV=	ac_cv_header_sys_inotify_h=
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
+INSTALL_TARGET=	install-strip
 
 SHEBANG_FILES=	*/*.pl glib/gen-iswide-table.py
 
