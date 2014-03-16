@@ -1,9 +1,9 @@
 # Created by: Gustau Perez <gustau.perez@gmail.com>
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/trunk/multimedia/libmediaart/Makefile 19154 2014-03-16 11:08:48Z gusi $
 
 PORTNAME=	libmediaart
-PORTVERSION=	0.2.0
+PORTVERSION=	0.3.0
 CATEGORIES=	multimedia devel
 MASTER_SITES=	GNOME
 
@@ -25,6 +25,6 @@ USES=		gmake pathfix pkgconfig
 USE_GNOME=	gdkpixbuf2 glib20 gnomedocutils introspection
 
 post-install:
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libmediaart-1.0.so.200
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libmediaart-1.0.so.300
 
 .include <bsd.port.mk>
