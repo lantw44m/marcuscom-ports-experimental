@@ -884,6 +884,12 @@ share/pixmaps/evolution-data-server/category_status_16.png
 share/pixmaps/evolution-data-server/category_strategies_16.png
 share/pixmaps/evolution-data-server/category_suppliers_16.png
 share/pixmaps/evolution-data-server/category_time-and-expenses_16.png
+share/vala/vapi/libebook-%%EVO_VERSION%%.deps
+share/vala/vapi/libebook-%%EVO_VERSION%%.vapi
+share/vala/vapi/libebook-contacts-%%EVO_VERSION%%.deps
+share/vala/vapi/libebook-contacts-%%EVO_VERSION%%.vapi
+share/vala/vapi/libedataserver-%%EVO_VERSION%%.deps
+share/vala/vapi/libedataserver-%%EVO_VERSION%%.vapi
 @dirrm share/pixmaps/evolution-data-server
 @dirrmtry share/locale/zh_HK/LC_MESSAGES
 @dirrmtry share/locale/zh_HK

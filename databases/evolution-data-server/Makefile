@@ -1,6 +1,6 @@
 # Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/trunk/databases/evolution-data-server/Makefile 19121 2014-03-14 20:43:32Z gusi $
 
 PORTNAME=	evolution-data-server
 PORTVERSION=	3.11.91
@@ -36,6 +36,7 @@ USE_LDCONFIG=	yes
 CONFIGURE_ARGS=	--enable-static \
 		--with-openldap=yes \
 		--disable-uoa \
+		--enable-vala-bindings \
 		--with-libdb=${LOCALBASE}
 CPPFLAGS+=	-I${LOCALBASE}/include -I${BDB_INCLUDE_DIR}
 LDFLAGS+=	-L${LOCALBASE}/lib
