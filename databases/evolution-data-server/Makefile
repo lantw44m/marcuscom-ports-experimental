@@ -9,12 +9,13 @@ MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
 
 MAINTAINER=	gnome@FreeBSD.org
-COMMENT=	The data backends for the Evolution integrated mail/PIM suite
+COMMENT=	Data backends for the Evolution integrated mail/PIM suite
 
 LICENSE=	LGPL20
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-BUILD_DEPENDS=	gcr>=3.11:${PORTSDIR}/security/gcr
+BUILD_DEPENDS=	gcr>=3.11:${PORTSDIR}/security/gcr \
+		vapigen:${PORTSDIR}/lang/vala-vapigen
 LIB_DEPENDS=	libsoup-gnome-2.4.so:${PORTSDIR}/devel/libsoup-gnome \
 		liboauth.so:${PORTSDIR}/net/liboauth \
 		libgoa-1.0.so:${PORTSDIR}/net/gnome-online-accounts \
