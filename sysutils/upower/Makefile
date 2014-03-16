@@ -6,7 +6,6 @@ PORTNAME=	upower
 PORTVERSION=	0.99.0
 CATEGORIES=	sysutils
 MASTER_SITES=	http://upower.freedesktop.org/releases/
-PKGNAMESUFFIX=	-1
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	D-Bus daemon for simplifying power management tasks
@@ -17,9 +16,8 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 LIB_DEPENDS=	libpolkit-gobject-1.so:${PORTSDIR}/sysutils/polkit \
 		libdbus-glib-1.so:${PORTSDIR}/devel/dbus-glib
 
-USES=		gettext gmake pathfix pkgconfig
-USE_XZ=		yes
-USE_GNOME=	intlhack ltverhack glib20 introspection:build
+USES=		gettext gmake libtool pathfix pkgconfig tar:xz
+USE_GNOME=	intlhack glib20 introspection:build
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
 USE_PYTHON=	yes

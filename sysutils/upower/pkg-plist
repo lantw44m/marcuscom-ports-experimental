@@ -15,6 +15,7 @@ lib/libupower-glib.a
 lib/libupower-glib.la
 lib/libupower-glib.so
 lib/libupower-glib.so.2
+lib/libupower-glib.so.2.0.0
 libdata/pkgconfig/upower-glib.pc
 libexec/upowerd
 %%MAN%%man/man1/upower.1.gz
