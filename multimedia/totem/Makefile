@@ -1,6 +1,6 @@
 # Created by: Hendrik Scholz <hendrik@scholz.net>
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/trunk/multimedia/totem/Makefile 19160 2014-03-17 07:40:48Z gusi $
 
 PORTNAME=	totem
 PORTVERSION=	3.11.90
@@ -31,15 +31,14 @@ RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:${PORTSDIR}/misc/iso-co
 
 USE_PYTHON=	yes
 USE_XORG=	x11 xproto xtst ice sm
-USE_XZ=		yes
-USES=		desktop-file-utils gettext gmake pathfix pkgconfig shebangfix
+USES=		desktop-file-utils gettext gmake pathfix pkgconfig \
+		shebangfix tar:xz
 USE_GNOME=	gnomeprefix intlhack gtk30 libxml2 nautilus3 ltverhack \
 		pygobject3 gnomedocutils gnomehier introspection:build
 USE_GSTREAMER1=	core good bad soup ugly
 INSTALLS_ICONS=	yes
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
-INSTALLS_OMF=	yes
 PKGMESSAGE=	${WRKDIR}/pkg-message
 CPPFLAGS+=	-I${LOCALBASE}/include -Wno-error=format-nonliteral
 CFLAGS+=	-I${LOCALBASE}/include -Wno-error=format-nonliteral
@@ -47,7 +46,7 @@ LDFLAGS+=	-L${LOCALBASE}/lib
 CONFIGURE_ENV=	LIBS="-lXrandr"
 CONFIGURE_ARGS=	--with-plugins="${TOTEM_PLUGINS}"
 SHEBANG_FILES=	data/totem-bugreport.py
-CONFIGURE_ENV+=	APPDATA_VALIDATE="/usr/local/bin/appdata-validate --nonet"
+CONFIGURE_ENV+=	APPDATA_VALIDATE="${LOCALBASE}/bin/appdata-validate --nonet"
 
 GLIB_SCHEMAS=	org.gnome.totem.enums.xml \
 		org.gnome.totem.gschema.xml \
