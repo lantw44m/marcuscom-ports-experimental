@@ -1,6 +1,6 @@
 # Created by: Koop Mast <kwm@FreeBSD.org>
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/trunk/net-im/folks/Makefile 19163 2014-03-17 10:08:55Z gusi $
 
 PORTNAME=	folks
 PORTVERSION=	0.9.6
@@ -25,8 +25,8 @@ USE_GNOME=	evolutiondataserver3 gnomehier intlhack \
 		introspection:build ltverhack
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-tracker-backend \
-		--disable-bluez-backend \
-		--disable-eds-backend
+		--disable-bluez-backend
+#		--disable-eds-backend
 CPPFLAGS+=	-I${LOCALBASE}/include -Wno-error=deprecated-declarations
 LDFLAGS+=	-L${LOCALBASE}/lib
 
