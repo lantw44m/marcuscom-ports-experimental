@@ -1,6 +1,6 @@
 # Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/trunk/x11/gnome-session/Makefile 19097 2014-03-12 09:46:48Z gusi $
 
 PORTNAME=	gnome-session
 PORTVERSION=	3.11.4
@@ -14,7 +14,7 @@ COMMENT=	Session component for the GNOME 3 desktop
 LIB_DEPENDS=	libdbus-glib-1.so:${PORTSDIR}/devel/dbus-glib \
 		libexecinfo.so:${PORTSDIR}/devel/libexecinfo \
 		libjson-glib-1.0.so:${PORTSDIR}/devel/json-glib \
-		libupower-glib.so:${PORTSDIR}/sysutils/upower
+		libupower-glib.so:${PORTSDIR}/sysutils/upower1
 RUN_DEPENDS=	${LOCALBASE}/sbin/console-kit-daemon:${PORTSDIR}/sysutils/consolekit \
 		${LOCALBASE}/bin/xdpyinfo:${PORTSDIR}/x11/xdpyinfo
 
