@@ -1,6 +1,6 @@
 # Created by: Pawel Worach <pawel.worach@gmail.com>
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/trunk/x11-wm/mutter/Makefile 19105 2014-03-12 17:14:31Z gusi $
 
 PORTNAME=	mutter
 PORTVERSION=	3.11.91
