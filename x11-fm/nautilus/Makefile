@@ -1,6 +1,6 @@
 # Created by: ade, archie
 # $FreeBSD$
-#   $MCom: ports-experimental/trunk/x11-fm/nautilus/Makefile 19098 2014-03-12 10:26:47Z gusi $
+#   $MCom$
 
 PORTNAME=	nautilus
 PORTVERSION=	3.11.90
@@ -33,6 +33,21 @@ CONFIGURE_ENV=	LIBS="-pthread"
 CONFIGURE_ARGS=	--disable-packagekit
 
 GLIB_SCHEMAS=	org.gnome.nautilus.gschema.xml
+
+OPTIONS_DEFINE=	TRACKER
+OPTIONS_DEFAULT=TRACKER
+TRACKER_DESC=	Tracker support
+
+.include <bsd.port.options.mk>
+
+.if ${PORT_OPTIONS:MTRACKER}
+LIB_DEPENDS+=	libtracker-control-1.0.so:${PORTSDIR}/sysutils/tracker
+CONFIGURE_ARGS+=--enable-tracker=yes
+PLIST_SUB+=	TRACKER=""
+.else
+CONFIGURE_ARGS+=--enable-tracker=no
+PLIST_SUB+=	TRACKER="@comment "
+.endif
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|-DGTK_DISABLE_DEPRECATED||g' \
