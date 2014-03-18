@@ -27,4 +27,7 @@ post-patch:
 	@${REINPLACE_CMD} -e 's|$${datadir}/gtk-doc/html|${DOCSDIR}|' \
 		${WRKSRC}/configure
 
+post-install:
+	${STRIP_CMP} ${STAGEDIR}${PREFIX}/lib/libmission-control-plugins.so.0 
+
 .include <bsd.port.mk>
