@@ -703,5 +703,4 @@ share/locale/zh_TW/LC_MESSAGES/gnome-nibbles.mo
 @dirrmtry share/gnome-nibbles/pixmaps
 @dirrmtry share/gnome-nibbles/games
 @dirrmtry share/gnome-nibbles
-@dirrmtry share/games
 @dirrmtry share/appdata
