@@ -8,7 +8,7 @@ CATEGORIES=	net
 MASTER_SITES=	GNOME
 
 MAINTAINER=	kwm@FreeBSD.org
-COMMENT=	Interface privider to access the user's online accounts.
+COMMENT=	Interface provider to access the user's online accounts
 
 BUILD_DEPENDS=	docbook-xsl>=0:${PORTSDIR}/textproc/docbook-xsl
 LIB_DEPENDS=	libwebkitgtk-3.0.so:${PORTSDIR}/www/webkit-gtk3 \
