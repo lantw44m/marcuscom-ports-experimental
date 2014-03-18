@@ -13,7 +13,7 @@ COMMENT=	Contacts manager for gnome
 BUILD_DEPENDS=	vala>=0.14.0:${PORTSDIR}/lang/vala
 LIB_DEPENDS=	libgoa-1.0.so:${PORTSDIR}/net/gnome-online-accounts \
 		libgee-0.8.so:${PORTSDIR}/devel/libgee \
-		libfolks.so.25:${PORTSDIR}/net-im/folks \
+		libfolks.so:${PORTSDIR}/net-im/folks \
 		libnotify.so:${PORTSDIR}/devel/libnotify
 
 USE_GNOME=	intlhack gtk30 gnomedesktop3 evolutiondataserver3
