@@ -1,6 +1,6 @@
 # Created by: Hendrik Scholz <hendrik@scholz.net>
 # $FreeBSD$
-#   $MCom: ports-experimental/trunk/multimedia/totem/Makefile 19160 2014-03-17 07:40:48Z gusi $
+#   $MCom$
 
 PORTNAME=	totem
 PORTVERSION=	3.11.90
@@ -21,7 +21,6 @@ LIB_DEPENDS=	libgdata.so.13:${PORTSDIR}/devel/libgdata \
 		libclutter-gst-2.0.so:${PORTSDIR}/multimedia/clutter-gst \
 		libclutter-gtk-1.0.so:${PORTSDIR}/graphics/clutter-gtk3 \
 		libpeas-1.0.so:${PORTSDIR}/devel/libpeas \
-		libtracker-control-1.0.so:${PORTSDIR}/sysutils/tracker \
 		libtotem-plparser.so:${PORTSDIR}/multimedia/totem-pl-parser
 RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:${PORTSDIR}/misc/iso-codes \
 		${LOCALBASE}/libdata/pkgconfig/gnome-icon-theme.pc:${PORTSDIR}/misc/gnome-icon-theme \
@@ -52,7 +51,7 @@ GLIB_SCHEMAS=	org.gnome.totem.enums.xml \
 		org.gnome.totem.gschema.xml \
 		org.gnome.totem.plugins.opensubtitles.gschema.xml
 
-OPTIONS_DEFINE=	LIRC BROWSER_PLUGINS
+OPTIONS_DEFINE=	LIRC BROWSER_PLUGINS TRACKER
 BROWSER_PLUGINS_DESC=	Web browser plugins
 TRACKER_DESC=	Tracker local search plugin
 
@@ -70,13 +69,14 @@ TOTEM_PLUGINS=	brasero-disc-recorder chapters dbusservice im-status grilo gromit
 
 .include <bsd.port.options.mk>
 
-#.if defined(WITH_TRACKER)
-#LIB_DEPENDS+=	tracker-gtk:${PORTSDIR}/sysutils/tracker-libtrackergtk
-#TOTEM_PLUGINS:=	${TOTEM_PLUGINS} tracker
-#PLIST_SUB+=	TRACKER=""
-#.else
+.if ${PORT_OPTIONS:MTRACKER}
+LIB_DEPENDS+=	libtracker-control-1.0.so:${PORTSDIR}/sysutils/tracker
+CONFIGURE_ARGS+=--enable-tracker=yes
+PLIST_SUB+=	TRACKER=""
+.else
+CONFIGURE_ARGS+=--enable-tracker=no
 PLIST_SUB+=	TRACKER="@comment "
-#.endif
+.endif
 
 .if ${PORT_OPTIONS:MLIRC}
 LIB_DEPENDS+=	liblirc_client.so:${PORTSDIR}/comms/lirc
