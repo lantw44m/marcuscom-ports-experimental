@@ -13,7 +13,6 @@ share/telepathy/managers/salut.manager
 @dirrmtry share/telepathy/managers
 @dirrmtry share/telepathy
 @dirrm %%DOCSDIR%%
-@dirrmtry lib/telepathy/salut-0/plugins
-@dirrmtry lib/telepathy/salut-0/lib
-@dirrmtry lib/telepathy/salut-0
+@dirrm lib/telepathy/salut-0/lib
+@dirrm lib/telepathy/salut-0
 @dirrmtry lib/telepathy
