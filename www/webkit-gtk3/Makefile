@@ -72,7 +72,7 @@ BROWSER_PLUGINS_DIR?=	${LOCALBASE}/lib/browser_plugins/symlinks/webkit-gtk3
 #_BROWSER_PLUGINS_DIR=	${BROWSER_PLUGINS_DIR:S|^/|"|:S|/|", "|g}",
 
 OPTIONS_DEFINE=	WEBGL WEBAUDIO DEBUG FULLDEBUG WEBKIT2
-OPTIONS_DEFAULT=WEBGL WEBAUDIO
+OPTIONS_DEFAULT=WEBGL WEBAUDIO WEBKIT2
 WEBKIT2_DESC=	Build WebKit2 API library
 WEBAUDIO_DESC=	Web audio support
 WEBGL_DESC=	Enable Web GL support
@@ -118,7 +118,7 @@ PLIST_SUB+=	WEBKIT2=""
 CXXFLAGS+=	-stdlib=libc++
 LDFLAGS+=	-stdlib=libc++
 . if ${OSVERSION}<1000019
-BUILD_DEPENDS+=	clang>=3.3_1:${PORTSDIR}/lang/clang33 \
+BUILD_DEPENDS+=	clang33>=3.3_1:${PORTSDIR}/lang/clang33 \
 		libc++>=0:${PORTSDIR}/devel/libc++
 RUN_DEPENDS+=	libc++>=0:${PORTSDIR}/devel/libc++
 CC=		clang33
@@ -129,7 +129,7 @@ CONFIGURE_ENV+=	CC=${CC} CXX=${CXX} CPP=${CPP}
 .else
 # we need clang also for !Webkit2 builds
 . if ${OSVERSION}<1000019
-BUILD_DEPENDS+=	clang>=3.3_1:${PORTSDIR}/lang/clang33
+BUILD_DEPENDS+=	clang33>=3.3_1:${PORTSDIR}/lang/clang33
 CC=		clang33
 CXX=		clang++33
 CPP=		clang-cpp33
