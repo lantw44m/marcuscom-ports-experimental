@@ -1,6 +1,6 @@
 # Created by: ade, archie
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/trunk/x11-fm/nautilus/Makefile 19098 2014-03-12 10:26:47Z gusi $
 
 PORTNAME=	nautilus
 PORTVERSION=	3.11.90
@@ -15,6 +15,7 @@ BUILD_DEPENDS=	${LOCALBASE}/share/icons/gnome/index.theme:${PORTSDIR}/misc/gnome
 		${LOCALBASE}/libdata/pkgconfig/gsettings-desktop-schemas.pc:${PORTSDIR}/devel/gsettings-desktop-schemas
 LIB_DEPENDS=	libexif.so:${PORTSDIR}/graphics/libexif \
 		libnotify.so:${PORTSDIR}/devel/libnotify \
+		libtracker-control-1.0.so:${PORTSDIR}/sysutils/tracker \
 		libexempi.so:${PORTSDIR}/textproc/exempi
 RUN_DEPENDS=	${LOCALBASE}/share/icons/gnome/index.theme:${PORTSDIR}/misc/gnome-icon-theme \
 		${LOCALBASE}/libdata/pkgconfig/gsettings-desktop-schemas.pc:${PORTSDIR}/devel/gsettings-desktop-schemas
@@ -29,7 +30,7 @@ USE_AUTOTOOLS=	libtool
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 CONFIGURE_ENV=	LIBS="-pthread"
-CONFIGURE_ARGS=	--disable-packagekit --disable-tracker
+CONFIGURE_ARGS=	--disable-packagekit
 
 GLIB_SCHEMAS=	org.gnome.nautilus.gschema.xml
 
