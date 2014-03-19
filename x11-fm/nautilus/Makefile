@@ -1,6 +1,6 @@
 # Created by: ade, archie
 # $FreeBSD$
-#   $MCom: ports-experimental/trunk/x11-fm/nautilus/Makefile 19180 2014-03-18 10:27:10Z gusi $
+#   $MCom$
 
 PORTNAME=	nautilus
 PORTVERSION=	3.11.90
@@ -19,13 +19,12 @@ LIB_DEPENDS=	libexif.so:${PORTSDIR}/graphics/libexif \
 RUN_DEPENDS=	${LOCALBASE}/share/icons/gnome/index.theme:${PORTSDIR}/misc/gnome-icon-theme \
 		${LOCALBASE}/libdata/pkgconfig/gsettings-desktop-schemas.pc:${PORTSDIR}/devel/gsettings-desktop-schemas
 
-USE_XZ=		yes
-USES=		desktop-file-utils gettext gmake pathfix pkgconfig \
-		shared-mime-info
+USES=		desktop-file-utils gettext gmake libtool pathfix \
+		pkgconfig shared-mime-info tar:xz
 USE_GNOME=	gnomeprefix intlhack gnomedesktop3 libxml2 \
-		ltverhack gvfs ltasneededhack introspection:build
+		gvfs introspection:build
 USE_LDCONFIG=	yes
-USE_AUTOTOOLS=	libtool
+GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 CONFIGURE_ENV=	LIBS="-pthread"
@@ -53,7 +52,7 @@ post-patch:
 		${WRKSRC}/configure
 
 post-install:
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libnautilus-extension.so.1
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libnautilus-extension.so*
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/nautilus/extensions-3.0/libnautilus-sendto.so
 
 .include <bsd.port.mk>
