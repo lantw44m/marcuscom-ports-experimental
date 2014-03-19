@@ -1,9 +1,9 @@
 # Created by: gnome@freebsd.org
 # $FreeBSD$
-#    $MCom$
+#   $MCom$
 
 PORTNAME=	telepathy-glib
-PORTVERSION=	0.22.1
+PORTVERSION=	0.23.3
 CATEGORIES=	net-im
 MASTER_SITES=	http://telepathy.freedesktop.org/releases/${PORTNAME}/
 
