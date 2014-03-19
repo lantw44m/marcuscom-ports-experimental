@@ -13,11 +13,12 @@ COMMENT=	Telepathy component to apps to abstract details of connection managers
 LIB_DEPENDS=	libtelepathy.so:${PORTSDIR}/net-im/libtelepathy \
 		libdbus-glib-1.so:${PORTSDIR}/devel/dbus-glib
 
-USES=		gmake pathfix pathfix pkgconfig
-USE_GNOME=	gconf2 libxslt ltverhack
-USE_AUTOTOOLS=	libtool
+USES=		gmake pathfix libtool pathfix pkgconfig
+USE_GNOME=	gconf2 libxslt
+GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
+CONFIGURE_ARGS+=--disable-upower
 USE_LDCONFIG=	yes
 GLIB_SCHEMAS=	im.telepathy.MissionControl.FromEmpathy.gschema.xml
 
@@ -28,6 +29,6 @@ post-patch:
 		${WRKSRC}/configure
 
 post-install:
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libmission-control-plugins.so.0 
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libmission-control-plugins.so*
 
 .include <bsd.port.mk>
