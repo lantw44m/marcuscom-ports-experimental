@@ -1,6 +1,6 @@
 # Created by: Michael Johnson <ahze@FreeBSD.org>
 # $FreeBSD$
-#    $MCom$
+#    $MCom: ports-experimental/trunk/net-im/telepathy-mission-control/Makefile 19188 2014-03-18 15:28:36Z gusi $
 
 PORTNAME=	telepathy-mission-control
 PORTVERSION=	5.16.1
@@ -28,6 +28,6 @@ post-patch:
 		${WRKSRC}/configure
 
 post-install:
-	${STRIP_CMP} ${STAGEDIR}${PREFIX}/lib/libmission-control-plugins.so.0 
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libmission-control-plugins.so.0 
 
 .include <bsd.port.mk>
