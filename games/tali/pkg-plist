@@ -265,5 +265,4 @@ share/tali/kismet6.svg
 @dirrm share/help/C/tali
 @dirrmtry share/help/C
 @dirrmtry share/help
-@dirrmtry share/games
 @dirrmtry share/appdata
