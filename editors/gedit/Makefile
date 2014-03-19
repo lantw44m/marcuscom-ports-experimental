@@ -20,14 +20,13 @@ LIB_DEPENDS=	libenchant.so:${PORTSDIR}/textproc/enchant \
 RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:${PORTSDIR}/misc/iso-codes \
 		${LOCALBASE}/libdata/pkgconfig/gsettings-desktop-schemas.pc:${PORTSDIR}/devel/gsettings-desktop-schemas
 
-USE_XORG=	sm
-USE_XZ=		yes
-USES=		desktop-file-utils gettext gmake pathfix pkgconfig
-#USE_PYTHON=	3
-INSTALLS_OMF=	yes
-USE_AUTOTOOLS=	libtool
+USES=		desktop-file-utils gettext gmake libtool \
+		pathfix pkgconfig tar:xz
 USE_GNOME=	gnomeprefix intlhack gtksourceview3 libxml2 \
 		gnomedocutils pygobject3
+USE_XORG=	sm
+GNU_CONFIGURE=	yes
+#USE_PYTHON=	3
 CONFIGURE_ARGS=	--disable-updater
 CONFIGURE_ARGS+=--disable-zeitgeist \
 		--disable-python

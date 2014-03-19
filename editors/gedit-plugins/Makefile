@@ -11,17 +11,16 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Plugins for GEdit 3
 
-BUILD_DEPENDS=	gedit>=${GEDITVER}:${PORTSDIR}/editors/gedit \
+BUILD_DEPENDS=	gedit>=0:${PORTSDIR}/editors/gedit \
 		itstool:${PORTSDIR}/textproc/itstool
 LIB_DEPENDS=	libpeas-1.0.so:${PORTSDIR}/devel/libpeas
-RUN_DEPENDS=	gedit>=${GEDITVER}:${PORTSDIR}/editors/gedit
+RUN_DEPENDS=	gedit>=0:${PORTSDIR}/editors/gedit
 
-GEDITVER=	3.6.0
+USES=		gettext gmake libtool pathfix pkgconfig \
+		tar:xz
+USE_GNOME=	gnomeprefix gtk30 gtksourceview3
 USE_LDCONFIG=	yes
-USE_XZ=		yes
-USES=		gettext gmake pathfix pkgconfig
-USE_AUTOTOOLS=	libtool
-USE_GNOME=	gnomeprefix intlhack gtk30 gtksourceview3
+GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 
