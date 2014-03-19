@@ -33,6 +33,7 @@ lib/gjs/girepository-1.0/GjsPrivate-1.0.typelib
 lib/libgjs.la
 lib/libgjs.so
 lib/libgjs.so.0
+lib/libgjs.so.0.0.0
 libdata/pkgconfig/gjs-1.0.pc
 libdata/pkgconfig/gjs-internals-1.0.pc
 @dirrm libexec/gjs/installed-tests/js

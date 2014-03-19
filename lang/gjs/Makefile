@@ -14,14 +14,13 @@ COMMENT=	GNOME Javascript binding
 LIB_DEPENDS=	libdbus-glib-1.so:${PORTSDIR}/devel/dbus-glib \
 		libmozjs-24.so:${PORTSDIR}/lang/spidermonkey24
 
-CONFLICTS_BUILD=spidermonkey17-1.7.* spidermonkey185-1.8.*
+CONFLICTS_BUILD=spidermonkey17-1.7.*
 
-USE_XZ=		yes
-USES=		gettext gmake pathfix pkgconfig shebangfix
+USES=		gettext gmake libtool pathfix pkgconfig shebangfix tar:xz
 USE_PYTHON_BUILD=yes
 GNU_CONFIGURE=	yes
 USE_GNOME=	cairo glib20 gnomeprefix introspection:build \
-		intlhack ltverhack
+		intlhack
 USE_LDCONFIG=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
