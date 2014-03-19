@@ -5,6 +5,7 @@ lib/libgnome-menu-3.a
 lib/libgnome-menu-3.la
 lib/libgnome-menu-3.so
 lib/libgnome-menu-3.so.0
+lib/libgnome-menu-3.so.0.0.1
 libdata/pkgconfig/libgnome-menu-3.0.pc
 share/desktop-directories/AudioVideo.directory
 share/desktop-directories/Development.directory

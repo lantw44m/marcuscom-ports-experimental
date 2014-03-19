@@ -11,11 +11,10 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Implementation of the FreeDesktop Desktop Menu Spec
 
-USES=		gettext gmake pathfix pkgconfig
-USE_XZ=		yes
-USE_GNOME=	glib20 gnomehier gnomeprefix intlhack introspection:build \
-		ltverhack
-USE_AUTOTOOLS=	libtool
+USES=		gettext gmake libtool pathfix pkgconfig tar:xz
+USE_GNOME=	glib20 gnomehier gnomeprefix intlhack \
+		introspection:build
+GNU_CONFIGURE=	yes
 USE_PYTHON=	yes
 USE_LDCONFIG=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
@@ -33,6 +32,6 @@ post-install:
 		${STAGEDIR}${PREFIX}/etc/xdg/menus/gnome-applications.menu
 	@${INSTALL_DATA} ${WRKSRC}/KDE.directory \
 		${STAGEDIR}${PREFIX}/share/desktop-directories
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libgnome-menu-3.so.0
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libgnome-menu-3.so*
 
 .include <bsd.port.mk>
