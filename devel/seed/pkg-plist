@@ -6,6 +6,7 @@ lib/libseed-gtk3.a
 lib/libseed-gtk3.la
 lib/libseed-gtk3.so
 lib/libseed-gtk3.so.0
+lib/libseed-gtk3.so.0.0.0
 lib/seed-gtk3/libseed_DynamicObject.a
 lib/seed-gtk3/libseed_DynamicObject.la
 lib/seed-gtk3/libseed_DynamicObject.so
