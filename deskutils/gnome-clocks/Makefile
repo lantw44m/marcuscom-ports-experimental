@@ -1,6 +1,6 @@
 # Created by: Gustau Perez <gustau.perez@gmail.com>
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/trunk/deskutils/gnome-clocks/Makefile 19209 2014-03-20 11:33:52Z gusi $
 
 PORTNAME=	gnome-clocks
 PORTVERSION=	3.11.90
@@ -21,6 +21,7 @@ USES=		gettext gmake libtool pathfix pkgconfig tar:xz
 USE_LDCONFIG=	yes
 USE_GNOME=	gnomedesktop3 gnomeprefix gtk30 intlhack
 GNU_CONFIGURE=	yes
+INSTALLS_ICONS=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 
