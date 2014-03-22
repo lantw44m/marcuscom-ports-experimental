@@ -10,7 +10,8 @@ MASTER_SITES=	GNOME
 MAINTAINER=	kwm@FreeBSD.org
 COMMENT=	Library for bits of crypto UI and parsing
 
-BUILD_DEPENDS=	gtk-doc>0:${PORTSDIR}/textproc/gtk-doc
+BUILD_DEPENDS=	gtk-doc>0:${PORTSDIR}/textproc/gtk-doc \
+		vapigen:${PORTSDIR}/lang/vala-vapigen
 LIB_DEPENDS=	libdbus-1.so:${PORTSDIR}/devel/dbus \
 		libtasn1.so:${PORTSDIR}/security/libtasn1 \
 		libp11-kit.so:${PORTSDIR}/security/p11-kit \
@@ -18,10 +19,9 @@ LIB_DEPENDS=	libdbus-1.so:${PORTSDIR}/devel/dbus \
 
 CONFLICTS=	gnome-keyring-2.[0-9]*
 
-USE_XZ=		yes
-USE_GNOME=	gtk30 intlhack introspection:build
-USES=		desktop-file-utils gettext gmake pathfix pkgconfig \
-		shared-mime-info
+USE_GNOME=	gtk30 gnomehier intlhack introspection:build
+USES=		desktop-file-utils gettext gmake libtool pathfix pkgconfig \
+		shared-mime-info tar:xz
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes

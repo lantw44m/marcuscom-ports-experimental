@@ -64,15 +64,18 @@ lib/girepository-1.0/GcrUi-3.typelib
 lib/libgck-1.la
 lib/libgck-1.so
 lib/libgck-1.so.0
+lib/libgck-1.so.0.0.0
 lib/libgcr-3.so
 lib/libgcr-3.so.1
 lib/libgcr-3.so.1.0.0
 lib/libgcr-base-3.la
 lib/libgcr-base-3.so
 lib/libgcr-base-3.so.1
+lib/libgcr-base-3.so.1.0.0
 lib/libgcr-ui-3.la
 lib/libgcr-ui-3.so
 lib/libgcr-ui-3.so.1
+lib/libgcr-ui-3.so.1.0.0
 libdata/pkgconfig/gck-1.pc
 libdata/pkgconfig/gcr-3.pc
 libdata/pkgconfig/gcr-base-3.pc
@@ -288,6 +291,13 @@ share/locale/zh_CN/LC_MESSAGES/gcr.mo
 share/locale/zh_HK/LC_MESSAGES/gcr.mo
 share/locale/zh_TW/LC_MESSAGES/gcr.mo
 share/mime/packages/gcr-crypto-types.xml
+share/vala/vapi/gck-1.deps
+share/vala/vapi/gck-1.vapi
+share/vala/vapi/gcr-3.deps
+share/vala/vapi/gcr-3.vapi
+share/vala/vapi/gcr-ui-3.deps
+share/vala/vapi/gcr-ui-3.vapi
+share/vala/vapi/pkcs11.vapi
 @dirrm share/gtk-doc/html/gcr-3
 @dirrm share/gtk-doc/html/gck
 @dirrmtry share/gtk-doc/html
