@@ -63,7 +63,7 @@ RUN_DEPENDS+=	empathy>=3.0.0:${PORTSDIR}/net-im/empathy \
 		mousetweaks>=3.0.0:${PORTSDIR}/accessibility/mousetweaks \
 		brasero>=3.0.0:${PORTSDIR}/sysutils/brasero \
 		accerciser>=3.0.0:${PORTSDIR}/accessibility/accerciser \
-		gcalctool>=3.0.0:${PORTSDIR}/math/gcalctool \
+		gnome-calculator>=3.0.0:${PORTSDIR}/math/gnome-calculator \
 		gnome-utils>=3.6.0:${PORTSDIR}/deskutils/gnome-utils \
 		file-roller>=3.0.0:${PORTSDIR}/archivers/file-roller \
 		evince>=3.0.0:${PORTSDIR}/graphics/evince \
