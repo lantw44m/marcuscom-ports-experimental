@@ -28,7 +28,7 @@ LIB_DEPENDS=	libstartup-notification-1.so:${PORTSDIR}/x11/startup-notification \
 		libclutter-1.0.so:${PORTSDIR}/graphics/clutter \
 		libgjs.so:${PORTSDIR}/lang/gjs
 RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/dbus-python.pc:${PORTSDIR}/devel/py-dbus \
-#		gdm>=3.6.0:${PORTSDIR}/x11/gdm \
+		gdm>=0:${PORTSDIR}/x11/gdm \
 		${LOCALBASE}/share/certs/ca-root-nss.crt:${PORTSDIR}/security/ca_root_nss
 
 USES=		gettext gmake pathfix pkgconfig tar:xz\
