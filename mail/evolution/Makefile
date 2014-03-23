@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	evolution
-PORTVERSION=	3.11.91
+PORTVERSION=	3.12.0
 CATEGORIES=	mail gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -31,7 +31,6 @@ USE_GSTREAMER1=	yes
 INSTALLS_ICONS=	yes
 USE_LDCONFIG=	yes
 CONFIGURE_ARGS=	--enable-nss=yes \
-		--disable-bogofilter \
 		--with-sub-version=" FreeBSD GNOME Team Port"
 # gtkimageview needs to get a gtk3 release first.
 CONFIGURE_ARGS+=--disable-image-inline
@@ -116,7 +115,7 @@ post-patch:
 #	@${SH} ${FILESDIR}/fix-plugins.sh ${WRKSRC}
 
 post-install:
-#	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/evolution/*/*/*.so
-#	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/evolution/*/lib*.so
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/evolution/*/*/*.so
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/evolution/*/lib*.so
 
 .include <bsd.port.mk>

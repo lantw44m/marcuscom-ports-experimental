@@ -906,6 +906,7 @@ share/applications/evolution.desktop
 %%PORTDOCS%%%%DOCSDIR%%-util/evolution-util-ETableSubsetVariable.html
 %%PORTDOCS%%%%DOCSDIR%%-util/evolution-util-GtkTextBuffer-Tagging.html
 %%PORTDOCS%%%%DOCSDIR%%-util/evolution-util-Icon-Utilities-(Legacy).html
+%%PORTDOCS%%%%DOCSDIR%%-util/evolution-util-Miscellaneous-Table-Utilities.html
 %%PORTDOCS%%%%DOCSDIR%%-util/evolution-util-Miscellaneous-Utilities.html
 %%PORTDOCS%%%%DOCSDIR%%-util/evolution-util-Password-Utilities-(Legacy).html
 %%PORTDOCS%%%%DOCSDIR%%-util/evolution-util-Popup-Menus-(Legacy).html
