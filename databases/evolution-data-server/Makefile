@@ -3,7 +3,7 @@
 #   $MCom: ports-experimental/trunk/databases/evolution-data-server/Makefile 19121 2014-03-14 20:43:32Z gusi $
 
 PORTNAME=	evolution-data-server
-PORTVERSION=	3.11.91
+PORTVERSION=	3.12.0
 CATEGORIES=	databases gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -25,8 +25,7 @@ LIB_DEPENDS=	libsoup-gnome-2.4.so:${PORTSDIR}/devel/libsoup-gnome \
 		libtasn1.so:${PORTSDIR}/security/libtasn1 \
 		libgnome-keyring.so:${PORTSDIR}/security/libgnome-keyring
 
-USE_XZ=		yes
-USES=		bison gettext gmake libtool pathfix pkgconfig
+USES=		bison gettext gmake libtool pathfix pkgconfig tar:xz
 USE_GNOME=	gnomeprefix intlhack gconf2 \
 		libxml2 gtk30 introspection:build
 USE_OPENLDAP=	yes
