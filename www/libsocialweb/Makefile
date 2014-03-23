@@ -1,6 +1,6 @@
 # Created by: Koop Mast <kwm@FreeBSD.org>
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/trunk/www/libsocialweb/Makefile 19207 2014-03-20 08:36:54Z gusi $
 
 PORTNAME=	libsocialweb
 PORTVERSION=	0.25.21
@@ -10,8 +10,7 @@ MASTER_SITES=	GNOME
 MAINTAINER=	kwm@FreeBSD.org
 COMMENT=	Personal social data server.
 
-BUILD_DEPENDS=	xsltproc:${PORTSDIR}/textproc/libxslt \
-		vapigen:${PORTSDIR}/lang/vala-vapigen
+BUILD_DEPENDS=	vapigen:${PORTSDIR}/lang/vala-vapigen
 LIB_DEPENDS=	librest-0.7.so:${PORTSDIR}/devel/librest \
 		libjson-glib-1.0.so:${PORTSDIR}/devel/json-glib
 
