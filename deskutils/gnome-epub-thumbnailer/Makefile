@@ -1,0 +1,31 @@
+# Created by: Gustau Perez <gustau.perez@gmail.com>
+# $FreeBSD$
+#   $MCom$
+
+PORTNAME=	gnome-epub-thumbnailer
+PORTVERSION=	1.4
+CATEGORIES=	deskutils gnome
+MASTER_SITES=	https://git.gnome.org/browse/gnome-epub-thumbnailer/snapshot/
+DIST_SUBDIR=	gnome3
+
+MAINTAINER=	gnome@FreeBSD.org
+COMMENT=	Thumbnailer for EPub and MOBI books
+
+BUILD_DEPENDS=	gnome-autogen.sh:${PORTSDIR}/devel/gnome-common \
+		libarchive>=0:${PORTSDIR}/archivers/libarchive
+RUN_DEPENDS=	libarchive>=0:${PORTSDIR}/archivers/libarchive
+
+USES=		gettext gmake libtool pathfix pkgconfig
+USE_GNOME=	gdkpixbuf2 gnomedesktop3 gnomeprefix gtk30 \
+		intlhack libxml2
+USE_AUTOTOOLS=	libtool autoconf automake
+USE_LDCONFIG=	yes
+GNU_CONFIGURE=	yes
+INSTALLS_ICONS=	yes
+CPPFLAGS+=	-I${LOCALBASE}/include -Wno-error=format-nonliteral
+LDFLAGS+=	-L${LOCALBASE}/lib
+
+pre-configure:
+	cd ${WRKSRC} && NOCONFIGURE=yes ${SH} ./autogen.sh
+
+.include <bsd.port.mk>
