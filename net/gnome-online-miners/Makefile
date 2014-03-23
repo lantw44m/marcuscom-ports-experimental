@@ -1,9 +1,9 @@
 # Created by: Gustau Perez <gustau.perez@gmail.com>
 # $FreeBSD$
-#    $MCom$
+#   $MCom$
 
 PORTNAME=	gnome-online-miners
-PORTVERSION=	3.11.90
+PORTVERSION=	3.12.0
 CATEGORIES=	net
 MASTER_SITES=	GNOME
 
