@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	webkit
-PORTVERSION=	2.3.91
+PORTVERSION=	2.3.92
 CATEGORIES=	www
 MASTER_SITES=	http://webkitgtk.org/releases/
 PKGNAMESUFFIX=	-gtk3
@@ -14,7 +14,8 @@ COMMENT=	Opensource browser engine using the GTK+ 3 toolkit
 
 BUILD_DEPENDS=	${LOCALBASE}/bin/flex:${PORTSDIR}/textproc/flex \
 		${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
-		gtkdoc-rebase:${PORTSDIR}/textproc/gtk-doc
+		gtkdoc-rebase:${PORTSDIR}/textproc/gtk-doc \
+		geoclue>=0:${PORTSDIR}/net/geoclue
 LIB_DEPENDS=	libenchant.so:${PORTSDIR}/textproc/enchant \
 		libsecret-1.so:${PORTSDIR}/security/libsecret \
 		libicutu.so:${PORTSDIR}/devel/icu \
@@ -22,6 +23,7 @@ LIB_DEPENDS=	libenchant.so:${PORTSDIR}/textproc/enchant \
 		libwebp.so:${PORTSDIR}/graphics/webp \
 		libcurl.so:${PORTSDIR}/ftp/curl \
 		libsoup-2.4.so:${PORTSDIR}/devel/libsoup
+RUN_DEPENDS=	geoclue>=0:${PORTSDIR}/net/geoclue 
 
 LATEST_LINK=	${PORTNAME}${PKGNAMESUFFIX}
 
@@ -45,7 +47,7 @@ CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 CONFIGURE_ARGS=	--with-gtk=3.0 \
 		--enable-svg-fonts \
-		--disable-geolocation \
+		--enable-geolocation \
 		--enable-introspection
 MAKEFILE=	GNUmakefile
 MAKE_ENV=	XDG_CACHE_HOME=${WRKDIR}
