@@ -7,6 +7,7 @@ bin/tracker-search
 bin/tracker-sparql
 bin/tracker-stats
 bin/tracker-tag
+etc/xdg/autostart/tracker-extract.desktop
 etc/xdg/autostart/tracker-miner-fs.desktop
 etc/xdg/autostart/tracker-store.desktop
 include/tracker-%%TRACKER_VER%%/libtracker-control/tracker-control.h
@@ -27,24 +28,30 @@ include/tracker-%%TRACKER_VER%%/libtracker-sparql/tracker-version.h
 lib/libtracker-control-%%TRACKER_VER%%.la
 lib/libtracker-control-%%TRACKER_VER%%.so
 lib/libtracker-control-%%TRACKER_VER%%.so.0
+lib/libtracker-control-%%TRACKER_VER%%.so.0.1708.0
 lib/libtracker-miner-%%TRACKER_VER%%.la
 lib/libtracker-miner-%%TRACKER_VER%%.so
 lib/libtracker-miner-%%TRACKER_VER%%.so.0
+lib/libtracker-miner-%%TRACKER_VER%%.so.0.1708.0
 lib/libtracker-sparql-%%TRACKER_VER%%.la
 lib/libtracker-sparql-%%TRACKER_VER%%.so
 lib/libtracker-sparql-%%TRACKER_VER%%.so.0
+lib/libtracker-sparql-%%TRACKER_VER%%.so.0.1708.0
 lib/girepository-%%TRACKER_VER%%/Tracker-1.0.typelib
 lib/girepository-%%TRACKER_VER%%/TrackerControl-1.0.typelib
 lib/girepository-%%TRACKER_VER%%/TrackerMiner-1.0.typelib
 lib/tracker-%%TRACKER_VER%%/libtracker-common.la
 lib/tracker-%%TRACKER_VER%%/libtracker-common.so
 lib/tracker-%%TRACKER_VER%%/libtracker-common.so.0
+lib/tracker-%%TRACKER_VER%%/libtracker-common.so.0.0.0
 lib/tracker-%%TRACKER_VER%%/libtracker-data.la
 lib/tracker-%%TRACKER_VER%%/libtracker-data.so
 lib/tracker-%%TRACKER_VER%%/libtracker-data.so.0
+lib/tracker-%%TRACKER_VER%%/libtracker-data.so.0.0.0
 lib/tracker-%%TRACKER_VER%%/libtracker-extract.la
 lib/tracker-%%TRACKER_VER%%/libtracker-extract.so
 lib/tracker-%%TRACKER_VER%%/libtracker-extract.so.0
+lib/tracker-%%TRACKER_VER%%/libtracker-extract.so.0.0.0
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-abw.la
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-abw.so
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-dvi.la
@@ -83,8 +90,6 @@ lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-text.la
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-text.so
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-tiff.la
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-tiff.so
-lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-totem.la
-lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-totem.so
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-vorbis.la
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-vorbis.so
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-xmp.la
@@ -164,6 +169,7 @@ share/doc/libtracker-miner/up.png
 share/doc/libtracker-sparql/TrackerSparqlBuilder.html
 share/doc/libtracker-sparql/TrackerSparqlConnection.html
 share/doc/libtracker-sparql/TrackerSparqlCursor.html
+share/doc/libtracker-sparql/annotation-glossary.html
 share/doc/libtracker-sparql/home.png
 share/doc/libtracker-sparql/index.html
 share/doc/libtracker-sparql/index.sgml
@@ -276,7 +282,6 @@ share/locale/zh_TW/LC_MESSAGES/tracker.mo
 %%DATADIR%%/extract-rules/15-playlist.rule
 %%DATADIR%%/extract-rules/90-text-generic.rule
 %%DATADIR%%/extract-rules/93-mplayer-generic.rule
-%%DATADIR%%/extract-rules/93-totem-generic.rule
 %%DATADIR%%/languages/stopwords.da
 %%DATADIR%%/languages/stopwords.de
 %%DATADIR%%/languages/stopwords.en
@@ -353,6 +358,7 @@ share/vala/vapi/tracker-sparql-%%TRACKER_VER%%.vapi
 @dirrm %%DATADIR%%/ontologies
 @dirrm %%DATADIR%%/miners
 @dirrm %%DATADIR%%/languages
+@dirrm %%DATADIR%%/icons
 @dirrm %%DATADIR%%/extract-rules
 @dirrm %%DATADIR%%-tests
 @dirrm %%DATADIR%%
