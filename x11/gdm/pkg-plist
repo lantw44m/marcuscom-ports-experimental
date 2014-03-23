@@ -24,13 +24,12 @@ libdata/pkgconfig/gdm.pc
 libexec/gdm-host-chooser
 libexec/gdm-session-worker
 libexec/gdm-simple-chooser
-libexec/gdm-simple-slave
-libexec/gdm-xdmcp-chooser-slave
 sbin/gdm
 share/dconf/profile/gdm
 share/gir-1.0/Gdm-1.0.gir
 %%DATADIR%%/gdb-cmd
 %%DATADIR%%/gdm.schemas
+%%DATADIR%%/greeter/autostart/caribou-autostart.desktop
 %%DATADIR%%/greeter-dconf-defaults
 %%DATADIR%%/greeter/applications/gdm-simple-greeter.desktop
 %%DATADIR%%/greeter/applications/gnome-shell.desktop
@@ -300,6 +299,7 @@ share/pixmaps/nohost.png
 @dirrmtry etc/gdm/PostSession
 @dirrmtry etc/gdm/PostLogin
 @dirrmtry etc/gdm/Init
+@dirrmtry etc/gdm/home/.pulse
 @dirrmtry etc/gdm/home/.local/share/applications
 @dirrmtry etc/gdm/home/.local/share
 @dirrmtry etc/gdm/home/.local
@@ -307,9 +307,5 @@ share/pixmaps/nohost.png
 @dirrmtry etc/gdm
 @dirrmtry etc/dm/Sessions
 @dirrmtry etc/dm
-@dirrmtry %%ETCDIR%%/home/.pulse
-@dirrmtry %%ETCDIR%%/home/
-@dirrmtry %%ETCDIR%%
 @unexec rmdir /var/run/gdm/greeter/ 2> /dev/null || true
 @unexec rmdir /var/log/gdm/ 2> /dev/null || true
-@unexec rmdir /var/gdm/ 2> /dev/null || true
