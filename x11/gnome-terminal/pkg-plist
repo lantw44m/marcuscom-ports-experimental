@@ -5,6 +5,7 @@ lib/nautilus/extensions-3.0/libterminal-nautilus.so
 libexec/gnome-terminal-migration
 libexec/gnome-terminal-server
 share/applications/gnome-terminal.desktop
+share/dbus-1/services/org.gnome.Terminal.service
 share/help/C/gnome-terminal/adv-keyboard-shortcuts.page
 share/help/C/gnome-terminal/app-colors.page
 share/help/C/gnome-terminal/app-cursor.page
