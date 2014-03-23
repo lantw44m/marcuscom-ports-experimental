@@ -3,7 +3,7 @@
 #  $MCom$
 
 PORTNAME=	cogl
-PORTVERSION=	1.17.4
+PORTVERSION=	1.18.0
 CATEGORIES=	graphics
 MASTER_SITES=	GNOME
 
@@ -15,8 +15,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 CONFLICTS=	clutter-1.6.[0-9]*
 
-USES=		gettext gmake libtool pathfix pkgconfig
-USE_XZ=		yes
+USES=		gettext gmake libtool pathfix pkgconfig tar:xz
 GNU_CONFIGURE=	yes
 USE_GNOME=	gdkpixbuf2 gnomeprefix atk pango introspection:build
 USE_GL=		gl
