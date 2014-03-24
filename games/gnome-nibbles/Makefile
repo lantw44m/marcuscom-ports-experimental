@@ -1,8 +1,9 @@
+# Created by: FreeBSD GNOME Team <gnome@freebsd.org>
 # $FreeBSD$
 #   $MCom$
 
 PORTNAME=	gnome-nibbles
-PORTVERSION=	3.11.90
+PORTVERSION=	3.12.0
 CATEGORIES=	games gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
