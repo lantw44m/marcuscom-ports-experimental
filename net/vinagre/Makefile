@@ -49,8 +49,7 @@ PLIST_SUB+=	TELEPATHY="@comment "
 .endif
 
 .if ${PORT_OPTIONS:MRDP}
-BUILD_DEPENDS+=	rdesktop:${PORTSDIR}/net/rdesktop
-RUN_DEPENDS+=	rdesktop:${PORTSDIR}/net/rdesktop
+RUN_DEPENDS+=	xfreerdp:${PORTSDIR}/net/freerdp
 CONFIGURE_ARGS+=--enable-rdp
 PLIST_SUB+=	RDP=""
 .else
