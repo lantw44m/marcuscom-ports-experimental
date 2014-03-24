@@ -3,7 +3,7 @@
 #    $MCom$
 
 PORTNAME=	libgee
-PORTVERSION=	0.13.91
+PORTVERSION=	0.14.0
 CATEGORIES=	devel
 MASTER_SITES=	GNOME
 
@@ -14,8 +14,7 @@ BUILD_DEPENDS=	valac:${PORTSDIR}/lang/vala
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--enable-introspection=yes
-USE_XZ=		yes
-USES=		gmake libtool pathfix pkgconfig
+USES=		gmake libtool pathfix pkgconfig tar:xz
 USE_GNOME=	glib20 gnomehier introspection:build
 USE_LDCONFIG=	yes
 INSTALL_TARGET=	install-strip
