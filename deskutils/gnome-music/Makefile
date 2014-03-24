@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gnome-music
-PORTVERSION=	3.11.91
+PORTVERSION=	3.12.0
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -11,6 +11,7 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	GNOME music playing application
 
+BUILD_DEPENDS=	itstool:${PORTSDIR}/textproc/itstool
 LIB_DEPENDS=	libgrilo-0.2.so:${PORTSDIR}/net/grilo
 
 USES=		gettext gmake libtool pathfix pkgconfig tar:xz
