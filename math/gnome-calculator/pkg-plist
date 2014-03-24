@@ -849,6 +849,8 @@ share/locale/xh/LC_MESSAGES/gnome-calculator.mo
 share/locale/zh_CN/LC_MESSAGES/gnome-calculator.mo
 share/locale/zh_HK/LC_MESSAGES/gnome-calculator.mo
 share/locale/zh_TW/LC_MESSAGES/gnome-calculator.mo
+@dirrmtry share/locale/en_US/LC_MESSAGES
+@dirrmtry share/locale/en_US
 @dirrm share/help/zh_TW/gnome-calculator/figures
 @dirrm share/help/zh_TW/gnome-calculator
 @dirrmtry share/help/zh_TW
@@ -928,3 +930,4 @@ share/locale/zh_TW/LC_MESSAGES/gnome-calculator.mo
 @dirrm share/help/C/gnome-calculator
 @dirrmtry share/help/C
 @dirrmtry share/help
+@dirrmtry share/appdata
