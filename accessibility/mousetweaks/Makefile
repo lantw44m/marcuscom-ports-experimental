@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	mousetweaks
-PORTVERSION=	3.10.0
+PORTVERSION=	3.12.0
 CATEGORIES=	accessibility
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -15,7 +15,7 @@ BUILD_DEPENDS=	gsettings-desktop-schemas>=0.1.0:${PORTSDIR}/devel/gsettings-desk
 RUN_DEPENDS=	gsettings-desktop-schemas>=0.1.0:${PORTSDIR}/devel/gsettings-desktop-schemas
 
 USE_XORG=	x11 xfixes xcursor xtst
-USE_GNOME=	gnomeprefix intlhack gtk30
+USE_GNOME=	gnomeprefix gtk30 intlhack
 USES=		gettext gmake pathfix pkgconfig tar:xz
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
