@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	grilo
-PORTVERSION=	0.2.9
+PORTVERSION=	0.2.10
 CATEGORIES=	net
 MASTER_SITES=	GNOME
 
@@ -15,8 +15,7 @@ LIB_DEPENDS=	libsoup-2.4.so:${PORTSDIR}/devel/libsoup \
 		liboauth.so:${PORTSDIR}/net/liboauth \
 		libtotem-plparser.so:${PORTSDIR}/multimedia/totem-pl-parser
 
-USES=		gettext gmake pathfix pkgconfig
-USE_XZ=		yes
+USES=		gettext gmake pathfix pkgconfig tar:xz
 USE_LDCONFIG=	yes
 USE_GNOME=	glib20 gnomehier intlhack introspection:build libxml2 ltverhack
 GNU_CONFIGURE=	yes
