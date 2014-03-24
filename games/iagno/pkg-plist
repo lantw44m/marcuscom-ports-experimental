@@ -621,3 +621,4 @@ share/locale/zh_TW/LC_MESSAGES/iagno.mo
 @dirrm share/help/C/iagno
 @dirrmtry share/help/C
 @dirrmtry share/help
+@dirrmtry share/appdata
