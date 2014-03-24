@@ -1,6 +1,6 @@
 # Created by: Michael Johnson <ahze@FreeBSD.org>
 # $FreeBSD$
-#    $MCom: ports-experimental/trunk/sysutils/brasero/Makefile 19099 2014-03-12 14:08:17Z gusi $
+#    $MCom$
 
 PORTNAME=	brasero
 PORTVERSION=	3.11.3
@@ -19,14 +19,12 @@ RUN_DEPENDS=	growisofs:${PORTSDIR}/sysutils/dvd+rw-tools \
 		cdrdao:${PORTSDIR}/sysutils/cdrdao
 
 USES=		desktop-file-utils gettext gmake pathfix pkgconfig \
-		shared-mime-info
-USE_XZ=		yes
+		shared-mime-info tar:xz
 GNU_CONFIGURE=	yes
 USE_XORG=	sm ice
 USE_GNOME=	gconf2 gnomeprefix gtk30 intlhack libxml2
 USE_LDCONFIG=	yes
 USE_GSTREAMER1=	yes
-INSTALLS_OMF=	yes
 INSTALLS_ICONS=	yes
 CONFIGURE_ARGS=	--disable-inotify --enable-search=no --enable-playlist=no \
 		--enable-introspection=yes

@@ -41,7 +41,6 @@ GROUPS=		gdm
 
 USE_LDCONFIG=	yes
 USE_XORG=	dmx dmxproto
-INSTALLS_OMF=	yes
 INSTALLS_ICONS=	yes
 USE_RC_SUBR=	gdm
 USE_GNOME_SUBR=	yes

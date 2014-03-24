@@ -14,11 +14,9 @@ COMMENT=	Mouse accessibility enhancements for the GNOME desktop
 BUILD_DEPENDS=	gsettings-desktop-schemas>=0.1.0:${PORTSDIR}/devel/gsettings-desktop-schemas
 RUN_DEPENDS=	gsettings-desktop-schemas>=0.1.0:${PORTSDIR}/devel/gsettings-desktop-schemas
 
-USE_XZ=		yes
 USE_XORG=	x11 xfixes xcursor xtst
 USE_GNOME=	gnomeprefix intlhack gtk30
-USES=		gettext gmake pathfix pkgconfig
-INSTALLS_OMF=	yes
+USES=		gettext gmake pathfix pkgconfig tar:xz
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
