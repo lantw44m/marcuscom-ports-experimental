@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	totem
-PORTVERSION=	3.11.90
+PORTVERSION=	3.12.0
 CATEGORIES=	multimedia gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -32,8 +32,8 @@ USE_PYTHON=	yes
 USE_XORG=	x11 xproto xtst ice sm
 USES=		desktop-file-utils gettext gmake pathfix pkgconfig \
 		shebangfix tar:xz
-USE_GNOME=	gnomeprefix intlhack gtk30 libxml2 nautilus3 ltverhack \
-		pygobject3 gnomedocutils gnomehier introspection:build
+USE_GNOME=	gnomedocutils gnomehier gnomeprefix gtk30 intlhack \
+		introspection:build libxml2 nautilus3 pyobject3
 USE_GSTREAMER1=	core good bad soup ugly
 INSTALLS_ICONS=	yes
 GNU_CONFIGURE=	yes
@@ -46,6 +46,7 @@ CONFIGURE_ENV=	LIBS="-lXrandr"
 CONFIGURE_ARGS=	--with-plugins="${TOTEM_PLUGINS}"
 SHEBANG_FILES=	data/totem-bugreport.py
 CONFIGURE_ENV+=	APPDATA_VALIDATE="${LOCALBASE}/bin/appdata-validate --nonet"
+MAKE_ENV=	XDG_CACHE_HOME=${WRKDIR}
 
 GLIB_SCHEMAS=	org.gnome.totem.enums.xml \
 		org.gnome.totem.gschema.xml \

@@ -107,7 +107,9 @@ share/applications/totem.desktop
 %%DOCSDIR%%/ix03.html
 %%DOCSDIR%%/ix04.html
 %%DOCSDIR%%/ix05.html
+%%DOCSDIR%%/left-insensitive.png
 %%DOCSDIR%%/left.png
+%%DOCSDIR%%/right-insensitive.png
 %%DOCSDIR%%/right.png
 %%DOCSDIR%%/style.css
 %%DOCSDIR%%/totem-Interface.html
@@ -115,6 +117,7 @@ share/applications/totem.desktop
 %%DOCSDIR%%/totem-plugins.html
 %%DOCSDIR%%/totem.devhelp2
 %%DOCSDIR%%/tutorials.html
+%%DOCSDIR%%/up-insensitive.png
 %%DOCSDIR%%/up.png
 share/gir-1.0/Totem-1.0.gir
 share/help/C/totem/index.docbook
