@@ -11,19 +11,21 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Thumbnailer for EPub and MOBI books
 
-BUILD_DEPENDS=	gnome-autogen.sh:${PORTSDIR}/devel/gnome-common \
-		libarchive>=0:${PORTSDIR}/archivers/libarchive
-RUN_DEPENDS=	libarchive>=0:${PORTSDIR}/archivers/libarchive
+BUILD_DEPENDS=	gnome-autogen.sh:${PORTSDIR}/devel/gnome-common
 
 USES=		gettext gmake libtool pathfix pkgconfig
 USE_GNOME=	gdkpixbuf2 gnomedesktop3 gnomeprefix gtk30 \
 		intlhack libxml2
-USE_AUTOTOOLS=	libtool autoconf automake
+USE_AUTOTOOLS=	libtoolize autoconf automake
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include -Wno-error=format-nonliteral
-LDFLAGS+=	-L${LOCALBASE}/lib
+LDFLAGS+=	-L${LOCALBASE}/lib -larchive
+
+post-patch:
+	@${REINPLACE_CMD} -e 's|gio-2.0 libarchive libxml-2.0|gio-2.0 libxml-2.0|g' \
+		${WRKSRC}/configure.ac
 
 pre-configure:
 	cd ${WRKSRC} && NOCONFIGURE=yes ${SH} ./autogen.sh
