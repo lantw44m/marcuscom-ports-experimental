@@ -25,7 +25,6 @@ share/help/C/gnome-mines/license.page
 share/help/C/gnome-mines/new-game.page
 share/help/C/gnome-mines/rules.page
 share/help/C/gnome-mines/shortcuts.page
-share/help/C/gnome-mines/toolbar.page
 share/help/C/gnome-mines/translate.page
 share/help/C/gnome-mines/figures/easy-hints-1.png
 share/help/C/gnome-mines/figures/easy-hints-2.png
@@ -56,7 +55,6 @@ share/help/ca/gnome-mines/license.page
 share/help/ca/gnome-mines/new-game.page
 share/help/ca/gnome-mines/rules.page
 share/help/ca/gnome-mines/shortcuts.page
-share/help/ca/gnome-mines/toolbar.page
 share/help/ca/gnome-mines/translate.page
 share/help/ca/gnome-mines/figures/easy-hints-1.png
 share/help/ca/gnome-mines/figures/easy-hints-2.png
@@ -87,7 +85,6 @@ share/help/cs/gnome-mines/license.page
 share/help/cs/gnome-mines/new-game.page
 share/help/cs/gnome-mines/rules.page
 share/help/cs/gnome-mines/shortcuts.page
-share/help/cs/gnome-mines/toolbar.page
 share/help/cs/gnome-mines/translate.page
 share/help/cs/gnome-mines/figures/easy-hints-1.png
 share/help/cs/gnome-mines/figures/easy-hints-2.png
@@ -118,7 +115,6 @@ share/help/da/gnome-mines/license.page
 share/help/da/gnome-mines/new-game.page
 share/help/da/gnome-mines/rules.page
 share/help/da/gnome-mines/shortcuts.page
-share/help/da/gnome-mines/toolbar.page
 share/help/da/gnome-mines/translate.page
 share/help/da/gnome-mines/figures/easy-hints-1.png
 share/help/da/gnome-mines/figures/easy-hints-2.png
@@ -149,7 +145,6 @@ share/help/de/gnome-mines/license.page
 share/help/de/gnome-mines/new-game.page
 share/help/de/gnome-mines/rules.page
 share/help/de/gnome-mines/shortcuts.page
-share/help/de/gnome-mines/toolbar.page
 share/help/de/gnome-mines/translate.page
 share/help/de/gnome-mines/figures/easy-hints-1.png
 share/help/de/gnome-mines/figures/easy-hints-2.png
@@ -180,7 +175,6 @@ share/help/el/gnome-mines/license.page
 share/help/el/gnome-mines/new-game.page
 share/help/el/gnome-mines/rules.page
 share/help/el/gnome-mines/shortcuts.page
-share/help/el/gnome-mines/toolbar.page
 share/help/el/gnome-mines/translate.page
 share/help/el/gnome-mines/figures/easy-hints-1.png
 share/help/el/gnome-mines/figures/easy-hints-2.png
@@ -211,7 +205,6 @@ share/help/en_GB/gnome-mines/license.page
 share/help/en_GB/gnome-mines/new-game.page
 share/help/en_GB/gnome-mines/rules.page
 share/help/en_GB/gnome-mines/shortcuts.page
-share/help/en_GB/gnome-mines/toolbar.page
 share/help/en_GB/gnome-mines/translate.page
 share/help/en_GB/gnome-mines/figures/easy-hints-1.png
 share/help/en_GB/gnome-mines/figures/easy-hints-2.png
@@ -242,7 +235,6 @@ share/help/es/gnome-mines/license.page
 share/help/es/gnome-mines/new-game.page
 share/help/es/gnome-mines/rules.page
 share/help/es/gnome-mines/shortcuts.page
-share/help/es/gnome-mines/toolbar.page
 share/help/es/gnome-mines/translate.page
 share/help/es/gnome-mines/figures/easy-hints-1.png
 share/help/es/gnome-mines/figures/easy-hints-2.png
@@ -273,7 +265,6 @@ share/help/eu/gnome-mines/license.page
 share/help/eu/gnome-mines/new-game.page
 share/help/eu/gnome-mines/rules.page
 share/help/eu/gnome-mines/shortcuts.page
-share/help/eu/gnome-mines/toolbar.page
 share/help/eu/gnome-mines/translate.page
 share/help/eu/gnome-mines/figures/easy-hints-1.png
 share/help/eu/gnome-mines/figures/easy-hints-2.png
@@ -304,7 +295,6 @@ share/help/fr/gnome-mines/license.page
 share/help/fr/gnome-mines/new-game.page
 share/help/fr/gnome-mines/rules.page
 share/help/fr/gnome-mines/shortcuts.page
-share/help/fr/gnome-mines/toolbar.page
 share/help/fr/gnome-mines/translate.page
 share/help/fr/gnome-mines/figures/easy-hints-1.png
 share/help/fr/gnome-mines/figures/easy-hints-2.png
@@ -335,7 +325,6 @@ share/help/gl/gnome-mines/license.page
 share/help/gl/gnome-mines/new-game.page
 share/help/gl/gnome-mines/rules.page
 share/help/gl/gnome-mines/shortcuts.page
-share/help/gl/gnome-mines/toolbar.page
 share/help/gl/gnome-mines/translate.page
 share/help/gl/gnome-mines/figures/easy-hints-1.png
 share/help/gl/gnome-mines/figures/easy-hints-2.png
@@ -366,7 +355,6 @@ share/help/hu/gnome-mines/license.page
 share/help/hu/gnome-mines/new-game.page
 share/help/hu/gnome-mines/rules.page
 share/help/hu/gnome-mines/shortcuts.page
-share/help/hu/gnome-mines/toolbar.page
 share/help/hu/gnome-mines/translate.page
 share/help/hu/gnome-mines/figures/easy-hints-1.png
 share/help/hu/gnome-mines/figures/easy-hints-2.png
@@ -397,7 +385,6 @@ share/help/it/gnome-mines/license.page
 share/help/it/gnome-mines/new-game.page
 share/help/it/gnome-mines/rules.page
 share/help/it/gnome-mines/shortcuts.page
-share/help/it/gnome-mines/toolbar.page
 share/help/it/gnome-mines/translate.page
 share/help/it/gnome-mines/figures/easy-hints-1.png
 share/help/it/gnome-mines/figures/easy-hints-2.png
@@ -428,7 +415,6 @@ share/help/ja/gnome-mines/license.page
 share/help/ja/gnome-mines/new-game.page
 share/help/ja/gnome-mines/rules.page
 share/help/ja/gnome-mines/shortcuts.page
-share/help/ja/gnome-mines/toolbar.page
 share/help/ja/gnome-mines/translate.page
 share/help/ja/gnome-mines/figures/easy-hints-1.png
 share/help/ja/gnome-mines/figures/easy-hints-2.png
@@ -459,7 +445,6 @@ share/help/oc/gnome-mines/license.page
 share/help/oc/gnome-mines/new-game.page
 share/help/oc/gnome-mines/rules.page
 share/help/oc/gnome-mines/shortcuts.page
-share/help/oc/gnome-mines/toolbar.page
 share/help/oc/gnome-mines/translate.page
 share/help/oc/gnome-mines/figures/easy-hints-1.png
 share/help/oc/gnome-mines/figures/easy-hints-2.png
@@ -490,7 +475,6 @@ share/help/pt_BR/gnome-mines/license.page
 share/help/pt_BR/gnome-mines/new-game.page
 share/help/pt_BR/gnome-mines/rules.page
 share/help/pt_BR/gnome-mines/shortcuts.page
-share/help/pt_BR/gnome-mines/toolbar.page
 share/help/pt_BR/gnome-mines/translate.page
 share/help/pt_BR/gnome-mines/figures/easy-hints-1.png
 share/help/pt_BR/gnome-mines/figures/easy-hints-2.png
@@ -521,7 +505,6 @@ share/help/sl/gnome-mines/license.page
 share/help/sl/gnome-mines/new-game.page
 share/help/sl/gnome-mines/rules.page
 share/help/sl/gnome-mines/shortcuts.page
-share/help/sl/gnome-mines/toolbar.page
 share/help/sl/gnome-mines/translate.page
 share/help/sl/gnome-mines/figures/easy-hints-1.png
 share/help/sl/gnome-mines/figures/easy-hints-2.png
@@ -552,7 +535,6 @@ share/help/sr/gnome-mines/license.page
 share/help/sr/gnome-mines/new-game.page
 share/help/sr/gnome-mines/rules.page
 share/help/sr/gnome-mines/shortcuts.page
-share/help/sr/gnome-mines/toolbar.page
 share/help/sr/gnome-mines/translate.page
 share/help/sr/gnome-mines/figures/easy-hints-1.png
 share/help/sr/gnome-mines/figures/easy-hints-2.png
@@ -583,7 +565,6 @@ share/help/sr@latin/gnome-mines/license.page
 share/help/sr@latin/gnome-mines/new-game.page
 share/help/sr@latin/gnome-mines/rules.page
 share/help/sr@latin/gnome-mines/shortcuts.page
-share/help/sr@latin/gnome-mines/toolbar.page
 share/help/sr@latin/gnome-mines/translate.page
 share/help/sr@latin/gnome-mines/figures/easy-hints-1.png
 share/help/sr@latin/gnome-mines/figures/easy-hints-2.png
@@ -614,7 +595,6 @@ share/help/sv/gnome-mines/license.page
 share/help/sv/gnome-mines/new-game.page
 share/help/sv/gnome-mines/rules.page
 share/help/sv/gnome-mines/shortcuts.page
-share/help/sv/gnome-mines/toolbar.page
 share/help/sv/gnome-mines/translate.page
 share/help/sv/gnome-mines/figures/easy-hints-1.png
 share/help/sv/gnome-mines/figures/easy-hints-2.png
@@ -645,7 +625,6 @@ share/help/zh_CN/gnome-mines/license.page
 share/help/zh_CN/gnome-mines/new-game.page
 share/help/zh_CN/gnome-mines/rules.page
 share/help/zh_CN/gnome-mines/shortcuts.page
-share/help/zh_CN/gnome-mines/toolbar.page
 share/help/zh_CN/gnome-mines/translate.page
 share/help/zh_CN/gnome-mines/figures/easy-hints-1.png
 share/help/zh_CN/gnome-mines/figures/easy-hints-2.png
