@@ -4,6 +4,7 @@
 
 PORTNAME=	atspi
 PORTVERSION=	2.11.92
+PORTREVISION=	1
 CATEGORIES=	accessibility x11-toolkits python
 MASTER_SITES=	GNOME
 MASTER_SITE_SUBDIR=	sources/pyatspi/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}
@@ -21,7 +22,7 @@ CONFLICTS=	at-spi-1.[0-9]*
 USES=		gettext gmake pathfix pkgconfig tar:xz
 USE_GNOME=	gnomehier intlhack pygobject3
 GNU_CONFIGURE=	yes
-USE_PYTHON=	yes
+USE_PYTHON=	3
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 
