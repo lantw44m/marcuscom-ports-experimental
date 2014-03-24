@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	grilo-plugins
-PORTVERSION=	0.2.11
+PORTVERSION=	0.2.12
 CATEGORIES=	net
 MASTER_SITES=	GNOME
 
@@ -13,8 +13,7 @@ COMMENT=	Plugins for net/grilo
 BUILD_DEPENDS=	itstool:${PORTSDIR}/textproc/itstool
 LIB_DEPENDS=	libgrilo-0.2.so:${PORTSDIR}/net/grilo
 
-USES=		gettext gmake pathfix pkgconfig
-USE_XZ=		yes
+USES=		gettext gmake pathfix pkgconfig tar:xz
 USE_AUTOTOOLS=	libtool
 USE_LDCONFIG=	yes
 USE_GNOME=	glib20 gnomehier intlhack libxml2 ltverhack
