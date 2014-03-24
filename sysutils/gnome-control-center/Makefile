@@ -3,8 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gnome-control-center
-PORTVERSION=	3.11.91
-PORTREVISION=	1
+PORTVERSION=	3.12.0
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -39,7 +38,7 @@ RUN_DEPENDS=	gnome-eject:${PORTSDIR}/sysutils/gnome-mount \
 
 CONFLICTS=	gnome-media-2.[0-9]*
 
-USES=		gettext gmake pathfix pkgconfig tar:xz shared-mime-info
+USES=		gettext gmake pathfix pkgconfig shared-mime-info tar:xz
 USE_GNOME=	gnomeprefix gnomehier intlhack libxml2 gnomemenus3 \
 		libgnomekbd gnomedesktop3 gconf2
 USE_XORG=	xscrnsaver x11 xxf86misc kbproto xi
