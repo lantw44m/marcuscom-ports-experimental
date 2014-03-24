@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gobject
-PORTVERSION=	3.11.91
+PORTVERSION=	3.12.0
 CATEGORIES=	devel python
 MASTER_SITES=	GNOME
 MASTER_SITE_SUBDIR=	sources/pygobject/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}
@@ -18,14 +18,13 @@ COMMENT=	Python bindings for GObject
 LICENSE=	LGPL21
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/pycairo.pc:${PORTSDIR}/graphics/py-cairo
+BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/py3cairo.pc:${PORTSDIR}/graphics/py3-cairo
 LIB_DEPENDS=	libffi.so:${PORTSDIR}/devel/libffi
-RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/pycairo.pc:${PORTSDIR}/graphics/py-cairo
+RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/py3cairo.pc:${PORTSDIR}/graphics/py3-cairo
 
-USE_XZ=		yes
-USES=		gmake pathfix pkgconfig
+USES=		gmake pathfix pkgconfig tar:xz
 USE_GNOME=	glib20 introspection
-USE_PYTHON=	2.6+
+USE_PYTHON=	3
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
 
@@ -33,8 +32,7 @@ USE_LDCONFIG=	yes
 CONFLICTS=	py*-gtk-0* py*-gobject-2.*.[0-6] py*-gobject-2.*.[7-9] \
 		py*-gobject-2.*.6_1
 
-PLIST_SUB=	PYTHON_VER="${PYTHON_VER}" ARCH=${ARCH} UNAME_R=${UNAME_R} \
-		VERSION=${PORTVERSION}
+PLIST_SUB=	ARCH=${ARCH} UNAME_R=${UNAME_R} VERSION=${PORTVERSION}
 
 .include <bsd.port.pre.mk>
 
