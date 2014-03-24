@@ -85,6 +85,14 @@ share/help/zh_CN/gnome-color-manager/color-import-linux.page
 share/help/zh_CN/gnome-color-manager/color-import-osx.page
 share/help/zh_CN/gnome-color-manager/color-import-windows.page
 share/help/zh_CN/gnome-color-manager/legal.xml
+share/help/zh_HK/gnome-color-manager/color-import-linux.page
+share/help/zh_HK/gnome-color-manager/color-import-osx.page
+share/help/zh_HK/gnome-color-manager/color-import-windows.page
+share/help/zh_HK/gnome-color-manager/legal.xml
+share/help/zh_TW/gnome-color-manager/color-import-linux.page
+share/help/zh_TW/gnome-color-manager/color-import-osx.page
+share/help/zh_TW/gnome-color-manager/color-import-windows.page
+share/help/zh_TW/gnome-color-manager/legal.xml
 share/icons/hicolor/16x16/apps/gnome-color-manager.png
 share/icons/hicolor/16x16/mimetypes/application-vnd.iccprofile.png
 share/icons/hicolor/22x22/apps/gnome-color-manager.png
@@ -171,6 +179,10 @@ share/locale/zh_TW/LC_MESSAGES/gnome-color-manager.mo
 @dirrmtry share/locale/ca@valencia
 @dirrmtry share/locale/bn_IN/LC_MESSAGES
 @dirrmtry share/locale/bn_IN
+@dirrm share/help/zh_TW/gnome-color-manager
+@dirrmtry share/help/zh_TW
+@dirrm share/help/zh_HK/gnome-color-manager
+@dirrmtry share/help/zh_HK
 @dirrm share/help/zh_CN/gnome-color-manager
 @dirrm share/help/pt_BR/gnome-color-manager
 @dirrm share/help/ml/gnome-color-manager
