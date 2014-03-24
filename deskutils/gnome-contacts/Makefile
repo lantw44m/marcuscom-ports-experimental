@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gnome-contacts
-PORTVERSION=	3.11.91
+PORTVERSION=	3.12.0
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 
@@ -16,11 +16,13 @@ LIB_DEPENDS=	libgoa-1.0.so:${PORTSDIR}/net/gnome-online-accounts \
 		libfolks.so:${PORTSDIR}/net-im/folks \
 		libnotify.so:${PORTSDIR}/devel/libnotify
 
-USE_GNOME=	intlhack gtk30 gnomedesktop3 evolutiondataserver3
+USE_GNOME=	evolutiondataserver3 gnomedesktop3 gtk30 intlhack \
+		introspection:build
 USES=		gettext gmake pathfix perl5 pkgconfig tar:xz
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
+MAKE_ENV=	XDG_CACHE_HOME=${WRKDIR}
 
 GLIB_SCHEMAS=	org.gnome.Contacts.enums.xml \
 		org.gnome.Contacts.gschema.xml
