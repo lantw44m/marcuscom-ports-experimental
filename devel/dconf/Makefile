@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME?=	dconf
-PORTVERSION=	0.19.91
+PORTVERSION=	0.20.0
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
 DISTNAME=	dconf-${PORTVERSION}
@@ -16,12 +16,10 @@ BUILD_DEPENDS=	vala>=0.18.1:${PORTSDIR}/lang/vala \
 		docbook-xsl>=0:${PORTSDIR}/textproc/docbook-xsl
 LIB_DEPENDS=	libdbus-1.so:${PORTSDIR}/devel/dbus
 
-USE_XZ=		yes
-USES=		gettext gmake pathfix pkgconfig
+USES=		gettext gmake pathfix pkgconfig tar:xz
 USE_GNOME=	glib20 gnomehier intltool
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
-MAKE_JOBS_UNSAFE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 

@@ -14,10 +14,7 @@ MASTERDIR=	${.CURDIR}/../dconf
 
 PLIST=		${.CURDIR}/pkg-plist
 
-do-build:
-	@cd ${WRKSRC}/editor && ${GMAKE}
-
-do-install:
-	@cd ${WRKSRC}/editor && DESTDIR=${STAGEDIR} ${GMAKE} install
+BUILD_WRKSRC=	${WRKSRC}/editor
+INSTALL_WRKSRC=	${WRKSRC}/editor
 
 .include "${MASTERDIR}/Makefile"
