@@ -8,10 +8,12 @@ lib/libtotem-plparser-mini.a
 lib/libtotem-plparser-mini.la
 lib/libtotem-plparser-mini.so
 lib/libtotem-plparser-mini.so.18
+lib/libtotem-plparser-mini.so.18.1.0
 lib/libtotem-plparser.a
 lib/libtotem-plparser.la
 lib/libtotem-plparser.so
 lib/libtotem-plparser.so.18
+lib/libtotem-plparser.so.18.1.0
 libdata/pkgconfig/totem-plparser-mini.pc
 libdata/pkgconfig/totem-plparser.pc
 libexec/totem-pl-parser-videosite
@@ -25,11 +27,14 @@ libexec/totem-pl-parser-videosite
 %%DOCSDIR%%/index.html
 %%DOCSDIR%%/index.sgml
 %%DOCSDIR%%/ix02.html
+%%DOCSDIR%%/left-insensitive.png
 %%DOCSDIR%%/left.png
+%%DOCSDIR%%/right-insensitive.png
 %%DOCSDIR%%/right.png
 %%DOCSDIR%%/style.css
 %%DOCSDIR%%/totem-pl-parser-TotemPlPlaylistIter.html
 %%DOCSDIR%%/totem-pl-parser.devhelp2
+%%DOCSDIR%%/up-insensitive.png
 %%DOCSDIR%%/up.png
 share/gir-1.0/TotemPlParser-1.0.gir
 share/locale/af/LC_MESSAGES/totem-pl-parser.mo

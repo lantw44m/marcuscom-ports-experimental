@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	totem-pl-parser
-PORTVERSION=	3.10.1
+PORTVERSION=	3.10.2
 CATEGORIES=	multimedia gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome2
@@ -14,12 +14,11 @@ COMMENT=	GObject-based library to parse a host of playlist formats
 LIB_DEPENDS=	libgmime-2.6.so:${PORTSDIR}/mail/gmime26 \
 		libsoup-gnome-2.4.so:${PORTSDIR}/devel/libsoup-gnome
 
-USE_XZ=		yes
-USES=		gettext gmake pathfix pkgconfig
-USE_GNOME=	gnomeprefix glib20 libxml2 intlhack ltverhack gnomehier \
-		introspection:build
+USES=		gettext gmake libtool pathfix pkgconfig tar:xz
+USE_GNOME=	glib20 gnomehier gnomeprefix intlhack introspection:build \
+		libxml2
 USE_LDCONFIG=	yes
-USE_AUTOTOOLS=	libtool
+GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--enable-libarchive
 CONFIGURE_ENV=	ARCHIVE_CFLAGS="-I/usr/include" \
 		ARCHIVE_LIBS="-L/usr/lib -larchive"
