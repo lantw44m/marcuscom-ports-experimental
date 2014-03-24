@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	webkit
-PORTVERSION=	2.3.92
+PORTVERSION=	2.4.0
 CATEGORIES=	www
 MASTER_SITES=	http://webkitgtk.org/releases/
 PKGNAMESUFFIX=	-gtk3
@@ -12,8 +12,7 @@ DISTNAME=	${PORTNAME}gtk-${PORTVERSION}
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Opensource browser engine using the GTK+ 3 toolkit
 
-BUILD_DEPENDS=	${LOCALBASE}/bin/flex:${PORTSDIR}/textproc/flex \
-		${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
+BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf \
 		gtkdoc-rebase:${PORTSDIR}/textproc/gtk-doc \
 		geoclue>=0:${PORTSDIR}/net/geoclue
 LIB_DEPENDS=	libenchant.so:${PORTSDIR}/textproc/enchant \
@@ -25,12 +24,9 @@ LIB_DEPENDS=	libenchant.so:${PORTSDIR}/textproc/enchant \
 		libsoup-2.4.so:${PORTSDIR}/devel/libsoup
 RUN_DEPENDS=	geoclue>=0:${PORTSDIR}/net/geoclue 
 
-LATEST_LINK=	${PORTNAME}${PKGNAMESUFFIX}
-
-USE_XZ=		yes
 USE_GSTREAMER1=	yes
 USE_XORG=	xt xdamage xcomposite
-USES=		bison gettext gmake perl5 pkgconfig shebangfix
+USES=		bison gettext gmake libtool perl5 pkgconfig shebangfix tar:xz
 USE_RUBY=	yes
 RUBY_NO_RUN_DEPENDS=yes
 USE_GNOME=	cairo gnomehier gtk20 gtk30 introspection:build \
@@ -39,10 +35,7 @@ USE_SQLITE=	3
 USE_PERL5=	build
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
-CONFIGURE_ENV=	ac_cv_path_FLEX="${LOCALBASE}/bin/flex" \
-		ZLIB_CFLAGS="-I/usr/include" \
-		ZLIB_LIBS="-L/usr/lib -lz" \
-		ac_cv_path_DOLT_BASH=""
+CONFIGURE_ENV=	ac_cv_path_DOLT_BASH=""
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 CONFIGURE_ARGS=	--with-gtk=3.0 \
@@ -150,15 +143,16 @@ CFLAGS+=	-mminimal-toc
 BUILD_DEPENDS+=	p5-Switch>0:${PORTSDIR}/lang/p5-Switch
 .endif
 
+.if ${OSVERSION} < 1000033
+BUILD_DEPENDS+=	${LOCALBASE}/bin/flex:${PORTSDIR}/textproc/flex
+CONFIGURE_ENV+=	FLEX_PATH="${LOCALBASE}/bin/flex"
+.endif
+
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%BROWSER_PLUGINS_DIR%%|${BROWSER_PLUGINS_DIR}|' \
 		${WRKSRC}/Source/WebCore/plugins/PluginDatabase.cpp
 	@${FIND} ${WRKSRC} -name GNUmakefile.* | ${XARGS} ${REINPLACE_CMD} -e \
 		's|[(]libdir[)]/pkgconfig|(prefix)/libdata/pkgconfig|g'
-	@${REINPLACE_CMD} -e 's|/usr/bin/gcc|${CC}|' \
-		${WRKSRC}/Source/WebCore/dom/make_names.pl \
-		${WRKSRC}/Source/WebCore/css/make-css-file-arrays.pl \
-		${WRKSRC}/Source/WebCore/bindings/scripts/IDLParser.pm
 	@${REINPLACE_CMD} -e 's|"gperf|"${LOCALBASE}/bin/gperf|g' \
 		${WRKSRC}/Source/WebCore/css/makevalues.pl \
 		${WRKSRC}/Source/WebCore/css/makeprop.pl \
@@ -167,8 +161,11 @@ post-patch:
 post-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/Programs/GtkLauncher \
 		${STAGEDIR}${PREFIX}/bin/GtkLauncher-3
+.if ${PORT_OPTIONS:MWEBKIT2}
+	${INSTALL_PROGRAM} ${WRKSRC}/Programs/MiniBrowser \
+		${STAGEDIR}${PREFIX}/bin/
+.endif
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/webkit2gtk-3.0/injected-bundle/libwebkit2gtkinjectedbundle.so
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libwebkit*.so.*
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libjavascriptcoregtk-3.0.so.16
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/lib*.so.*
 
 .include <bsd.port.post.mk>

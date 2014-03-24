@@ -1,4 +1,5 @@
 bin/GtkLauncher-3
+%%WEBKIT2%%bin/MiniBrowser
 bin/jsc-3
 include/webkitgtk-3.0/JavaScriptCore/JSBase.h
 include/webkitgtk-3.0/JavaScriptCore/JSContextRef.h
@@ -257,13 +258,16 @@ lib/girepository-1.0/WebKit-3.0.typelib
 %%WEBKIT2%%lib/girepository-1.0/WebKit2WebExtension-3.0.typelib
 lib/libjavascriptcoregtk-3.0.la
 lib/libjavascriptcoregtk-3.0.so
-lib/libjavascriptcoregtk-3.0.so.16
+lib/libjavascriptcoregtk-3.0.so.0
+lib/libjavascriptcoregtk-3.0.so.0.16.8
 %%WEBKIT2%%lib/libwebkit2gtk-3.0.la
 %%WEBKIT2%%lib/libwebkit2gtk-3.0.so
-%%WEBKIT2%%lib/libwebkit2gtk-3.0.so.35
+%%WEBKIT2%%lib/libwebkit2gtk-3.0.so.25
+%%WEBKIT2%%lib/libwebkit2gtk-3.0.so.25.10.3
 lib/libwebkitgtk-3.0.la
 lib/libwebkitgtk-3.0.so
-lib/libwebkitgtk-3.0.so.22
+lib/libwebkitgtk-3.0.so.0
+lib/libwebkitgtk-3.0.so.0.22.6
 %%WEBKIT2%%lib/webkit2gtk-3.0/injected-bundle/libwebkit2gtkinjectedbundle.la
 %%WEBKIT2%%lib/webkit2gtk-3.0/injected-bundle/libwebkit2gtkinjectedbundle.so
 libdata/pkgconfig/javascriptcoregtk-3.0.pc
