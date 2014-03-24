@@ -4,6 +4,7 @@
 
 PORTNAME=	libpeas
 PORTVERSION=	1.9.0
+PORTREVISION=	1
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -13,17 +14,16 @@ COMMENT=	Next evolution of the Gedit plugins engine
 
 BUILD_DEPENDS=	valac:${PORTSDIR}/lang/vala
 
-USE_XZ=		yes
-USE_PYTHON=	yes
+USE_PYTHON=	3
 USE_LDCONFIG=	yes
-USES=		gettext gmake libtool pathfix pkgconfig
+USES=		gettext gmake libtool pathfix pkgconfig tar:xz
 USE_GNOME=	gtk30 introspection:build
 INSTALLS_ICONS=	yes
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 INSTALL_TARGET=	install-strip
-CONFIGURE_ARGS+=--disable-glade-catalog
+CONFIGURE_ARGS+=--disable-glade-catalog --disable-gjs
 
 OPTIONS_DEFINE=	PYTHON SEED
 OPTIONS_DEFAULT=PYTHON SEED
@@ -41,7 +41,7 @@ PLIST_SUB+=	SEED="@comment "
 .endif
 
 .if ${PORT_OPTIONS:MPYTHON}
-CONFIGURE_ARGS+=--enable-python2 --disable-python3
+CONFIGURE_ARGS+=--disable-python2 --enable-python3
 USE_GNOME+=	pygobject3
 PLIST_SUB+=	PYTHONS=""
 .else
