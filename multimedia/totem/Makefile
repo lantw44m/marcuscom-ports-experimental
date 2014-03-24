@@ -28,12 +28,12 @@ RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:${PORTSDIR}/misc/iso-co
 		gnome-icon-theme-symbolic>=2.91.0:${PORTSDIR}/x11-themes/gnome-icon-theme-symbolic \
 		grilo-plugins>=0:${PORTSDIR}/net/grilo-plugins
 
-USE_PYTHON=	yes
+USE_PYTHON=	3
 USE_XORG=	x11 xproto xtst ice sm
 USES=		desktop-file-utils gettext gmake pathfix pkgconfig \
 		shebangfix tar:xz
 USE_GNOME=	gnomedocutils gnomehier gnomeprefix gtk30 intlhack \
-		introspection:build libxml2 nautilus3 pyobject3
+		introspection:build libxml2 nautilus3 pygobject3
 USE_GSTREAMER1=	core good bad soup ugly
 INSTALLS_ICONS=	yes
 GNU_CONFIGURE=	yes
@@ -54,6 +54,8 @@ GLIB_SCHEMAS=	org.gnome.totem.enums.xml \
 
 OPTIONS_DEFINE=	LIRC BROWSER_PLUGINS
 BROWSER_PLUGINS_DESC=	Web browser plugins
+
+PLIST_SUB+=	PYVER=${PYTHON_VER:S/.//}
 
 OPTIONS_DEFAULT=BROWSER_PLUGINS
 

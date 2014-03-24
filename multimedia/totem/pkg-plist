@@ -34,10 +34,10 @@ lib/totem/plugins/brasero-disc-recorder/libbrasero-disc-recorder.la
 lib/totem/plugins/brasero-disc-recorder/libbrasero-disc-recorder.so
 lib/totem/plugins/chapters/chapters-edit.ui
 lib/totem/plugins/chapters/chapters-list.ui
+lib/totem/plugins/dbus/__pycache__/dbusservice.cpython-%%PYVER%%.pyc
+lib/totem/plugins/dbus/__pycache__/dbusservice.cpython-%%PYVER%%.pyo
 lib/totem/plugins/dbus/dbusservice.plugin
 lib/totem/plugins/dbus/dbusservice.py
-lib/totem/plugins/dbus/dbusservice.pyc
-lib/totem/plugins/dbus/dbusservice.pyo
 lib/totem/plugins/gromit/gromit.plugin
 lib/totem/plugins/gromit/libgromit.a
 lib/totem/plugins/gromit/libgromit.la
@@ -59,13 +59,13 @@ lib/totem/plugins/ontop/libontop.a
 lib/totem/plugins/ontop/libontop.la
 lib/totem/plugins/ontop/libontop.so
 lib/totem/plugins/ontop/ontop.plugin
+lib/totem/plugins/opensubtitles/__pycache__/hash.cpython-%%PYVER%%.pyc
+lib/totem/plugins/opensubtitles/__pycache__/hash.cpython-%%PYVER%%.pyo
+lib/totem/plugins/opensubtitles/__pycache__/opensubtitles.cpython-%%PYVER%%.pyc
+lib/totem/plugins/opensubtitles/__pycache__/opensubtitles.cpython-%%PYVER%%.pyo
 lib/totem/plugins/opensubtitles/hash.py
-lib/totem/plugins/opensubtitles/hash.pyc
-lib/totem/plugins/opensubtitles/hash.pyo
 lib/totem/plugins/opensubtitles/opensubtitles.plugin
 lib/totem/plugins/opensubtitles/opensubtitles.py
-lib/totem/plugins/opensubtitles/opensubtitles.pyc
-lib/totem/plugins/opensubtitles/opensubtitles.pyo
 lib/totem/plugins/opensubtitles/opensubtitles.ui
 lib/totem/plugins/properties/libmovie-properties.a
 lib/totem/plugins/properties/libmovie-properties.la
@@ -651,12 +651,14 @@ share/thumbnailers/totem.thumbnailer
 @dirrm lib/totem/plugins/screenshot
 @dirrm lib/totem/plugins/screensaver
 @dirrm lib/totem/plugins/properties
+@dirrm lib/totem/plugins/opensubtitles/__pycache__
 @dirrm lib/totem/plugins/opensubtitles
 @dirrm lib/totem/plugins/ontop
 @dirrm lib/totem/plugins/media-player-keys
 %%LIRC%%@dirrm lib/totem/plugins/lirc
 @dirrm lib/totem/plugins/im-status
 @dirrm lib/totem/plugins/gromit
+@dirrm lib/totem/plugins/dbus/__pycache__
 @dirrm lib/totem/plugins/dbus
 @dirrm lib/totem/plugins/chapters
 @dirrm lib/totem/plugins/brasero-disc-recorder
