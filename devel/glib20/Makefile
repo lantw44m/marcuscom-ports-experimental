@@ -3,8 +3,7 @@
 #   $MCom$
 
 PORTNAME=	glib
-PORTVERSION=	2.39.91
-PORTREVISION=	1
+PORTVERSION=	2.40.0
 CATEGORIES=	devel
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome2
@@ -14,7 +13,7 @@ COMMENT=	Some useful routines of C programming (current stable version)
 
 LICENSE=	LGPL20
 
-USE_XZ=		yes
+USES=		tar:xz
 PORTSCOUT=	limitw:1,even
 
 .if !defined(REFERENCE_PORT)
@@ -26,7 +25,7 @@ GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
 # iconv:wchar_t - our iconv in base doesn't support utf-8 -> wchar_t (boooo)
 # (wchar_t is used by glibmm, rawtherapee triggered this)
-USES=		gettext gmake iconv:wchar_t libtool pathfix perl5 pkgconfig \
+USES+=		gettext gmake iconv:wchar_t libtool pathfix perl5 pkgconfig \
 		shebangfix
 USE_PYTHON=	yes
 PYTHON_PY3K_PLIST_HACK=	yes
@@ -41,7 +40,7 @@ INSTALL_TARGET=	install-strip
 
 SHEBANG_FILES=	*/*.pl glib/gen-iswide-table.py
 
-LIBVERSION=	0.3991.0
+LIBVERSION=	0.4000.0
 PLIST_SUB+=	LIBVERSION=${LIBVERSION}
 
 OPTIONS_DEFINE=	COLLATION_FIX DEBUG GDB
@@ -111,13 +110,9 @@ post-patch:
 	@${REINPLACE_CMD} -e 's|inotify_support=yes|inotify_support=no| ; \
 		s|-Werror|| ; \
 		s|#define HAVE_SYS_INOTIFY_H 1||' ${WRKSRC}/configure
-	@${REINPLACE_CMD} -e 's|-2.0.so.0.$$(LT_CURRENT).$$(LT_REVISION)-gdb.py|-2.0.so.0-gdb.py|g' \
-		${WRKSRC}/glib/Makefile.in \
-		${WRKSRC}/gobject/Makefile.in
 
 post-install:
 	@${MKDIR} ${STAGEDIR}${PREFIX}/share/GConf/gsettings
-#	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/lib*.so.${LIBVERSION}
 
 .include <bsd.port.post.mk>
 

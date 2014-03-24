@@ -299,8 +299,8 @@ share/aclocal/glib-2.0.m4
 share/aclocal/glib-gettext.m4
 share/aclocal/gsettings.m4
 share/bash-completion/completions/gapplication
-%%GDB%%share/gdb/auto-load/libglib-2.0.so.0-gdb.py
-%%GDB%%share/gdb/auto-load/libgobject-2.0.so.0-gdb.py
+%%GDB%%share/gdb/auto-load/libglib-2.0.so.%%LIBVERSION%%-gdb.py
+%%GDB%%share/gdb/auto-load/libgobject-2.0.so.%%LIBVERSION%%-gdb.py
 share/glib-2.0/codegen/__init__.py
 share/glib-2.0/codegen/__init__.pyc
 share/glib-2.0/codegen/__init__.pyo
