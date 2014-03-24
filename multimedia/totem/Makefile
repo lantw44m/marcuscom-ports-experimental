@@ -51,9 +51,8 @@ GLIB_SCHEMAS=	org.gnome.totem.enums.xml \
 		org.gnome.totem.gschema.xml \
 		org.gnome.totem.plugins.opensubtitles.gschema.xml
 
-OPTIONS_DEFINE=	LIRC BROWSER_PLUGINS TRACKER
+OPTIONS_DEFINE=	LIRC BROWSER_PLUGINS
 BROWSER_PLUGINS_DESC=	Web browser plugins
-TRACKER_DESC=	Tracker local search plugin
 
 OPTIONS_DEFAULT=BROWSER_PLUGINS
 
@@ -68,15 +67,6 @@ TOTEM_PLUGINS=	brasero-disc-recorder chapters dbusservice im-status grilo gromit
 # iplayer zeitgeist-dp grilo
 
 .include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MTRACKER}
-LIB_DEPENDS+=	libtracker-control-1.0.so:${PORTSDIR}/sysutils/tracker
-CONFIGURE_ARGS+=--enable-tracker=yes
-PLIST_SUB+=	TRACKER=""
-.else
-CONFIGURE_ARGS+=--enable-tracker=no
-PLIST_SUB+=	TRACKER="@comment "
-.endif
 
 .if ${PORT_OPTIONS:MLIRC}
 LIB_DEPENDS+=	liblirc_client.so:${PORTSDIR}/comms/lirc

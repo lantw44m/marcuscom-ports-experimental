@@ -85,10 +85,6 @@ lib/totem/plugins/skipto/libskipto.la
 lib/totem/plugins/skipto/libskipto.so
 lib/totem/plugins/skipto/skipto.plugin
 lib/totem/plugins/skipto/skipto.ui
-%%TRACKER%%lib/totem/plugins/tracker/libtracker.a
-%%TRACKER%%lib/totem/plugins/tracker/libtracker.la
-%%TRACKER%%lib/totem/plugins/tracker/libtracker.so
-%%TRACKER%%lib/totem/plugins/tracker/tracker.plugin
 libdata/pkgconfig/totem.pc
 %%BROWSER_PLUGINS%%libexec/totem-plugin-viewer
 libexec/totem/totem-bugreport.py
@@ -648,7 +644,6 @@ share/thumbnailers/totem.thumbnailer
 @dirrmtry share/help/C/totem
 @dirrm %%DOCSDIR%%
 @dirrm libexec/totem
-%%TRACKER%%@dirrm lib/totem/plugins/tracker
 @dirrm lib/totem/plugins/skipto
 @dirrm lib/totem/plugins/screenshot
 @dirrm lib/totem/plugins/screensaver
