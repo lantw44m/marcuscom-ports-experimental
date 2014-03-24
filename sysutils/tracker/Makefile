@@ -4,7 +4,7 @@
 
 PORTNAME=	tracker
 PORTVERSION=	0.17.8
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 
@@ -14,6 +14,7 @@ COMMENT=	Object database, tag/metadata database, search tool and indexer
 LIB_DEPENDS=	libdbus-glib-1.so:${PORTSDIR}/devel/dbus-glib \
 		libpoppler-glib.so:${PORTSDIR}/graphics/poppler-glib \
 		libexif.so:${PORTSDIR}/graphics/libexif \
+		libgxps.so:${PORTSDIR}/graphics/libgxps \
 		libwv-1.2.so:${PORTSDIR}/textproc/wv \
 		libgmime-2.6.so:${PORTSDIR}/mail/gmime26 \
 		libexempi.so:${PORTSDIR}/textproc/exempi \
@@ -27,6 +28,7 @@ LIB_DEPENDS=	libdbus-glib-1.so:${PORTSDIR}/devel/dbus-glib \
 		libmediaart-1.0.so:${PORTSDIR}/multimedia/libmediaart \
 		libgif.so:${PORTSDIR}/graphics/giflib \
 		libFLAC.so:${PORTSDIR}/audio/flac \
+		libvorbis.so:${PORTSDIR}/audio/libvorbis \
 		libcue.so:${PORTSDIR}/textproc/libcue \
 		libtag.so:${PORTSDIR}/audio/taglib
 RUN_DEPENDS=	xdg-desktop-icon:${PORTSDIR}/devel/xdg-utils \
@@ -38,16 +40,16 @@ PLIST_SUB=	TRACKER_VER="1.0"
 
 USES=		gettext gmake libtool pathfix pkgconfig tar:xz
 USE_SQLITE=	3
-USE_GNOME=	gnomeprefix gtk30 intltool
+USE_GNOME=	gnomeprefix gtk30 intltool introspection:build
 USE_LDCONFIG=	yes
-USE_GSTREAMER=	core
+USE_GSTREAMER1=	yes
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib -L${LOCALBASE}/lib/tracker
 CONFIGURE_ARGS=	--enable-video-extractor=gstreamer \
 		--with-session-bus-services-dir=${LOCALBASE}/share/dbus-1/services \
-		--enable-libexif --enable-libvorbis \
+		--enable-libexif --enable-libgxps \
 		--enable-libiptcdata --enable-miner-fs \
 		--disable-meegotouch  --disable-miner-flickr \
 	 	--enable-taglib \
@@ -56,7 +58,8 @@ CONFIGURE_ARGS=	--enable-video-extractor=gstreamer \
 		--disable-libosinfo --enable-libgif \
 		--enable-libjpeg --enable-libtiff \
 		--enable-libvorbis --enable-libflac \
-		--enable-libcue
+		--enable-libcue \
+		--enable-generic-media-extractor=gstreamer
 GLIB_SCHEMAS=	org.freedesktop.Tracker.DB.gschema.xml \
 		org.freedesktop.Tracker.Extract.gschema.xml \
 		org.freedesktop.Tracker.FTS.gschema.xml \

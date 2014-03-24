@@ -62,6 +62,8 @@ lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-flac.la
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-flac.so
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-gif.la
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-gif.so
+lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-gstreamer.la
+lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-gstreamer.so
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-html.la
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-html.so
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-icon.la
@@ -70,8 +72,6 @@ lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-jpeg.la
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-jpeg.so
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-mp3.la
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-mp3.so
-lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-mplayer.la
-lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-mplayer.so
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-msoffice-xml.la
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-msoffice-xml.so
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-msoffice.la
@@ -95,6 +95,8 @@ lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-vorbis.so
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-xmp.la
 lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-xmp.so
 lib/tracker-%%TRACKER_VER%%/writeback-modules/libwriteback-taglib.la
+lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-xps.la
+lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-xps.so
 lib/tracker-%%TRACKER_VER%%/writeback-modules/libwriteback-taglib.so
 lib/tracker-%%TRACKER_VER%%/writeback-modules/libwriteback-xmp.la
 lib/tracker-%%TRACKER_VER%%/writeback-modules/libwriteback-xmp.so
@@ -275,13 +277,18 @@ share/locale/zh_TW/LC_MESSAGES/tracker.mo
 %%DATADIR%%/extract-rules/10-pdf.rule
 %%DATADIR%%/extract-rules/10-png.rule
 %%DATADIR%%/extract-rules/10-ps.rule
+%%DATADIR%%/extract-rules/10-svg.rule
 %%DATADIR%%/extract-rules/10-tiff.rule
 %%DATADIR%%/extract-rules/10-vorbis.rule
 %%DATADIR%%/extract-rules/10-xmp.rule
+%%DATADIR%%/extract-rules/10-xps.rule
 %%DATADIR%%/extract-rules/11-msoffice-xml.rule
+%%DATADIR%%/extract-rules/15-gstreamer-guess.rule
 %%DATADIR%%/extract-rules/15-playlist.rule
+%%DATADIR%%/extract-rules/90-gstreamer-audio-generic.rule
+%%DATADIR%%/extract-rules/90-gstreamer-image-generic.rule
+%%DATADIR%%/extract-rules/90-gstreamer-video-generic.rule
 %%DATADIR%%/extract-rules/90-text-generic.rule
-%%DATADIR%%/extract-rules/93-mplayer-generic.rule
 %%DATADIR%%/languages/stopwords.da
 %%DATADIR%%/languages/stopwords.de
 %%DATADIR%%/languages/stopwords.en
