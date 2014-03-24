@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gnome-power-manager
-PORTVERSION=	3.11.90
+PORTVERSION=	3.12.0
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -13,8 +13,7 @@ COMMENT=	Power management system for the GNOME Desktop
 
 LIB_DEPENDS=	libupower-glib.so:${PORTSDIR}/sysutils/upower \
 
-USES=		gettext gmake pathfix pkgconfig
-USE_XZ=		yes
+USES=		gettext gmake pathfix pkgconfig tar:xz
 INSTALLS_ICONS=	yes
 USE_GNOME=	gnomeprefix gtk30 intlhack
 MAKE_JOBS_UNSAFE=yes
