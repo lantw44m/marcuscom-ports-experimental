@@ -2,21 +2,21 @@ bin/gnome-robots
 man/man6/gnome-robots.6.gz
 share/appdata/gnome-robots.appdata.xml
 share/applications/gnome-robots.desktop
-@unexec [ -s %D/share/games/gnobots2.classic_robots-safe.scores ] || rm -f %D/share/games/gnobots.classic_robots-safe.scores
-@unexec [ -s %D/share/games/gnobots2.classic_robots-super-safe.scores ] || rm -f %D/share/games/gnobots.classic_robots-super-safe.scores
-@unexec [ -s %D/share/games/gnobots2.classic_robots.scores ] || rm -f %D/share/games/gnobots.classic_robots.scores
-@unexec [ -s %D/share/games/gnobots2.nightmare-safe.scores ] || rm -f %D/share/games/gnobots.nightmare-safe.scores
-@unexec [ -s %D/share/games/gnobots2.nightmare-super-safe.scores ] || rm -f %D/share/games/gnobots.nightmare-super-safe.scores
-@unexec [ -s %D/share/games/gnobots2.nightmare.scores ] || rm -f %D/share/games/gnobots.nightmare.scores
-@unexec [ -s %D/share/games/gnobots2.robots2-safe.scores ] || rm -f %D/share/games/gnobots.robots2-safe.scores
-@unexec [ -s %D/share/games/gnobots2.robots2-super-safe.scores ] || rm -f %D/share/games/gnobots.robots2-super-safe.scores
-@unexec [ -s %D/share/games/gnobots2.robots2.scores ] || rm -f %D/share/games/gnobots.robots2.scores
-@unexec [ -s %D/share/games/gnobots2.robots2_easy-safe.scores ] || rm -f %D/share/games/gnobots.robots2_easy-safe.scores
-@unexec [ -s %D/share/games/gnobots2.robots2_easy-super-safe.scores ] || rm -f %D/share/games/gnobots.robots2_easy-super-safe.scores
-@unexec [ -s %D/share/games/gnobots2.robots2_easy.scores ] || rm -f %D/share/games/gnobots.robots2_easy.scores
-@unexec [ -s %D/share/games/gnobots2.robots_with_safe_teleport-safe.scores ] || rm -f %D/share/games/gnobots.robots_with_safe_teleport-safe.scores
-@unexec [ -s %D/share/games/gnobots2.robots_with_safe_teleport-super-safe.scores ] || rm -f %D/share/games/gnobots.robots_with_safe_teleport-super-safe.scores
-@unexec [ -s %D/share/games/gnobots.robots_with_safe_teleport.scores ] || rm -f %D/share/games/gnobots.robots_with_safe_teleport.scores
+@unexec [ -s %D/share/games/gnobots2.classic_robots-safe.scores ] || rm -f %D/share/games/gnobots2.classic_robots-safe.scores
+@unexec [ -s %D/share/games/gnobots2.classic_robots-super-safe.scores ] || rm -f %D/share/games/gnobots2.classic_robots-super-safe.scores
+@unexec [ -s %D/share/games/gnobots2.classic_robots.scores ] || rm -f %D/share/games/gnobots2.classic_robots.scores
+@unexec [ -s %D/share/games/gnobots2.nightmare-safe.scores ] || rm -f %D/share/games/gnobots2.nightmare-safe.scores
+@unexec [ -s %D/share/games/gnobots2.nightmare-super-safe.scores ] || rm -f %D/share/games/gnobots2.nightmare-super-safe.scores
+@unexec [ -s %D/share/games/gnobots2.nightmare.scores ] || rm -f %D/share/games/gnobots2.nightmare.scores
+@unexec [ -s %D/share/games/gnobots2.robots2-safe.scores ] || rm -f %D/share/games/gnobots2.robots2-safe.scores
+@unexec [ -s %D/share/games/gnobots2.robots2-super-safe.scores ] || rm -f %D/share/games/gnobots2.robots2-super-safe.scores
+@unexec [ -s %D/share/games/gnobots2.robots2.scores ] || rm -f %D/share/games/gnobots2.robots2.scores
+@unexec [ -s %D/share/games/gnobots2.robots2_easy-safe.scores ] || rm -f %D/share/games/gnobots2.robots2_easy-safe.scores
+@unexec [ -s %D/share/games/gnobots2.robots2_easy-super-safe.scores ] || rm -f %D/share/games/gnobots2.robots2_easy-super-safe.scores
+@unexec [ -s %D/share/games/gnobots2.robots2_easy.scores ] || rm -f %D/share/games/gnobots2.robots2_easy.scores
+@unexec [ -s %D/share/games/gnobots2.robots_with_safe_teleport-safe.scores ] || rm -f %D/share/games/gnobots2.robots_with_safe_teleport-safe.scores
+@unexec [ -s %D/share/games/gnobots2.robots_with_safe_teleport-super-safe.scores ] || rm -f %D/share/games/gnobots2.robots_with_safe_teleport-super-safe.scores
+@unexec [ -s %D/share/games/gnobots.robots_with_safe_teleport.scores ] || rm -f %D/share/games/gnobots2.robots_with_safe_teleport.scores
 share/gnome-robots/games/classic_robots.cfg
 share/gnome-robots/games/nightmare.cfg
 share/gnome-robots/games/robots2.cfg
@@ -251,6 +251,27 @@ share/help/fr/gnome-robots/figures/teleport.png
 share/help/fr/gnome-robots/figures/ufo-high-risk.png
 share/help/fr/gnome-robots/figures/ufo-low-risk.png
 share/help/fr/gnome-robots/figures/wait.png
+share/help/hu/gnome-robots/appearance.page
+share/help/hu/gnome-robots/basics.page
+share/help/hu/gnome-robots/controls-change.page
+share/help/hu/gnome-robots/controls-default.page
+share/help/hu/gnome-robots/game-types.page
+share/help/hu/gnome-robots/index.page
+share/help/hu/gnome-robots/legal.xml
+share/help/hu/gnome-robots/moves.page
+share/help/hu/gnome-robots/scores.page
+share/help/hu/gnome-robots/figures/boo-high-risk.png
+share/help/hu/gnome-robots/figures/boo-low-risk.png
+share/help/hu/gnome-robots/figures/gnome-high-risk.png
+share/help/hu/gnome-robots/figures/gnome-low-risk.png
+share/help/hu/gnome-robots/figures/gnome-robots.png
+share/help/hu/gnome-robots/figures/random.png
+share/help/hu/gnome-robots/figures/robots-high-risk.png
+share/help/hu/gnome-robots/figures/robots-low-risk.png
+share/help/hu/gnome-robots/figures/teleport.png
+share/help/hu/gnome-robots/figures/ufo-high-risk.png
+share/help/hu/gnome-robots/figures/ufo-low-risk.png
+share/help/hu/gnome-robots/figures/wait.png
 share/help/it/gnome-robots/appearance.page
 share/help/it/gnome-robots/basics.page
 share/help/it/gnome-robots/controls-change.page
@@ -602,8 +623,13 @@ share/locale/zh_TW/LC_MESSAGES/gnome-robots.mo
 @dirrmtry share/icons/HighContrast/16x16/apps
 @dirrmtry share/icons/HighContrast/16x16
 @dirrmtry share/icons/HighContrast
+@dirrm share/help/hu/gnome-robots/figures
+@dirrm share/help/hu/gnome-robots
+@dirrmtry share/help/hu
+@dirrmtry share/help
 @dirrm share/gnome-robots/themes
 @dirrm share/gnome-robots/sounds
 @dirrm share/gnome-robots/pixmaps
+@dirrm share/gnome-robots//games
 @dirrm share/gnome-robots
 @dirrmtry share/appdata
