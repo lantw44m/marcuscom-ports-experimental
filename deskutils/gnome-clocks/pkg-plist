@@ -17,6 +17,18 @@ share/help/C/gnome-clocks/world-add.page
 share/help/C/gnome-clocks/world-check.page
 share/help/C/gnome-clocks/world-remove.page
 share/help/C/gnome-clocks/figures/gnome-clocks.png
+share/help/cs/gnome-clocks/alarm-add.page
+share/help/cs/gnome-clocks/alarm-edit.page
+share/help/cs/gnome-clocks/alarm-remove.page
+share/help/cs/gnome-clocks/alarm-snooze-stop.page
+share/help/cs/gnome-clocks/index.page
+share/help/cs/gnome-clocks/legal.xml
+share/help/cs/gnome-clocks/stopwatch.page
+share/help/cs/gnome-clocks/timer.page
+share/help/cs/gnome-clocks/world-add.page
+share/help/cs/gnome-clocks/world-check.page
+share/help/cs/gnome-clocks/world-remove.page
+share/help/cs/gnome-clocks/figures/gnome-clocks.png
 share/help/de/gnome-clocks/alarm-add.page
 share/help/de/gnome-clocks/alarm-edit.page
 share/help/de/gnome-clocks/alarm-remove.page
@@ -215,6 +227,8 @@ share/locale/zh_TW/LC_MESSAGES/gnome-clocks.mo
 @dirrm share/help/el/gnome-clocks
 @dirrm share/help/de/gnome-clocks/figures
 @dirrm share/help/de/gnome-clocks
+@dirrm share/help/cs/gnome-clocks/figures
+@dirrm share/help/cs/gnome-clocks
 @dirrm share/help/C/gnome-clocks/figures
 @dirrm share/help/C/gnome-clocks
 @dirrmtry share/appdata

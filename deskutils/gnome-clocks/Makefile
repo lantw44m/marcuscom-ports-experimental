@@ -1,9 +1,9 @@
 # Created by: Gustau Perez <gustau.perez@gmail.com>
 # $FreeBSD$
-#   $MCom: ports-experimental/trunk/deskutils/gnome-clocks/Makefile 19209 2014-03-20 11:33:52Z gusi $
+#   $MCom$
 
 PORTNAME=	gnome-clocks
-PORTVERSION=	3.11.90
+PORTVERSION=	3.12.0
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
