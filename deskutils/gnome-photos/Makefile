@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gnome-photos
-PORTVERSION=	3.11.91
+PORTVERSION=	3.12.0
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
