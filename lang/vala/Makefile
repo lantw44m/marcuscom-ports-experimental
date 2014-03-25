@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	vala
-PORTVERSION=	0.23.3
+PORTVERSION=	0.24.0
 CATEGORIES=	lang gnome
 MASTER_SITES=	GNOME
 
@@ -12,18 +12,14 @@ COMMENT=	Programming language and compiler that converts Vala code into C code
 
 LICENSE=	LGPL21
 
-USES=		bison gettext gmake pathfix pkgconfig
-USE_XZ=		yes
+USES=		bison gettext gmake pathfix pkgconfig tar:xz
 USE_GNOME=	glib20 gnomeprefix libxslt
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 USE_LDCONFIG=	yes
 
-# Temporary skip that during 0.23, vala uses internally 0.24 as
-# its stable version
-#VALA_VER=	${PORTVERSION:R}
-VALA_VER=	0.24
+VALA_VER=	${PORTVERSION:R}
 
 PLIST_SUB=	VERSION=${VALA_VER}
 
