@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	atspi
-PORTVERSION=	2.11.92
+PORTVERSION=	2.12.0
 PORTREVISION=	1
 CATEGORIES=	accessibility x11-toolkits python
 MASTER_SITES=	GNOME
