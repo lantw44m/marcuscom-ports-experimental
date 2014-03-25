@@ -235,6 +235,7 @@ share/icons/gnome/scalable/mimetypes/application-certificate-symbolic.svg
 share/icons/gnome/scalable/mimetypes/application-rss+xml-symbolic.svg
 share/icons/gnome/scalable/mimetypes/application-x-appliance-symbolic.svg
 share/icons/gnome/scalable/mimetypes/audio-x-generic-symbolic.svg
+share/icons/gnome/scalable/mimetypes/inode-directory-symbolic.svg
 share/icons/gnome/scalable/mimetypes/package-x-generic-symbolic.svg
 share/icons/gnome/scalable/mimetypes/text-x-generic-symbolic.svg
 share/icons/gnome/scalable/mimetypes/video-x-generic-symbolic.svg
@@ -340,6 +341,7 @@ share/icons/gnome/scalable/status/network-wireless-connected-symbolic.svg
 share/icons/gnome/scalable/status/network-wireless-encrypted-symbolic.svg
 share/icons/gnome/scalable/status/network-wireless-hotspot-symbolic.svg
 share/icons/gnome/scalable/status/network-wireless-no-route-symbolic.svg
+share/icons/gnome/scalable/status/network-wireless-offline-symbolic.svg
 share/icons/gnome/scalable/status/network-wireless-signal-excellent-symbolic.svg
 share/icons/gnome/scalable/status/network-wireless-signal-good-symbolic.svg
 share/icons/gnome/scalable/status/network-wireless-signal-none-symbolic.svg
