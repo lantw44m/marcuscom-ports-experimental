@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME?=	vte
-PORTVERSION=	0.35.2
+PORTVERSION=	0.36.0
 CATEGORIES=	x11-toolkits gnome
 MASTER_SITES=	GNOME
 MASTER_SITE_SUBDIR=	sources/${PORTNAME:S/gnome-pty-helper/vte/}/${PORTVERSION:R}
@@ -14,7 +14,7 @@ DIST_SUBDIR=	gnome3
 MAINTAINER?=	gnome@FreeBSD.org
 COMMENT?=	Terminal widget with improved accessibility and I18N support
 
-USE_XZ=		yes
+USES=		tar:xz
 
 .if !defined(REFERENCE_PORT)
 VTE3_SLAVE?=	no
@@ -23,10 +23,10 @@ VTE3_SLAVE?=	no
 RUN_DEPENDS+=	${LOCALBASE}/libexec/gnome-pty-helper:${PORTSDIR}/x11-toolkits/gnome-pty-helper
 .endif
 
-USES=		bison gettext gmake pathfix pkgconfig
+USES+=		bison gettext gmake libtool pathfix pkgconfig
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
-USE_GNOME?=	gnomeprefix gtk30 ltverhack referencehack introspection:build
+USE_GNOME?=	gnomeprefix gtk30 referencehack introspection:build
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 CONFIGURE_ARGS?=--disable-python \
