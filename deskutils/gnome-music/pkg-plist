@@ -2,48 +2,48 @@ bin/gnome-music
 lib/gnome-music/libgd.la
 lib/gnome-music/libgd.so
 lib/gnome-music/girepository-1.0/Gd-1.0.typelib
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__init__.py
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/albumArtCache.py
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/application.py
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/grilo.py
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/mpris.py
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/notification.py
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/player.py
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/playlists.py
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/query.py
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/searchbar.py
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/toolbar.py
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/view.py
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/widgets.py
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/window.py
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/__init__.cpython-32.pyc
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/__init__.cpython-32.pyo
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/albumArtCache.cpython-32.pyc
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/albumArtCache.cpython-32.pyo
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/application.cpython-32.pyc
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/application.cpython-32.pyo
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/grilo.cpython-32.pyc
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/grilo.cpython-32.pyo
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/mpris.cpython-32.pyc
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/mpris.cpython-32.pyo
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/notification.cpython-32.pyc
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/notification.cpython-32.pyo
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/player.cpython-32.pyc
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/player.cpython-32.pyo
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/playlists.cpython-32.pyc
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/playlists.cpython-32.pyo
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/query.cpython-32.pyc
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/query.cpython-32.pyo
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/searchbar.cpython-32.pyc
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/searchbar.cpython-32.pyo
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/toolbar.cpython-32.pyc
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/toolbar.cpython-32.pyo
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/view.cpython-32.pyc
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/view.cpython-32.pyo
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/widgets.cpython-32.pyc
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/widgets.cpython-32.pyo
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/window.cpython-32.pyc
-%%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__/window.cpython-32.pyo
+%%PYTHON_SITELIBDIR%%/gnomemusic/__init__.py
+%%PYTHON_SITELIBDIR%%/gnomemusic/albumArtCache.py
+%%PYTHON_SITELIBDIR%%/gnomemusic/application.py
+%%PYTHON_SITELIBDIR%%/gnomemusic/grilo.py
+%%PYTHON_SITELIBDIR%%/gnomemusic/mpris.py
+%%PYTHON_SITELIBDIR%%/gnomemusic/notification.py
+%%PYTHON_SITELIBDIR%%/gnomemusic/player.py
+%%PYTHON_SITELIBDIR%%/gnomemusic/playlists.py
+%%PYTHON_SITELIBDIR%%/gnomemusic/query.py
+%%PYTHON_SITELIBDIR%%/gnomemusic/searchbar.py
+%%PYTHON_SITELIBDIR%%/gnomemusic/toolbar.py
+%%PYTHON_SITELIBDIR%%/gnomemusic/view.py
+%%PYTHON_SITELIBDIR%%/gnomemusic/widgets.py
+%%PYTHON_SITELIBDIR%%/gnomemusic/window.py
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/__init__.cpython-33.pyc
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/__init__.cpython-33.pyo
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/albumArtCache.cpython-33.pyc
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/albumArtCache.cpython-33.pyo
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/application.cpython-33.pyc
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/application.cpython-33.pyo
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/grilo.cpython-33.pyc
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/grilo.cpython-33.pyo
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/mpris.cpython-33.pyc
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/mpris.cpython-33.pyo
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/notification.cpython-33.pyc
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/notification.cpython-33.pyo
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/player.cpython-33.pyc
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/player.cpython-33.pyo
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/playlists.cpython-33.pyc
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/playlists.cpython-33.pyo
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/query.cpython-33.pyc
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/query.cpython-33.pyo
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/searchbar.cpython-33.pyc
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/searchbar.cpython-33.pyo
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/toolbar.cpython-33.pyc
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/toolbar.cpython-33.pyo
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/view.cpython-33.pyc
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/view.cpython-33.pyo
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/widgets.cpython-33.pyc
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/widgets.cpython-33.pyo
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/window.cpython-33.pyc
+%%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/window.cpython-33.pyo
 share/appdata/gnome-music.appdata.xml
 share/applications/gnome-music.desktop
 share/glib-2.0/schemas/org.gnome.Music.gschema.xml
@@ -182,7 +182,7 @@ share/locale/zh_TW/LC_MESSAGES/gnome-music.mo
 @dirrmtry share/appdata
 @dirrm lib/gnome-music/girepository-1.0
 @dirrm lib/gnome-music
-@dirrm %%PYTHON_LIBDIR%%/site-packages/gnomemusic/__pycache__
-@dirrm %%PYTHON_LIBDIR%%/site-packages/gnomemusic
+@dirrm %%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__
+@dirrm %%PYTHON_SITELIBDIR%%/gnomemusic
 @dirrm %%DATADIR%%/gir-1.0
 @dirrm %%DATADIR%%
