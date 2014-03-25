@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	accerciser
-PORTVERSION=	3.11.91
+PORTVERSION=	3.12.0
 CATEGORIES=	accessibility gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
