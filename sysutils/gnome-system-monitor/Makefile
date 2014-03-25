@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gnome-system-monitor
-PORTVERSION=	3.11.90
+PORTVERSION=	3.12.0
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3

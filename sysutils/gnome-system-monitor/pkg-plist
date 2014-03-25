@@ -79,6 +79,31 @@ share/help/es/gnome-system-monitor/process-status.page
 share/help/es/gnome-system-monitor/process-update-speed.page
 share/help/es/gnome-system-monitor/solaris-mode.page
 share/help/es/gnome-system-monitor/units.page
+share/help/fr/gnome-system-monitor/commandline.page
+share/help/fr/gnome-system-monitor/cpu-check.page
+share/help/fr/gnome-system-monitor/cpu-mem-normal.page
+share/help/fr/gnome-system-monitor/cpu-multicore.page
+share/help/fr/gnome-system-monitor/fs-device.page
+share/help/fr/gnome-system-monitor/fs-diskusage.page
+share/help/fr/gnome-system-monitor/fs-info.page
+share/help/fr/gnome-system-monitor/fs-showall.page
+share/help/fr/gnome-system-monitor/index.page
+share/help/fr/gnome-system-monitor/legal.xml
+share/help/fr/gnome-system-monitor/mem-check.page
+share/help/fr/gnome-system-monitor/mem-swap.page
+share/help/fr/gnome-system-monitor/memory-map-use.page
+share/help/fr/gnome-system-monitor/net-bits.page
+share/help/fr/gnome-system-monitor/process-explain.page
+share/help/fr/gnome-system-monitor/process-files.page
+share/help/fr/gnome-system-monitor/process-identify-file.page
+share/help/fr/gnome-system-monitor/process-identify-hog.page
+share/help/fr/gnome-system-monitor/process-kill.page
+share/help/fr/gnome-system-monitor/process-many.page
+share/help/fr/gnome-system-monitor/process-priority-change.page
+share/help/fr/gnome-system-monitor/process-status.page
+share/help/fr/gnome-system-monitor/process-update-speed.page
+share/help/fr/gnome-system-monitor/solaris-mode.page
+share/help/fr/gnome-system-monitor/units.page
 share/locale/am/LC_MESSAGES/gnome-system-monitor.mo
 share/locale/ar/LC_MESSAGES/gnome-system-monitor.mo
 share/locale/as/LC_MESSAGES/gnome-system-monitor.mo
@@ -211,6 +236,8 @@ share/polkit-1/actions/org.gnome.gnome-system-monitor.policy
 @dirrmtry share/locale/ast
 @dirrmtry share/locale/as/LC_MESSAGES
 @dirrmtry share/locale/as
+@dirrm share/help/fr/gnome-system-monitor
+@dirrmtry share/help/fr
 @dirrm share/help/es/gnome-system-monitor
 @dirrmtry share/help/es
 @dirrm share/help/el/gnome-system-monitor
