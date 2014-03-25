@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	baobab
-PORTVERSION=	3.11.90
+PORTVERSION=	3.12.0
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -17,9 +17,9 @@ LIB_DEPENDS=	libgtop-2.0.so:${PORTSDIR}/devel/libgtop
 
 CONFLICTS=	gnome-utils-2.[0-9]*
 
-USE_XZ=		yes
-USES=		desktop-file-utils gettext gmake pathfix pkgconfig
-USE_GNOME=	gnomeprefix intlhack libxml2 gtk30
+USES=		desktop-file-utils gettext gmake pathfix \
+		pkgconfig tar:xz
+USE_GNOME=	gnomeprefix gtk30 intlhack libxml2
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
