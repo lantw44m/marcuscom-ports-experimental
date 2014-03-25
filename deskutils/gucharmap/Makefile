@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gucharmap
-PORTVERSION=	3.10.1
+PORTVERSION=	3.12.0
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -13,8 +13,8 @@ COMMENT=	Unicode/ISO10646 character map and font viewer
 
 BUILD_DEPENDS=	itstool:${PORTSDIR}/textproc/itstool
 
-USE_XZ=		yes
-USES=		desktop-file-utils gettext gmake pathfix pkgconfig
+USES=		desktop-file-utils gettext gmake pathfix \
+		pkgconfig tar:xz
 USE_GNOME=	gnomeprefix gtk30 intlhack introspection:build
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
