@@ -3,8 +3,7 @@
 #    $MCom$
 
 PORTNAME=	tracker
-PORTVERSION=	0.17.8
-PORTREVISION=	2
+PORTVERSION=	1.0.0
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 
@@ -39,9 +38,9 @@ RUN_DEPENDS=	xdg-desktop-icon:${PORTSDIR}/devel/xdg-utils \
 PLIST_SUB=	TRACKER_VER="1.0"
 
 USES=		gettext gmake libtool pathfix pkgconfig tar:xz
-USE_SQLITE=	3
 USE_GNOME=	gnomeprefix gtk30 intltool introspection:build
 USE_LDCONFIG=	yes
+USE_SQLITE=	3
 USE_GSTREAMER1=	yes
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
