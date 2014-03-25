@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	at-spi2-atk
-PORTVERSION=	2.11.92
+PORTVERSION=	2.12.0
 CATEGORIES=	accessibility x11-toolkits
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -20,7 +20,7 @@ RUN_DEPENDS=	at-spi2-core>=2.8.0:${PORTSDIR}/accessibility/at-spi2-core
 PORTSCOUT=	limitw:1,even
 
 USES=		gmake libtool pathfix pkgconfig tar:xz
-USE_GNOME=	gnomehier intlhack glib20 atk
+USE_GNOME=	atk glib20 gnomehier intlhack
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
