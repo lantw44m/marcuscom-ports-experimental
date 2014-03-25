@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	vino
-PORTVERSION=	3.11.4
+PORTVERSION=	3.12.0
 CATEGORIES=	net gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -18,8 +18,7 @@ LIB_DEPENDS=	libgnutls.so:${PORTSDIR}/security/gnutls \
 		libgnome-keyring.so:${PORTSDIR}/security/libgnome-keyring \
 		libavahi-glib.so:${PORTSDIR}/net/avahi-app
 
-USE_XZ=		yes
-USES=		gettext gmake pathfix pkgconfig
+USES=		gettext gmake pathfix pkgconfig tar:xz
 USE_GNOME=	gnomeprefix gtk30 intlhack
 USE_XORG=	xdamage xfixes xtst
 GNU_CONFIGURE=	yes
