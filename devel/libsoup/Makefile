@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	libsoup
-PORTVERSION=	2.45.90
+PORTVERSION=	2.46.0
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome2
@@ -15,16 +15,16 @@ BUILD_DEPENDS=	glib-networking>=2.29.18:${PORTSDIR}/net/glib-networking
 LIB_DEPENDS=	libgcrypt.so:${PORTSDIR}/security/libgcrypt
 RUN_DEPENDS=	glib-networking>=2.29.18:${PORTSDIR}/net/glib-networking
 
-USE_XZ=		yes
+USES=		tar:xz
 
 .if !defined(REFERENCE_PORT)
 
-USES=		gettext gmake libtool pathfix pkgconfig
+USES+=		gettext gmake libtool pathfix pkgconfig tar:xz
 USE_GNOME=	gnomehier glib20 libxml2 referencehack intltool
 USE_SQLITE=	3
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
-USE_PYTHON_BUILD=	-2.7
+USE_PYTHON_BUILD=	3
 CONFIGURE_ARGS=	--disable-more-warnings
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
