@@ -3,7 +3,7 @@
 #  $MCom$
 
 PORTNAME=	vinagre
-PORTVERSION=	3.11.5
+PORTVERSION=	3.12.0
 CATEGORIES=	net gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -20,9 +20,8 @@ LIB_DEPENDS=	libgtk-vnc-2.0.so:${PORTSDIR}/net/gtk-vnc \
 		libgnome-keyring.so:${PORTSDIR}/security/libgnome-keyring
 RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/gnome-icon-theme.pc:${PORTSDIR}/misc/gnome-icon-theme
 
-USE_XZ=		yes
 USES=		desktop-file-utils gettext gmake pathfix pkgconfig \
-		shared-mime-info
+		shared-mime-info tar:xz
 USE_GNOME=	gnomeprefix gtk30 intlhack libxml2 vte3
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
