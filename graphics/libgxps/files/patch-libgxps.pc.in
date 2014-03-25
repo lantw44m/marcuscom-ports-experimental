@@ -1,0 +1,10 @@
+--- libgxps.pc.in.orig	2014-03-25 17:23:59.387523133 +0000
++++ libgxps.pc.in	2014-03-25 17:24:11.105524696 +0000
+@@ -6,6 +6,6 @@
+ Name: libgxps
+ Description: XPS Documents library
+ Version: @VERSION@
+-Requires: gio-2.0 >= @GLIB_REQUIRED@ libarchive >= @LIBARCHIVE_REQUIRED@ cairo >= @CAIRO_REQUIRED@ gobject-2.0 >= @GLIB_REQUIRED@
++Requires: gio-2.0 >= @GLIB_REQUIRED@ cairo >= @CAIRO_REQUIRED@ gobject-2.0 >= @GLIB_REQUIRED@
+ Libs: -L${libdir} -lgxps
+ Cflags: -I${includedir}
