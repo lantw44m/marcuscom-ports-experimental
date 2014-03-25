@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gnome-desktop
-PORTVERSION=	3.11.90
+PORTVERSION=	3.12.0
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -27,12 +27,13 @@ RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:${PORTSDIR}/misc/iso-co
 		${LOCALBASE}/libdata/pkgconfig/xkbfile.pc:${PORTSDIR}/x11/libxkbfile
 
 USE_XORG=	x11 xrandr xext
-USES=		bison gettext gmake pathfix pkgconfig
-USE_GNOME=	gnomeprefix intlhack gtk30 ltverhack referencehack \
-		introspection:build
-USE_PYTHON=	yes
+USES=		bison gettext gmake libtool pathfix pkgconfig \
+		tar:xz
+USE_GNOME=	gnomeprefix gtk30 intlhack introspection:build \
+		referencehack
+USE_PYTHON=	3
 USE_LDCONFIG=	yes
-USE_AUTOTOOLS=	libtool
+GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-gnome-distributor="FreeBSD GNOME Project"
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
