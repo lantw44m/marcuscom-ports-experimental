@@ -20,6 +20,7 @@ lib/libyelp.a
 lib/libyelp.la
 lib/libyelp.so
 lib/libyelp.so.0
+lib/libyelp.so.0.0.0
 share/applications/yelp.desktop
 share/doc/libyelp/YelpDocument.html
 share/doc/libyelp/YelpLocationEntry.html

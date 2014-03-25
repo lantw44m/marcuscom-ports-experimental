@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	yelp
-PORTVERSION=	3.11.91
+PORTVERSION=	3.12.0
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -19,8 +19,7 @@ BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/yelp-xsl.pc:${PORTSDIR}/textproc/y
 LIB_DEPENDS=	libwebkitgtk-3.0.so:${PORTSDIR}/www/webkit-gtk3
 RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/yelp-xsl.pc:${PORTSDIR}/textproc/yelp-xsl
 
-USES=		desktop-file-utils gettext gmake pathfix pkgconfig
-USE_XZ=		yes
+USES=		desktop-file-utils gettext gmake libtool pathfix pkgconfig tar:xz
 USE_XORG=	x11 ice
 USE_GNOME=	gnomeprefix gtk30 intlhack libxml2 libxslt
 GNU_CONFIGURE=	yes
@@ -40,6 +39,6 @@ LIB_DEPENDS+=	liblzma.so:${PORTSDIR}/archivers/xz
 .endif
 
 post-install:
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libyelp.so.0
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libyelp.so.*
 
 .include <bsd.port.post.mk>
