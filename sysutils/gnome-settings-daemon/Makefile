@@ -4,6 +4,7 @@
 
 PORTNAME=	gnome-settings-daemon
 PORTVERSION=	3.12.0
+PORTREVISION=	1
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -30,9 +31,8 @@ RUN_DEPENDS=	gnome-session>=0:${PORTSDIR}/x11/gnome-session \
 		${LOCALBASE}/libdata/pkgconfig/gsettings-desktop-schemas.pc:${PORTSDIR}/devel/gsettings-desktop-schemas
 
 USE_XORG=	xxf86misc
-USE_XZ=		yes
 USE_GNOME=	gnomehier gnomedesktop3 gnomeprefix intlhack libgnomekbd
-USES=		gettext gmake pathfix pkgconfig
+USES=		gettext gmake libtool pathfix pkgconfig tar:xz
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
 CONFIGURE_ARGS=	--disable-gudev \
@@ -60,6 +60,8 @@ GLIB_SCHEMAS=	org.gnome.settings-daemon.enums.xml \
 		org.gnome.settings-daemon.plugins.print-notifications.gschema.xml \
 		org.gnome.settings-daemon.plugins.xrandr.gschema.xml \
 		org.gnome.settings-daemon.plugins.xsettings.gschema.xml
+# work around missing cursor with xorg-server 1.12.
+GLIB_SCHEMAS+=	cursor-plugin.gschema.override
 
 .include <bsd.port.options.mk>
 
@@ -85,6 +87,8 @@ post-patch:
 		${WRKSRC}/data/org.gnome.settings-daemon.plugins.xrandr.gschema.xml.in.in
 
 post-install:
+	${INSTALL_DATA} ${FILESDIR}/cursor-plugin.gschema.override \
+		${STAGEDIR}${PREFIX}/share/glib-2.0/schemas
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/gnome-settings-daemon-3.0/lib*.so
 
 .include <bsd.port.mk>
