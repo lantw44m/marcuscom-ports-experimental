@@ -472,7 +472,7 @@ pygobject_BUILD_DEPENDS=	pygobject-codegen-2.0:${PORTSDIR}/devel/py-gobject
 pygobject_RUN_DEPENDS=		pygobject-codegen-2.0:${PORTSDIR}/devel/py-gobject
 pygobject_USE_GNOME_IMPL=	glib20
 
-py3gobject3_DETECT=		${LOCALBASE}/libdata/pkgconfig/pygobject-3.0.pc
+py3gobject3_DETECT=		${LOCALBASE}/share/py3gobject3/.keep
 py3gobject3_BUILD_DEPENDS=	py3?-gobject3>=0:${PORTSDIR}/devel/py3-gobject3
 py3gobject3_RUN_DEPENDS=	py3?-gobject3>=0:${PORTSDIR}/devel/py3-gobject3
 py3gobject3_USE_GNOME_IMPL=	glib20

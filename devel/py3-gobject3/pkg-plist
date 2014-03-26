@@ -1,4 +1,3 @@
-include/pygobject-3.0/pygobject.h
 %%PYTHON_SITELIBDIR%%/gi/__init__.py
 %%PYTHON_SITELIBDIR%%/gi/__pycache__/__init__.cpython-33.pyc
 %%PYTHON_SITELIBDIR%%/gi/__pycache__/__init__.cpython-33.pyo
@@ -76,7 +75,8 @@ include/pygobject-3.0/pygobject.h
 %%PYTHON_SITELIBDIR%%/pygtkcompat/__pycache__/pygtkcompat.cpython-33.pyo
 %%PYTHON_SITELIBDIR%%/pygtkcompat/generictreemodel.py
 %%PYTHON_SITELIBDIR%%/pygtkcompat/pygtkcompat.py
-libdata/pkgconfig/pygobject-3.0.pc
+share/py3gobject3/.keep
+@dirrm share/py3gobject3
 @dirrm %%PYTHON_SITELIBDIR%%/pygtkcompat/__pycache__
 @dirrm %%PYTHON_SITELIBDIR%%/pygtkcompat
 @dirrm %%PYTHON_SITELIBDIR%%/gi/repository/__pycache__
@@ -87,4 +87,3 @@ libdata/pkgconfig/pygobject-3.0.pc
 @dirrm %%PYTHON_SITELIBDIR%%/gi/_gobject
 @dirrm %%PYTHON_SITELIBDIR%%/gi/__pycache__
 @dirrm %%PYTHON_SITELIBDIR%%/gi
-@dirrmtry include/pygobject-3.0

@@ -4,6 +4,7 @@
 
 PORTNAME=	gobject
 PORTVERSION=	3.12.0
+PORTREVISION=	1
 CATEGORIES=	devel python
 MASTER_SITES=	GNOME
 MASTER_SITE_SUBDIR=	sources/pygobject/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}
@@ -20,7 +21,8 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/py3cairo.pc:${PORTSDIR}/graphics/py3-cairo
 LIB_DEPENDS=	libffi.so:${PORTSDIR}/devel/libffi
-RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/py3cairo.pc:${PORTSDIR}/graphics/py3-cairo
+RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/py3cairo.pc:${PORTSDIR}/graphics/py3-cairo \
+		pygobject3-common>=0:${PORTSDIR}/devel/pygobject3-common
 
 USES=		gmake pathfix pkgconfig tar:xz
 USE_GNOME=	glib20 introspection
@@ -45,6 +47,10 @@ post-patch:
 
 post-install:
 	@${STRIP_CMD} ${STAGEDIR}${PYTHON_SITELIBDIR}/gi/*.so
-	
+	@${RM} -f ${STAGEDIR}${PREFIX}/include/pygobject-3.0/pygobject.h \
+		${STAGEDIR}${PREFIX}/libdata/pkgconfig/pygobject-3.0.pc
+	@${RMDIR} ${STAGEDIR}${PREFIX}/include/pygobject-3.0
+	@${MKDIR} ${STAGEDIR}${PREFIX}/share/py3gobject3/
+	@${TOUCH} ${STAGEDIR}${PREFIX}/share/py3gobject3/.keep
 
 .include <bsd.port.post.mk>
