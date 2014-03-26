@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	eog
-PORTVERSION=	3.11.91
+PORTVERSION=	3.12.0
 CATEGORIES=	graphics gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -22,8 +22,7 @@ RUN_DEPENDS=	${LOCALBASE}/share/icons/gnome/index.theme:${PORTSDIR}/misc/gnome-i
 USE_GNOME=	gnomeprefix intlhack librsvg2 gtk30 gnomedesktop3 \
 		introspection:build
 INSTALLS_ICONS=	yes
-USES=		desktop-file-utils gettext gmake pathfix pkgconfig \
-		shared-mime-info tar:xz
+USES=		desktop-file-utils gettext gmake pathfix pkgconfig tar:xz
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
