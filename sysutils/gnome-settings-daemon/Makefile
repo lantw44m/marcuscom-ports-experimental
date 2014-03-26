@@ -1,10 +1,9 @@
 # Created by: Koop Mast <kwm@FreeBSD.org>
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/trunk/sysutils/gnome-settings-daemon/Makefile 19368 2014-03-26 16:21:17Z kwm $
 
 PORTNAME=	gnome-settings-daemon
-PORTVERSION=	3.12.0
-PORTREVISION=	1
+PORTVERSION=	3.12.0.1
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
