@@ -159,6 +159,35 @@ share/help/es/epiphany/prob-restore-closed-page.page
 share/help/es/epiphany/media/epiphany-3-12.png
 share/help/es/epiphany/media/private-browsing-3-12.png
 share/help/es/epiphany/media/web-browser.png
+share/help/fr/epiphany/bookmark-add.page
+share/help/fr/epiphany/bookmark-delete.page
+share/help/fr/epiphany/bookmark-edit.page
+share/help/fr/epiphany/bookmark-smart.page
+share/help/fr/epiphany/bookmark-topic.page
+share/help/fr/epiphany/bookmark.page
+share/help/fr/epiphany/browse-local.page
+share/help/fr/epiphany/browse-private.page
+share/help/fr/epiphany/browse-web.page
+share/help/fr/epiphany/browse-webapps.page
+share/help/fr/epiphany/cookies.xml
+share/help/fr/epiphany/data-cookies.page
+share/help/fr/epiphany/data-passwords.page
+share/help/fr/epiphany/history-delete.page
+share/help/fr/epiphany/history.page
+share/help/fr/epiphany/index.page
+share/help/fr/epiphany/introduction.page
+share/help/fr/epiphany/legal.xml
+share/help/fr/epiphany/pref-cookies.page
+share/help/fr/epiphany/pref-css.page
+share/help/fr/epiphany/pref-do-not-track.page
+share/help/fr/epiphany/pref-downloads.page
+share/help/fr/epiphany/pref-font.page
+share/help/fr/epiphany/pref-passwords.page
+share/help/fr/epiphany/pref.page
+share/help/fr/epiphany/prob-restore-closed-page.page
+share/help/fr/epiphany/media/epiphany-3-12.png
+share/help/fr/epiphany/media/private-browsing-3-12.png
+share/help/fr/epiphany/media/web-browser.png
 share/help/hu/epiphany/bookmark-add.page
 share/help/hu/epiphany/bookmark-delete.page
 share/help/hu/epiphany/bookmark-edit.page
@@ -408,6 +437,8 @@ share/locale/zh_TW/LC_MESSAGES/epiphany.mo
 @dirrm share/help/pt_BR/epiphany
 @dirrm share/help/hu/epiphany/media
 @dirrm share/help/hu/epiphany
+@dirrm share/help/fr/epiphany/media
+@dirrm share/help/fr/epiphany
 @dirrm share/help/es/epiphany/media
 @dirrm share/help/es/epiphany
 @dirrm share/help/el/epiphany/media
