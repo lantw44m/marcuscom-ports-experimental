@@ -14,8 +14,8 @@ https://bugzilla.gnome.org/show_bug.cgi?id=727049
 
 diff --git a/gnome-settings-daemon/main.c b/gnome-settings-daemon/main.c
 index 748a33c..4e99a97 100644
---- a/gnome-settings-daemon/main.c
-+++ b/gnome-settings-daemon/main.c
+--- gnome-settings-daemon/main.c
++++ gnome-settings-daemon/main.c
 @@ -45,6 +45,7 @@
  static gboolean   replace      = FALSE;
  static gboolean   debug        = FALSE;
