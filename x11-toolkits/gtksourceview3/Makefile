@@ -12,15 +12,13 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Text widget that adds syntax highlighting to the GtkTextView widget
 
-USE_XZ=		yes
-
 .if !defined(REFERENCE_PORT)
 
-USE_AUTOTOOLS=	libtool
-USE_LDCONFIG=	yes
-USES=		gettext gmake pathfix pkgconfig
+USES+=		gettext gmake libtool pathfix pkgconfig tar:xz
 USE_GNOME=	gnomeprefix gtk30 intlhack introspection:build \
 		libxml2 ltverhack referencehack
+GNU_CONFIGURE=	yes
+USE_LDCONFIG=	yes
 CONFIGURE_ARGS=	--enable-compile-warnings=no --enable-glade-catalog=no \
 		--enable-introspection
 CPPFLAGS+=	-I${LOCALBASE}/include
