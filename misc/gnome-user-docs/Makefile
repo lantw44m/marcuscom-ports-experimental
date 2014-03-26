@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gnome-user-docs
-PORTVERSION=	3.11.91
+PORTVERSION=	3.12.0
 CATEGORIES=	misc gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3

@@ -231,6 +231,7 @@ share/help/C/gnome-help/session-screenlocks.page
 share/help/C/gnome-help/settings-sharing.page
 share/help/C/gnome-help/sharing-bluetooth.page
 share/help/C/gnome-help/sharing-desktop.page
+share/help/C/gnome-help/sharing-displayname.page
 share/help/C/gnome-help/sharing-media.page
 share/help/C/gnome-help/sharing-personal.page
 share/help/C/gnome-help/sharing.page
@@ -643,6 +644,7 @@ share/help/as/gnome-help/session-screenlocks.page
 share/help/as/gnome-help/settings-sharing.page
 share/help/as/gnome-help/sharing-bluetooth.page
 share/help/as/gnome-help/sharing-desktop.page
+share/help/as/gnome-help/sharing-displayname.page
 share/help/as/gnome-help/sharing-media.page
 share/help/as/gnome-help/sharing-personal.page
 share/help/as/gnome-help/sharing.page
@@ -1022,6 +1024,7 @@ share/help/ca/gnome-help/session-screenlocks.page
 share/help/ca/gnome-help/settings-sharing.page
 share/help/ca/gnome-help/sharing-bluetooth.page
 share/help/ca/gnome-help/sharing-desktop.page
+share/help/ca/gnome-help/sharing-displayname.page
 share/help/ca/gnome-help/sharing-media.page
 share/help/ca/gnome-help/sharing-personal.page
 share/help/ca/gnome-help/sharing.page
@@ -1401,6 +1404,7 @@ share/help/cs/gnome-help/session-screenlocks.page
 share/help/cs/gnome-help/settings-sharing.page
 share/help/cs/gnome-help/sharing-bluetooth.page
 share/help/cs/gnome-help/sharing-desktop.page
+share/help/cs/gnome-help/sharing-displayname.page
 share/help/cs/gnome-help/sharing-media.page
 share/help/cs/gnome-help/sharing-personal.page
 share/help/cs/gnome-help/sharing.page
@@ -1780,6 +1784,7 @@ share/help/de/gnome-help/session-screenlocks.page
 share/help/de/gnome-help/settings-sharing.page
 share/help/de/gnome-help/sharing-bluetooth.page
 share/help/de/gnome-help/sharing-desktop.page
+share/help/de/gnome-help/sharing-displayname.page
 share/help/de/gnome-help/sharing-media.page
 share/help/de/gnome-help/sharing-personal.page
 share/help/de/gnome-help/sharing.page
@@ -2159,6 +2164,7 @@ share/help/el/gnome-help/session-screenlocks.page
 share/help/el/gnome-help/settings-sharing.page
 share/help/el/gnome-help/sharing-bluetooth.page
 share/help/el/gnome-help/sharing-desktop.page
+share/help/el/gnome-help/sharing-displayname.page
 share/help/el/gnome-help/sharing-media.page
 share/help/el/gnome-help/sharing-personal.page
 share/help/el/gnome-help/sharing.page
@@ -2538,6 +2544,7 @@ share/help/es/gnome-help/session-screenlocks.page
 share/help/es/gnome-help/settings-sharing.page
 share/help/es/gnome-help/sharing-bluetooth.page
 share/help/es/gnome-help/sharing-desktop.page
+share/help/es/gnome-help/sharing-displayname.page
 share/help/es/gnome-help/sharing-media.page
 share/help/es/gnome-help/sharing-personal.page
 share/help/es/gnome-help/sharing.page
@@ -2917,6 +2924,7 @@ share/help/fi/gnome-help/session-screenlocks.page
 share/help/fi/gnome-help/settings-sharing.page
 share/help/fi/gnome-help/sharing-bluetooth.page
 share/help/fi/gnome-help/sharing-desktop.page
+share/help/fi/gnome-help/sharing-displayname.page
 share/help/fi/gnome-help/sharing-media.page
 share/help/fi/gnome-help/sharing-personal.page
 share/help/fi/gnome-help/sharing.page
@@ -3296,6 +3304,7 @@ share/help/fr/gnome-help/session-screenlocks.page
 share/help/fr/gnome-help/settings-sharing.page
 share/help/fr/gnome-help/sharing-bluetooth.page
 share/help/fr/gnome-help/sharing-desktop.page
+share/help/fr/gnome-help/sharing-displayname.page
 share/help/fr/gnome-help/sharing-media.page
 share/help/fr/gnome-help/sharing-personal.page
 share/help/fr/gnome-help/sharing.page
@@ -3675,6 +3684,7 @@ share/help/gl/gnome-help/session-screenlocks.page
 share/help/gl/gnome-help/settings-sharing.page
 share/help/gl/gnome-help/sharing-bluetooth.page
 share/help/gl/gnome-help/sharing-desktop.page
+share/help/gl/gnome-help/sharing-displayname.page
 share/help/gl/gnome-help/sharing-media.page
 share/help/gl/gnome-help/sharing-personal.page
 share/help/gl/gnome-help/sharing.page
@@ -4054,6 +4064,7 @@ share/help/gu/gnome-help/session-screenlocks.page
 share/help/gu/gnome-help/settings-sharing.page
 share/help/gu/gnome-help/sharing-bluetooth.page
 share/help/gu/gnome-help/sharing-desktop.page
+share/help/gu/gnome-help/sharing-displayname.page
 share/help/gu/gnome-help/sharing-media.page
 share/help/gu/gnome-help/sharing-personal.page
 share/help/gu/gnome-help/sharing.page
@@ -4433,6 +4444,7 @@ share/help/hi/gnome-help/session-screenlocks.page
 share/help/hi/gnome-help/settings-sharing.page
 share/help/hi/gnome-help/sharing-bluetooth.page
 share/help/hi/gnome-help/sharing-desktop.page
+share/help/hi/gnome-help/sharing-displayname.page
 share/help/hi/gnome-help/sharing-media.page
 share/help/hi/gnome-help/sharing-personal.page
 share/help/hi/gnome-help/sharing.page
@@ -4812,6 +4824,7 @@ share/help/hu/gnome-help/session-screenlocks.page
 share/help/hu/gnome-help/settings-sharing.page
 share/help/hu/gnome-help/sharing-bluetooth.page
 share/help/hu/gnome-help/sharing-desktop.page
+share/help/hu/gnome-help/sharing-displayname.page
 share/help/hu/gnome-help/sharing-media.page
 share/help/hu/gnome-help/sharing-personal.page
 share/help/hu/gnome-help/sharing.page
@@ -5191,6 +5204,7 @@ share/help/id/gnome-help/session-screenlocks.page
 share/help/id/gnome-help/settings-sharing.page
 share/help/id/gnome-help/sharing-bluetooth.page
 share/help/id/gnome-help/sharing-desktop.page
+share/help/id/gnome-help/sharing-displayname.page
 share/help/id/gnome-help/sharing-media.page
 share/help/id/gnome-help/sharing-personal.page
 share/help/id/gnome-help/sharing.page
@@ -5570,6 +5584,7 @@ share/help/it/gnome-help/session-screenlocks.page
 share/help/it/gnome-help/settings-sharing.page
 share/help/it/gnome-help/sharing-bluetooth.page
 share/help/it/gnome-help/sharing-desktop.page
+share/help/it/gnome-help/sharing-displayname.page
 share/help/it/gnome-help/sharing-media.page
 share/help/it/gnome-help/sharing-personal.page
 share/help/it/gnome-help/sharing.page
@@ -5949,6 +5964,7 @@ share/help/ja/gnome-help/session-screenlocks.page
 share/help/ja/gnome-help/settings-sharing.page
 share/help/ja/gnome-help/sharing-bluetooth.page
 share/help/ja/gnome-help/sharing-desktop.page
+share/help/ja/gnome-help/sharing-displayname.page
 share/help/ja/gnome-help/sharing-media.page
 share/help/ja/gnome-help/sharing-personal.page
 share/help/ja/gnome-help/sharing.page
@@ -6328,6 +6344,7 @@ share/help/kn/gnome-help/session-screenlocks.page
 share/help/kn/gnome-help/settings-sharing.page
 share/help/kn/gnome-help/sharing-bluetooth.page
 share/help/kn/gnome-help/sharing-desktop.page
+share/help/kn/gnome-help/sharing-displayname.page
 share/help/kn/gnome-help/sharing-media.page
 share/help/kn/gnome-help/sharing-personal.page
 share/help/kn/gnome-help/sharing.page
@@ -6707,6 +6724,7 @@ share/help/lv/gnome-help/session-screenlocks.page
 share/help/lv/gnome-help/settings-sharing.page
 share/help/lv/gnome-help/sharing-bluetooth.page
 share/help/lv/gnome-help/sharing-desktop.page
+share/help/lv/gnome-help/sharing-displayname.page
 share/help/lv/gnome-help/sharing-media.page
 share/help/lv/gnome-help/sharing-personal.page
 share/help/lv/gnome-help/sharing.page
@@ -7086,6 +7104,7 @@ share/help/mr/gnome-help/session-screenlocks.page
 share/help/mr/gnome-help/settings-sharing.page
 share/help/mr/gnome-help/sharing-bluetooth.page
 share/help/mr/gnome-help/sharing-desktop.page
+share/help/mr/gnome-help/sharing-displayname.page
 share/help/mr/gnome-help/sharing-media.page
 share/help/mr/gnome-help/sharing-personal.page
 share/help/mr/gnome-help/sharing.page
@@ -7465,6 +7484,7 @@ share/help/nl/gnome-help/session-screenlocks.page
 share/help/nl/gnome-help/settings-sharing.page
 share/help/nl/gnome-help/sharing-bluetooth.page
 share/help/nl/gnome-help/sharing-desktop.page
+share/help/nl/gnome-help/sharing-displayname.page
 share/help/nl/gnome-help/sharing-media.page
 share/help/nl/gnome-help/sharing-personal.page
 share/help/nl/gnome-help/sharing.page
@@ -7844,6 +7864,7 @@ share/help/pa/gnome-help/session-screenlocks.page
 share/help/pa/gnome-help/settings-sharing.page
 share/help/pa/gnome-help/sharing-bluetooth.page
 share/help/pa/gnome-help/sharing-desktop.page
+share/help/pa/gnome-help/sharing-displayname.page
 share/help/pa/gnome-help/sharing-media.page
 share/help/pa/gnome-help/sharing-personal.page
 share/help/pa/gnome-help/sharing.page
@@ -8223,6 +8244,7 @@ share/help/pt_BR/gnome-help/session-screenlocks.page
 share/help/pt_BR/gnome-help/settings-sharing.page
 share/help/pt_BR/gnome-help/sharing-bluetooth.page
 share/help/pt_BR/gnome-help/sharing-desktop.page
+share/help/pt_BR/gnome-help/sharing-displayname.page
 share/help/pt_BR/gnome-help/sharing-media.page
 share/help/pt_BR/gnome-help/sharing-personal.page
 share/help/pt_BR/gnome-help/sharing.page
@@ -8602,6 +8624,7 @@ share/help/ru/gnome-help/session-screenlocks.page
 share/help/ru/gnome-help/settings-sharing.page
 share/help/ru/gnome-help/sharing-bluetooth.page
 share/help/ru/gnome-help/sharing-desktop.page
+share/help/ru/gnome-help/sharing-displayname.page
 share/help/ru/gnome-help/sharing-media.page
 share/help/ru/gnome-help/sharing-personal.page
 share/help/ru/gnome-help/sharing.page
@@ -8981,6 +9004,7 @@ share/help/sl/gnome-help/session-screenlocks.page
 share/help/sl/gnome-help/settings-sharing.page
 share/help/sl/gnome-help/sharing-bluetooth.page
 share/help/sl/gnome-help/sharing-desktop.page
+share/help/sl/gnome-help/sharing-displayname.page
 share/help/sl/gnome-help/sharing-media.page
 share/help/sl/gnome-help/sharing-personal.page
 share/help/sl/gnome-help/sharing.page
@@ -9360,6 +9384,7 @@ share/help/sr/gnome-help/session-screenlocks.page
 share/help/sr/gnome-help/settings-sharing.page
 share/help/sr/gnome-help/sharing-bluetooth.page
 share/help/sr/gnome-help/sharing-desktop.page
+share/help/sr/gnome-help/sharing-displayname.page
 share/help/sr/gnome-help/sharing-media.page
 share/help/sr/gnome-help/sharing-personal.page
 share/help/sr/gnome-help/sharing.page
@@ -9739,6 +9764,7 @@ share/help/sr@latin/gnome-help/session-screenlocks.page
 share/help/sr@latin/gnome-help/settings-sharing.page
 share/help/sr@latin/gnome-help/sharing-bluetooth.page
 share/help/sr@latin/gnome-help/sharing-desktop.page
+share/help/sr@latin/gnome-help/sharing-displayname.page
 share/help/sr@latin/gnome-help/sharing-media.page
 share/help/sr@latin/gnome-help/sharing-personal.page
 share/help/sr@latin/gnome-help/sharing.page
@@ -10118,6 +10144,7 @@ share/help/sv/gnome-help/session-screenlocks.page
 share/help/sv/gnome-help/settings-sharing.page
 share/help/sv/gnome-help/sharing-bluetooth.page
 share/help/sv/gnome-help/sharing-desktop.page
+share/help/sv/gnome-help/sharing-displayname.page
 share/help/sv/gnome-help/sharing-media.page
 share/help/sv/gnome-help/sharing-personal.page
 share/help/sv/gnome-help/sharing.page
@@ -10497,6 +10524,7 @@ share/help/ta/gnome-help/session-screenlocks.page
 share/help/ta/gnome-help/settings-sharing.page
 share/help/ta/gnome-help/sharing-bluetooth.page
 share/help/ta/gnome-help/sharing-desktop.page
+share/help/ta/gnome-help/sharing-displayname.page
 share/help/ta/gnome-help/sharing-media.page
 share/help/ta/gnome-help/sharing-personal.page
 share/help/ta/gnome-help/sharing.page
@@ -10876,6 +10904,7 @@ share/help/te/gnome-help/session-screenlocks.page
 share/help/te/gnome-help/settings-sharing.page
 share/help/te/gnome-help/sharing-bluetooth.page
 share/help/te/gnome-help/sharing-desktop.page
+share/help/te/gnome-help/sharing-displayname.page
 share/help/te/gnome-help/sharing-media.page
 share/help/te/gnome-help/sharing-personal.page
 share/help/te/gnome-help/sharing.page
@@ -11255,6 +11284,7 @@ share/help/vi/gnome-help/session-screenlocks.page
 share/help/vi/gnome-help/settings-sharing.page
 share/help/vi/gnome-help/sharing-bluetooth.page
 share/help/vi/gnome-help/sharing-desktop.page
+share/help/vi/gnome-help/sharing-displayname.page
 share/help/vi/gnome-help/sharing-media.page
 share/help/vi/gnome-help/sharing-personal.page
 share/help/vi/gnome-help/sharing.page
@@ -11634,6 +11664,7 @@ share/help/zh_CN/gnome-help/session-screenlocks.page
 share/help/zh_CN/gnome-help/settings-sharing.page
 share/help/zh_CN/gnome-help/sharing-bluetooth.page
 share/help/zh_CN/gnome-help/sharing-desktop.page
+share/help/zh_CN/gnome-help/sharing-displayname.page
 share/help/zh_CN/gnome-help/sharing-media.page
 share/help/zh_CN/gnome-help/sharing-personal.page
 share/help/zh_CN/gnome-help/sharing.page
@@ -11780,80 +11811,98 @@ share/help/zh_CN/gnome-help/figures/universal-access-menu.png
 share/help/zh_CN/gnome-help/figures/view-fullscreen-16.png
 share/help/zh_CN/gnome-help/figures/view-more-symbolic.svg
 share/help/zh_CN/gnome-help/figures/yelp-icon-big.png
+@dirrm share/help/zh_CN/gnome-help/figures
+@dirrm share/help/zh_CN/gnome-help
+@dirrmtry share/help/zh_CN
 @dirrm share/help/vi/gnome-help/figures
 @dirrm share/help/vi/gnome-help
-@dirrm share/help/vi
+@dirrmtry share/help/vi
 @dirrm share/help/te/gnome-help/figures
 @dirrm share/help/te/gnome-help
-@dirrm share/help/te
+@dirrmtry share/help/te
+@dirrm share/help/ta/gnome-help/figures
+@dirrm share/help/ta/gnome-help
+@dirrmtry share/help/ta
 @dirrm share/help/sv/gnome-help/figures
 @dirrm share/help/sv/gnome-help
-@dirrm share/help/sv
+@dirrmtry share/help/sv
 @dirrm share/help/sr@latin/gnome-help/figures
 @dirrm share/help/sr@latin/gnome-help
-@dirrm share/help/sr@latin
+@dirrmtry share/help/sr@latin
 @dirrm share/help/sr/gnome-help/figures
 @dirrm share/help/sr/gnome-help
-@dirrm share/help/sr
+@dirrmtry share/help/sr
 @dirrm share/help/sl/gnome-help/figures
 @dirrm share/help/sl/gnome-help
-@dirrm share/help/sl
+@dirrmtry share/help/sl
 @dirrm share/help/ru/gnome-help/figures
 @dirrm share/help/ru/gnome-help
-@dirrm share/help/ru
+@dirrmtry share/help/ru
 @dirrm share/help/pt_BR/gnome-help/figures
 @dirrm share/help/pt_BR/gnome-help
-@dirrm share/help/pt_BR
+@dirrmtry share/help/pt_BR
 @dirrm share/help/pa/gnome-help/figures
 @dirrm share/help/pa/gnome-help
-@dirrm share/help/pa
+@dirrmtry share/help/pa
 @dirrm share/help/nl/gnome-help/figures
 @dirrm share/help/nl/gnome-help
-@dirrm share/help/nl
+@dirrmtry share/help/nl
+@dirrm share/help/mr/gnome-help/figures
+@dirrm share/help/mr/gnome-help
+@dirrmtry share/help/mr
 @dirrm share/help/lv/gnome-help/figures
 @dirrm share/help/lv/gnome-help
-@dirrm share/help/lv
+@dirrmtry share/help/lv
+@dirrm share/help/kn/gnome-help/figures
+@dirrm share/help/kn/gnome-help
+@dirrmtry share/help/kn
 @dirrm share/help/ja/gnome-help/figures
 @dirrm share/help/ja/gnome-help
-@dirrm share/help/ja
+@dirrmtry share/help/ja
 @dirrm share/help/it/gnome-help/figures
 @dirrm share/help/it/gnome-help
-@dirrm share/help/it
+@dirrmtry share/help/it
 @dirrm share/help/id/gnome-help/figures
 @dirrm share/help/id/gnome-help
-@dirrm share/help/id
+@dirrmtry share/help/id
 @dirrm share/help/hu/gnome-help/figures
 @dirrm share/help/hu/gnome-help
-@dirrm share/help/hu
+@dirrmtry share/help/hu
 @dirrm share/help/hi/gnome-help/figures
 @dirrm share/help/hi/gnome-help
-@dirrm share/help/hi
+@dirrmtry share/help/hi
+@dirrm share/help/gu/gnome-help/figures
+@dirrm share/help/gu/gnome-help
+@dirrmtry share/help/gu
 @dirrm share/help/gl/gnome-help/figures
 @dirrm share/help/gl/gnome-help
-@dirrm share/help/gl
+@dirrmtry share/help/gl
 @dirrm share/help/fr/gnome-help/figures
 @dirrm share/help/fr/gnome-help
-@dirrm share/help/fr
+@dirrmtry share/help/fr
 @dirrm share/help/fi/gnome-help/figures
 @dirrm share/help/fi/gnome-help
-@dirrm share/help/fi
+@dirrmtry share/help/fi
 @dirrm share/help/es/gnome-help/figures
 @dirrm share/help/es/gnome-help
-@dirrm share/help/es
+@dirrmtry share/help/es
 @dirrm share/help/el/gnome-help/figures
 @dirrm share/help/el/gnome-help
-@dirrm share/help/el
+@dirrmtry share/help/el
 @dirrm share/help/de/gnome-help/figures
 @dirrm share/help/de/gnome-help
-@dirrm share/help/de
+@dirrmtry share/help/de
 @dirrm share/help/cs/gnome-help/figures
 @dirrm share/help/cs/gnome-help
-@dirrm share/help/cs
+@dirrmtry share/help/cs
 @dirrm share/help/ca/gnome-help/figures
 @dirrm share/help/ca/gnome-help
-@dirrm share/help/ca
+@dirrmtry share/help/ca
+@dirrm share/help/as/gnome-help/figures
+@dirrm share/help/as/gnome-help
+@dirrmtry share/help/as
 @dirrm share/help/C/system-admin-guide
 @dirrm share/help/C/gnome-help/figures
 @dirrm share/help/C/gnome-help
-@dirrm share/help/C
+@dirrmtry share/help/C
 @dirrmtry share/help
