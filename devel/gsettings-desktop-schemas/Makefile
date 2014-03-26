@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gsettings-desktop-schemas
-PORTVERSION=	3.11.90
+PORTVERSION=	3.12.0
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -15,8 +15,7 @@ LICENSE=	LGPL21
 
 RUN_DEPENDS=	${LOCALBASE}/etc/fonts/conf.avail/31-cantarell.conf:${PORTSDIR}/x11-fonts/cantarell-fonts
 
-USE_XZ=		yes
-USES=		gettext gmake pathfix perl5 pkgconfig
+USES=		gettext gmake pathfix perl5 pkgconfig tar:xz
 USE_PERL5=	build
 USE_GNOME=	intltool glib20 gnomehier introspection:build
 GNU_CONFIGURE=	yes
