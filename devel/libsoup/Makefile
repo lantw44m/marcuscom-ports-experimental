@@ -20,7 +20,8 @@ USES=		tar:xz
 .if !defined(REFERENCE_PORT)
 
 USES+=		gettext gmake libtool pathfix pkgconfig tar:xz
-USE_GNOME=	gnomehier glib20 libxml2 referencehack intltool
+USE_GNOME=	glib20 gnomehier intltool introspection:build \
+		libxml2 referencehack
 USE_SQLITE=	3
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
@@ -38,7 +39,6 @@ LIB_DEPENDS+=	libsoup-2.4.so:${PORTSDIR}/devel/libsoup \
 		libgnome-keyring.so:${PORTSDIR}/security/libgnome-keyring
 CONFIGURE_ARGS+=--with-gnome
 .else
-USE_GNOME+=	introspection:build
 CONFIGURE_ARGS+=--without-gnome
 .endif
 
@@ -49,11 +49,10 @@ post-patch:
 		${WRKSRC}/libsoup/tld-parser.py
 
 .if defined(SOUP_SLAVE)
-do-build:
-	cd ${WRKSRC}/libsoup && ${GMAKE} libsoup-gnome-2.4.la
-
 do-install:
 	${INSTALL_DATA} ${WRKSRC}/libsoup/.libs/libsoup-gnome-2.4.la ${STAGEDIR}${PREFIX}/lib/
+	${INSTALL_DATA} ${WRKSRC}/libsoup/SoupGNOME-2.4.gir ${STAGEDIR}${PREFIX}/share/gir-1.0/
+	${INSTALL_DATA} ${WRKSRC}/libsoup/SoupGNOME-2.4.typelib ${STAGEDIR}${PREFIX}/lib/girepository-1.0/
 	${INSTALL_PROGRAM} ${WRKSRC}/libsoup/.libs/libsoup-gnome-2.4.so ${STAGEDIR}${PREFIX}/lib/
 	${INSTALL_PROGRAM} ${WRKSRC}/libsoup/.libs/libsoup-gnome-2.4.so.1 ${STAGEDIR}${PREFIX}/lib/
 	${INSTALL_PROGRAM} ${WRKSRC}/libsoup/.libs/libsoup-gnome-2.4.so.${LIBVERSION} ${STAGEDIR}${PREFIX}/lib/
