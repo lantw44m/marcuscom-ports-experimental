@@ -23,7 +23,6 @@ share/help/C/gnome-mahjongg/rules.page
 share/help/C/gnome-mahjongg/scoring.page
 share/help/C/gnome-mahjongg/shortcuts.page
 share/help/C/gnome-mahjongg/strategy.page
-share/help/C/gnome-mahjongg/toolbar.page
 share/help/C/gnome-mahjongg/translate.page
 share/help/C/gnome-mahjongg/figures/black-symbol.png
 share/help/C/gnome-mahjongg/figures/hints-video.ogv
@@ -59,7 +58,6 @@ share/help/ca/gnome-mahjongg/rules.page
 share/help/ca/gnome-mahjongg/scoring.page
 share/help/ca/gnome-mahjongg/shortcuts.page
 share/help/ca/gnome-mahjongg/strategy.page
-share/help/ca/gnome-mahjongg/toolbar.page
 share/help/ca/gnome-mahjongg/translate.page
 share/help/ca/gnome-mahjongg/figures/black-symbol.png
 share/help/ca/gnome-mahjongg/figures/hints-video.ogv
@@ -95,7 +93,6 @@ share/help/cs/gnome-mahjongg/rules.page
 share/help/cs/gnome-mahjongg/scoring.page
 share/help/cs/gnome-mahjongg/shortcuts.page
 share/help/cs/gnome-mahjongg/strategy.page
-share/help/cs/gnome-mahjongg/toolbar.page
 share/help/cs/gnome-mahjongg/translate.page
 share/help/cs/gnome-mahjongg/figures/black-symbol.png
 share/help/cs/gnome-mahjongg/figures/hints-video.ogv
@@ -131,7 +128,6 @@ share/help/da/gnome-mahjongg/rules.page
 share/help/da/gnome-mahjongg/scoring.page
 share/help/da/gnome-mahjongg/shortcuts.page
 share/help/da/gnome-mahjongg/strategy.page
-share/help/da/gnome-mahjongg/toolbar.page
 share/help/da/gnome-mahjongg/translate.page
 share/help/da/gnome-mahjongg/figures/black-symbol.png
 share/help/da/gnome-mahjongg/figures/hints-video.ogv
@@ -167,7 +163,6 @@ share/help/de/gnome-mahjongg/rules.page
 share/help/de/gnome-mahjongg/scoring.page
 share/help/de/gnome-mahjongg/shortcuts.page
 share/help/de/gnome-mahjongg/strategy.page
-share/help/de/gnome-mahjongg/toolbar.page
 share/help/de/gnome-mahjongg/translate.page
 share/help/de/gnome-mahjongg/figures/black-symbol.png
 share/help/de/gnome-mahjongg/figures/hints-video.ogv
@@ -203,7 +198,6 @@ share/help/el/gnome-mahjongg/rules.page
 share/help/el/gnome-mahjongg/scoring.page
 share/help/el/gnome-mahjongg/shortcuts.page
 share/help/el/gnome-mahjongg/strategy.page
-share/help/el/gnome-mahjongg/toolbar.page
 share/help/el/gnome-mahjongg/translate.page
 share/help/el/gnome-mahjongg/figures/black-symbol.png
 share/help/el/gnome-mahjongg/figures/hints-video.ogv
@@ -239,7 +233,6 @@ share/help/en_GB/gnome-mahjongg/rules.page
 share/help/en_GB/gnome-mahjongg/scoring.page
 share/help/en_GB/gnome-mahjongg/shortcuts.page
 share/help/en_GB/gnome-mahjongg/strategy.page
-share/help/en_GB/gnome-mahjongg/toolbar.page
 share/help/en_GB/gnome-mahjongg/translate.page
 share/help/en_GB/gnome-mahjongg/figures/black-symbol.png
 share/help/en_GB/gnome-mahjongg/figures/hints-video.ogv
@@ -275,7 +268,6 @@ share/help/es/gnome-mahjongg/rules.page
 share/help/es/gnome-mahjongg/scoring.page
 share/help/es/gnome-mahjongg/shortcuts.page
 share/help/es/gnome-mahjongg/strategy.page
-share/help/es/gnome-mahjongg/toolbar.page
 share/help/es/gnome-mahjongg/translate.page
 share/help/es/gnome-mahjongg/figures/black-symbol.png
 share/help/es/gnome-mahjongg/figures/hints-video.ogv
@@ -311,7 +303,6 @@ share/help/eu/gnome-mahjongg/rules.page
 share/help/eu/gnome-mahjongg/scoring.page
 share/help/eu/gnome-mahjongg/shortcuts.page
 share/help/eu/gnome-mahjongg/strategy.page
-share/help/eu/gnome-mahjongg/toolbar.page
 share/help/eu/gnome-mahjongg/translate.page
 share/help/eu/gnome-mahjongg/figures/black-symbol.png
 share/help/eu/gnome-mahjongg/figures/hints-video.ogv
@@ -347,7 +338,6 @@ share/help/fr/gnome-mahjongg/rules.page
 share/help/fr/gnome-mahjongg/scoring.page
 share/help/fr/gnome-mahjongg/shortcuts.page
 share/help/fr/gnome-mahjongg/strategy.page
-share/help/fr/gnome-mahjongg/toolbar.page
 share/help/fr/gnome-mahjongg/translate.page
 share/help/fr/gnome-mahjongg/figures/black-symbol.png
 share/help/fr/gnome-mahjongg/figures/hints-video.ogv
@@ -383,7 +373,6 @@ share/help/hu/gnome-mahjongg/rules.page
 share/help/hu/gnome-mahjongg/scoring.page
 share/help/hu/gnome-mahjongg/shortcuts.page
 share/help/hu/gnome-mahjongg/strategy.page
-share/help/hu/gnome-mahjongg/toolbar.page
 share/help/hu/gnome-mahjongg/translate.page
 share/help/hu/gnome-mahjongg/figures/black-symbol.png
 share/help/hu/gnome-mahjongg/figures/hints-video.ogv
@@ -419,7 +408,6 @@ share/help/it/gnome-mahjongg/rules.page
 share/help/it/gnome-mahjongg/scoring.page
 share/help/it/gnome-mahjongg/shortcuts.page
 share/help/it/gnome-mahjongg/strategy.page
-share/help/it/gnome-mahjongg/toolbar.page
 share/help/it/gnome-mahjongg/translate.page
 share/help/it/gnome-mahjongg/figures/black-symbol.png
 share/help/it/gnome-mahjongg/figures/hints-video.ogv
@@ -455,7 +443,6 @@ share/help/oc/gnome-mahjongg/rules.page
 share/help/oc/gnome-mahjongg/scoring.page
 share/help/oc/gnome-mahjongg/shortcuts.page
 share/help/oc/gnome-mahjongg/strategy.page
-share/help/oc/gnome-mahjongg/toolbar.page
 share/help/oc/gnome-mahjongg/translate.page
 share/help/oc/gnome-mahjongg/figures/black-symbol.png
 share/help/oc/gnome-mahjongg/figures/hints-video.ogv
@@ -491,7 +478,6 @@ share/help/pl/gnome-mahjongg/rules.page
 share/help/pl/gnome-mahjongg/scoring.page
 share/help/pl/gnome-mahjongg/shortcuts.page
 share/help/pl/gnome-mahjongg/strategy.page
-share/help/pl/gnome-mahjongg/toolbar.page
 share/help/pl/gnome-mahjongg/translate.page
 share/help/pl/gnome-mahjongg/figures/black-symbol.png
 share/help/pl/gnome-mahjongg/figures/hints-video.ogv
@@ -527,7 +513,6 @@ share/help/ru/gnome-mahjongg/rules.page
 share/help/ru/gnome-mahjongg/scoring.page
 share/help/ru/gnome-mahjongg/shortcuts.page
 share/help/ru/gnome-mahjongg/strategy.page
-share/help/ru/gnome-mahjongg/toolbar.page
 share/help/ru/gnome-mahjongg/translate.page
 share/help/ru/gnome-mahjongg/figures/black-symbol.png
 share/help/ru/gnome-mahjongg/figures/hints-video.ogv
@@ -563,7 +548,6 @@ share/help/sl/gnome-mahjongg/rules.page
 share/help/sl/gnome-mahjongg/scoring.page
 share/help/sl/gnome-mahjongg/shortcuts.page
 share/help/sl/gnome-mahjongg/strategy.page
-share/help/sl/gnome-mahjongg/toolbar.page
 share/help/sl/gnome-mahjongg/translate.page
 share/help/sl/gnome-mahjongg/figures/black-symbol.png
 share/help/sl/gnome-mahjongg/figures/hints-video.ogv
@@ -599,7 +583,6 @@ share/help/sr/gnome-mahjongg/rules.page
 share/help/sr/gnome-mahjongg/scoring.page
 share/help/sr/gnome-mahjongg/shortcuts.page
 share/help/sr/gnome-mahjongg/strategy.page
-share/help/sr/gnome-mahjongg/toolbar.page
 share/help/sr/gnome-mahjongg/translate.page
 share/help/sr/gnome-mahjongg/figures/black-symbol.png
 share/help/sr/gnome-mahjongg/figures/hints-video.ogv
@@ -635,7 +618,6 @@ share/help/sr@latin/gnome-mahjongg/rules.page
 share/help/sr@latin/gnome-mahjongg/scoring.page
 share/help/sr@latin/gnome-mahjongg/shortcuts.page
 share/help/sr@latin/gnome-mahjongg/strategy.page
-share/help/sr@latin/gnome-mahjongg/toolbar.page
 share/help/sr@latin/gnome-mahjongg/translate.page
 share/help/sr@latin/gnome-mahjongg/figures/black-symbol.png
 share/help/sr@latin/gnome-mahjongg/figures/hints-video.ogv
@@ -671,7 +653,6 @@ share/help/sv/gnome-mahjongg/rules.page
 share/help/sv/gnome-mahjongg/scoring.page
 share/help/sv/gnome-mahjongg/shortcuts.page
 share/help/sv/gnome-mahjongg/strategy.page
-share/help/sv/gnome-mahjongg/toolbar.page
 share/help/sv/gnome-mahjongg/translate.page
 share/help/sv/gnome-mahjongg/figures/black-symbol.png
 share/help/sv/gnome-mahjongg/figures/hints-video.ogv
@@ -707,7 +688,6 @@ share/help/zh_CN/gnome-mahjongg/rules.page
 share/help/zh_CN/gnome-mahjongg/scoring.page
 share/help/zh_CN/gnome-mahjongg/shortcuts.page
 share/help/zh_CN/gnome-mahjongg/strategy.page
-share/help/zh_CN/gnome-mahjongg/toolbar.page
 share/help/zh_CN/gnome-mahjongg/translate.page
 share/help/zh_CN/gnome-mahjongg/figures/black-symbol.png
 share/help/zh_CN/gnome-mahjongg/figures/hints-video.ogv
