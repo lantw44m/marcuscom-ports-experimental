@@ -11,12 +11,11 @@ DIST_SUBDIR=	gnome2
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Extensible I/O abstraction for dealing with structured file formats
 
-USE_XZ=		yes
-USES=		gettext gmake pathfix pkgconfig
-USE_LDCONFIG=	yes
+USES=		gettext gmake libtool pathfix pkgconfig tar:xz
 USE_GNOME=	gdkpixbuf2 glib20 gnomeprefix intlhack introspection:build \
-		libxml2 ltverhack
-USE_AUTOTOOLS=	libtool
+		libxml2
+GNU_CONFIGURE=	yes
+USE_LDCONFIG=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 
