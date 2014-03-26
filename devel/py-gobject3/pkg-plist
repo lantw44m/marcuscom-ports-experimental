@@ -75,6 +75,8 @@
 %%PYTHON_SITELIBDIR%%/pygtkcompat/pygtkcompat.py
 %%PYTHON_SITELIBDIR%%/pygtkcompat/pygtkcompat.pyc
 %%PYTHON_SITELIBDIR%%/pygtkcompat/pygtkcompat.pyo
+share/pygobject3/.keep
+@dirrm share/pygobject3
 @dirrm %%PYTHON_SITELIBDIR%%/pygtkcompat
 @dirrm %%PYTHON_SITELIBDIR%%/gi/repository
 @dirrm %%PYTHON_SITELIBDIR%%/gi/overrides

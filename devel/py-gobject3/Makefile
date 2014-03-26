@@ -4,7 +4,7 @@
 
 PORTNAME=	gobject
 PORTVERSION=	3.12.0
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	devel python
 MASTER_SITES=	GNOME
 MASTER_SITE_SUBDIR=	sources/pygobject/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}
@@ -48,5 +48,8 @@ post-install:
 	@${RM} -f ${STAGEDIR}${PREFIX}/include/pygobject-3.0/pygobject.h \
 		${STAGEDIR}${PREFIX}/libdata/pkgconfig/pygobject-3.0.pc 
 	@${RMDIR} ${STAGEDIR}${PREFIX}/include/pygobject-3.0
+	# we need a file to use in bsd.gnome.mk _DETECT line.
+	@${MKDIR} ${STAGEDIR}${PREFIX}/share/pygobject3/
+	@${TOUCH} ${STAGEDIR}${PREFIX}/share/pygobject3/.keep
 
 .include <bsd.port.post.mk>
