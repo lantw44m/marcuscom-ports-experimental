@@ -11,10 +11,12 @@ include/cheese/cheese-widget.h
 include/cheese/cheese.h
 lib/libcheese-gtk.la
 lib/libcheese-gtk.so
-lib/libcheese-gtk.so.24
+lib/libcheese-gtk.so.23
+lib/libcheese-gtk.so.23.1.7
 lib/libcheese.la
 lib/libcheese.so
 lib/libcheese.so.7
+lib/libcheese.so.7.0.23
 lib/girepository-1.0/Cheese-3.0.typelib
 libdata/pkgconfig/cheese-gtk.pc
 libdata/pkgconfig/cheese.pc

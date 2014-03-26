@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	cheese
-PORTVERSION=	3.11.91
+PORTVERSION=	3.12.0
 CATEGORIES=	multimedia gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -25,7 +25,7 @@ RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/gnome-video-effects.pc:${PORTSDIR}/g
 USE_XORG=	xxf86vm x11
 USE_GNOME=	gnomeprefix intlhack evolutiondataserver3 librsvg2 \
 		gnomedesktop3 libxml2:build introspection:build
-USES=		gettext gmake pathfix pkgconfig tar:xz
+USES=		gettext gmake libtool pathfix pkgconfig tar:xz
 USE_GSTREAMER1=	bad good jpeg ogg theora v4l2 vpx
 INSTALLS_ICONS=	yes
 USE_LDCONFIG=	yes
