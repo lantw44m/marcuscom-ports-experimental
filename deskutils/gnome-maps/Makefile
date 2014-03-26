@@ -1,9 +1,9 @@
 # Created by: Gustau Perez <gustau.perez@gmail.com>
 # $FreeBSD$
-#   $MCom: ports-experimental/trunk/deskutils/gnome-maps/Makefile 19210 2014-03-20 11:51:52Z gusi $
+#   $MCom$
 
 PORTNAME=	gnome-maps
-PORTVERSION=	3.11.91
+PORTVERSION=	3.12.0
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
