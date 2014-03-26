@@ -11,7 +11,8 @@ include/libgweather-3.0/libgweather/gweather-weather.h
 include/libgweather-3.0/libgweather/gweather.h
 lib/libgweather-3.la
 lib/libgweather-3.so
-lib/libgweather-3.so.7
+lib/libgweather-3.so.6
+lib/libgweather-3.so.6.1.3
 libdata/pkgconfig/gweather-3.0.pc
 %%DOCSDIR%%-3.0/GWeatherInfo.html
 %%DOCSDIR%%-3.0/GWeatherLocation.html
