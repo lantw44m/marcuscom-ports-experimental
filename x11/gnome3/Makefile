@@ -3,8 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gnome3
-PORTVERSION=	3.11.91
-PORTREVISION?=	1
+PORTVERSION=	3.12.0
 CATEGORIES?=	x11 gnome
 MASTER_SITES=	# empty
 DISTFILES=	# empty
@@ -25,6 +24,7 @@ RUN_DEPENDS?=	dconf-editor:${PORTSDIR}/devel/dconf-editor \
 		orca>=3.0.0:${PORTSDIR}/accessibility/orca \
 		gnome-mount:${PORTSDIR}/sysutils/gnome-mount \
 		gnome-shell>=3.0.0:${PORTSDIR}/x11/gnome-shell \
+		gnome-shell-extensions>=3.0.0:${PORTSDIR}/x11/gnome-shell-extensions \
 		gnome-tweak-tool:${PORTSDIR}/deskutils/gnome-tweak-tool \
 		nautilus>=3.0.0:${PORTSDIR}/x11-fm/nautilus \
 		${LOCALBASE}/lib/X11/fonts/bitstream-vera/Vera.ttf:${PORTSDIR}/x11-fonts/bitstream-vera \
