@@ -3,9 +3,7 @@
 #   $MCom$
 
 PORTNAME=	glibmm
-PORTVERSION=	2.39.91
-PORTREVISION?=	0
-PORTEPOCH=	1
+PORTVERSION=	2.39.92
 CATEGORIES=	devel
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome2
@@ -13,7 +11,7 @@ DIST_SUBDIR=	gnome2
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	C++ interfaces for glib2
 
-USE_XZ=		yes
+USES=		tar:xz
 
 PLIST_SUB=	VERSION="2.4" API_VERSION="2.4"
 
@@ -21,7 +19,7 @@ PLIST_SUB=	VERSION="2.4" API_VERSION="2.4"
 
 BUILD_DEPENDS=	gm4:${PORTSDIR}/devel/m4
 
-USES=		gettext gmake libtool pathfix perl5 pkgconfig
+USES+=		gettext gmake libtool pathfix perl5 pkgconfig
 USE_GNOME=	glib20 libsigc++20
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
