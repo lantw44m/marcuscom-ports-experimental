@@ -4,7 +4,7 @@
 
 PORTNAME=	atspi
 PORTVERSION=	2.12.0
-PORTREVISION=	2
+PORTREVISION=	1
 CATEGORIES=	accessibility x11-toolkits python
 MASTER_SITES=	GNOME
 MASTER_SITE_SUBDIR=	sources/pyatspi/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}
@@ -13,16 +13,16 @@ DISTNAME=	pyatspi-${PORTVERSION}
 DIST_SUBDIR=	gnome3
 
 MAINTAINER=	gnome@FreeBSD.org
-COMMENT=	Python API for the D-BUS based SPI framework
+COMMENT=	Python3 API for the D-BUS based SPI framework
 
 RUN_DEPENDS=	${LOCALBASE}/libexec/at-spi2-registryd:${PORTSDIR}/accessibility/at-spi2-core
 
 CONFLICTS=	at-spi-1.[0-9]*
 
 USES=		gettext gmake pathfix pkgconfig tar:xz
-USE_GNOME=	gnomehier intlhack pygobject3
+USE_GNOME=	gnomehier intlhack py3gobject3
 GNU_CONFIGURE=	yes
-USE_PYTHON=	2
+USE_PYTHON=	3
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 
