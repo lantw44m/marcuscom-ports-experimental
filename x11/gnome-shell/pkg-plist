@@ -109,6 +109,7 @@ share/doc/st/styling.html
 share/doc/st/up-insensitive.png
 share/doc/st/up.png
 share/doc/st/widgets.html
+share/gnome-control-center/keybindings/50-gnome-shell-system.xml
 share/gnome-shell/theme/calendar-arrow-left.svg
 share/gnome-shell/theme/calendar-arrow-right.svg
 share/gnome-shell/theme/calendar-today.svg

@@ -4,6 +4,7 @@
 
 PORTNAME=	gnome-shell
 PORTVERSION=	3.12.0
+PORTREVISION=	1
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -11,7 +12,8 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Next generation GNOME desktop shell
 
-BUILD_DEPENDS=	${LOCALBASE}/share/certs/ca-root-nss.crt:${PORTSDIR}/security/ca_root_nss
+BUILD_DEPENDS=	${LOCALBASE}/share/certs/ca-root-nss.crt:${PORTSDIR}/security/ca_root_nss \
+		gnome-control-center>=0:${PORTSDIR}/sysutils/gnome-control-center
 LIB_DEPENDS=	libstartup-notification-1.so:${PORTSDIR}/x11/startup-notification \
 		libcaribou.so:${PORTSDIR}/accessibility/caribou \
 		libmutter.so:${PORTSDIR}/x11-wm/mutter \
@@ -28,6 +30,7 @@ LIB_DEPENDS=	libstartup-notification-1.so:${PORTSDIR}/x11/startup-notification \
 		libgjs.so:${PORTSDIR}/lang/gjs
 RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/dbus-python.pc:${PORTSDIR}/devel/py-dbus \
 		gdm>=0:${PORTSDIR}/x11/gdm \
+		gnome-control-center>=0:${PORTSDIR}/sysutils/gnome-control-center \
 		${LOCALBASE}/share/certs/ca-root-nss.crt:${PORTSDIR}/security/ca_root_nss
 
 USES=		gettext gmake libtool pathfix pkgconfig tar:xz \
