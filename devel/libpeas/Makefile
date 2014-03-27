@@ -4,7 +4,7 @@
 
 PORTNAME=	libpeas
 PORTVERSION=	1.9.0
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -42,7 +42,7 @@ PLIST_SUB+=	SEED="@comment "
 
 .if ${PORT_OPTIONS:MPYTHON}
 CONFIGURE_ARGS+=--disable-python2 --enable-python3
-USE_GNOME+=	pygobject3
+USE_GNOME+=	py3gobject3
 PLIST_SUB+=	PYTHONS=""
 .else
 CONFIGURE_ARGS+=--disable-python2 --disable-python3
