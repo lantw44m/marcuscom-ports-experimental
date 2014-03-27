@@ -11,7 +11,6 @@ bin/gnome-tweak-tool
 %%PYTHON_SITELIBDIR%%/gtweak/tweakview.py
 %%PYTHON_SITELIBDIR%%/gtweak/utils.py
 %%PYTHON_SITELIBDIR%%/gtweak/widgets.py
-%%PYTHON_SITELIBDIR%%/gtweak/__pycache__
 %%PYTHON_SITELIBDIR%%/gtweak/__pycache__/__init__.cpython-33.pyc
 %%PYTHON_SITELIBDIR%%/gtweak/__pycache__/__init__.cpython-33.pyo
 %%PYTHON_SITELIBDIR%%/gtweak/__pycache__/defs.cpython-33.pyc
@@ -38,7 +37,6 @@ bin/gnome-tweak-tool
 %%PYTHON_SITELIBDIR%%/gtweak/tweaks/tweak_group_windows.py
 %%PYTHON_SITELIBDIR%%/gtweak/tweaks/tweak_group_xkb.py
 %%PYTHON_SITELIBDIR%%/gtweak/tweaks/tweak_wacom.py
-%%PYTHON_SITELIBDIR%%/gtweak/tweaks/__pycache__
 %%PYTHON_SITELIBDIR%%/gtweak/tweaks/__pycache__/__init__.cpython-33.pyc
 %%PYTHON_SITELIBDIR%%/gtweak/tweaks/__pycache__/__init__.cpython-33.pyo
 %%PYTHON_SITELIBDIR%%/gtweak/tweaks/__pycache__/tweak_group_desktop.cpython-33.pyc
