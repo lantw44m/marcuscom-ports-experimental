@@ -4,6 +4,7 @@
 
 PORTNAME=	gnome-sudoku
 PORTVERSION=	3.12.0
+PORTREVISION=	1
 CATEGORIES=	games gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -11,12 +12,12 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Sudoku game for gnome
 
-BUILD_DEPENDS=	itstool:${PORTSDIR}/textproc/itstool
+BUILD_DEPENDS=	itstool:${PORTSDIR}/textproc/itstool \
 
 USES=		gettext gmake pathfix pkgconfig tar:xz
+USE_GNOME=	gtk30 intlhack libxml2:build py3gobject3
 USE_PYTHON=	3
 INSTALLS_ICONS=	yes
-USE_GNOME=	gtk30 intlhack libxml2:build pygobject3
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
