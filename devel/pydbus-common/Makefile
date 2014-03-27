@@ -4,6 +4,7 @@
 
 PORTNAME=	dbus
 PORTVERSION=	1.1.1
+PORTREVISION=	1
 CATEGORIES=	devel gnome python
 MASTER_SITES=	http://dbus.freedesktop.org/releases/dbus-python/
 PKGNAMEPREFIX=	py
@@ -56,10 +57,13 @@ do-install:
 		${INSTALL_DATA} ${WRKSRC}/examples/*.py ${STAGEDIR}${EXAMPLESDIR}
 
 	${MKDIR} ${STAGEDIR}${DOCSDIR} && \
-		${INSTALL_DATA} ${WRKSRC}/*.html ${STAGEDIR}${DOCSDIR} && \
-		${INSTALL_DATA} ${WRKSRC}/doc/*.html ${STAGEDIR}${DOCSDIR} && \
 		${INSTALL_DATA} ${WRKSRC}/doc/*.txt ${STAGEDIR}${DOCSDIR} && \
 		${INSTALL_DATA} ${WRKSRC}/README ${STAGEDIR}${DOCSDIR} && \
 		${INSTALL_DATA} ${WRKSRC}/NEWS ${STAGEDIR}${DOCSDIR}
+
+.if ${PORT_OPTIONS:MHTMLDOCS}
+	${INSTALL_DATA} ${WRKSRC}/*.html ${STAGEDIR}${DOCSDIR} && \
+	${INSTALL_DATA} ${WRKSRC}/doc/*.html ${STAGEDIR}${DOCSDIR}
+.endif
 
 .include <bsd.port.mk>
