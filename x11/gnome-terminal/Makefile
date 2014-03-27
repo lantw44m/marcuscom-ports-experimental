@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gnome-terminal
-PORTVERSION=	3.11.3
+PORTVERSION=	3.12.0
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -12,15 +12,16 @@ MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Terminal component for the GNOME 3 Desktop
 
 BUILD_DEPENDS=	gsettings-desktop-schemas>=0:${PORTSDIR}/devel/gsettings-desktop-schemas \
-		itstool:${PORTSDIR}/textproc/itstool
+		itstool:${PORTSDIR}/textproc/itstool \
+		appdata-tools>=0:${PORTSDIR}/devel/appdata-tools 
 LIB_DEPENDS=	libstartup-notification-1.so:${PORTSDIR}/x11/startup-notification \
 		libuuid.so:${PORTSDIR}/misc/e2fsprogs-libuuid
 RUN_DEPENDS=	gsettings-desktop-schemas>=0:${PORTSDIR}/devel/gsettings-desktop-schemas
 
 USES=		gettext gmake pathfix pkgconfig tar:xz
-USE_XORG=	sm ice
 USE_GNOME=	gconf2 gnomedocutils gnomeprefix intlhack \
 		nautilus3 vte3
+USE_XORG=	sm ice
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-search-provider
 CPPFLAGS+=	-I${LOCALBASE}/include

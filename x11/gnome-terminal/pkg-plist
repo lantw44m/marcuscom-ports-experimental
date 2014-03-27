@@ -4,6 +4,7 @@ lib/nautilus/extensions-3.0/libterminal-nautilus.la
 lib/nautilus/extensions-3.0/libterminal-nautilus.so
 libexec/gnome-terminal-migration
 libexec/gnome-terminal-server
+share/appdata/gnome-terminal.appdata.xml
 share/applications/gnome-terminal.desktop
 share/dbus-1/services/org.gnome.Terminal.service
 share/help/C/gnome-terminal/adv-keyboard-shortcuts.page
@@ -27,6 +28,8 @@ share/help/C/gnome-terminal/pref-keyboard-access.page
 share/help/C/gnome-terminal/pref-menubar.page
 share/help/C/gnome-terminal/pref-profiles.page
 share/help/C/gnome-terminal/pref-scrolling.page
+share/help/C/gnome-terminal/pref-tab-window.page
+share/help/C/gnome-terminal/pref-theme.page
 share/help/C/gnome-terminal/pref-title.page
 share/help/C/gnome-terminal/pref.page
 share/help/C/gnome-terminal/prob-reset.page
@@ -58,6 +61,8 @@ share/help/cs/gnome-terminal/pref-keyboard-access.page
 share/help/cs/gnome-terminal/pref-menubar.page
 share/help/cs/gnome-terminal/pref-profiles.page
 share/help/cs/gnome-terminal/pref-scrolling.page
+share/help/cs/gnome-terminal/pref-tab-window.page
+share/help/cs/gnome-terminal/pref-theme.page
 share/help/cs/gnome-terminal/pref-title.page
 share/help/cs/gnome-terminal/pref.page
 share/help/cs/gnome-terminal/prob-reset.page
@@ -87,6 +92,8 @@ share/help/de/gnome-terminal/pref-keyboard-access.page
 share/help/de/gnome-terminal/pref-menubar.page
 share/help/de/gnome-terminal/pref-profiles.page
 share/help/de/gnome-terminal/pref-scrolling.page
+share/help/de/gnome-terminal/pref-tab-window.page
+share/help/de/gnome-terminal/pref-theme.page
 share/help/de/gnome-terminal/pref-title.page
 share/help/de/gnome-terminal/pref.page
 share/help/de/gnome-terminal/prob-reset.page
@@ -116,6 +123,8 @@ share/help/el/gnome-terminal/pref-keyboard-access.page
 share/help/el/gnome-terminal/pref-menubar.page
 share/help/el/gnome-terminal/pref-profiles.page
 share/help/el/gnome-terminal/pref-scrolling.page
+share/help/el/gnome-terminal/pref-tab-window.page
+share/help/el/gnome-terminal/pref-theme.page
 share/help/el/gnome-terminal/pref-title.page
 share/help/el/gnome-terminal/pref.page
 share/help/el/gnome-terminal/prob-reset.page
@@ -145,6 +154,8 @@ share/help/es/gnome-terminal/pref-keyboard-access.page
 share/help/es/gnome-terminal/pref-menubar.page
 share/help/es/gnome-terminal/pref-profiles.page
 share/help/es/gnome-terminal/pref-scrolling.page
+share/help/es/gnome-terminal/pref-tab-window.page
+share/help/es/gnome-terminal/pref-theme.page
 share/help/es/gnome-terminal/pref-title.page
 share/help/es/gnome-terminal/pref.page
 share/help/es/gnome-terminal/prob-reset.page
@@ -153,6 +164,37 @@ share/help/es/gnome-terminal/txt-copy-paste.page
 share/help/es/gnome-terminal/txt-links.page
 share/help/es/gnome-terminal/txt-search.page
 share/help/es/gnome-terminal/txt-select-text.page
+share/help/fr/gnome-terminal/adv-keyboard-shortcuts.page
+share/help/fr/gnome-terminal/app-colors.page
+share/help/fr/gnome-terminal/app-cursor.page
+share/help/fr/gnome-terminal/app-fonts.page
+share/help/fr/gnome-terminal/app-fullscreen.page
+share/help/fr/gnome-terminal/app-terminal-sizes.page
+share/help/fr/gnome-terminal/app-zoom.page
+share/help/fr/gnome-terminal/gs-execute-commands.page
+share/help/fr/gnome-terminal/gs-tabs.page
+share/help/fr/gnome-terminal/index.page
+share/help/fr/gnome-terminal/introduction.page
+share/help/fr/gnome-terminal/legal.xml
+share/help/fr/gnome-terminal/overview.page
+share/help/fr/gnome-terminal/pref-bell.page
+share/help/fr/gnome-terminal/pref-custom-command.page
+share/help/fr/gnome-terminal/pref-custom-exit.page
+share/help/fr/gnome-terminal/pref-encoding.page
+share/help/fr/gnome-terminal/pref-keyboard-access.page
+share/help/fr/gnome-terminal/pref-menubar.page
+share/help/fr/gnome-terminal/pref-profiles.page
+share/help/fr/gnome-terminal/pref-scrolling.page
+share/help/fr/gnome-terminal/pref-tab-window.page
+share/help/fr/gnome-terminal/pref-theme.page
+share/help/fr/gnome-terminal/pref-title.page
+share/help/fr/gnome-terminal/pref.page
+share/help/fr/gnome-terminal/prob-reset.page
+share/help/fr/gnome-terminal/profile.page
+share/help/fr/gnome-terminal/txt-copy-paste.page
+share/help/fr/gnome-terminal/txt-links.page
+share/help/fr/gnome-terminal/txt-search.page
+share/help/fr/gnome-terminal/txt-select-text.page
 share/help/gl/gnome-terminal/adv-keyboard-shortcuts.page
 share/help/gl/gnome-terminal/app-colors.page
 share/help/gl/gnome-terminal/app-cursor.page
@@ -174,6 +216,8 @@ share/help/gl/gnome-terminal/pref-keyboard-access.page
 share/help/gl/gnome-terminal/pref-menubar.page
 share/help/gl/gnome-terminal/pref-profiles.page
 share/help/gl/gnome-terminal/pref-scrolling.page
+share/help/gl/gnome-terminal/pref-tab-window.page
+share/help/gl/gnome-terminal/pref-theme.page
 share/help/gl/gnome-terminal/pref-title.page
 share/help/gl/gnome-terminal/pref.page
 share/help/gl/gnome-terminal/prob-reset.page
@@ -203,6 +247,8 @@ share/help/hu/gnome-terminal/pref-keyboard-access.page
 share/help/hu/gnome-terminal/pref-menubar.page
 share/help/hu/gnome-terminal/pref-profiles.page
 share/help/hu/gnome-terminal/pref-scrolling.page
+share/help/hu/gnome-terminal/pref-tab-window.page
+share/help/hu/gnome-terminal/pref-theme.page
 share/help/hu/gnome-terminal/pref-title.page
 share/help/hu/gnome-terminal/pref.page
 share/help/hu/gnome-terminal/prob-reset.page
@@ -232,6 +278,8 @@ share/help/pt_BR/gnome-terminal/pref-keyboard-access.page
 share/help/pt_BR/gnome-terminal/pref-menubar.page
 share/help/pt_BR/gnome-terminal/pref-profiles.page
 share/help/pt_BR/gnome-terminal/pref-scrolling.page
+share/help/pt_BR/gnome-terminal/pref-tab-window.page
+share/help/pt_BR/gnome-terminal/pref-theme.page
 share/help/pt_BR/gnome-terminal/pref-title.page
 share/help/pt_BR/gnome-terminal/pref.page
 share/help/pt_BR/gnome-terminal/prob-reset.page
@@ -261,6 +309,8 @@ share/help/ru/gnome-terminal/pref-keyboard-access.page
 share/help/ru/gnome-terminal/pref-menubar.page
 share/help/ru/gnome-terminal/pref-profiles.page
 share/help/ru/gnome-terminal/pref-scrolling.page
+share/help/ru/gnome-terminal/pref-tab-window.page
+share/help/ru/gnome-terminal/pref-theme.page
 share/help/ru/gnome-terminal/pref-title.page
 share/help/ru/gnome-terminal/pref.page
 share/help/ru/gnome-terminal/prob-reset.page
@@ -416,9 +466,15 @@ share/locale/zh_TW/LC_MESSAGES/gnome-terminal.mo
 @dirrm share/help/pt_BR/gnome-terminal/figures
 @dirrm share/help/pt_BR/gnome-terminal
 @dirrmtry share/help/pt_BR
+@dirrm share/help/hu/gnome-terminal/figures
+@dirrm share/help/hu/gnome-terminal
+@dirrmtry share/help/hu
 @dirrm share/help/gl/gnome-terminal/figures
 @dirrm share/help/gl/gnome-terminal
 @dirrmtry share/help/gl
+@dirrm share/help/fr/gnome-terminal/figures
+@dirrm share/help/fr/gnome-terminal
+@dirrmtry share/help/fr
 @dirrm share/help/es/gnome-terminal/figures
 @dirrm share/help/es/gnome-terminal
 @dirrmtry share/help/es
