@@ -4,6 +4,7 @@
 
 PORTNAME=	evince
 PORTVERSION=	3.12.0
+PORTREVISION=	1
 CATEGORIES=	graphics print gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -30,7 +31,7 @@ USES=		desktop-file-utils gettext gmake libtool pathfix \
 USE_GNOME=	intlhack gnomeprefix introspection:build
 CPPFLAGS+=	-I${LOCALBASE}/include -Wno-format-nonliteral
 LDFLAGS+=	-L${LOCALBASE}/lib
-CONFIGURE_ARGS=	--disable-xps --disable-introspection
+CONFIGURE_ARGS=	--disable-xps --enable-introspection
 
 GLIB_SCHEMAS=	org.gnome.Evince.gschema.xml
 
