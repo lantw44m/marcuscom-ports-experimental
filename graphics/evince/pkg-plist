@@ -72,6 +72,8 @@ lib/evince/4/backends/libtiffdocument.so
 lib/evince/4/backends/pdfdocument.evince-backend
 lib/evince/4/backends/psdocument.evince-backend
 lib/evince/4/backends/tiffdocument.evince-backend
+lib/girepository-1.0/EvinceDocument-%%VERSION%%.typelib
+lib/girepository-1.0/EvinceView-%%VERSION%%.typelib
 lib/libevdocument3.a
 lib/libevdocument3.la
 lib/libevdocument3.so
@@ -261,6 +263,8 @@ share/doc/libevview/view-view.html
 %%DATADIR%%/icons/hicolor/scalable/actions/object-rotate-left.svg
 %%DATADIR%%/icons/hicolor/scalable/actions/object-rotate-right.svg
 %%DATADIR%%/icons/hicolor/scalable/mimetypes/x-office-presentation.svg
+share/gir-1.0/EvinceDocument-%%VERSION%%.gir
+share/gir-1.0/EvinceView-%%VERSION%%.gir
 share/help/C/evince/annotation-properties.page
 share/help/C/evince/annotations-delete.page
 share/help/C/evince/annotations-disabled.page
