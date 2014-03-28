@@ -22,6 +22,7 @@ lib/gedit/girepository-1.0/Gedit-3.0.typelib
 lib/gedit/libgedit-private.la
 lib/gedit/libgedit-private.so
 lib/gedit/plugins/docinfo.plugin
+lib/gedit/plugins/externaltools.plugin
 lib/gedit/plugins/filebrowser.plugin
 lib/gedit/plugins/libdocinfo.la
 lib/gedit/plugins/libdocinfo.so
@@ -36,9 +37,117 @@ lib/gedit/plugins/libspell.so
 lib/gedit/plugins/libtime.la
 lib/gedit/plugins/libtime.so
 lib/gedit/plugins/modelines.plugin
+lib/gedit/plugins/pythonconsole.plugin
+lib/gedit/plugins/quickopen.plugin
+lib/gedit/plugins/snippets.plugin
 lib/gedit/plugins/sort.plugin
 lib/gedit/plugins/spell.plugin
 lib/gedit/plugins/time.plugin
+lib/gedit/plugins/externaltools/__init__.py
+lib/gedit/plugins/externaltools/appactivatable.py
+lib/gedit/plugins/externaltools/capture.py
+lib/gedit/plugins/externaltools/filelookup.py
+lib/gedit/plugins/externaltools/functions.py
+lib/gedit/plugins/externaltools/library.py
+lib/gedit/plugins/externaltools/linkparsing.py
+lib/gedit/plugins/externaltools/manager.py
+lib/gedit/plugins/externaltools/outputpanel.py
+lib/gedit/plugins/externaltools/windowactivatable.py
+lib/gedit/plugins/externaltools/__pycache__/__init__.cpython-33.pyc
+lib/gedit/plugins/externaltools/__pycache__/__init__.cpython-33.pyo
+lib/gedit/plugins/externaltools/__pycache__/appactivatable.cpython-33.pyc
+lib/gedit/plugins/externaltools/__pycache__/appactivatable.cpython-33.pyo
+lib/gedit/plugins/externaltools/__pycache__/capture.cpython-33.pyc
+lib/gedit/plugins/externaltools/__pycache__/capture.cpython-33.pyo
+lib/gedit/plugins/externaltools/__pycache__/filelookup.cpython-33.pyc
+lib/gedit/plugins/externaltools/__pycache__/filelookup.cpython-33.pyo
+lib/gedit/plugins/externaltools/__pycache__/functions.cpython-33.pyc
+lib/gedit/plugins/externaltools/__pycache__/functions.cpython-33.pyo
+lib/gedit/plugins/externaltools/__pycache__/library.cpython-33.pyc
+lib/gedit/plugins/externaltools/__pycache__/library.cpython-33.pyo
+lib/gedit/plugins/externaltools/__pycache__/linkparsing.cpython-33.pyc
+lib/gedit/plugins/externaltools/__pycache__/linkparsing.cpython-33.pyo
+lib/gedit/plugins/externaltools/__pycache__/manager.cpython-33.pyc
+lib/gedit/plugins/externaltools/__pycache__/manager.cpython-33.pyo
+lib/gedit/plugins/externaltools/__pycache__/outputpanel.cpython-33.pyc
+lib/gedit/plugins/externaltools/__pycache__/outputpanel.cpython-33.pyo
+lib/gedit/plugins/externaltools/__pycache__/windowactivatable.cpython-33.pyc
+lib/gedit/plugins/externaltools/__pycache__/windowactivatable.cpython-33.pyo
+lib/gedit/plugins/pythonconsole/__init__.py
+lib/gedit/plugins/pythonconsole/config.py
+lib/gedit/plugins/pythonconsole/console.py
+lib/gedit/plugins/pythonconsole/__pycache__/__init__.cpython-33.pyc
+lib/gedit/plugins/pythonconsole/__pycache__/__init__.cpython-33.pyo
+lib/gedit/plugins/pythonconsole/__pycache__/config.cpython-33.pyc
+lib/gedit/plugins/pythonconsole/__pycache__/config.cpython-33.pyo
+lib/gedit/plugins/pythonconsole/__pycache__/console.cpython-33.pyc
+lib/gedit/plugins/pythonconsole/__pycache__/console.cpython-33.pyo
+lib/gedit/plugins/quickopen/__init__.py
+lib/gedit/plugins/quickopen/popup.py
+lib/gedit/plugins/quickopen/virtualdirs.py
+lib/gedit/plugins/quickopen/__pycache__/__init__.cpython-33.pyc
+lib/gedit/plugins/quickopen/__pycache__/__init__.cpython-33.pyo
+lib/gedit/plugins/quickopen/__pycache__/popup.cpython-33.pyc
+lib/gedit/plugins/quickopen/__pycache__/popup.cpython-33.pyo
+lib/gedit/plugins/quickopen/__pycache__/virtualdirs.cpython-33.pyc
+lib/gedit/plugins/quickopen/__pycache__/virtualdirs.cpython-33.pyo
+lib/gedit/plugins/snippets/__init__.py
+lib/gedit/plugins/snippets/appactivatable.py
+lib/gedit/plugins/snippets/completion.py
+lib/gedit/plugins/snippets/document.py
+lib/gedit/plugins/snippets/exporter.py
+lib/gedit/plugins/snippets/helper.py
+lib/gedit/plugins/snippets/importer.py
+lib/gedit/plugins/snippets/languagemanager.py
+lib/gedit/plugins/snippets/library.py
+lib/gedit/plugins/snippets/manager.py
+lib/gedit/plugins/snippets/parser.py
+lib/gedit/plugins/snippets/placeholder.py
+lib/gedit/plugins/snippets/shareddata.py
+lib/gedit/plugins/snippets/signals.py
+lib/gedit/plugins/snippets/singleton.py
+lib/gedit/plugins/snippets/snippet.py
+lib/gedit/plugins/snippets/substitutionparser.py
+lib/gedit/plugins/snippets/windowactivatable.py
+lib/gedit/plugins/snippets/__pycache__/__init__.cpython-33.pyc
+lib/gedit/plugins/snippets/__pycache__/__init__.cpython-33.pyo
+lib/gedit/plugins/snippets/__pycache__/appactivatable.cpython-33.pyc
+lib/gedit/plugins/snippets/__pycache__/appactivatable.cpython-33.pyo
+lib/gedit/plugins/snippets/__pycache__/completion.cpython-33.pyc
+lib/gedit/plugins/snippets/__pycache__/completion.cpython-33.pyo
+lib/gedit/plugins/snippets/__pycache__/document.cpython-33.pyc
+lib/gedit/plugins/snippets/__pycache__/document.cpython-33.pyo
+lib/gedit/plugins/snippets/__pycache__/exporter.cpython-33.pyc
+lib/gedit/plugins/snippets/__pycache__/exporter.cpython-33.pyo
+lib/gedit/plugins/snippets/__pycache__/helper.cpython-33.pyc
+lib/gedit/plugins/snippets/__pycache__/helper.cpython-33.pyo
+lib/gedit/plugins/snippets/__pycache__/importer.cpython-33.pyc
+lib/gedit/plugins/snippets/__pycache__/importer.cpython-33.pyo
+lib/gedit/plugins/snippets/__pycache__/languagemanager.cpython-33.pyc
+lib/gedit/plugins/snippets/__pycache__/languagemanager.cpython-33.pyo
+lib/gedit/plugins/snippets/__pycache__/library.cpython-33.pyc
+lib/gedit/plugins/snippets/__pycache__/library.cpython-33.pyo
+lib/gedit/plugins/snippets/__pycache__/manager.cpython-33.pyc
+lib/gedit/plugins/snippets/__pycache__/manager.cpython-33.pyo
+lib/gedit/plugins/snippets/__pycache__/parser.cpython-33.pyc
+lib/gedit/plugins/snippets/__pycache__/parser.cpython-33.pyo
+lib/gedit/plugins/snippets/__pycache__/placeholder.cpython-33.pyc
+lib/gedit/plugins/snippets/__pycache__/placeholder.cpython-33.pyo
+lib/gedit/plugins/snippets/__pycache__/shareddata.cpython-33.pyc
+lib/gedit/plugins/snippets/__pycache__/shareddata.cpython-33.pyo
+lib/gedit/plugins/snippets/__pycache__/signals.cpython-33.pyc
+lib/gedit/plugins/snippets/__pycache__/signals.cpython-33.pyo
+lib/gedit/plugins/snippets/__pycache__/singleton.cpython-33.pyc
+lib/gedit/plugins/snippets/__pycache__/singleton.cpython-33.pyo
+lib/gedit/plugins/snippets/__pycache__/snippet.cpython-33.pyc
+lib/gedit/plugins/snippets/__pycache__/snippet.cpython-33.pyo
+lib/gedit/plugins/snippets/__pycache__/substitutionparser.cpython-33.pyc
+lib/gedit/plugins/snippets/__pycache__/substitutionparser.cpython-33.pyo
+lib/gedit/plugins/snippets/__pycache__/windowactivatable.cpython-33.pyc
+lib/gedit/plugins/snippets/__pycache__/windowactivatable.cpython-33.pyo
+%%PYTHON_SITELIBDIR%%/gi/overrides/Gedit.py
+%%PYTHON_SITELIBDIR%%/gi/overrides/__pycache__/Gedit.cpython-33.pyc
+%%PYTHON_SITELIBDIR%%/gi/overrides/__pycache__/Gedit.cpython-33.pyo
 libdata/pkgconfig/gedit.pc
 libexec/gedit/gedit-bugreport.sh
 man/man1/gedit.1.gz
@@ -80,9 +189,36 @@ share/dbus-1/services/org.gnome.gedit.service
 %%DOCSDIR%%/up.png
 %%DATADIR%%/gir-1.0/Gedit-3.0.gir
 %%DATADIR%%/logo/gedit-logo.png
+%%DATADIR%%/plugins/externaltools/ui/outputpanel.ui
+%%DATADIR%%/plugins/externaltools/ui/tools.ui
 %%DATADIR%%/plugins/modelines/language-mappings
-share/glib-2.0/schemas/org.gnome.gedit.plugins.time.enums.xml
-share/glib-2.0/schemas/org.gnome.gedit.plugins.time.gschema.xml
+%%DATADIR%%/plugins/pythonconsole/ui/config.ui
+%%DATADIR%%/plugins/snippets/c.xml
+%%DATADIR%%/plugins/snippets/chdr.xml
+%%DATADIR%%/plugins/snippets/cpp.xml
+%%DATADIR%%/plugins/snippets/css.xml
+%%DATADIR%%/plugins/snippets/docbook.xml
+%%DATADIR%%/plugins/snippets/fortran.xml
+%%DATADIR%%/plugins/snippets/global.xml
+%%DATADIR%%/plugins/snippets/haskell.xml
+%%DATADIR%%/plugins/snippets/html.xml
+%%DATADIR%%/plugins/snippets/idl.xml
+%%DATADIR%%/plugins/snippets/java.xml
+%%DATADIR%%/plugins/snippets/javascript.xml
+%%DATADIR%%/plugins/snippets/latex.xml
+%%DATADIR%%/plugins/snippets/mallard.xml
+%%DATADIR%%/plugins/snippets/markdown.xml
+%%DATADIR%%/plugins/snippets/perl.xml
+%%DATADIR%%/plugins/snippets/php.xml
+%%DATADIR%%/plugins/snippets/python.xml
+%%DATADIR%%/plugins/snippets/ruby.xml
+%%DATADIR%%/plugins/snippets/sh.xml
+%%DATADIR%%/plugins/snippets/snippets.xml
+%%DATADIR%%/plugins/snippets/tcl.xml
+%%DATADIR%%/plugins/snippets/xml.xml
+%%DATADIR%%/plugins/snippets/xslt.xml
+%%DATADIR%%/plugins/snippets/lang/snippets.lang
+%%DATADIR%%/plugins/snippets/ui/snippets.ui
 share/help/C/gedit/gedit-change-color-scheme.page
 share/help/C/gedit/gedit-change-default-font.page
 share/help/C/gedit/gedit-close-file.page
@@ -1746,16 +1882,31 @@ share/locale/zh_TW/LC_MESSAGES/gedit.mo
 @dirrm share/help/C/gedit
 @dirrmtry share/help/C
 @dirrmtry share/help
+@dirrm %%DATADIR%%/plugins/snippets/ui
+@dirrm %%DATADIR%%/plugins/snippets/lang
+@dirrm %%DATADIR%%/plugins/snippets
+@dirrm %%DATADIR%%/plugins/pythonconsole/ui
+@dirrm %%DATADIR%%/plugins/pythonconsole
+@dirrm %%DATADIR%%/plugins/modelines
+@dirrm %%DATADIR%%/plugins/externaltools/ui
+@dirrm %%DATADIR%%/plugins/externaltools
+@dirrm %%DATADIR%%/plugins
+@dirrm %%DATADIR%%/logo
+@dirrm %%DATADIR%%/gir-1.0
+@dirrm %%DATADIR%%
+@dirrm %%DOCSDIR%%
 @dirrmtry share/appdata
 @dirrm libexec/gedit
+@dirrm lib/gedit/plugins/snippets/__pycache__
+@dirrm lib/gedit/plugins/snippets
+@dirrm lib/gedit/plugins/quickopen/__pycache__
+@dirrm lib/gedit/plugins/quickopen
+@dirrm lib/gedit/plugins/pythonconsole/__pycache__
+@dirrm lib/gedit/plugins/pythonconsole
+@dirrm lib/gedit/plugins/externaltools/__pycache__
+@dirrm lib/gedit/plugins/externaltools
 @dirrm lib/gedit/plugins
 @dirrm lib/gedit/girepository-1.0
 @dirrm lib/gedit
 @dirrm include/gedit-%%VERSION%%/gedit
 @dirrm include/gedit-%%VERSION%%
-@dirrm %%DOCSDIR%%
-@dirrm %%DATADIR%%/plugins/modelines
-@dirrm %%DATADIR%%/plugins
-@dirrm %%DATADIR%%/logo
-@dirrm %%DATADIR%%/gir-1.0
-@dirrm %%DATADIR%%
