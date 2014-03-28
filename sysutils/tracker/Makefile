@@ -70,9 +70,6 @@ GLIB_SCHEMAS=	org.freedesktop.Tracker.DB.gschema.xml \
 
 .include <bsd.port.pre.mk>
 
-post-patch:
-	@${REINPLACE_CMD} -e 's|libpng|libpng15|' ${WRKSRC}/configure
-
 post-install:
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libtracker-*.so
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libtracker-*.so.0
