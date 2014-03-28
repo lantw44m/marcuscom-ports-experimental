@@ -4,6 +4,7 @@
 
 PORTNAME=	gnome3
 PORTVERSION=	3.12.0
+PORTREVISION=	1
 CATEGORIES?=	x11 gnome
 MASTER_SITES=	# empty
 DISTFILES=	# empty
@@ -26,6 +27,7 @@ RUN_DEPENDS?=	dconf-editor:${PORTSDIR}/devel/dconf-editor \
 		gnome-shell>=3.0.0:${PORTSDIR}/x11/gnome-shell \
 		gnome-shell-extensions>=3.0.0:${PORTSDIR}/x11/gnome-shell-extensions \
 		gnome-tweak-tool:${PORTSDIR}/deskutils/gnome-tweak-tool \
+		sushi>=0:${PORTSDIR}/x11-fm/sushi \
 		nautilus>=3.0.0:${PORTSDIR}/x11-fm/nautilus \
 		${LOCALBASE}/lib/X11/fonts/bitstream-vera/Vera.ttf:${PORTSDIR}/x11-fonts/bitstream-vera \
 		${LOCALBASE}/share/hal/fdi/information/10freedesktop/10-camera-ptp.fdi:${PORTSDIR}/sysutils/hal-info \
