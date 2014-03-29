@@ -4,6 +4,7 @@ etc/dbus-1/system.d/gdm.conf
 %%ETCDIR%%/Xsession
 %%ETCDIR%%/custom.conf
 %%ETCDIR%%/custom.conf.default
+%%ETCDIR%%/locale.conf
 %%ETCDIR%%/Init/Default
 %%ETCDIR%%/PostLogin/Default.sample
 %%ETCDIR%%/PostSession/Default

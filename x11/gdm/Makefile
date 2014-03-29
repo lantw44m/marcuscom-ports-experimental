@@ -4,6 +4,7 @@
 
 PORTNAME=	gdm
 PORTVERSION=	3.12.0
+PORTREVISION=	1
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -50,7 +51,7 @@ GNU_CONFIGURE=	yes
 GLIB_SCHEMAS=	org.gnome.login-screen.gschema.xml
 CONFIGURE_ARGS=	--disable-static \
 		--mandir=${PREFIX}/man \
-		--with-lang-file=${PREFIX}/etc/gdm/i18n \
+		--with-lang-file=${PREFIX}/etc/gdm/locale.conf \
 		--with-at-spi-registryd-directory=${LOCALBASE}/libexec \
 		--with-custom-conf=${PREFIX}/etc/gdm/custom.conf \
 		--with-dbus-sys=${PREFIX}/etc/dbus-1/system.d \
@@ -74,7 +75,8 @@ LDFLAGS+=	-L${LOCALBASE}/lib
 SUB_FILES+=	gdm-launch-environment \
 		gdm-password \
 		gdm-autologin \
-		client.conf
+		client.conf \
+		locale.conf
 
 GDMDIR?=	${PREFIX}/etc/gdm
 PKGMESSAGE=	${WRKDIR}/pkg-message
@@ -143,6 +145,8 @@ post-install:
 	${INSTALL_DATA} ${WRKDIR}/gdm-password ${STAGEDIR}${PREFIX}/etc/pam.d/gdm-password
 
 	${INSTALL_DATA} ${WRKDIR}/client.conf ${STAGEDIR}${PREFIX}/etc/gdm/home/.pulse/
+
+	${INSTALL_DATA} ${WRKDIR}/locale.conf ${STAGEDIR}${PREFIX}/etc/gdm/
 
 	@${SED} -e 's|%%PREFIX%%|${PREFIX}|g' < ${PKGDIR}/pkg-message \
 		| /usr/bin/fmt 75 79 > ${PKGMESSAGE}
