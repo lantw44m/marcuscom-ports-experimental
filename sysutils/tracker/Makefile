@@ -4,7 +4,7 @@
 
 PORTNAME=	tracker
 PORTVERSION=	1.0.0
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 
@@ -16,6 +16,7 @@ LIB_DEPENDS=	libdbus-glib-1.so:${PORTSDIR}/devel/dbus-glib \
 		libhal.so:${PORTSDIR}/sysutils/hal \
 		libraptor.so:${PORTSDIR}/textproc/raptor \
 		libuuid.so:${PORTSDIR}/misc/e2fsprogs-libuuid \
+		libmediaart-1.0.so:${PORTSDIR}/multimedia/libmediaart \
 		librest-0.7.so:${PORTSDIR}/devel/librest
 RUN_DEPENDS=	xdg-desktop-icon:${PORTSDIR}/devel/xdg-utils \
 		o3totxt:${PORTSDIR}/converters/o3read \
@@ -111,8 +112,7 @@ PLIST_SUB+=	DOCUMENT_MINERS="@comment "
 LIB_DEPENDS+=	libexif.so:${PORTSDIR}/graphics/libexif \
 		libgif.so:${PORTSDIR}/graphics/giflib \
 		libpng15.so:${PORTSDIR}/graphics/png \
-		libtiff.so:${PORTSDIR}/graphics/tiff \
-		libmediaart-1.0.so:${PORTSDIR}/multimedia/libmediaart
+		libtiff.so:${PORTSDIR}/graphics/tiff
 CONFIGURE_ARGS+=	--enable-libgif \
 			--enable-libjpeg \
 			--enable-libtiff \
