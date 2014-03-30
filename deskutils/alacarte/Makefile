@@ -4,7 +4,7 @@
 
 PORTNAME=	alacarte
 PORTVERSION=	3.11.91
-CATEGORIES=	x11 gnome
+CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
 
