@@ -18,10 +18,9 @@ BUILD_DEPENDS=	itstool:${PORTSDIR}/textproc/itstool
 
 CONFLICTS=	gtkada-1.2.* zenity-2.*
 
-USES=		gettext gmake pathfix pkgconfig
+USES=		gettext gmake pathfix pkgconfig tar:xz
 USE_GNOME=	gnomeprefix gtk30 intlhack
 USE_XORG=	x11
-USE_XZ=		yes
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
