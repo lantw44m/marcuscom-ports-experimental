@@ -3,8 +3,7 @@
 #   $MCom$
 
 PORTNAME=	libpeas
-PORTVERSION=	1.9.0
-PORTREVISION=	2
+PORTVERSION=	1.10.0
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -14,16 +13,16 @@ COMMENT=	Next evolution of the Gedit plugins engine
 
 BUILD_DEPENDS=	valac:${PORTSDIR}/lang/vala
 
-USE_PYTHON=	3
-USE_LDCONFIG=	yes
 USES=		gettext gmake libtool pathfix pkgconfig tar:xz
 USE_GNOME=	gtk30 introspection:build
+USE_PYTHON=	3
+USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 INSTALL_TARGET=	install-strip
-CONFIGURE_ARGS+=--disable-glade-catalog --disable-gjs
+CONFIGURE_ARGS+=--disable-glade-catalog
 
 OPTIONS_DEFINE=	PYTHON SEED
 OPTIONS_DEFAULT=PYTHON SEED
