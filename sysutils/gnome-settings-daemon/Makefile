@@ -4,6 +4,7 @@
 
 PORTNAME=	gnome-settings-daemon
 PORTVERSION=	3.12.0.1
+PORTREVISION=	1
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -30,7 +31,7 @@ RUN_DEPENDS=	gnome-session>=0:${PORTSDIR}/x11/gnome-session \
 		${LOCALBASE}/libdata/pkgconfig/gsettings-desktop-schemas.pc:${PORTSDIR}/devel/gsettings-desktop-schemas
 
 USE_XORG=	xxf86misc
-USE_GNOME=	gnomehier gnomedesktop3 gnomeprefix intlhack libgnomekbd
+USE_GNOME=	gnomehier gnomedesktop3 gnomeprefix intlhack
 USES=		gettext gmake libtool pathfix pkgconfig tar:xz
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes

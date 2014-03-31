@@ -4,7 +4,7 @@
 
 PORTNAME=	gnome-shell
 PORTVERSION=	3.12.0
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -35,7 +35,7 @@ RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/dbus-python.pc:${PORTSDIR}/devel/py-
 
 USES=		gettext gmake libtool pathfix pkgconfig tar:xz \
 		webplugin:native
-USE_GNOME=	evolutiondataserver3 gnomedesktop3 gnomemenus3 gnomeprefix \
+USE_GNOME=	evolutiondataserver3 gnomedesktop3 gnomeprefix \
 		gtk30 intlhack introspection
 USE_XORG=	x11 xfixes sm
 USE_GSTREAMER1=	yes
