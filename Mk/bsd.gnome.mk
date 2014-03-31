@@ -424,7 +424,7 @@ gal2_USE_GNOME_IMPL=gnomeui libgnomeprintui
 gnomecontrolcenter3_DETECT=	${LOCALBASE}/libdata/pkgconfig/gnome-keybindings.pc
 gnomecontrolcenter3_BUILD_DEPENDS=	${gnomecontrolcenter3_DETECT}:${PORTSDIR}/sysutils/gnome-control-center
 gnomecontrolcenter3_RUN_DEPENDS=	${gnomecontrolcenter3_DETECT}:${PORTSDIR}/sysutils/gnome-control-center
-gnomecontrolcenter3_USE_GNOME_IMPL=gnomemenus3 libgnomekbd gnomedesktop3 gconf2
+gnomecontrolcenter3_USE_GNOME_IMPL=	gnomedesktop3
 gnomecontrolcenter3_GNOME_DESKTOP_VERSION=3
 
 libgda2_LIB_DEPENDS=	libgda-2.so:${PORTSDIR}/databases/libgda2
