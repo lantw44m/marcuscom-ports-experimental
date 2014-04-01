@@ -33,7 +33,7 @@ OPTIONS_SUB=			yes
 OPTIONS_DEFINE=			MIGRATION
 OPTIONS_DEFAULT=		MIGRATION
 MIGRATION_CONFIGURE_ENABLE=	migration
-MIGRATION_USE_GNOME=		gconf2
+MIGRATION_USE_GNOME=		gconf
 MIGRATION_DESC=			Profile migration to gsettings (pulls in gconf2)
 
 post-patch:
