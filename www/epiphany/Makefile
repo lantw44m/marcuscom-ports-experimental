@@ -4,6 +4,7 @@
 
 PORTNAME=	epiphany
 PORTVERSION=	3.12.0
+PORTREVISION=	1
 CATEGORIES=	www gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -28,7 +29,7 @@ RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:${PORTSDIR}/misc/iso-co
 
 USES=		desktop-file-utils gettext gmake pathfix \
 		pkgconfig tar:xz
-USE_GNOME=	gnomedesktop3 gnomeprefix intlhack libwnck3 libxml2
+USE_GNOME=	gnomedesktop3 gnomeprefix intlhack libwnck3 libxml2 libxslt
 USE_XORG=	ice x11 sm
 INSTALLS_ICONS=	yes
 USE_PYTHON=	3
