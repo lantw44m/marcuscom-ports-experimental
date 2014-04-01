@@ -4,7 +4,7 @@
 
 PORTNAME=	gnome-control-center
 PORTVERSION=	3.12.0
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -14,6 +14,7 @@ COMMENT=	Control center for GNOME 3 project
 
 BUILD_DEPENDS=	gnome-settings-daemon>=3.4.0:${PORTSDIR}/sysutils/gnome-settings-daemon \
 		gsettings-desktop-schemas>=3.2.2:${PORTSDIR}/devel/gsettings-desktop-schemas \
+		docbook-xsl>=0:${PORTSDIR}/textproc/docbook-xsl \
 		${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:${PORTSDIR}/misc/iso-codes
 LIB_DEPENDS=	libcanberra-gtk3.so:${PORTSDIR}/audio/libcanberra-gtk3 \
 		libxklavier.so:${PORTSDIR}/x11/libxklavier \
@@ -39,8 +40,8 @@ RUN_DEPENDS=	gnome-eject:${PORTSDIR}/sysutils/gnome-mount \
 
 CONFLICTS=	gnome-media-2.[0-9]*
 
-USES=		gettext gmake pathfix pkgconfig shared-mime-info tar:xz
-USE_GNOME=	gnomedesktop3 gnomehier gnomeprefix intlhack libxml2
+USES=		gettext gmake pathfix pkgconfig tar:xz
+USE_GNOME=	gnomedesktop3 gnomehier gnomemenus3 gnomeprefix intlhack libxml2
 USE_XORG=	xscrnsaver x11 xxf86misc kbproto xi
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
