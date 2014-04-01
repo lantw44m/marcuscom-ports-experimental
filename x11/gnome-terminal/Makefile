@@ -4,6 +4,7 @@
 
 PORTNAME=	gnome-terminal
 PORTVERSION=	3.12.0
+PORTREVISION=	1
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -19,8 +20,7 @@ LIB_DEPENDS=	libstartup-notification-1.so:${PORTSDIR}/x11/startup-notification \
 RUN_DEPENDS=	gsettings-desktop-schemas>=0:${PORTSDIR}/devel/gsettings-desktop-schemas
 
 USES=		gettext gmake pathfix pkgconfig tar:xz
-USE_GNOME=	gconf2 gnomeprefix intlhack \
-		nautilus3 vte3
+USE_GNOME=	gnomeprefix intlhack nautilus3 vte3
 USE_XORG=	sm ice
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-search-provider

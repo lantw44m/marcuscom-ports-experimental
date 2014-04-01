@@ -1,9 +1,10 @@
 # Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
 # $FreeBSD$
-#   $MCom: ports-experimental/trunk/databases/evolution-data-server/Makefile 19121 2014-03-14 20:43:32Z gusi $
+#   $MCom$
 
 PORTNAME=	evolution-data-server
 PORTVERSION=	3.12.0
+PORTREVISION=	1
 CATEGORIES=	databases gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -26,8 +27,8 @@ LIB_DEPENDS=	libsoup-gnome-2.4.so:${PORTSDIR}/devel/libsoup-gnome \
 		libgnome-keyring.so:${PORTSDIR}/security/libgnome-keyring
 
 USES=		bison gettext gmake libtool pathfix pkgconfig tar:xz
-USE_GNOME=	gnomeprefix intlhack gconf2 \
-		libxml2 gtk30 introspection:build
+USE_GNOME=	gnomeprefix gtk30 intlhack introspection:build \
+		libxml2
 USE_OPENLDAP=	yes
 USE_SQLITE=	yes
 GNU_CONFIGURE=	yes

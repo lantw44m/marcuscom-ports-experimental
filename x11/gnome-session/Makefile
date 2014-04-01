@@ -4,7 +4,7 @@
 
 PORTNAME=	gnome-session
 PORTVERSION=	3.12.0
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -20,8 +20,9 @@ RUN_DEPENDS=	${LOCALBASE}/sbin/console-kit-daemon:${PORTSDIR}/sysutils/consoleki
 		${LOCALBASE}/bin/xdpyinfo:${PORTSDIR}/x11/xdpyinfo
 
 USES=		gettext gmake pathfix pkgconfig tar:xz
+USE_GNOME=	gnomedesktop3 gnomeprefix gtk30 intlhack intltool \
+		libxslt:build
 USE_XORG=	ice sm xau xext xtst xrender xtrans xcomposite
-USE_GNOME=	gconf2 gnomedesktop3 gnomeprefix gtk30 intlhack intltool
 USE_GL=		gl
 INSTALLS_ICONS=	yes
 GNU_CONFIGURE=	yes

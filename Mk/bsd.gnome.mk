@@ -516,7 +516,7 @@ gnomespeech_USE_GNOME_IMPL=libbonobo
 
 evolutiondataserver3_LIB_DEPENDS=	libedataserver-1.2.so.18:${PORTSDIR}/databases/evolution-data-server
 evolutiondataserver3_DETECT=		${LOCALBASE}/libdata/pkgconfig/libedataserverui-3.0.pc
-evolutiondataserver3_USE_GNOME_IMPL=	gconf2 libxml2 gtk30
+evolutiondataserver3_USE_GNOME_IMPL=	libxml2 gtk30
 evolutiondataserver3_GNOME_DESKTOP_VERSION=3
 
 desktopfileutils_BUILD_DEPENDS=update-desktop-database:${PORTSDIR}/devel/desktop-file-utils

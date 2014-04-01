@@ -4,6 +4,7 @@
 
 PORTNAME=	devhelp
 PORTVERSION=	3.12.0
+PORTREVISION=	1
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -15,7 +16,7 @@ LIB_DEPENDS=	libwebkitgtk-3.0.so:${PORTSDIR}/www/webkit-gtk3
 
 USE_XORG=	x11
 USES=		gettext gmake pathfix pkgconfig tar:xz
-USE_GNOME=	gconf2 gnomeprefix gtk30 intlhack libxslt
+USE_GNOME=	gnomeprefix gtk30 intlhack libxslt
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
 USE_LDCONFIG=	yes

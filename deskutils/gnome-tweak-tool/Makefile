@@ -4,7 +4,7 @@
 
 PORTNAME=	gnome-tweak-tool
 PORTVERSION=	3.12.0
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 
@@ -15,7 +15,7 @@ BUILD_DEPENDS=	gsettings-desktop-schemas>=0:${PORTSDIR}/devel/gsettings-desktop-
 RUN_DEPENDS=	gsettings-desktop-schemas>=0:${PORTSDIR}/devel/gsettings-desktop-schemas
 
 USES=		gettext gmake pathfix pkgconfig tar:xz
-USE_GNOME=	gconf2 gnomeprefix gtk30 pygobject3
+USE_GNOME=	gnomeprefix gtk30 pygobject3
 USE_PYTHON=	2
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes

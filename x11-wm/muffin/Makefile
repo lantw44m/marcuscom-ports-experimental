@@ -4,7 +4,7 @@
 
 PORTNAME=	muffin
 PORTVERSION=	2.0.5
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	x11-wm gnome
 MASTER_SITES=	http://github.com/linuxmint/${PORTNAME}/archive/${PORTVERSION}.tar.gz?dummy=/
 DIST_SUBDIR=	gnome3
@@ -22,13 +22,13 @@ LIB_DEPENDS=	libstartup-notification-1.so:${PORTSDIR}/x11/startup-notification \
 		libcinnamon-desktop.so:${PORTSDIR}/x11/cinnamon-desktop
 RUN_DEPENDS=	zenity3>=3.0.0:${PORTSDIR}/x11/zenity3
 
+USES=		gettext gmake pathfix pkgconfig
+USE_GNOME=	gnomedocutils gnomehier gnomeprefix gtk30 \
+		intlhack introspection:build
 USE_XORG=	x11 xext xrandr xcomposite xcursor xinerama ice sm
 USE_PYTHON=	yes
 USE_CSTD=	gnu89
-USES=		gettext gmake pathfix pkgconfig
 USE_AUTOTOOLS=	libtool autoconf automake
-USE_GNOME=	gconf2 gnomedocutils gnomehier gnomeprefix gtk30 \
-		intlhack introspection:build
 USE_LDCONFIG=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib

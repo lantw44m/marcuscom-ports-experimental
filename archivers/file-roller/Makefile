@@ -4,6 +4,7 @@
 
 PORTNAME=	file-roller
 PORTVERSION=	3.12.0
+PORTREVISION=	1
 CATEGORIES=	archivers gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -17,8 +18,7 @@ RUN_DEPENDS=	${LOCALBASE}/bin/gtar:${PORTSDIR}/archivers/gtar \
 
 USES=		desktop-file-utils gettext gmake pathfix \
 		pkgconfig tar:xz
-USE_GNOME=	gconf2 gnomeprefix gtk30 intlhack \
-		introspection:build
+USE_GNOME=	gnomeprefix gtk30 intlhack introspection:build
 USE_XORG=	sm
 INSTALLS_ICONS=	yes
 USE_LDCONFIG=	yes

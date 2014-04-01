@@ -1,9 +1,10 @@
 # Created by: Michael Johnson <ahze@FreeBSD.org>
 # $FreeBSD$
-#    $MCom: ports-experimental/trunk/net-im/telepathy-mission-control/Makefile 19188 2014-03-18 15:28:36Z gusi $
+#    $MCom$
 
 PORTNAME=	telepathy-mission-control
 PORTVERSION=	5.16.1
+PORTREVISION=	1
 CATEGORIES=	net-im devel
 MASTER_SITES=	http://telepathy.freedesktop.org/releases/telepathy-mission-control/
 
@@ -14,7 +15,7 @@ LIB_DEPENDS=	libtelepathy.so:${PORTSDIR}/net-im/libtelepathy \
 		libdbus-glib-1.so:${PORTSDIR}/devel/dbus-glib
 
 USES=		gmake pathfix libtool pathfix pkgconfig
-USE_GNOME=	gconf2 libxslt
+USE_GNOME=	libxslt
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib

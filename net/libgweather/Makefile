@@ -4,6 +4,7 @@
 
 PORTNAME=	libgweather
 PORTVERSION=	3.12.0
+PORTREVISION=	1
 CATEGORIES=	net gnome
 MASTER_SITES=	GNOME
 
@@ -15,7 +16,7 @@ LIB_DEPENDS=	libsoup-2.4.so:${PORTSDIR}/devel/libsoup
 RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/gnome-icon-theme.pc:${PORTSDIR}/misc/gnome-icon-theme
 
 USES=		gettext gmake libtool pathfix pkgconfig tar:xz
-USE_GNOME=	gconf2 gnomehier gnomeprefix gtk30 intlhack \
+USE_GNOME=	gnomehier gnomeprefix gtk30 intlhack \
 		introspection:build
 INSTALLS_ICONS=	yes
 USE_LDCONFIG=	yes
