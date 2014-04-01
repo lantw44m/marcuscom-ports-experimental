@@ -1,6 +1,6 @@
 # Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/trunk/x11/gnome-terminal/Makefile 19438 2014-04-01 15:37:19Z gusi $
 
 PORTNAME=	gnome-terminal
 PORTVERSION=	3.12.0
@@ -33,7 +33,7 @@ OPTIONS_SUB=			yes
 OPTIONS_DEFINE=			MIGRATION
 OPTIONS_DEFAULT=		MIGRATION
 MIGRATION_CONFIGURE_ENABLE=	migration
-MIGRATION_USE_GNOME=		gconf
+MIGRATION_USE=			GNOME=gconf2
 MIGRATION_DESC=			Profile migration to gsettings (pulls in gconf2)
 
 post-patch:
