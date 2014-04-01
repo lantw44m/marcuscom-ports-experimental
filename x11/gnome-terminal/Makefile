@@ -29,19 +29,12 @@ LDFLAGS+=	-L${LOCALBASE}/lib
 
 GLIB_SCHEMAS=	org.gnome.Terminal.gschema.xml
 
-OPTIONS_DEFINE=	MIGRATION
-MIGRATION_DESC=	Profile migration to gsettings (pulls in gconf2)
-
-.include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MMIGRATION}
-USE_GNOME+=		gconf2
-PLIST_SUB+=		MIGRATION=""
-CONFIGURE_ARGS+=        --enable-migration
-.else
-PLIST_SUB+=		MIGRATION="@comment "
-CONFIGURE_ARGS+=        --disable-migration
-.endif
+OPTIONS_SUB=			yes
+OPTIONS_DEFINE=			MIGRATION
+OPTIONS_DEFAULT=		MIGRATION
+MIGRATION_CONFIGURE_ENABLE=	migration
+MIGRATION_USE_GNOME=		gconf2
+MIGRATION_DESC=			Profile migration to gsettings (pulls in gconf2)
 
 post-patch:
 	@${TOUCH} ${WRKSRC}/aclocal.m4 ${WRKSRC}/Makefile.in \
