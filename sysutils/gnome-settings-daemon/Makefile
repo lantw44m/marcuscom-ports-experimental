@@ -1,10 +1,10 @@
 # Created by: Koop Mast <kwm@FreeBSD.org>
 # $FreeBSD$
-#   $MCom: ports-experimental/trunk/sysutils/gnome-settings-daemon/Makefile 19368 2014-03-26 16:21:17Z kwm $
+#   $MCom$
 
 PORTNAME=	gnome-settings-daemon
 PORTVERSION=	3.12.0.1
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -14,6 +14,7 @@ COMMENT=	GNOME 3 settings daemon
 
 BUILD_DEPENDS=	gnome-session>=0:${PORTSDIR}/x11/gnome-session \
 		geoclue>=0:${PORTSDIR}/net/geoclue \
+		docbook-xsl>=0:${PORTSDIR}/textproc/docbook-xsl \
 		${LOCALBASE}/libdata/pkgconfig/gsettings-desktop-schemas.pc:${PORTSDIR}/devel/gsettings-desktop-schemas
 LIB_DEPENDS=	libcanberra-gtk3.so:${PORTSDIR}/audio/libcanberra-gtk3 \
 		libpolkit-gobject-1.so:${PORTSDIR}/sysutils/polkit \
