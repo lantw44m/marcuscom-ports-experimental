@@ -4,6 +4,7 @@
 
 PORTNAME=	gthumb
 PORTVERSION=	3.2.7
+PORTREVISION=	1
 CATEGORIES=	graphics
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -14,12 +15,11 @@ COMMENT=	Image viewer and browser for the GNOME 3 environment
 BUILD_DEPENDS=	itstool:${PORTSDIR}/textproc/itstool \
 		gsettings-desktop-schemas>=0:${PORTSDIR}/devel/gsettings-desktop-schemas
 LIB_DEPENDS=	libunique-1.0.so:${PORTSDIR}/x11-toolkits/unique
-RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/gsettings-desktop-schemas.pc:${PORTSDIR}/devel/gsettings-desktop-schemas \
-		gsettings-desktop-schemas>=0:${PORTSDIR}/devel/gsettings-desktop-schemas
+RUN_DEPENDS=	gsettings-desktop-schemas>=0:${PORTSDIR}/devel/gsettings-desktop-schemas
 
 USES=		desktop-file-utils bison gettext gmake pathfix \
 		pkgconfig tar:xz
-USE_GNOME=	gconf2 gnomeprefix gtk30 intlhack librsvg2
+USE_GNOME=	gnomeprefix gtk30 intlhack librsvg2
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
