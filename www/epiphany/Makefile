@@ -28,8 +28,7 @@ RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:${PORTSDIR}/misc/iso-co
 
 USES=		desktop-file-utils gettext gmake pathfix \
 		pkgconfig tar:xz
-USE_GNOME=	gnomedesktop3 gnomedocutils gnomeprefix intlhack \
-		libwnck3 libxml2
+USE_GNOME=	gnomedesktop3 gnomeprefix intlhack libwnck3 libxml2
 USE_XORG=	ice x11 sm
 INSTALLS_ICONS=	yes
 USE_PYTHON=	3

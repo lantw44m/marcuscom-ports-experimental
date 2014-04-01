@@ -24,8 +24,8 @@ RUN_DEPENDS=	highlight:${PORTSDIR}/textproc/highlight
 
 USES=		desktop-file-utils bison gettext gmake libtool \
 		pathfix pkgconfig shebangfix tar:xz
-USE_GNOME=	gnomeprefix intlhack evolutiondataserver3 gtkhtml4 \
-		gnomedocutils gnomedesktop3
+USE_GNOME=	evolutiondataserver3 gnomedesktop3 gnomeprefix gtkhtml4 \
+		intlhack
 GNU_CONFIGURE=	yes
 USE_GSTREAMER1=	yes
 INSTALLS_ICONS=	yes

@@ -31,8 +31,8 @@ RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:${PORTSDIR}/misc/iso-co
 
 USES=		desktop-file-utils gettext gmake pathfix pkgconfig \
 		shebangfix tar:xz
-USE_GNOME=	gnomedocutils gnomehier gnomeprefix gtk30 intlhack \
-		introspection:build libxml2 nautilus3 py3gobject3
+USE_GNOME=	gnomehier gnomeprefix gtk30 intlhack introspection:build \
+		libxml2 nautilus3 py3gobject3
 USE_XORG=	x11 xproto xtst ice sm
 USE_GSTREAMER1=	core good bad soup ugly
 USE_PYTHON=	3

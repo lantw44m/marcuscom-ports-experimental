@@ -11,7 +11,7 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Additional UI API for GNOME 3
 
-USE_XZ=		yes
+USES=		tar:xz
 
 .if !defined(REFERENCE_PORT)
 
@@ -27,8 +27,7 @@ RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:${PORTSDIR}/misc/iso-co
 		${LOCALBASE}/libdata/pkgconfig/xkbfile.pc:${PORTSDIR}/x11/libxkbfile
 
 USE_XORG=	x11 xrandr xext
-USES=		bison gettext gmake libtool pathfix pkgconfig \
-		tar:xz
+USE+S=		bison gettext gmake libtool pathfix pkgconfig
 USE_GNOME=	gnomeprefix gtk30 intlhack introspection:build \
 		referencehack
 USE_PYTHON=	3

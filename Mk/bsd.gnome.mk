@@ -366,7 +366,7 @@ libgtkhtml_USE_GNOME_IMPL=libxslt gnomevfs2
 
 gnomedesktop3_LIB_DEPENDS=	libgnome-desktop-3.so:${PORTSDIR}/x11/gnome-desktop
 gnomedesktop3_DETECT=		${LOCALBASE}/libdata/pkgconfig/gnome-desktop-3.0.pc
-gnomedesktop3_USE_GNOME_IMPL=	gnomedocutils gtk30
+gnomedesktop3_USE_GNOME_IMPL=	gtk30
 
 gnomedesktopsharp20_DETECT=		${LOCALBASE}/libdata/pkgconfig/gnome-desktop-sharp-2.0.pc
 gnomedesktopsharp20_BUILD_DEPENDS=	${gnomedesktopsharp20_DETECT}:${PORTSDIR}/x11-toolkits/gnome-desktop-sharp20

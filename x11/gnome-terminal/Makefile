@@ -19,7 +19,7 @@ LIB_DEPENDS=	libstartup-notification-1.so:${PORTSDIR}/x11/startup-notification \
 RUN_DEPENDS=	gsettings-desktop-schemas>=0:${PORTSDIR}/devel/gsettings-desktop-schemas
 
 USES=		gettext gmake pathfix pkgconfig tar:xz
-USE_GNOME=	gconf2 gnomedocutils gnomeprefix intlhack \
+USE_GNOME=	gconf2 gnomeprefix intlhack \
 		nautilus3 vte3
 USE_XORG=	sm ice
 GNU_CONFIGURE=	yes

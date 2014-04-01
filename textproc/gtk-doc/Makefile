@@ -26,11 +26,10 @@ CATALOG_DIR=		${PREFIX}/share/sgml/${PORTNAME}
 XMLCATMGR=		${LOCALBASE}/bin/xmlcatmgr
 CATALOG_PORTS_SGML=	${PREFIX}/share/sgml/catalog.ports
 
-USE_XZ=		yes
-GNU_CONFIGURE=	yes
+USES=		gmake pathfix perl5 pkgconfig tar:xz
+USE_GNOME=	gnomeprefix libxslt
 USE_PYTHON=	yes
-USES=		gmake pathfix perl5 pkgconfig
-USE_GNOME=	gnomeprefix libxslt gnomedocutils
+GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-xml-catalog=${LOCALBASE}/share/xml/catalog.ports
 
 PLIST_SUB=	XMLCATMGR=${XMLCATMGR} \
