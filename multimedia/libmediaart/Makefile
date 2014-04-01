@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	libmediaart
-PORTVERSION=	0.3.0
+PORTVERSION=	0.4.0
 CATEGORIES=	multimedia devel
 MASTER_SITES=	GNOME
 
@@ -24,6 +24,6 @@ CONFIGURE_ARGS+=--enable-gtk-doc \
 		--enable-vala
 
 post-install:
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libmediaart-1.0.so.300
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libmediaart-1.0.so.396
 
 .include <bsd.port.mk>
