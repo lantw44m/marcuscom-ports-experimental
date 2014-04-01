@@ -2,7 +2,7 @@ bin/gnome-terminal
 lib/nautilus/extensions-3.0/libterminal-nautilus.a
 lib/nautilus/extensions-3.0/libterminal-nautilus.la
 lib/nautilus/extensions-3.0/libterminal-nautilus.so
-libexec/gnome-terminal-migration
+%%MIGRATION%%libexec/gnome-terminal-migration
 libexec/gnome-terminal-server
 share/appdata/gnome-terminal.appdata.xml
 share/applications/gnome-terminal.desktop
