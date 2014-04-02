@@ -46,7 +46,6 @@ lib/gnome-music/girepository-1.0/Gd-1.0.typelib
 %%PYTHON_SITELIBDIR%%/gnomemusic/__pycache__/window.cpython-33.pyo
 share/appdata/gnome-music.appdata.xml
 share/applications/gnome-music.desktop
-share/glib-2.0/schemas/org.gnome.Music.gschema.xml
 %%DATADIR%%/gnome-music.gresource
 %%DATADIR%%/gir-1.0/Gd-1.0.gir
 share/help/C/gnome-music/index.page

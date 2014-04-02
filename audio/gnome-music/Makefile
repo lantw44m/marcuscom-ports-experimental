@@ -1,10 +1,11 @@
 # Created by: Gustau Perez <gustau.perez@gmail.com>
 # $FreeBSD$
-#   $MCom: ports-experimental/trunk/deskutils/gnome-music/Makefile 19289 2014-03-24 20:18:05Z gusi $
+#   $MCom$
 
 PORTNAME=	gnome-music
 PORTVERSION=	3.12.0
-CATEGORIES=	deskutils gnome
+PORTREVISION=	1
+CATEGORIES=	audio gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
 
@@ -24,6 +25,8 @@ INSTALLS_ICONS=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 MAKE_ENV=	XDG_CACHE_HOME=${WRKDIR}
+
+GLIB_SCHEMAS=	org.gnome.Music.gschema.xml
 
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/gnome-music/libgd.so

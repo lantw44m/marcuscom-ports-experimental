@@ -1,2 +1,4 @@
+math/gcalctool|math/gnome-calculator|2014-15-03|Renamed
 www/epiphany-extensions||2014-13-03|Development has ceased
 x11/gnome-panel||2014-13-03|Development has ceased in favour of gnome-shell
+deskutils/gnome-music|audio/gnome-music|2014-02-04|Makes more sense to have in under audio/
