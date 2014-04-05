@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gtkmm
-PORTVERSION=	3.11.9
+PORTVERSION=	3.11.10
 PORTREVISION?=	0
 CATEGORIES=	x11-toolkits
 MASTER_SITES=	GNOME
@@ -33,6 +33,9 @@ PLIST_SUB=	VERSION="3.0" API_VERSION="3.0"
 post-patch:
 	@${REINPLACE_CMD} -e '/^SUBDIRS =/s/tests//' \
 		${WRKSRC}/Makefile.in
+
+post-install:
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libg?kmm-3.0.so.2
 
 .include <bsd.port.mk>
 
