@@ -311,6 +311,7 @@ include/glibmm-%%API_VERSION%%/glibmm/private/unicode_p.h
 include/glibmm-%%API_VERSION%%/glibmm/private/uriutils_p.h
 include/glibmm-%%API_VERSION%%/glibmm/private/valuearray_p.h
 include/glibmm-%%API_VERSION%%/glibmm/private/variant_p.h
+include/glibmm-%%API_VERSION%%/glibmm/private/variantdict_p.h
 include/glibmm-%%API_VERSION%%/glibmm/private/variantiter_p.h
 include/glibmm-%%API_VERSION%%/glibmm/private/varianttype_p.h
 include/glibmm-%%API_VERSION%%/glibmm/property.h
@@ -344,6 +345,7 @@ include/glibmm-%%API_VERSION%%/glibmm/value_custom.h
 include/glibmm-%%API_VERSION%%/glibmm/valuearray.h
 include/glibmm-%%API_VERSION%%/glibmm/variant.h
 include/glibmm-%%API_VERSION%%/glibmm/variant_basictypes.h
+include/glibmm-%%API_VERSION%%/glibmm/variantdict.h
 include/glibmm-%%API_VERSION%%/glibmm/variantiter.h
 include/glibmm-%%API_VERSION%%/glibmm/varianttype.h
 include/glibmm-%%API_VERSION%%/glibmm/vectorutils.h
