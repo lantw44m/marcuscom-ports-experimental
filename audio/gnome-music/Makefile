@@ -4,7 +4,7 @@
 
 PORTNAME=	gnome-music
 PORTVERSION=	3.12.0
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	audio gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -21,6 +21,7 @@ USE_GNOME=	gnomedesktop3 gnomeprefix gtk30 intlhack \
 		introspection:build
 GNU_CONFIGURE=	yes
 USE_PYTHON=	3
+USE_GSTREAMER1=	ogg mad
 INSTALLS_ICONS=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
