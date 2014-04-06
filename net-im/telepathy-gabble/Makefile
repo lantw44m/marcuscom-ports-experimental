@@ -3,7 +3,7 @@
 #    $MCom$
 
 PORTNAME=	telepathy-gabble
-PORTVERSION=	0.18.1
+PORTVERSION=	0.18.2
 CATEGORIES=	net-im
 MASTER_SITES=	http://telepathy.freedesktop.org/releases/${PORTNAME}/
 
@@ -23,13 +23,12 @@ RUN_DEPENDS=	${LOCALBASE}/share/certs/ca-root-nss.crt:${PORTSDIR}/security/ca_ro
 
 PORTSCOUT=	limitw:1,even
 
-GNU_CONFIGURE=	yes
 USES=		gmake pathfix pkgconfig
 USE_GNOME=	glib20 libxslt:build
 USE_SQLITE=	3
 USE_OPENSSL=	yes
 USE_PYTHON_BUILD=	yes
-MAKE_JOBS_UNSAFE=	yes
+GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-ca-certificates=${LOCALBASE}/share/certs/ca-root-nss.crt
 CONFIGURE_ENV=	LIBS="-pthread"
 
@@ -42,5 +41,9 @@ CONFIGURE_ENV+=	OPENSSL_LIBS="-L/usr/lib -ssl -crypto" OPENSSL_CFLAGS="-I/usr/in
 post-patch:
 	@${REINPLACE_CMD} -e 's|-Werror||g' \
 		${WRKSRC}/lib/ext/wocky/configure
+
+post-install:
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/telepathy/gabble-0/plugins/lib*.so 
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/telepathy/gabble-0/lib/lib*.so
 
 .include <bsd.port.mk>
