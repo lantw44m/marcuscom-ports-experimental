@@ -5,7 +5,7 @@
 
 PORTNAME=	gtk
 PORTVERSION=	3.12.0
-PORTREVISION?=	1
+PORTREVISION?=	2
 CATEGORIES=	x11-toolkits
 MASTER_SITES=	GNOME
 MASTER_SITE_SUBDIR=	sources/gtk+/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}
@@ -71,6 +71,8 @@ post-patch:
 	@${REINPLACE_CMD} -e 's|@LN_S@|${LN} -sf|' ${WRKSRC}/gtk/Makefile.in
 	@${REINPLACE_CMD} -e 's|file,cups|file,cups,lpr|' \
 		${WRKSRC}/gtk/Makefile.in
+	@${REINPLACE_CMD} -e 's|-DG_DISABLE_CHECKS||' \
+		${WRKSRC}/configure
 
 pre-configure:
 .if !exists(${LOCALBASE}/libdata/pkgconfig/cairo-xlib.pc)
