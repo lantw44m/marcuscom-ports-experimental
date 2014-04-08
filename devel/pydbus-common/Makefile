@@ -4,7 +4,7 @@
 
 PORTNAME=	dbus
 PORTVERSION=	1.1.1
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	devel gnome python
 MASTER_SITES=	http://dbus.freedesktop.org/releases/dbus-python/
 PKGNAMEPREFIX=	py
@@ -17,7 +17,7 @@ COMMENT=	Common files for the Python bindings for the D-BUS messaging system
 LIB_DEPENDS=	libdbus-glib-1.so:${PORTSDIR}/devel/dbus-glib
 
 USES=		gettext pathfix pkgconfig gmake
-USE_PYTHON=	2
+USE_PYTHON_BUILD=	2
 USE_AUTOTOOLS=	libtool
 CPPFLAGS+=	-I${PYTHON_INCLUDEDIR}
 CONFIGURE_ARGS=	--docdir=${DOCSDIR} \
