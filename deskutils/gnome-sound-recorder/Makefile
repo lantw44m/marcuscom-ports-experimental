@@ -4,12 +4,15 @@
 
 PORTNAME=	gnome-sound-recorder
 PORTVERSION=	3.12.0
+PORTREVISION=	1
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	GNOME sound recorder application
+
+LIB_DEPENDS=	libgjs.so:${PORTSDIR}/lang/gjs
 
 USES=		gettext gmake libtool pathfix pkgconfig tar:xz
 USE_LDCONFIG=	yes
