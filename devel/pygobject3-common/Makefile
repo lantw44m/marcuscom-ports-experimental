@@ -22,7 +22,7 @@ BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/pycairo.pc:${PORTSDIR}/graphics/py
 
 USES=		gmake pathfix pkgconfig tar:xz
 USE_PYTHON_BUILD=	2
-USE_GNOME=	glib20 introspection
+USE_GNOME=	glib20:build introspection:build
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
 
