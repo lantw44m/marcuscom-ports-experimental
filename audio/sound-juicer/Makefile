@@ -19,7 +19,7 @@ LIB_DEPENDS=	libmusicbrainz5.so:${PORTSDIR}/audio/libmusicbrainz5 \
 		libdbus-glib-1.so:${PORTSDIR}/devel/dbus-glib \
 		libbrasero-media3.so:${PORTSDIR}/sysutils/brasero
 
-USES=		gettext gmake pathfix pkgconfig tar:xz
+USES=		desktop-file-utils gettext gmake pathfix pkgconfig tar:xz
 USE_GNOME=	gnomeprefix intlhack
 USE_GSTREAMER1=	cdparanoia flac good vorbis
 GNU_CONFIGURE=	yes
