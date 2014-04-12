@@ -81,7 +81,7 @@ _USE_GNOME_ALL+= atk atspi cairo desktopfileutils eel2 gal2 \
 		gnomedesktopsharp20 gnomedocutils gnomesharp20 \
 		gnomespeech gnomevfs2 gtk-update-icon-cache gtk20 gtkhtml3 gtksharp10 \
 		gtksharp20 gtksourceview gtksourceview2 gvfs libartlgpl2 libbonobo \
-		libbonoboui libgailgnome libgda2 libgda3 libgda4 libglade2 libgnome \
+		libbonoboui libgailgnome libgda4 libglade2 libgnome \
 		libgnomecanvas libgnomedb libgnomekbd libgnomeprint libgnomeprintui \
 		libgnomeui libgsf libgtkhtml libidl librsvg2 libwnck \
 		libxml2 libxslt libzvt linc \
@@ -371,7 +371,7 @@ gnomedesktop3_USE_GNOME_IMPL=	gtk30
 gnomedesktopsharp20_DETECT=		${LOCALBASE}/libdata/pkgconfig/gnome-desktop-sharp-2.0.pc
 gnomedesktopsharp20_BUILD_DEPENDS=	${gnomedesktopsharp20_DETECT}:${PORTSDIR}/x11-toolkits/gnome-desktop-sharp20
 gnomedesktopsharp20_RUN_DEPENDS=	${gnomedesktopsharp20_DETECT}:${PORTSDIR}/x11-toolkits/gnome-desktop-sharp20
-gnomedesktopsharp20_USE_GNOME_IMPL=	gnomesharp20 gnomepanel3 gtkhtml3 librsvg2 vte libgnomeprintui gtksourceview2 libwnck nautiluscdburner
+gnomedesktopsharp20_USE_GNOME_IMPL=	gnomesharp20 gnomepanel3 gtkhtml3 librsvg2 vte libgnomeprintui gtksourceview2 libwnck
 gnomedesktopsharp20_GNOME_DESKTOP_VERSION=2
 
 libwnck_LIB_DEPENDS=	libwnck-1.so:${PORTSDIR}/x11-toolkits/libwnck
@@ -425,14 +425,6 @@ gnomecontrolcenter3_BUILD_DEPENDS=	${gnomecontrolcenter3_DETECT}:${PORTSDIR}/sys
 gnomecontrolcenter3_RUN_DEPENDS=	${gnomecontrolcenter3_DETECT}:${PORTSDIR}/sysutils/gnome-control-center
 gnomecontrolcenter3_USE_GNOME_IMPL=	gnomedesktop3
 gnomecontrolcenter3_GNOME_DESKTOP_VERSION=3
-
-libgda2_LIB_DEPENDS=	libgda-2.so:${PORTSDIR}/databases/libgda2
-libgda2_DETECT=		${LOCALBASE}/libdata/pkgconfig/libgda.pc
-libgda2_USE_GNOME_IMPL=	glib20 libxslt
-
-libgda3_LIB_DEPENDS=	libgda-3.0.so:${PORTSDIR}/databases/libgda3
-libgda3_DETECT=		${LOCALBASE}/libdata/pkgconfig/libgda-3.0.pc
-libgda3_USE_GNOME_IMPL=	glib20 libxslt
 
 libgda4_LIB_DEPENDS=	libgda-4.0.so:${PORTSDIR}/databases/libgda4
 libgda4_DETECT=		${LOCALBASE}/libdata/pkgconfig/libgda-4.0.pc
