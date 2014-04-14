@@ -115,4 +115,6 @@ share/locale/zh_TW/LC_MESSAGES/eog-plugins.mo
 %%PYTHON%%@dirrm share/eog/plugins/fullscreenbg
 %%PYTHON%%@dirrm share/eog/plugins/export-to-folder
 %%PYTHON%%@dirrm share/eog/plugins
+%%PYTHON%%@dirrm lib/eog/plugins/pythonconsole/__pycache__
 %%PYTHON%%@dirrm lib/eog/plugins/pythonconsole
+%%PYTHON%%@dirrm lib/eog/plugins/__pycache__
