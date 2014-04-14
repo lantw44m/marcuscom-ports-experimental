@@ -3,8 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gedit
-PORTVERSION=	3.12.0
-PORTREVISION=	1
+PORTVERSION=	3.12.1
 CATEGORIES=	editors gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -47,6 +46,5 @@ GLIB_SCHEMAS=	org.gnome.gedit.enums.xml \
 
 post-install:
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/gedit/plugins/lib*.so
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/gedit/libgedit-private.so
 
 .include <bsd.port.mk>

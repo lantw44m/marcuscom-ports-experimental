@@ -19,8 +19,8 @@ include/gedit-%%VERSION%%/gedit/gedit-view.h
 include/gedit-%%VERSION%%/gedit/gedit-window-activatable.h
 include/gedit-%%VERSION%%/gedit/gedit-window.h
 lib/gedit/girepository-1.0/Gedit-3.0.typelib
-lib/gedit/libgedit-private.la
-lib/gedit/libgedit-private.so
+lib/gedit/libgedit.la
+lib/gedit/libgedit.so
 lib/gedit/plugins/docinfo.plugin
 lib/gedit/plugins/externaltools.plugin
 lib/gedit/plugins/filebrowser.plugin
