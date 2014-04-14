@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	at-spi2-atk
-PORTVERSION=	2.12.0
+PORTVERSION=	2.12.1
 CATEGORIES=	accessibility x11-toolkits
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
