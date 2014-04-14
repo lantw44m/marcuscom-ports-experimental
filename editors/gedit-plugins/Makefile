@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gedit-plugins
-PORTVERSION=	3.11.91
+PORTVERSION=	3.12.1
 CATEGORIES=	editors gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
