@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	iagno
-PORTVERSION=	3.12.0
+PORTVERSION=	3.12.1
 CATEGORIES=	games gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -16,8 +16,8 @@ BUILD_DEPENDS=	vala:${PORTSDIR}/lang/vala \
 LIB_DEPENDS=	libcanberra-gtk3.so:${PORTSDIR}/audio/libcanberra-gtk3
 
 USES=		gettext gmake pathfix pkgconfig tar:xz
-INSTALLS_ICONS=	yes
 USE_GNOME=	gtk30 intlhack librsvg2 libxml2:build
+INSTALLS_ICONS=	yes
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
