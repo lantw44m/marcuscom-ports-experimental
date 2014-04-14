@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gnome-chess
-PORTVERSION=	3.12.0
+PORTVERSION=	3.12.1
 CATEGORIES=	games gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -16,10 +16,10 @@ BUILD_DEPENDS=	vala:${PORTSDIR}/lang/vala \
 
 USES=		desktop-file-utils gettext gmake pathfix \
 		pkgconfig tar:xz
+USE_GNOME=	gtk30 intlhack librsvg2 libxml2:build
 INSTALLS_ICONS=	yes
 USE_XORG=	x11
 USE_GL=		gl glu
-USE_GNOME=	gtk30 intlhack librsvg2 libxml2:build
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
