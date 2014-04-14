@@ -1,7 +1,8 @@
 bin/baobab
 man/man1/baobab.1.gz
 share/appdata/baobab.appdata.xml
-share/applications/baobab.desktop
+share/applications/org.gnome.baobab.desktop
+share/dbus-1/services/org.gnome.baobab.service
 share/help/C/baobab/index.page
 share/help/C/baobab/introduction.page
 share/help/C/baobab/legal.xml
