@@ -57,6 +57,8 @@ share/help/C/gnome-music/playlist-create-artists.page
 share/help/C/gnome-music/playlist-create-songs.page
 share/help/C/gnome-music/playlist-delete.page
 share/help/C/gnome-music/playlist-remove-songs.page
+share/help/C/gnome-music/playlist-repeat.page
+share/help/C/gnome-music/playlist-shuffle.page
 share/help/C/gnome-music/search.page
 share/help/C/gnome-music/figures/gnome-music-3.12.png
 share/help/cs/gnome-music/index.page
@@ -68,8 +70,23 @@ share/help/cs/gnome-music/playlist-create-artists.page
 share/help/cs/gnome-music/playlist-create-songs.page
 share/help/cs/gnome-music/playlist-delete.page
 share/help/cs/gnome-music/playlist-remove-songs.page
+share/help/cs/gnome-music/playlist-repeat.page
+share/help/cs/gnome-music/playlist-shuffle.page
 share/help/cs/gnome-music/search.page
 share/help/cs/gnome-music/figures/gnome-music-3.12.png
+share/help/el/gnome-music/index.page
+share/help/el/gnome-music/introduction.page
+share/help/el/gnome-music/legal.xml
+share/help/el/gnome-music/play-music.page
+share/help/el/gnome-music/playlist-create-albums.page
+share/help/el/gnome-music/playlist-create-artists.page
+share/help/el/gnome-music/playlist-create-songs.page
+share/help/el/gnome-music/playlist-delete.page
+share/help/el/gnome-music/playlist-remove-songs.page
+share/help/el/gnome-music/playlist-repeat.page
+share/help/el/gnome-music/playlist-shuffle.page
+share/help/el/gnome-music/search.page
+share/help/el/gnome-music/figures/gnome-music-3.12.png
 share/help/es/gnome-music/index.page
 share/help/es/gnome-music/introduction.page
 share/help/es/gnome-music/legal.xml
@@ -79,6 +96,8 @@ share/help/es/gnome-music/playlist-create-artists.page
 share/help/es/gnome-music/playlist-create-songs.page
 share/help/es/gnome-music/playlist-delete.page
 share/help/es/gnome-music/playlist-remove-songs.page
+share/help/es/gnome-music/playlist-repeat.page
+share/help/es/gnome-music/playlist-shuffle.page
 share/help/es/gnome-music/search.page
 share/help/es/gnome-music/figures/gnome-music-3.12.png
 share/help/fr/gnome-music/index.page
@@ -90,6 +109,8 @@ share/help/fr/gnome-music/playlist-create-artists.page
 share/help/fr/gnome-music/playlist-create-songs.page
 share/help/fr/gnome-music/playlist-delete.page
 share/help/fr/gnome-music/playlist-remove-songs.page
+share/help/fr/gnome-music/playlist-repeat.page
+share/help/fr/gnome-music/playlist-shuffle.page
 share/help/fr/gnome-music/search.page
 share/help/fr/gnome-music/figures/gnome-music-3.12.png
 share/help/hu/gnome-music/index.page
@@ -101,6 +122,8 @@ share/help/hu/gnome-music/playlist-create-artists.page
 share/help/hu/gnome-music/playlist-create-songs.page
 share/help/hu/gnome-music/playlist-delete.page
 share/help/hu/gnome-music/playlist-remove-songs.page
+share/help/hu/gnome-music/playlist-repeat.page
+share/help/hu/gnome-music/playlist-shuffle.page
 share/help/hu/gnome-music/search.page
 share/help/hu/gnome-music/figures/gnome-music-3.12.png
 share/help/pt_BR/gnome-music/index.page
@@ -112,6 +135,8 @@ share/help/pt_BR/gnome-music/playlist-create-artists.page
 share/help/pt_BR/gnome-music/playlist-create-songs.page
 share/help/pt_BR/gnome-music/playlist-delete.page
 share/help/pt_BR/gnome-music/playlist-remove-songs.page
+share/help/pt_BR/gnome-music/playlist-repeat.page
+share/help/pt_BR/gnome-music/playlist-shuffle.page
 share/help/pt_BR/gnome-music/search.page
 share/help/pt_BR/gnome-music/figures/gnome-music-3.12.png
 share/icons/hicolor/16x16/apps/gnome-music.png
@@ -143,6 +168,7 @@ share/locale/he/LC_MESSAGES/gnome-music.mo
 share/locale/hu/LC_MESSAGES/gnome-music.mo
 share/locale/id/LC_MESSAGES/gnome-music.mo
 share/locale/it/LC_MESSAGES/gnome-music.mo
+share/locale/ja/LC_MESSAGES/gnome-music.mo
 share/locale/kn/LC_MESSAGES/gnome-music.mo
 share/locale/ko/LC_MESSAGES/gnome-music.mo
 share/locale/lt/LC_MESSAGES/gnome-music.mo
@@ -174,6 +200,8 @@ share/locale/zh_TW/LC_MESSAGES/gnome-music.mo
 @dirrm share/help/fr/gnome-music
 @dirrm share/help/es/gnome-music/figures
 @dirrm share/help/es/gnome-music
+@dirrm share/help/el/gnome-music/figures
+@dirrm share/help/el/gnome-music
 @dirrm share/help/cs/gnome-music/figures
 @dirrm share/help/cs/gnome-music
 @dirrm share/help/C/gnome-music/figures
