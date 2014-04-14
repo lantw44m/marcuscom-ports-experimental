@@ -608,6 +608,9 @@ share/locale/zh_TW/LC_MESSAGES/gnome-robots.mo
 @dirrmtry share/help/ca
 @dirrm share/help/C/gnome-robots/figures
 @dirrm share/help/C/gnome-robots
+@dirrm share/help/hu/gnome-robots/figures
+@dirrm share/help/hu/gnome-robots
+@dirrmtry share/help/hu
 @dirrmtry share/help/C
 @dirrmtry share/help
 @dirrmtry share/icons/HighContrast/48x48/apps
@@ -623,10 +626,6 @@ share/locale/zh_TW/LC_MESSAGES/gnome-robots.mo
 @dirrmtry share/icons/HighContrast/16x16/apps
 @dirrmtry share/icons/HighContrast/16x16
 @dirrmtry share/icons/HighContrast
-@dirrm share/help/hu/gnome-robots/figures
-@dirrm share/help/hu/gnome-robots
-@dirrmtry share/help/hu
-@dirrmtry share/help
 @dirrm share/gnome-robots/themes
 @dirrm share/gnome-robots/sounds
 @dirrm share/gnome-robots/pixmaps
