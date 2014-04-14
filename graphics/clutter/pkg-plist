@@ -137,10 +137,10 @@ include/clutter-1.0/clutter/x11/clutter-x11.h
 lib/girepository-1.0/Cally-1.0.typelib
 lib/girepository-1.0/Clutter-1.0.typelib
 lib/girepository-1.0/ClutterX11-1.0.typelib
-lib/libclutter-1.0.a
 lib/libclutter-1.0.la
 lib/libclutter-1.0.so
 lib/libclutter-1.0.so.0
+lib/libclutter-1.0.so.0.1800.2
 lib/libclutter-glx-1.0.so
 lib/libclutter-glx-1.0.so.0
 libdata/pkgconfig/cally-1.0.pc
@@ -387,6 +387,7 @@ share/locale/it/LC_MESSAGES/clutter-1.0.mo
 share/locale/ja/LC_MESSAGES/clutter-1.0.mo
 share/locale/km/LC_MESSAGES/clutter-1.0.mo
 share/locale/kn/LC_MESSAGES/clutter-1.0.mo
+share/locale/ko/LC_MESSAGES/clutter-1.0.mo
 share/locale/lt/LC_MESSAGES/clutter-1.0.mo
 share/locale/lv/LC_MESSAGES/clutter-1.0.mo
 share/locale/mk/LC_MESSAGES/clutter-1.0.mo
