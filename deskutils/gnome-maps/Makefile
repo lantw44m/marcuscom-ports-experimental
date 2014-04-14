@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gnome-maps
-PORTVERSION=	3.12.0
+PORTVERSION=	3.12.1
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -19,8 +19,8 @@ LIB_DEPENDS=	libcanberra-gtk3.so:${PORTSDIR}/audio/libcanberra-gtk3 \
 RUN_DEPENDS=	geoclue>=0:${PORTSDIR}/net/geoclue
 
 USES=		gettext gmake libtool pathfix pkgconfig tar:xz
-USE_LDCONFIG=	yes
 USE_GNOME=	gnomedesktop3 gnomeprefix gtk30 intlhack
+USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
