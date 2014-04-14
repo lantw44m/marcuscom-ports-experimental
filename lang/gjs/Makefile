@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gjs
-PORTVERSION=	1.40.0
+PORTVERSION=	1.40.1
 CATEGORIES=	lang gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -15,10 +15,10 @@ LIB_DEPENDS=	libdbus-glib-1.so:${PORTSDIR}/devel/dbus-glib \
 		libmozjs-24.so:${PORTSDIR}/lang/spidermonkey24
 
 USES=		gettext gmake libtool pathfix pkgconfig tar:xz
-USE_PYTHON_BUILD=yes
-GNU_CONFIGURE=	yes
 USE_GNOME=	cairo glib20 gnomeprefix introspection:build \
 		intlhack
+USE_PYTHON_BUILD=yes
+GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
