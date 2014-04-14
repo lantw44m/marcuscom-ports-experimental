@@ -1,6 +1,27 @@
---- libview/ev-view-presentation.c.orig	2014-03-28 09:25:14.912641754 +0000
-+++ libview/ev-view-presentation.c	2014-03-28 09:27:39.906632628 +0000
-@@ -1428,7 +1428,6 @@
+From b8a0905c92774683c2a90ca74b899e4ef784bc90 Mon Sep 17 00:00:00 2001
+From: Gustau Perez <gustau.perez@gmail.com>
+Date: Fri, 28 Mar 2014 19:31:08 +0000
+Subject: [PATCH] During the build of Evince with introspection support, it
+ crashes.
+
+Using GI_SCANNER_DEBUG=save-temps, the temporal files remained. It was
+possible to reproduce the problem. The backtrace can be found at:
+
+    http://pastebin.com/yVDiQTUN
+
+It has been suggested that calling gtk_style_context_add_provider_for_screen()
+should, inside a g_once_init(), be in the class's _init() (not class_init()) hook.
+
+This apparently fixes the problem.
+---
+ libview/ev-view-presentation.c | 27 ++++++++++++++++-----------
+ 1 file changed, 16 insertions(+), 11 deletions(-)
+
+diff --git a/libview/ev-view-presentation.c b/libview/ev-view-presentation.c
+index 3bdf4e6..4fdd6b6 100644
+--- libview/ev-view-presentation.c
++++ libview/ev-view-presentation.c
+@@ -1419,7 +1419,6 @@ ev_view_presentation_class_init (EvViewPresentationClass *klass)
  	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
  	GObjectClass   *gobject_class = G_OBJECT_CLASS (klass);
  	GtkBindingSet  *binding_set;
@@ -8,7 +29,7 @@
  
  	klass->change_page = ev_view_presentation_change_page;
  
-@@ -1542,16 +1541,6 @@
+@@ -1533,16 +1532,6 @@ ev_view_presentation_class_init (EvViewPresentationClass *klass)
  	gtk_binding_entry_add_signal (binding_set, GDK_KEY_K, 0,
  				      "change_page", 1,
  				      GTK_TYPE_SCROLL_TYPE, GTK_SCROLL_PAGE_BACKWARD);
@@ -25,30 +46,28 @@
  }
  
  static void
-@@ -1567,8 +1556,24 @@
- 			  guint       rotation,
- 			  gboolean    inverted_colors)
+@@ -1550,6 +1539,22 @@ ev_view_presentation_init (EvViewPresentation *pview)
  {
--	g_return_val_if_fail (EV_IS_DOCUMENT (document), NULL);
--	g_return_val_if_fail (current_page < ev_document_get_n_pages (document), NULL);
-+        GtkCssProvider *provider;
-+        static gsize initialization_value = 0;
+ 	gtk_widget_set_can_focus (GTK_WIDGET (pview), TRUE);
+         pview->is_constructing = TRUE;
 +
-+        g_return_val_if_fail (EV_IS_DOCUMENT (document), NULL);
-+        g_return_val_if_fail (current_page < ev_document_get_n_pages (document), NULL);
++	static gsize initialization_value = 0;
 +
 +	if (g_once_init_enter (&initialization_value)){
++		GtkCssProvider *provider;
 +		provider = gtk_css_provider_new ();
 +		gtk_css_provider_load_from_data (provider,
-+						"EvViewPresentation {\n"
-+						" background-color: black; }",
-+						-1, NULL);
++						 "EvViewPresentation {\n"
++						 " background-color: black; }",
++						 -1, NULL);
 +		gtk_style_context_add_provider_for_screen (gdk_screen_get_default (),
 +							   GTK_STYLE_PROVIDER (provider),
 +							   GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 +		g_object_unref (provider);
-+		g_once_init_leave (&initialization_value, 42);
++		g_once_init_leave (&initialization_value, 1);
 +	}
+ }
  
- 	return GTK_WIDGET (g_object_new (EV_TYPE_VIEW_PRESENTATION,
- 					 "document", document,
+ GtkWidget *
+-- 
+1.8.2.3

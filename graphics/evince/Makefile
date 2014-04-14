@@ -4,7 +4,7 @@
 
 PORTNAME=	evince
 PORTVERSION=	3.12.0
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	graphics print gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -21,14 +21,13 @@ LIB_DEPENDS=	libpoppler-glib.so:${PORTSDIR}/graphics/poppler-glib \
 RUN_DEPENDS=	${LOCALBASE}/share/icons/gnome/index.theme:${PORTSDIR}/misc/gnome-icon-theme \
 		${LOCALBASE}/libdata/pkgconfig/gsettings-desktop-schemas.pc:${PORTSDIR}/devel/gsettings-desktop-schemas
 
+USES=		desktop-file-utils gettext gmake libtool pathfix \
+		pkgconfig tar:xz
+USE_GNOME=	gnomeprefix intlhack introspection:build
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
 USE_XORG=	ice
 INSTALLS_ICONS=	yes
-INSTALLS_OMF=	yes
-USES=		desktop-file-utils gettext gmake libtool pathfix \
-		pkgconfig tar:xz
-USE_GNOME=	intlhack gnomeprefix introspection:build
 CPPFLAGS+=	-I${LOCALBASE}/include -Wno-format-nonliteral
 LDFLAGS+=	-L${LOCALBASE}/lib
 CONFIGURE_ARGS=	--disable-xps --enable-introspection
