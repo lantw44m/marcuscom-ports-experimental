@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	empathy
-PORTVERSION=	3.12.0
+PORTVERSION=	3.12.1
 CATEGORIES=	net-im gnome
 MASTER_SITES=	GNOME
 
@@ -38,12 +38,13 @@ RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:${PORTSDIR}/misc/iso-co
     		${LOCALBASE}/libexec/mission-control-5:${PORTSDIR}/net-im/telepathy-mission-control
 
 USES=		gettext gmake libtool pathfix pkgconfig tar:xz
-USE_LDCONFIG=	yes
 USE_GNOME=	evolutiondataserver3 gnomeprefix
-USE_GSTREAMER1=	yes
-GNU_CONFIGURE=	yes
-INSTALLS_ICONS=	yes
 USE_PYTHON=	yes
+USE_GSTREAMER1=	yes
+USE_LDCONFIG=	yes
+INSTALLS_ICONS=	yes
+MAKE_JOBS_UNSAFE=	YES
+GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 CONFIGURE_ARGS=	--disable-Werror \
@@ -110,7 +111,7 @@ post-patch:
 			${WRKSRC}/configure
 
 post-install:
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/empathy/libempathy-*3.12.0.so
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/empathy/libempathy-*3.12.1.so
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/mission-control-plugins.0/mcp-account-manager-goa.so
 
 .include <bsd.port.mk>
