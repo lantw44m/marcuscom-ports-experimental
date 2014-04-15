@@ -12,6 +12,14 @@ share/dbus-1/services/org.gnome.Photos.service
 share/glib-2.0/schemas/org.gnome.photos.gschema.xml
 %%DATADIR%%/icons/thumbnail-frame.png
 share/gnome-shell/search-providers/org.gnome.Photos.search-provider.ini
+share/help/C/gnome-photos/favorites-set.page
+share/help/C/gnome-photos/favorites.page
+share/help/C/gnome-photos/index.page
+share/help/C/gnome-photos/legal.xml
+share/help/C/gnome-photos/view-album.page
+share/help/C/gnome-photos/view-favorites.page
+share/help/C/gnome-photos/view.page
+share/help/C/gnome-photos/media/logo1.png
 share/icons/hicolor/16x16/apps/gnome-photos.png
 share/icons/hicolor/22x22/apps/gnome-photos.png
 share/icons/hicolor/24x24/apps/gnome-photos.png
@@ -65,6 +73,8 @@ share/locale/uk/LC_MESSAGES/gnome-photos.mo
 share/locale/zh_CN/LC_MESSAGES/gnome-photos.mo
 share/locale/zh_HK/LC_MESSAGES/gnome-photos.mo
 share/locale/zh_TW/LC_MESSAGES/gnome-photos.mo
+@dirrm share/help/C/gnome-photos/media
+@dirrm share/help/C/gnome-photos
 @dirrmtry share/gnome-shell/search-providers
 @dirrmtry share/gnome-shell
 @dirrmtry share/appdata
