@@ -3,7 +3,7 @@
 #    $MCom$
 
 PORTNAME=	gnome-online-accounts
-PORTVERSION=	3.12.0
+PORTVERSION=	3.12.1
 CATEGORIES=	net
 MASTER_SITES=	GNOME
 
