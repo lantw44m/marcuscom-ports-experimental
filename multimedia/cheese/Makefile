@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	cheese
-PORTVERSION=	3.12.0
+PORTVERSION=	3.12.1
 CATEGORIES=	multimedia gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -21,10 +21,10 @@ LIB_DEPENDS=	libcanberra-gtk3.so:${PORTSDIR}/audio/libcanberra-gtk3 \
 		libclutter-gst-2.0.so:${PORTSDIR}/multimedia/clutter-gst
 RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/gnome-video-effects.pc:${PORTSDIR}/graphics/gnome-video-effects
 
-USE_XORG=	xxf86vm x11
+USES=		gettext gmake libtool pathfix pkgconfig tar:xz
 USE_GNOME=	gnomeprefix intlhack evolutiondataserver3 librsvg2 \
 		gnomedesktop3 libxml2:build introspection:build
-USES=		gettext gmake libtool pathfix pkgconfig tar:xz
+USE_XORG=	xxf86vm x11
 USE_GSTREAMER1=	bad good jpeg ogg theora v4l2 vpx
 INSTALLS_ICONS=	yes
 USE_LDCONFIG=	yes
