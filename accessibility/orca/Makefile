@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	orca
-PORTVERSION=	3.12.0
+PORTVERSION=	3.12.1
 CATEGORIES=	accessibility gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -25,8 +25,8 @@ RUN_DEPENDS=	${PYTHON_SITELIBDIR}/_dbus_bindings.so:${PORTSDIR}/devel/py3-dbus \
 CONFLICTS=	py*-json-py-[0-9]*
 
 USES=		gettext gmake pathfix pkgconfig tar:xz
-USE_PYTHON=	3
 USE_GNOME=	gnomeprefix gtk30 py3gobject3
+USE_PYTHON=	3
 INSTALLS_ICONS=	yes
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
