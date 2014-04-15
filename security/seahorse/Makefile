@@ -4,6 +4,7 @@
 
 PORTNAME=	seahorse
 PORTVERSION=	3.12.0
+PORTREVISION=	1
 CATEGORIES=	security gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -15,10 +16,7 @@ BUILD_DEPENDS=	gpg:${PORTSDIR}/security/gnupg \
 		itstool:${PORTSDIR}/textproc/itstool
 LIB_DEPENDS=	libgpgme.so:${PORTSDIR}/security/gpgme \
 		libdbus-glib-1.so:${PORTSDIR}/devel/dbus-glib \
-		libgnome-keyring.so:${PORTSDIR}/security/libgnome-keyring \
-		libcryptui.so:${PORTSDIR}/security/libcryptui \
 		libgcr-3.so:${PORTSDIR}/security/gcr \
-		libgcrypt.so:${PORTSDIR}/security/libgcrypt \
 		libsecret-1.so:${PORTSDIR}/security/libsecret \
 		libsoup-2.4.so:${PORTSDIR}/devel/libsoup
 RUN_DEPENDS=	gpg:${PORTSDIR}/security/gnupg
