@@ -3,8 +3,7 @@
 #   $MCom$
 
 PORTNAME=	pygobject
-PORTVERSION=	3.12.0
-PORTREVISION=	2
+PORTVERSION=	3.12.1
 CATEGORIES=	devel python
 MASTER_SITES=	GNOME
 MASTER_SITE_SUBDIR=	sources/pygobject/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}

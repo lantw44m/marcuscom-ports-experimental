@@ -3,8 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gobject
-PORTVERSION=	3.12.0
-PORTREVISION=	1
+PORTVERSION=	3.12.1
 CATEGORIES=	devel python
 MASTER_SITES=	GNOME
 MASTER_SITE_SUBDIR=	sources/pygobject/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}
@@ -23,6 +22,8 @@ BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/py3cairo.pc:${PORTSDIR}/graphics/p
 LIB_DEPENDS=	libffi.so:${PORTSDIR}/devel/libffi
 RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/py3cairo.pc:${PORTSDIR}/graphics/py3-cairo \
 		pygobject3-common>=0:${PORTSDIR}/devel/pygobject3-common
+
+DISTINFO_FILE=	${.CURDIR}/../pygobject3-common/distinfo
 
 USES=		gmake pathfix pkgconfig tar:xz
 USE_GNOME=	glib20 introspection
