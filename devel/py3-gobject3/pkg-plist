@@ -75,8 +75,6 @@
 %%PYTHON_SITELIBDIR%%/pygtkcompat/__pycache__/pygtkcompat.cpython-33.pyo
 %%PYTHON_SITELIBDIR%%/pygtkcompat/generictreemodel.py
 %%PYTHON_SITELIBDIR%%/pygtkcompat/pygtkcompat.py
-share/py3gobject3/.keep
-@dirrm share/py3gobject3
 @dirrm %%PYTHON_SITELIBDIR%%/pygtkcompat/__pycache__
 @dirrm %%PYTHON_SITELIBDIR%%/pygtkcompat
 @dirrm %%PYTHON_SITELIBDIR%%/gi/repository/__pycache__
