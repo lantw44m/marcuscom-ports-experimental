@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gnome-games
-PORTVERSION=	3.11.91
+PORTVERSION=	3.12.1
 CATEGORIES=	games gnome
 MASTER_SITES=	# empty
 DISTFILES=	# empty
@@ -17,7 +17,7 @@ RUN_DEPENDS=	gnome-chess:${PORTSDIR}/games/gnome-chess \
 		four-in-a-row:${PORTSDIR}/games/four-in-a-row \
 		gnome-nibbles:${PORTSDIR}/games/gnome-nibbles \
 		gnome-robots:${PORTSDIR}/games/gnome-robots \
-#		gnome-sudoku:${PORTSDIR}/games/gnome-sudoku \
+		gnome-sudoku:${PORTSDIR}/games/gnome-sudoku \
 		gnome-mines:${PORTSDIR}/games/gnome-mines \
 		gnome-tetravex:${PORTSDIR}/games/gnome-tetravex \
 		gnome-klotski:${PORTSDIR}/games/gnome-klotski \
