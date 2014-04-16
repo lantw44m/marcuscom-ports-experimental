@@ -65,6 +65,7 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/doc/*.html ${STAGEDIR}${DOCSDIR}
 .endif
 .else # slave is defined
+LIB_DEPENDS+=	libdbus-glib-1.so:${PORTSDIR}/devel/dbus-glib
 RUN_DEPENDS+=	pydbus-common>=0:${PORTSDIR}/devel/pydbus-common
 USE_LDCONFIG=	yes
 .if ${SLAVE_PORT} == python2
