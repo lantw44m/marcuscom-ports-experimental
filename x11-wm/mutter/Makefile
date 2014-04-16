@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	mutter
-PORTVERSION=	3.12.0
+PORTVERSION=	3.12.1
 CATEGORIES=	x11-wm
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -20,14 +20,12 @@ LIB_DEPENDS=	libstartup-notification-1.so:${PORTSDIR}/x11/startup-notification \
 RUN_DEPENDS=	zenity3>=3.0.0:${PORTSDIR}/x11/zenity3 \
 		gsettings-desktop-schemas>=3.4.0:${PORTSDIR}/devel/gsettings-desktop-schemas
 
-USE_XZ=		yes
+USES=		gettext gmake pathfix pkgconfig tar:xz
+USE_GNOME=	gnomedesktop3 gnomehier gnomeprefix gtk30 intlhack \
+		introspection:build
 USE_XORG=	x11 xext xrandr xcomposite xcursor xinerama ice sm xfixes \
 		xrender xdamage
-USE_PYTHON=	2.5+
-USES=		gettext gmake pathfix pkgconfig
 GNU_CONFIGURE=	yes
-USE_GNOME=	gnomedesktop3 gnomehier gnomeprefix gtk30 intlhack \
-		introspection:build ltverhack
 USE_LDCONFIG=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include -fno-omit-frame-pointer
 LDFLAGS+=	-L${LOCALBASE}/lib
