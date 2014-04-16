@@ -3,7 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gnome-desktop
-PORTVERSION=	3.12.0
+PORTVERSION=	3.12.1
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -26,10 +26,10 @@ RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:${PORTSDIR}/misc/iso-co
 		${LOCALBASE}/libdata/pkgconfig/xkeyboard-config.pc:${PORTSDIR}/x11/xkeyboard-config \
 		${LOCALBASE}/libdata/pkgconfig/xkbfile.pc:${PORTSDIR}/x11/libxkbfile
 
-USE_XORG=	x11 xrandr xext
 USES+=		bison gettext gmake libtool pathfix pkgconfig
 USE_GNOME=	gnomeprefix gtk30 intlhack introspection:build \
 		referencehack
+USE_XORG=	x11 xrandr xext
 USE_PYTHON=	3
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
