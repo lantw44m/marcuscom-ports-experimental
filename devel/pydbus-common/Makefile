@@ -4,40 +4,39 @@
 
 PORTNAME=	dbus
 PORTVERSION=	1.1.1
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	devel gnome python
 MASTER_SITES=	http://dbus.freedesktop.org/releases/dbus-python/
-PKGNAMEPREFIX=	py
-PKGNAMESUFFIX=	-common
+PKGNAMEPREFIX?=	py
+PKGNAMESUFFIX?=	-common
 DISTNAME=	dbus-python-${PORTVERSION}
 
 MAINTAINER=	gnome@FreeBSD.org
-COMMENT=	Common files for the Python bindings for the D-BUS messaging system
+COMMENT?=	Common files for the Python bindings for the D-BUS messaging system
 
 BUILD_DEPENDS=	dbus-glib>=0:${PORTSDIR}/devel/dbus-glib
 
+SLAVE_PORT?=	no
+
 USES=		gettext pathfix pkgconfig gmake
-USE_PYTHON_BUILD=	2
 USE_AUTOTOOLS=	libtool
 CPPFLAGS+=	-I${PYTHON_INCLUDEDIR}
 CONFIGURE_ARGS=	--docdir=${DOCSDIR} \
 		--disable-api-docs
 
+.if ${SLAVE_PORT} == no
+USE_PYTHON_BUILD=	2
+
 DOCSDIR=	${PREFIX}/share/doc/py-${PORTNAME}
 EXAMPLESDIR=	${PREFIX}/share/examples/py-${PORTNAME}
 
-OPTIONS_DEFINE=HTMLDOCS
+OPTIONS_SUB=	yes
+OPTIONS_DEFINE=	HTMLDOCS
 HTMLDOCS_DESC=	build html documentation
+HTMLDOCS_CONFIGURE_OFF=	--disable-html-docs
+HTMLDOCS_BUILD_DEPENDS=	rst2html:${PORTSDIR}/textproc/py-docutils
 
 .include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MHTMLDOCS}
-BUILD_DEPENDS+=	rst2html:${PORTSDIR}/textproc/py-docutils
-PLIST_SUB+=	HTML=""
-.else
-CONFIGURE_ARGS+=--disable-html-docs
-PLIST_SUB+=	HTML="@comment "
-.endif
 
 post-patch:
 .if ! ${PORT_OPTIONS:MDOCS}
@@ -65,5 +64,22 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/*.html ${STAGEDIR}${DOCSDIR} && \
 	${INSTALL_DATA} ${WRKSRC}/doc/*.html ${STAGEDIR}${DOCSDIR}
 .endif
+.else # slave is defined
+RUN_DEPENDS+=	pydbus-common>=0:${PORTSDIR}/devel/pydbus-common
+USE_LDCONFIG=	yes
+.if ${SLAVE_PORT} == python2
+USE_PYTHON=	2
+.endif
+.if ${SLAVE_PORT} == python3
+USE_PYTHON=	3
+.endif
+
+post-install:
+	${STRIP_CMD} ${STAGEDIR}${PYTHON_SITELIBDIR}/_dbus_*bindings.so
+
+	@${RM} -f ${STAGEDIR}${PREFIX}/include/dbus-1.0/dbus/dbus-python.h \
+		${STAGEDIR}${PREFIX}/libdata/pkgconfig/dbus-python.pc
+	@${RMDIR} -fr ${STAGEDIR}/${DOCSDIR}
+.endif # end of slaving block
 
 .include <bsd.port.mk>
