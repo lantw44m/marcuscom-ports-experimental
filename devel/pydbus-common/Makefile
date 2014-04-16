@@ -1,6 +1,6 @@
 # Created by: Gustau Perez i Querol <gustau.perez@gmail.com>
 # $FreeBSD$
-#   $MCom$
+#   $MCom: ports-experimental/trunk/devel/pydbus-common/Makefile 19541 2014-04-16 10:23:02Z gusi $
 
 PORTNAME=	dbus
 PORTVERSION=	1.1.1
@@ -79,7 +79,7 @@ post-install:
 
 	@${RM} -f ${STAGEDIR}${PREFIX}/include/dbus-1.0/dbus/dbus-python.h \
 		${STAGEDIR}${PREFIX}/libdata/pkgconfig/dbus-python.pc
-	@${RMDIR} -fr ${STAGEDIR}/${DOCSDIR}
+	@${RM} -fr ${STAGEDIR}/${DOCSDIR}
 .endif # end of slaving block
 
 .include <bsd.port.mk>
