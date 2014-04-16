@@ -3,8 +3,7 @@
 #   $MCom$
 
 PORTNAME=	gnome-control-center
-PORTVERSION=	3.12.0
-PORTREVISION=	3
+PORTVERSION=	3.12.1
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
