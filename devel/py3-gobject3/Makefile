@@ -9,14 +9,6 @@ PKGNAMESUFFIX=	3
 
 SLAVE_PORT=	python3
 
-BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/py3cairo.pc:${PORTSDIR}/graphics/py3-cairo
-LIB_DEPENDS=	libffi.so:${PORTSDIR}/devel/libffi
-RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/py3cairo.pc:${PORTSDIR}/graphics/py3-cairo \
-		pygobject3-common>=0:${PORTSDIR}/devel/pygobject3-common
-
-USE_GNOME=	glib20 introspection
-USE_PYTHON=	3
-USE_LDCONFIG=	yes
 MASTERDIR=	${.CURDIR}/../../devel/pygobject3-common
 PLIST=		${.CURDIR}/pkg-plist
 

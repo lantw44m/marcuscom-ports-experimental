@@ -34,7 +34,6 @@ PLIST_SUB=	ARCH=${ARCH} UNAME_R=${UNAME_R} VERSION=${PORTVERSION}
 BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/pycairo.pc:${PORTSDIR}/graphics/py-cairo
 USE_PYTHON_BUILD=	2
 USE_GNOME=	glib20:build introspection:build
-
 NO_BUILD=	yes
 
 do-install:
@@ -43,7 +42,23 @@ do-install:
 		${STAGEDIR}${PREFIX}/include/pygobject-3.0/pygobject.h
 	${INSTALL_DATA} ${WRKSRC}/pygobject-3.0.pc \
 		${STAGEDIR}${PREFIX}/libdata/pkgconfig/pygobject-3.0.pc
-.elif ${SLAVE_PORT} == python2 || ${SLAVE_PORT} == python3
+.elif 
+USE_GNOME+=	glib20 introspection
+LIB_DEPENDS+=	libffi.so:${PORTSDIR}/devel/libffi
+BUILD_DEPENDS+=	pygobject3-common>=0:${PORTSDIR}/devel/pygobject3-common
+
+.if ${SLAVE_PORT} == python2
+USE_PYTHON=	2
+BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/pycairo.pc:${PORTSDIR}/graphics/py-cairo
+RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/pycairo.pc:${PORTSDIR}/graphics/py-cairo
+.endif
+
+.if ${SLAVE_PORT} == python3
+USE_PYTHON=	3
+BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/py3cairo.pc:${PORTSDIR}/graphics/py3-cairo
+RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/py3cairo.pc:${PORTSDIR}/graphics/py3-cairo
+.endif
+
 post-install:
 	@${STRIP_CMD} ${STAGEDIR}${PYTHON_SITELIBDIR}/gi/*.so
 	@${RM} -rf ${STAGEDIR}${PREFIX}/include/pygobject-3.0 \
@@ -55,4 +70,3 @@ post-install:
 UNAME_R!=	${UNAME} -r
 
 .include <bsd.port.post.mk>
-
