@@ -1,6 +1,6 @@
 # Created by: Sunpoet Po-Chuan Hsieh <sunpoet@FreeBSD.org>
 # $FreeBSD$
-#   $MCom: ports-experimental/trunk/multimedia/libquvi-scripts/Makefile 19068 2014-03-11 08:48:35Z gusi $
+#   $MCom$
 
 PORTNAME=	libquvi-scripts
 PORTVERSION=	0.9
@@ -22,9 +22,8 @@ OPTIONS_DEFINE=	NSFW
 OPTIONS_SUB=	yes
 NSFW_DESC=	Enable adult website support
 
+USES=		pathfix tar:xz
 GNU_CONFIGURE=	yes
-USE_XZ=		yes
-USES=		pathfix
 
 QUVI_VER=	0.9.20131130
 

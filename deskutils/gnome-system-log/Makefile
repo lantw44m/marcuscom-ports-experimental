@@ -15,11 +15,10 @@ BUILD_DEPENDS=	itstool:${PORTSDIR}/textproc/itstool
 
 CONFLICTS=	gnome-utils-2.[0-9]*
 
-USE_XZ=		yes
-USES=		gettext gmake pathfix pkgconfig
-USE_LDCONFIG=	yes
-INSTALLS_ICONS=	yes
+USES=		gettext gmake pathfix pkgconfig tar:xz
 USE_GNOME=	gnomeprefix intlhack gtk30
+INSTALLS_ICONS=	yes
+USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib

@@ -1,6 +1,6 @@
 # Created by: Martin Wilke <miwi@FreeBSD.org>
 # $FreeBSD$
-#   $MCom: ports-experimental/trunk/multimedia/clutter-gst/Makefile 19077 2014-03-11 11:16:22Z gusi $
+#   $MCom$
 
 PORTNAME=	clutter-gst
 PORTVERSION=	2.0.10
@@ -12,11 +12,10 @@ COMMENT=	Clutter GStreamer integration
 
 LIB_DEPENDS=	libclutter-1.0.so:${PORTSDIR}/graphics/clutter
 
-USE_XZ=		yes
+USES=		gmake pathfix pkgconfig tar:xz
+USE_GNOME=	introspection gnomehier gnomeprefix ltverhack
 USE_AUTOTOOLS=	libtool
 USE_GL=		gl
-USES=		gmake pathfix pkgconfig
-USE_GNOME=	introspection gnomehier gnomeprefix ltverhack
 USE_GSTREAMER1=	yes
 USE_XORG=	xp x11
 USE_LDCONFIG=	yes

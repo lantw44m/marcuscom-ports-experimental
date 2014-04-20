@@ -1,6 +1,6 @@
 # Created by: Sunpoet Po-Chuan Hsieh <sunpoet@FreeBSD.org>
 # $FreeBSD$
-#   $MCom: ports-experimental/trunk/multimedia/libquvi/Makefile 19069 2014-03-11 09:28:01Z gusi $
+#   $MCom$
 
 PORTNAME=	libquvi
 PORTVERSION=	0.9.4
@@ -23,12 +23,11 @@ OPTIONS_DEFINE=	DOCS
 
 PORTSCOUT=	limit:0.4.[0-9]*
 
-CPPFLAGS+=	-I${LOCALBASE}/include
+USES=		iconv lua pathfix pkgconfig tar:xz
+USE_GNOME=	glib20
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
-USE_XZ=		yes
-USES=		iconv lua pathfix pkgconfig
-USE_GNOME=	glib20
+CPPFLAGS+=	-I${LOCALBASE}/include
 
 QUVI_VER=	0.9
 PLIST_SUB+=	VERSION=${QUVI_VER}

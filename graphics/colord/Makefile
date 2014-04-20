@@ -17,9 +17,8 @@ LIB_DEPENDS=	libpolkit-gobject-1.so:${PORTSDIR}/sysutils/polkit \
 USERS=		colord
 GROUPS=		colord
 
-USE_XZ=		yes
+USES=		gettext gmake pathfix pkgconfig tar:xz
 USE_GNOME=	gnomehier glib20 intlhack introspection:build
-USES=		gettext gmake pathfix pkgconfig
 USE_SQLITE=	3
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes

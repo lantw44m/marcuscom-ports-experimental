@@ -12,15 +12,16 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Library used for writing pagers and taskslists
 
-USE_XZ=		yes
+USES=		tar:xz
 
 .if !defined(REFERENCE_PORT)
 
 LIB_DEPENDS=	libstartup-notification-1.so:${PORTSDIR}/x11/startup-notification
 
+USES+=		bison gettext gmake pathfix pkgconfig
+USE_GNOME=	gtk30 intlhack introspection:build ltverhack \
+		referencehack
 USE_XORG=	xres x11
-USE_GNOME=	gtk30 intlhack introspection:build ltverhack referencehack
-USES=		bison gettext gmake pathfix pkgconfig
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-tools

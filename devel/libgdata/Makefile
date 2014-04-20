@@ -20,11 +20,11 @@ RUN_DEPENDS=	ca_root_nss>=0:${PORTSDIR}/security/ca_root_nss
 
 CONFLICTS=	libgdata-0.6.*
 
-USE_XZ=		yes
+USES=		gettext gmake libtool pathfix pkgconfig tar:xz
+USE_GNOME=	glib20 gnomehier gnomeprefix intltool \
+			introspection:build
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
-USES=		gettext gmake libtool pathfix pkgconfig
-USE_GNOME=	glib20 gnomehier gnomeprefix intltool introspection:build
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 INSTALL_TARGET=	install-strip

@@ -19,9 +19,8 @@ RUN_DEPENDS:=	${BUILD_DEPENDS}
 
 PORTSCOUT=	limit:0.4.[0-9]*
 
+USES=		pkgconfig tar:xz
 GNU_CONFIGURE=	yes
-USES=		pkgconfig
-USE_XZ=		yes
 
 PLIST_FILES=	bin/quvi \
 		man/man1/quvi-dump.1.gz \
