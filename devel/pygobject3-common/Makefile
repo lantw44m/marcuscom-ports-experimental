@@ -31,7 +31,7 @@ CONFLICTS=	py*-gtk-0* py*-gobject-2.*.[0-6] py*-gobject-2.*.[7-9] \
 PLIST_SUB=	ARCH=${ARCH} UNAME_R=${UNAME_R} VERSION=${PORTVERSION}
 
 .if ${SLAVE_PORT} == no
-BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/pycairo.pc:${PORTSDIR}/graphics/py-cairo
+BUILD_DEPENDS+=	${LOCALBASE}/libdata/pkgconfig/pycairo.pc:${PORTSDIR}/graphics/py-cairo
 USE_PYTHON_BUILD=	2
 USE_GNOME=	glib20:build introspection:build
 NO_BUILD=	yes
@@ -49,14 +49,15 @@ BUILD_DEPENDS+=	pygobject3-common>=0:${PORTSDIR}/devel/pygobject3-common
 
 .if ${SLAVE_PORT} == python2
 USE_PYTHON=	2
-BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/pycairo.pc:${PORTSDIR}/graphics/py-cairo
-RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/pycairo.pc:${PORTSDIR}/graphics/py-cairo
+BUILD_DEPENDS+=	${LOCALBASE}/libdata/pkgconfig/pycairo.pc:${PORTSDIR}/graphics/py-cairo
+RUN_DEPENDS+=	${LOCALBASE}/libdata/pkgconfig/pycairo.pc:${PORTSDIR}/graphics/py-cairo
 .endif
 
 .if ${SLAVE_PORT} == python3
 USE_PYTHON=	3
-BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/py3cairo.pc:${PORTSDIR}/graphics/py3-cairo
-RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/py3cairo.pc:${PORTSDIR}/graphics/py3-cairo
+BUILD_DEPENDS+=	${LOCALBASE}/libdata/pkgconfig/py3cairo.pc:${PORTSDIR}/graphics/py3-cairo
+RUN_DEPENDS+=	${LOCALBASE}/libdata/pkgconfig/py3cairo.pc:${PORTSDIR}/graphics/py3-cairo
+PLIST_SUB+=	PYTVER=${PYTHON_VER:S/.//}
 .endif
 
 post-install:
