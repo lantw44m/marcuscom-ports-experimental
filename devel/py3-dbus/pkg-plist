@@ -1,7 +1,5 @@
-%%PYTHON_SITELIBDIR%%/_dbus_bindings.a
 %%PYTHON_SITELIBDIR%%/_dbus_bindings.la
 %%PYTHON_SITELIBDIR%%/_dbus_bindings.so
-%%PYTHON_SITELIBDIR%%/_dbus_glib_bindings.a
 %%PYTHON_SITELIBDIR%%/_dbus_glib_bindings.la
 %%PYTHON_SITELIBDIR%%/_dbus_glib_bindings.so
 %%PYTHON_SITELIBDIR%%/dbus/__init__.py

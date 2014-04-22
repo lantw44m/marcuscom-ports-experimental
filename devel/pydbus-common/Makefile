@@ -18,11 +18,12 @@ BUILD_DEPENDS=	dbus-glib>=0:${PORTSDIR}/devel/dbus-glib
 
 SLAVE_PORT?=	no
 
-USES=		gettext pathfix pkgconfig gmake
-USE_AUTOTOOLS=	libtool
+USES=		gettext gmake libtool pathfix pkgconfig
+GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${PYTHON_INCLUDEDIR}
 CONFIGURE_ARGS=	--docdir=${DOCSDIR} \
 		--disable-api-docs
+INSTALL_TARGET=	install-strip
 
 .if ${SLAVE_PORT} == no
 USE_PYTHON_BUILD=	2
@@ -76,9 +77,7 @@ USE_PYTHON=	3
 .endif
 
 post-install:
-	${STRIP_CMD} ${STAGEDIR}${PYTHON_SITELIBDIR}/_dbus_*bindings.so
-
-	@${RM} -f ${STAGEDIR}${PREFIX}/include/dbus-1.0/dbus/dbus-python.h \
+	@${RM} -rf ${STAGEDIR}${PREFIX}/include/dbus-1.0 \
 		${STAGEDIR}${PREFIX}/libdata/pkgconfig/dbus-python.pc
 	@${RM} -fr ${STAGEDIR}/${DOCSDIR}
 .endif # end of slaving block
