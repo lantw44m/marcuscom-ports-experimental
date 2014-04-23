@@ -4,6 +4,7 @@
 
 PORTNAME=	gstreamer1
 PORTVERSION=	1.2.0
+PORTREVISION=	1
 CATEGORIES=	multimedia python gnome
 MASTER_SITES=	http://gstreamer.freedesktop.org/src/gst-python/
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -23,5 +24,9 @@ USE_PYTHON=	3
 PLIST_SUB=	VERSION="${GST_VERSION}" PYTVER=${PYTHON_VER:S/.//}
 CPPFLAGS+=	-I${LOCALBASE}/include ${PTHREAD_CFLAGS}
 LDFLAGS+=	-L${LOCALBASE} ${PTHREAD_LIBS}
+
+post-patch:
+	@${REINPLACE_CMD} -e 's|import _gi_gst|from . import _gi_gst|g' \
+		${WRKSRC}/gi/overrides/Gst.py
 
 .include <bsd.port.mk>
