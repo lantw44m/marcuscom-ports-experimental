@@ -45,7 +45,7 @@ do-install:
 .else 
 USE_GNOME+=	glib20 introspection
 LIB_DEPENDS+=	libffi.so:${PORTSDIR}/devel/libffi
-BUILD_DEPENDS+=	pygobject3-common>=0:${PORTSDIR}/devel/pygobject3-common
+RUN_DEPENDS+=	pygobject3-common>=0:${PORTSDIR}/devel/pygobject3-common
 
 .if ${SLAVE_PORT} == python2
 USE_PYTHON=	2
