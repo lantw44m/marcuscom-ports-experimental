@@ -131,6 +131,9 @@ lib/rhythmbox/plugins/audioscrobbler/libaudioscrobbler.so
 lib/rhythmbox/plugins/cd-recorder/cd-recorder.plugin
 lib/rhythmbox/plugins/cd-recorder/libcd-recorder.la
 lib/rhythmbox/plugins/cd-recorder/libcd-recorder.so
+%%DAAP%%lib/rhythmbox/plugins/daap/daap.plugin
+%%DAAP%%lib/rhythmbox/plugins/daap/libdaap.la
+%%DAAP%%lib/rhythmbox/plugins/daap/libdaap.so
 lib/rhythmbox/plugins/dbus-media-server/dbus-media-server.plugin
 lib/rhythmbox/plugins/dbus-media-server/libdbus-media-server.la
 lib/rhythmbox/plugins/dbus-media-server/libdbus-media-server.so
@@ -825,6 +828,9 @@ share/locale/zh_TW/LC_MESSAGES/rhythmbox.mo
 %%PYTHON%%%%DATADIR%%/plugins/context/tmpl/loading.html
 %%PYTHON%%%%DATADIR%%/plugins/context/tmpl/lyrics-tmpl.html
 %%PYTHON%%%%DATADIR%%/plugins/context/tmpl/main.css
+%%DAAP%%%%DATADIR%%/plugins/daap/daap-prefs.ui
+%%DAAP%%%%DATADIR%%/plugins/daap/daap-toolbar.ui
+%%DAAP%%%%DATADIR%%/plugins/daap/remote-icon.png
 %%DATADIR%%/plugins/fmradio/fmradio-popup.ui
 %%DATADIR%%/plugins/fmradio/fmradio-toolbar.ui
 %%DATADIR%%/plugins/generic-player/generic-player-info.ui
@@ -871,6 +877,7 @@ share/locale/zh_TW/LC_MESSAGES/rhythmbox.mo
 %%IPOD%%@dirrm %%DATADIR%%/plugins/ipod
 @dirrm %%DATADIR%%/plugins/generic-player
 @dirrm %%DATADIR%%/plugins/fmradio
+%%DAAP%%@dirrm %%DATADIR%%/plugins/daap
 %%PYTHON%%@dirrm %%DATADIR%%/plugins/context/tmpl
 %%PYTHON%%@dirrm %%DATADIR%%/plugins/context/img
 %%PYTHON%%@dirrm %%DATADIR%%/plugins/context
@@ -986,6 +993,7 @@ share/locale/zh_TW/LC_MESSAGES/rhythmbox.mo
 @dirrm lib/rhythmbox/plugins/generic-player
 @dirrm lib/rhythmbox/plugins/fmradio
 @dirrm lib/rhythmbox/plugins/dbus-media-server
+%%DAAP%%@dirrm lib/rhythmbox/plugins/daap
 %%PYTHON%%@dirrm lib/rhythmbox/plugins/context/__pycache__
 %%PYTHON%%@dirrm lib/rhythmbox/plugins/context
 @dirrm lib/rhythmbox/plugins/cd-recorder

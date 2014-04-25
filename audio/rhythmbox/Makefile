@@ -4,6 +4,7 @@
 
 PORTNAME=	rhythmbox
 PORTVERSION=	3.0.2
+PORTREVISION=	2
 CATEGORIES=	audio gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -22,7 +23,6 @@ LIB_DEPENDS=	libmusicbrainz5.so:${PORTSDIR}/audio/libmusicbrainz5 \
 		libpeas-1.0.so:${PORTSDIR}/devel/libpeas \
 		libjson-glib-1.0.so:${PORTSDIR}/devel/json-glib \
 		libsoup-gnome-2.4.so:${PORTSDIR}/devel/libsoup-gnome \
-		libgnome-media-profiles-3.0.so:${PORTSDIR}/multimedia/libgnome-media-profiles \
 		libsecret-1.so:${PORTSDIR}/security/libsecret \
 		libbrasero-media3.so:${PORTSDIR}/sysutils/brasero
 
@@ -36,8 +36,7 @@ CONFIGURE_ARGS=	--enable-vala \
 		--disable-gudev \
 		--enable-visualizer=no \
 		--disable-browser-plugin \
-		--with-libsecret=yes \
-		--disable-daap
+		--with-libsecret=yes
 INSTALLS_ICONS=	yes
 USE_LDCONFIG=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
@@ -48,8 +47,11 @@ PLIST_SUB+=	PYTVER=${PYTHON_VER:S/.//}
 GLIB_SCHEMAS=	org.gnome.rhythmbox.gschema.xml
 
 OPTIONS_SUB=	yes
-OPTIONS_DEFINE=	IPOD GRILO NOTIFY PYTHON LIRC MTP WEBKIT
+OPTIONS_DEFINE=	DAAP GRILO IPOD NOTIFY PYTHON LIRC MTP WEBKIT
 OPTIONS_DEFAULT=NOTIFY PYTHON
+DAAP_DESC=	DAAP support
+DAAP_CONFIGURE_ENABLE=	daap
+DAAP_LIB_DEPENDS=	libdmapsharing-3.0.so:${PORTSDIR}/net/libdmapsharing
 IPOD_DESC=	iPod support
 IPOD_CONFIGURE_WITH=	ipod
 IPOD_LIB_DEPENDS=	libgpod.so:${PORTSDIR}/audio/libgpod
@@ -65,8 +67,6 @@ MTP_CONFIGURE_WITH=	mtp
 MTP_LIB_DEPENDS=	libmtp.so:${PORTSDIR}/multimedia/libmtp \
 			libhal.so:${PORTSDIR}/sysutils/hal
 PYTHON_CONFIGURE_ENABLE=	python
-PYTHON_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}gstreamer1>=0:${PORTSDIR}/multimedia/py3-gstreamer1
-PYTHON_BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}gstreamer1>=0:${PORTSDIR}/multimedia/py3-gstreamer1
 PYTHON_USE=		PYTHON=3 PYTVER=${PYTHON_VER:S/.//}
 WEBKIT_DESC=	HTML view support
 WEBKIT_CONFIGURE_WITH=	webkit
@@ -75,5 +75,6 @@ WEBKIT_LIB_DEPENDS=	libwebkitgtk-3.0.so:${PORTSDIR}/www/webkit-gtk3
 post-patch:
 	@${REINPLACE_CMD} -e 's|{MOZILLA_PLUGINDIR|{MOZILLA_PLUGINDIR}|g' \
 		${WRKSRC}/configure
+	@${REINPLACE_CMD} -e '/plugins\/context\/Makefile"/d' ${WRKSRC}/configure
 
 .include <bsd.port.mk>
